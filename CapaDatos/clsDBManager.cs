@@ -19,7 +19,7 @@ namespace CapaDatos
 
         string strcnn;
         string usuario = "LaboIII";
-        //usuario que cambiaaaaa
+       
         public string Usuario
         {
             get { return usuario; }
