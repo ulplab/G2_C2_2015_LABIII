@@ -19,9 +19,8 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-
         string usuario = "LaboIII";
-
+       //hola pablito
         public string Usuario
         {
             get { return usuario; }
