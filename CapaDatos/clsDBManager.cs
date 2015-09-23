@@ -18,9 +18,8 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        //holiiiIIIIIIIIIIIIIISS//
         string usuario = "LaboIII";
-
+        //usuario que cambiaaaaa
         public string Usuario
         {
             get { return usuario; }
@@ -34,7 +33,6 @@ namespace CapaDatos
             set { clave = value; }
         }
 
-        // holas
         string server = "NOTEBOOK";
 
         public string Server
