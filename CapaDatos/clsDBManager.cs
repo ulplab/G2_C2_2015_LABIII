@@ -18,7 +18,7 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        //holiiis//
+        //hola//
         string usuario = "LaboIII";
 
         public string Usuario
