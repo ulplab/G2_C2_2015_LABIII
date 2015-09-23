@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D87A6CE3-B06A-4847-A432-AA0018D9CA93}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapaPresentacion</RootNamespace>
+    <AssemblyName>Presentacion</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="frmCursosPorAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCursosPorAlumno.Designer.cs">
+      <DependentUpon>frmCursosPorAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCargarAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargarAlumnos.Designer.cs">
+      <DependentUpon>frmCargarAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCargarCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargarCursos.Designer.cs">
+      <DependentUpon>frmCargarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscribirAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscribirAlumnos.Designer.cs">
+      <DependentUpon>frmInscribirAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAlumnosPorCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAlumnosPorCurso.Designer.cs">
+      <DependentUpon>frmAlumnosPorCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarAdministradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarAdministradores.Designer.cs">
+      <DependentUpon>frmModificarAdministradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarAlumnos.Designer.cs">
+      <DependentUpon>frmModificarAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmModificarCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarCursos.Designer.cs">
+      <DependentUpon>frmModificarCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarAdministradores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarAdministradores.Designer.cs">
+      <DependentUpon>frmRegistrarAdministradores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenu.Designer.cs">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrincipal.Designer.cs">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCursosPorAlumno.resx">
+      <DependentUpon>frmCursosPorAlumno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCargarAlumnos.resx">
+      <DependentUpon>frmCargarAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCargarCursos.resx">
+      <DependentUpon>frmCargarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscribirAlumnos.resx">
+      <DependentUpon>frmInscribirAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAlumnosPorCurso.resx">
+      <DependentUpon>frmAlumnosPorCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarAdministradores.resx">
+      <DependentUpon>frmModificarAdministradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarAlumnos.resx">
+      <DependentUpon>frmModificarAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarCursos.resx">
+      <DependentUpon>frmModificarCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarAdministradores.resx">
+      <DependentUpon>frmRegistrarAdministradores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenu.resx">
+      <DependentUpon>frmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrincipal.resx">
+      <DependentUpon>frmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Clases\Clases.csproj">
+      <Project>{82C9015F-4668-442E-ACD6-CD69FF8254D5}</Project>
+      <Name>Clases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Interfaces\Interfaces.csproj">
+      <Project>{1F24C5CF-4711-461F-B2C0-F03A86078A0E}</Project>
+      <Name>Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapaLogica\CapaLogica.csproj">
+      <Project>{2915D900-647E-4F9F-A607-D37F955D9001}</Project>
+      <Name>CapaLogica</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
