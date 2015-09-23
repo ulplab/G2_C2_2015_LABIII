@@ -34,6 +34,7 @@ namespace CapaDatos
             set { clave = value; }
         }
 
+        // holas
         string server = "NOTEBOOK";
 
         public string Server
