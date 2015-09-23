@@ -5,7 +5,6 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using Interfaces;
-//Probando el push - Pablo
 
 namespace CapaDatos
 {
