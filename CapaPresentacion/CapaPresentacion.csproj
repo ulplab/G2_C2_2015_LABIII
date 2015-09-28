@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\..\..\Videos\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +49,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmBajarAlumno2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajarAlumno2.Designer.cs">
+      <DependentUpon>frmBajarAlumno2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBajarAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBajarAlumnos.Designer.cs">
+      <DependentUpon>frmBajarAlumnos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCursosPorAlumno.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +90,18 @@
     </Compile>
     <Compile Include="frmAlumnosPorCurso.Designer.cs">
       <DependentUpon>frmAlumnosPorCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscripcion2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscripcion2.Designer.cs">
+      <DependentUpon>frmInscripcion2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInscripcionCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInscripcionCurso.Designer.cs">
+      <DependentUpon>frmInscripcionCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarAdministradores.cs">
       <SubType>Form</SubType>
@@ -120,6 +147,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmBajarAlumno2.resx">
+      <DependentUpon>frmBajarAlumno2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBajarAlumnos.resx">
+      <DependentUpon>frmBajarAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCursosPorAlumno.resx">
       <DependentUpon>frmCursosPorAlumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,6 +167,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnosPorCurso.resx">
       <DependentUpon>frmAlumnosPorCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscripcion2.resx">
+      <DependentUpon>frmInscripcion2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInscripcionCurso.resx">
+      <DependentUpon>frmInscripcionCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarAdministradores.resx">
       <DependentUpon>frmModificarAdministradores.cs</DependentUpon>

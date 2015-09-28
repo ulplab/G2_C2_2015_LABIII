@@ -134,8 +134,10 @@ namespace CapaPresentacion
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-            frmInscribirAlumnos InscribirAlumnos = new frmInscribirAlumnos();
-            InscribirAlumnos.ShowDialog();
+            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(Administrador);
+            this.Visible = false;
+            InscribirCurso.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
@@ -148,6 +150,15 @@ namespace CapaPresentacion
         {
             frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
             CursosPorAlumno.ShowDialog();
+        }
+
+        private void btnDarBajaInscripcion_Click(object sender, EventArgs e)
+        {
+            frmBajarAlumnos BajarAlumnos = new frmBajarAlumnos();
+            this.Visible = false;
+            BajarAlumnos.ShowDialog();
+            this.Visible = true;
+
         }
 
 

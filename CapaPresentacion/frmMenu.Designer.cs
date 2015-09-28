@@ -198,6 +198,7 @@
             this.btnDarBajaInscripcion.Text = "Dar Baja\r\nInscripción";
             this.btnDarBajaInscripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDarBajaInscripcion.UseVisualStyleBackColor = false;
+            this.btnDarBajaInscripcion.Click += new System.EventHandler(this.btnDarBajaInscripcion_Click);
             this.btnDarBajaInscripcion.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnDarBajaInscripcion.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 

@@ -64,7 +64,6 @@ namespace CapaLogica
 
         }
 
-
         public void Actualizar(clsAsiste Asiste)
         {
             DataTable dt1 = new DataTable();
@@ -107,7 +106,45 @@ namespace CapaLogica
             }
         }
 
+        public int DarDeBaja(clsAlumno Alumno, clsCurso Curso)
+        {
+            DataTable Consultar = new DataTable();
+            int filas_afectadas;
+            try
+            {
+                
+                Consultar = DBManager.Consultar("Select * from Asiste where IdCurso = " + Curso.Id + " AND IdAlumno = " + Alumno.Id + ";");
+                if(Consultar.Rows.Count > 0)
+                {
+                    bool estado = false;
+                    filas_afectadas = DBManager.Ejecutar("UPDATE Asiste SET estado = '" + estado + "' Where IdCurso = " + Curso.Id + "AND IdAlumno =" + Alumno.Id + ";" ,Tipo.ACTUALIZAR);
+                }
+                else
+                {
+                    filas_afectadas = 0;
+                }
+                return (filas_afectadas);
+            }
+            catch (Exception a)
+            {
+                throw (a);
+            }
+        }
 
+        public int inscribir(clsAlumno Alumnos, clsCurso Curso, clsAdministrador Admin)
+        {
+            int nroInscripcion;
+            try
+            {
+                nroInscripcion = 0;
+                nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','1');", Tipo.INSERTAR);
+            }
+            catch(Exception a)
+            {
+                throw (a);
+            }
+            return (nroInscripcion);
+        }
         public int Cantidad(int IdCurso)
         {
             DataTable dt = new DataTable();
@@ -146,6 +183,75 @@ namespace CapaLogica
             return ret;
         }
 
+        public List<clsAlumno> AlumnosNoAsistentes(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+            List<clsAlumno> LAlum = new List<clsAlumno>();
+
+
+            try
+            {
+                dt = DBManager.Consultar(
+"select distinct * from Alumnos where Alumnos.IdAlumno not in((select distinct IdAlumno from Asiste where IdCurso ='"+ IdCurso.ToString() + "' And Estado = 'True')) and Alumnos.Estado = 'True';");
+
+                foreach (DataRow r in dt.Rows)
+                {
+                    clsAlumno Alumno = new clsAlumno();
+                    Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
+                    Alumno.Dni = Convert.ToInt32(r["Dni"]);
+                    Alumno.Nombre = Convert.ToString(r["Nombre"]);
+                    Alumno.Apellido = Convert.ToString(r["Apellido"]);
+                    Alumno.Direccion = Convert.ToString(r["Direccion"]);
+                    Alumno.Telefono = Convert.ToString(r["Telefono"]);
+                    Alumno.Email = Convert.ToString(r["Email"]);
+                    Alumno.Estado = Convert.ToBoolean(r["Estado"]);
+
+                    LAlum.Add(Alumno);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return LAlum;
+
+        }
+
+        public List<clsCurso> CursosNoAsistentes(int IdAlumno)
+        {
+            DataTable dt = new DataTable();
+            List<clsCurso> LCurso = new List<clsCurso>();
+
+
+            try
+            {
+                dt = DBManager.Consultar(
+                    "select distinct * from Cursos where Cursos.IdCurso not in((select distinct IdCurso from Asiste where IdAlumno = '"+ IdAlumno.ToString() +"' And Estado = 'True')) and Cursos.Estado = 'True';"
+                    );
+
+                foreach (DataRow r in dt.Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToBoolean(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return LCurso;
+        }
         public List<clsAlumno> ListaAlumnos(int IdCurso)
         {
             DataTable dt = new DataTable();

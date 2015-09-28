@@ -18,29 +18,31 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        string usuario = "LaboIII";
+        //para conectarme a la base cambie esto. El usuario anterior era "LaboIII"
+        string usuario = "User";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "1234";
-
+        string clave = "brian";
+        //La clave anterior era "1234"
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
+        //El servidor anterior era "NOTEBOOK"  
+        string server = "LAVIEJAPHILCO\\SQLEXPRESS";
 
-        string server = "NOTEBOOK";
-
+        //La base anterior era "BDExamen1LaboIII
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamen1LaboIII";
+        string baseDeDatos = "BDExamenLaboIII";
 
         public string BaseDeDatos
         {
@@ -103,7 +105,8 @@ namespace CapaDatos
                 {
                     cmd.CommandText += "SELECT SCOPE_IDENTITY();";
                     valor = Convert.ToInt32(cmd.ExecuteScalar());
-                }
+                 }
+                   
                     transaccion.Commit();
             }
             catch (Exception ex)
