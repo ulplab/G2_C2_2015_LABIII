@@ -136,8 +136,17 @@ namespace CapaLogica
             int nroInscripcion;
             try
             {
-                nroInscripcion = 0;
-                nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','1');", Tipo.INSERTAR);
+                int check = DateTime.Compare(DateTime.Today, Curso.FechaInicio);
+                if (check < 0)
+                {
+                    
+                    nroInscripcion = 0;
+                    nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','True');", Tipo.INSERTAR);
+                }
+                else
+                {
+                    throw (new Exception("la fecha de inscripcion ha caducado"));
+                }
             }
             catch(Exception a)
             {

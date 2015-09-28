@@ -69,10 +69,6 @@ namespace CapaPresentacion
                     {
                         dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
                     }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "deshabilitado");
-                    }
                 }
             }
             catch (Exception ex)
@@ -93,10 +89,6 @@ namespace CapaPresentacion
                     if (ECurso.Estado)
                     {
                         dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
-                    }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Deshabilitado");
                     }
                 }
             }

@@ -93,11 +93,10 @@ namespace CapaPresentacion
                     {
                         dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
                     }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Deshabilitado");
-                    }
                 }
+                dgvEtapaUno.ClearSelection();
+                Curso = new clsCurso();
+                Curso.Id = -1;
             }
             catch (Exception ex)
             {
@@ -110,17 +109,16 @@ namespace CapaPresentacion
             clsManejoAsiste nuevo = new clsManejoAsiste();
             List<clsAlumno> AlumnosDelCurso = nuevo.ListaAlumnos(Curso.Id);
             try{
-            foreach (clsAlumno EAlum in AlumnosDelCurso)
+                foreach (clsAlumno EAlum in AlumnosDelCurso)
                 {
                     if (EAlum.Estado)
                     {
                         dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
                     }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "deshabilitado");
-                    }
                 }
+                dgvEtapaUno.ClearSelection();
+                Alumno = new clsAlumno();
+                Alumno.Id = -1;
             }
             catch (Exception ex)
             {
@@ -165,14 +163,21 @@ namespace CapaPresentacion
                 {
                     if (dgvEtapaUno.SelectedRows.Count > 0)
                     {
-                        Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdCurso"].Value.ToString());
+                        Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdAlumno"].Value.ToString());
                         Alumno.Nombre = dgvEtapaUno.SelectedRows[0].Cells["Nombre"].Value.ToString();
                         Alumno.Apellido = dgvEtapaUno.SelectedRows[0].Cells["Apellido"].Value.ToString();
                         Alumno.Dni = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString());
                         Alumno.Direccion = dgvEtapaUno.SelectedRows[0].Cells["Direccion"].Value.ToString();
                         Alumno.Telefono = dgvEtapaUno.SelectedRows[0].Cells["Telefono"].Value.ToString();
                         Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();
-                        Alumno.Estado = Convert.ToBoolean(dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString());
+                        if (dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString() == "Habilitado")
+                        {
+                            Alumno.Estado = true;
+                        }
+                        else
+                        {
+                            Alumno.Estado = false;
+                        }
                         btnContinuar.Enabled = true;
                     }
                 }
@@ -195,7 +200,7 @@ namespace CapaPresentacion
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            if ((Alumno != null) && (Curso != null))
+            if ((Alumno.Id != -1) && (Curso.Id != -1))
             {
                 clsManejoAsiste eliminar = new clsManejoAsiste();
                 int filas = eliminar.DarDeBaja(Alumno, Curso);
@@ -210,6 +215,17 @@ namespace CapaPresentacion
                     {
                         this.ActualizarAlumnos();
                     }
+                }
+            }
+            else
+            {
+                if(Alumno.Id != -1)
+                {
+                    MessageBox.Show("Por favor, seleccione un Alumno para proceder", "ninguno seleccionado");
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione un Curso para proceder", "ninguno seleccionado");
                 }
             }
         }

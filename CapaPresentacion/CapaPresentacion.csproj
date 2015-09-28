@@ -79,12 +79,6 @@
     <Compile Include="frmCargarCursos.Designer.cs">
       <DependentUpon>frmCargarCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInscribirAlumnos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmInscribirAlumnos.Designer.cs">
-      <DependentUpon>frmInscribirAlumnos.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmAlumnosPorCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,9 +144,6 @@
     <EmbeddedResource Include="frmBajarAlumno2.resx">
       <DependentUpon>frmBajarAlumno2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmBajarAlumnos.resx">
-      <DependentUpon>frmBajarAlumnos.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCursosPorAlumno.resx">
       <DependentUpon>frmCursosPorAlumno.cs</DependentUpon>
     </EmbeddedResource>
@@ -161,9 +152,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCargarCursos.resx">
       <DependentUpon>frmCargarCursos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmInscribirAlumnos.resx">
-      <DependentUpon>frmInscribirAlumnos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnosPorCurso.resx">
       <DependentUpon>frmAlumnosPorCurso.cs</DependentUpon>

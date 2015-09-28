@@ -64,17 +64,16 @@ namespace CapaPresentacion
             try
             {
             List<clsCurso> CursosDelAlumno = nuevo.CursosNoAsistentes(Alumno.Id);
-                foreach (clsCurso ECurso in CursosDelAlumno)
+            foreach (clsCurso ECurso in CursosDelAlumno)
+            {
+                if (ECurso.Estado)
                 {
-                    if (ECurso.Estado)
-                    {
-                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
-                    }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Deshabilitado");
-                    }
+                    dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
                 }
+            }
+            dgvEtapaUno.ClearSelection();
+            Curso = new clsCurso();
+            Curso.Id = -1;
             }
             catch (Exception ex)
             {
@@ -89,18 +88,16 @@ namespace CapaPresentacion
             try
             {
                 AlumnosDelCurso = nuevo.AlumnosNoAsistentes(Curso.Id);
-
                 foreach (clsAlumno EAlum in AlumnosDelCurso)
                 {
                     if (EAlum.Estado)
                     {
                         dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
                     }
-                    else
-                    {
-                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "deshabilitado");
-                    }
                 }
+                dgvEtapaUno.ClearSelection();
+                Alumno = new clsAlumno();
+                Alumno.Id = -1;
             }
             catch (Exception ex)
             {
@@ -145,14 +142,22 @@ namespace CapaPresentacion
                 {
                     if (dgvEtapaUno.SelectedRows.Count > 0)
                     {
-                        Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdCurso"].Value.ToString());
+                        Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdAlumno"].Value.ToString());
                         Alumno.Nombre = dgvEtapaUno.SelectedRows[0].Cells["Nombre"].Value.ToString();
                         Alumno.Apellido = dgvEtapaUno.SelectedRows[0].Cells["Apellido"].Value.ToString();
                         Alumno.Dni = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString());
                         Alumno.Direccion = dgvEtapaUno.SelectedRows[0].Cells["Direccion"].Value.ToString();
                         Alumno.Telefono = dgvEtapaUno.SelectedRows[0].Cells["Telefono"].Value.ToString();
                         Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();
-                        Alumno.Estado = Convert.ToBoolean(dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString());
+                        if (dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString() == "Habilitado")
+                        {
+                            Alumno.Estado = true;
+                        }
+                        else
+                        {
+                            Alumno.Estado = false;
+                        }
+
                         btnContinuar.Enabled = true;
                     }
                 }
@@ -178,7 +183,7 @@ namespace CapaPresentacion
             clsManejoAsiste nuevo = new clsManejoAsiste();
             try
             {
-                if ((Alumno != null) && (Curso != null) && (Actual != null))
+                if ((Alumno.Id != -1) && (Curso.Id != -1) && (Actual != null))
                 {
                     int result = nuevo.inscribir(Alumno, Curso, Actual);
                     MessageBox.Show("Se ha realizado" + result.ToString() + "Inscripcion. Su numero de inscripcion es" + result.ToString(), "Exito!");
@@ -188,12 +193,22 @@ namespace CapaPresentacion
                     }
                     else
                     {
-                        this.ActualizarCursos();
+                        this.ActualizarAlumnos();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Depura que mandaste un null");
+                    if (Curso.Id == -1)
+                    {
+                        MessageBox.Show("Por favor seleccione un curso", "No Selecciono ningun destino");
+                    }
+                    else
+                    {
+                        if (Alumno.Id == -1)
+                        {
+                            MessageBox.Show("Por favor seleccione un Alumno", "No Selecciono ningun destino");
+                        }
+                    }
                 }
             }
             catch (Exception a)
@@ -207,13 +222,17 @@ namespace CapaPresentacion
             {
                 this.ColumnasCursos();
                 this.ActualizarCursos();
+                dgvEtapaUno.ClearSelection();
                 Curso = new clsCurso();
+                Curso.Id = -1;
             }
             else
             {
                 this.ColumnasAlumnos();
                 this.ActualizarAlumnos();
+                dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
+                Alumno.Id = -1;
             }
         }
     }

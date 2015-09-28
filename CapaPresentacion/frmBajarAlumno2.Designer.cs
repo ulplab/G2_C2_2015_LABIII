@@ -107,6 +107,7 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(1130, 405);
             this.dgvEtapaUno.TabIndex = 44;
+            this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             // 
             // btnContinuar
