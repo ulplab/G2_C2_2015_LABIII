@@ -18,7 +18,8 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-
+        //cambio sin sentido
+        private bool sin_sentido;
         clsAlumno Alumno = new clsAlumno();
         clsCurso Curso = new clsCurso();
         IRepoFactory RepoF = new clsRepoFactory();
