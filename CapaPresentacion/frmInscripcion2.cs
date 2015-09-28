@@ -213,7 +213,7 @@ namespace CapaPresentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show("Ocurrio el siguiente error " + a.Message);
+                MessageBox.Show("Ocurrio el siguiente error: " + a.Message);
             }
         }
         private void frmInscripcion2_Load(object sender, EventArgs e)

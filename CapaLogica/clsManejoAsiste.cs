@@ -139,9 +139,22 @@ namespace CapaLogica
                 int check = DateTime.Compare(DateTime.Today, Curso.FechaInicio);
                 if (check < 0)
                 {
-                    
-                    nroInscripcion = 0;
-                    nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','True');", Tipo.INSERTAR);
+                    DataTable count = DBManager.Consultar("select COUNT(*) as result from Asiste,( Select IdAlumno from Alumnos where Estado = 'True') as subconsulta where IdCurso = '"+Curso.Id.ToString()+"' and Asiste.IdAlumno = subconsulta.IdAlumno and Asiste.Estado = 'True';");
+                    int cantidad = 0;
+                    foreach(DataRow temp in count.Rows)
+                    {
+                        cantidad = Convert.ToInt32(temp["result"].ToString());
+                    }
+                    if (cantidad < 10 )
+                    {
+                        nroInscripcion = 0;
+                        nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','True');", Tipo.INSERTAR);
+                    }
+                    else
+                    {
+                        Exception a = new Exception("El curso se encuentra completo");
+                        throw (a);
+                    }
                 }
                 else
                 {
