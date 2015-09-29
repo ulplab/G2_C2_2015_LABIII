@@ -19,14 +19,14 @@ namespace CapaDatos
 
         string strcnn;
         //para conectarme a la base cambie esto. El usuario anterior era "LaboIII"
-        string usuario = "User";
+        string usuario = "LaboIII";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "brian";
+        string clave = "1234";
         //La clave anterior era "1234"
         public string Clave
         {
@@ -42,7 +42,7 @@ namespace CapaDatos
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamenLaboIII";
+        string baseDeDatos = "BDExamenLabo1III";
 
         public string BaseDeDatos
         {
