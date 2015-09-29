@@ -63,7 +63,6 @@ namespace CapaLogica
             }
 
         }
-
         public void Actualizar(clsAsiste Asiste)
         {
             DataTable dt1 = new DataTable();
@@ -105,7 +104,6 @@ namespace CapaLogica
                 throw ex;
             }
         }
-
         public int DarDeBaja(clsAlumno Alumno, clsCurso Curso)
         {
             DataTable Consultar = new DataTable();
@@ -130,7 +128,6 @@ namespace CapaLogica
                 throw (a);
             }
         }
-
         public int inscribir(clsAlumno Alumnos, clsCurso Curso, clsAdministrador Admin)
         {
             int nroInscripcion;
@@ -185,7 +182,6 @@ namespace CapaLogica
 
             return ret;
         }
-
         public int CantidadAlumno(int IdAlumno)
         {
             DataTable dt = new DataTable();
@@ -204,7 +200,6 @@ namespace CapaLogica
 
             return ret;
         }
-
         public List<clsAlumno> AlumnosNoAsistentes(int IdCurso)
         {
             DataTable dt = new DataTable();
@@ -240,7 +235,6 @@ namespace CapaLogica
             return LAlum;
 
         }
-
         public List<clsCurso> CursosNoAsistentes(int IdAlumno)
         {
             DataTable dt = new DataTable();
@@ -312,7 +306,6 @@ namespace CapaLogica
             return LAlum;
 
         }
-
         public List<clsCurso> ListaCursos(int IdAlumno)
         {
             DataTable dt = new DataTable();
@@ -348,8 +341,6 @@ namespace CapaLogica
 
             return LCurso;
         }
-
-
         public List<clsAsiste> Lista()
         {
             DataTable dt = new DataTable();
@@ -379,7 +370,6 @@ namespace CapaLogica
 
             return LAsiste;
         }
-
         public List<clsAsiste> Lista(string filtro)
         {
             DataTable dt = new DataTable();
