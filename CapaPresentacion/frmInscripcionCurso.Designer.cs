@@ -206,7 +206,7 @@
             this.rdTelefono.BackColor = System.Drawing.Color.Transparent;
             this.rdTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rdTelefono.ForeColor = System.Drawing.Color.White;
-            this.rdTelefono.Location = new System.Drawing.Point(585, 8);
+            this.rdTelefono.Location = new System.Drawing.Point(576, 3);
             this.rdTelefono.Name = "rdTelefono";
             this.rdTelefono.Size = new System.Drawing.Size(128, 33);
             this.rdTelefono.TabIndex = 32;

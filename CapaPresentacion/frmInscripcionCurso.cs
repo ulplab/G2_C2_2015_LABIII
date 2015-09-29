@@ -34,7 +34,6 @@ namespace CapaPresentacion
             Alumno.Id = -1;
             Curso = new clsCurso();
             Curso.Id = -1;
-            rdAlumnos.Checked = true;
             rdNombre.Checked = true;
         }
         private void ColumnasCursos()
@@ -216,6 +215,8 @@ namespace CapaPresentacion
                         frmInscripcion2 nuevo = new frmInscripcion2(Alumno, Actual);
                         this.Visible = false;
                         nuevo.ShowDialog();
+                        btnCancelar.BackColor = Color.Black;
+                        btnCancelar.Text = "Cancelar";
                         this.Visible = true;
                     }
                     else
@@ -230,6 +231,8 @@ namespace CapaPresentacion
                         frmInscripcion2 nuevo = new frmInscripcion2(Curso, Actual);
                         this.Visible = false;
                         nuevo.ShowDialog();
+                        btnCancelar.BackColor = Color.Black;
+                        btnCancelar.Text = "Cancelar";
                         this.Visible = true;
                     }
                     else

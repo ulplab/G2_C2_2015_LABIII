@@ -190,14 +190,18 @@ namespace CapaPresentacion
                 if ((Alumno.Id != -1) && (Curso.Id != -1) && (Actual != null))
                 {
                     int result = nuevo.inscribir(Alumno, Curso, Actual);
-                    MessageBox.Show("Se ha realizado correctamente la Inscripcion. Su numero de inscripcion es" + result.ToString(), "Exito!");
+                    MessageBox.Show("Se ha realizado correctamente la Inscripcion. Su numero de inscripcion es " + result.ToString(), "Exito!");
                     if (ArrancoAlumno)
                     {
                         this.ActualizarCursos();
+                        btnCancelar.BackColor = Color.Black;
+                        btnCancelar.Text = "Cancelar";
                     }
                     else
                     {
                         this.ActualizarAlumnos();
+                        btnCancelar.BackColor = Color.Black;
+                        btnCancelar.Text = "Cancelar";
                     }
                 }
                 else
@@ -218,6 +222,18 @@ namespace CapaPresentacion
             catch (Exception a)
             {
                 MessageBox.Show("Ocurrio el siguiente error: " + a.Message);
+                if (ArrancoAlumno)
+                {
+                    this.ActualizarCursos();
+                    btnCancelar.BackColor = Color.Black;
+                    btnCancelar.Text = "Cancelar";
+                }
+                else
+                {
+                    this.ActualizarAlumnos();
+                    btnCancelar.BackColor = Color.Black;
+                    btnCancelar.Text = "Cancelar";
+                }
             }
         }
         private void frmInscripcion2_Load(object sender, EventArgs e)

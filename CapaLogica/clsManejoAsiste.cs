@@ -110,16 +110,28 @@ namespace CapaLogica
             int filas_afectadas;
             try
             {
-                
-                Consultar = DBManager.Consultar("Select * from Asiste where IdCurso = " + Curso.Id + " AND IdAlumno = " + Alumno.Id + ";");
-                if(Consultar.Rows.Count > 0)
+                DataTable Existe = DBManager.Consultar("select COUNT(*) as result from Asiste where IdAlumno = '" + Alumno.Id.ToString() + "' and IdCurso = '" + Curso.Id.ToString() + "' and Estado = 'True';");
+                int ExisteNro = 0;
+                foreach (DataRow temp in Existe.Rows)
                 {
-                    bool estado = false;
-                    filas_afectadas = DBManager.Ejecutar("UPDATE Asiste SET estado = '" + estado + "' Where IdCurso = " + Curso.Id + "AND IdAlumno =" + Alumno.Id + ";" ,Tipo.ACTUALIZAR);
+                    ExisteNro = Convert.ToInt32(temp["result"].ToString());
+                }
+                if (ExisteNro > 0)
+                {
+                    Consultar = DBManager.Consultar("Select * from Asiste where IdCurso = " + Curso.Id + " AND IdAlumno = " + Alumno.Id + ";");
+                    if (Consultar.Rows.Count > 0)
+                    {
+                        bool estado = false;
+                        filas_afectadas = DBManager.Ejecutar("UPDATE Asiste SET estado = '" + estado + "' Where IdCurso = " + Curso.Id + "AND IdAlumno =" + Alumno.Id + ";", Tipo.ACTUALIZAR);
+                    }
+                    else
+                    {
+                        filas_afectadas = 0;
+                    }
                 }
                 else
                 {
-                    filas_afectadas = 0;
+                    throw new Exception("La inscripcion actual ya fue dada de baja");
                 }
                 return (filas_afectadas);
             }
@@ -136,20 +148,34 @@ namespace CapaLogica
                 int check = DateTime.Compare(DateTime.Today, Curso.FechaInicio);
                 if (check < 0)
                 {
-                    DataTable count = DBManager.Consultar("select COUNT(*) as result from Asiste,( Select IdAlumno from Alumnos where Estado = 'True') as subconsulta where IdCurso = '"+Curso.Id.ToString()+"' and Asiste.IdAlumno = subconsulta.IdAlumno and Asiste.Estado = 'True';");
-                    int cantidad = 0;
-                    foreach(DataRow temp in count.Rows)
+                    DataTable Existe = DBManager.Consultar("select COUNT(*) as result from Asiste where IdAlumno = '"+ Alumnos.Id.ToString() +"' and IdCurso = '" + Curso.Id.ToString() + "';");
+                    int ExisteNro = 0;
+                    foreach (DataRow temp in Existe.Rows)
                     {
-                        cantidad = Convert.ToInt32(temp["result"].ToString());
+                        ExisteNro = Convert.ToInt32(temp["result"].ToString());
                     }
-                    if (cantidad < 10 )
+                    if (ExisteNro == 0)
                     {
-                        nroInscripcion = 0;
-                        nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','True');", Tipo.INSERTAR);
+                        DataTable count = DBManager.Consultar("select COUNT(*) as result from Asiste,( Select IdAlumno from Alumnos where Estado = 'True') as subconsulta where IdCurso = '" + Curso.Id.ToString() + "' and Asiste.IdAlumno = subconsulta.IdAlumno and Asiste.Estado = 'True';");
+                        int Cantidad = 0;
+                        foreach (DataRow temp in count.Rows)
+                        {
+                            Cantidad = Convert.ToInt32(temp["result"].ToString());
+                        }
+                        if (Cantidad < 10)
+                        {
+                            nroInscripcion = 0;
+                            nroInscripcion = DBManager.Ejecutar("INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) values ('" + Admin.Id.ToString() + "','" + Curso.Id.ToString() + "','" + Alumnos.Id.ToString() + "','True');", Tipo.INSERTAR);
+                        }
+                        else
+                        {
+                            Exception a = new Exception("El curso se encuentra completo");
+                            throw (a);
+                        }
                     }
                     else
                     {
-                        Exception a = new Exception("El curso se encuentra completo");
+                        Exception a = new Exception("La inscripcion ya existe");
                         throw (a);
                     }
                 }
