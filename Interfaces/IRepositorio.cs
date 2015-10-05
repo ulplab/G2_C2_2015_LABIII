@@ -16,7 +16,7 @@ namespace Interfaces
         void Borrar(IEntidad entidad);
         IEntidad ObtenerPorId(int id);
         List<IEntidad> Lista();
-        List<IEntidad> Lista(string filtro);
+        List<IEntidad> Lista(IEntidad filtro);
 
     }
 }

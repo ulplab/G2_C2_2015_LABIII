@@ -84,7 +84,7 @@ namespace CapaPresentacion
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
-                    if (EAlum.Estado)
+                    if (EAlum.Estado == 1)
                     {
                         dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }
@@ -176,7 +176,7 @@ namespace CapaPresentacion
                         Alumno.Direccion = tbDireccion.Text;
                         Alumno.Telefono = tbTelefono.Text;
                         Alumno.Email = tbEmail.Text;
-                        Alumno.Estado = true;
+                        Alumno.Estado = 1;
 
                         Repo.Agregar(Alumno);
 
@@ -228,11 +228,11 @@ namespace CapaPresentacion
             Alumno.Email = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Email"].Value);
             if (Convert.ToString(dgvAlumnos.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
-                Alumno.Estado = true;
+                Alumno.Estado = 1;
             }
             else
             {
-                Alumno.Estado = false;
+                Alumno.Estado = 0;
             }
 
             int FilaSeleccionada = dgvAlumnos.CurrentRow.Index;
@@ -294,7 +294,7 @@ namespace CapaPresentacion
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
-                    if (EAlum.Estado)
+                    if (EAlum.Estado == 1)
                     {
                         dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }

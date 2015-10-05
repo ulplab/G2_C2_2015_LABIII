@@ -60,9 +60,10 @@ namespace CapaDatos
 
         public string stringConeccion()
         {
-            strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
-                     ";User ID=" + Usuario + ";" +
-                     "Password=" + Clave;
+            //strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
+            //         ";User ID=" + Usuario + ";" +
+            //         "Password=" + Clave;
+            strcnn = "Data Source=PABLO-PC\\SQLEXPRESS;Initial Catalog=BDExamen1LaboIII;Integrated Security=True";
             return strcnn;
 
         }

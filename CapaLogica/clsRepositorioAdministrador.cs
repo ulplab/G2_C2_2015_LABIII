@@ -12,7 +12,7 @@ namespace CapaLogica
 {
     public class clsRepositorioAdministrador : IRepositorio
     {
-        IDBManager DBManager = new clsDBManager();
+        clsManejadorAdministrador manager = new clsManejadorAdministrador();
 
         private clsAdministrador getCast(IEntidad e)
         {
@@ -24,217 +24,154 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
-            DataTable dt = new DataTable();
+            clsAdministrador administrador = new clsAdministrador();
 
             try
             {
-                entidad = getCast(entidad);
-                dt = DBManager.Consultar("SELECT * FROM Administradores;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    if (r["Usuario"].ToString() == ((clsAdministrador)entidad).Usuario)
-                    {
-                        throw new ArgumentException("El usuario ya existe");
-                    }
-                }
-
-                DBManager.Ejecutar("INSERT INTO Administradores VALUES(" + "'" +((clsAdministrador)entidad).Usuario + "','" + ((clsAdministrador)entidad).Contraseña + "','" + ((clsAdministrador)entidad).Nombre + "','" + ((clsAdministrador)entidad).Apellido + "','" + ((clsAdministrador)entidad).Dni + "','" + ((clsAdministrador)entidad).Telefono + "','" + ((clsAdministrador)entidad).Estado + "');", Tipo.INSERTAR);
-
+                administrador = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            
+            clsAdministrador compare = new clsAdministrador();
+            compare.Usuario = administrador.Usuario;
 
+            try
+            {
+                if (manager.SelectAdministrador(compare).Count == 0)
+                    manager.InsertAdministrador(administrador);
+                else
+                    throw new ArgumentException("Ese nombre de usuario ya esta en uso");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void Actualizar(IEntidad entidad)
         {
+            clsAdministrador administrador = new clsAdministrador();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("UPDATE Administradores Set Usuario = '" + ((clsAdministrador)entidad).Usuario + "', Contraseña = '" + ((clsAdministrador)entidad).Contraseña + "', Nombre = '" + ((clsAdministrador)entidad).Nombre + "', Apellido = '" + ((clsAdministrador)entidad).Apellido + "', Dni = " + ((clsAdministrador)entidad).Dni + ", Telefono = '" + ((clsAdministrador)entidad).Telefono + "', Estado = '" + ((clsAdministrador)entidad).Estado + "' WHERE IdAdministrador =" + entidad.Id + ";", Tipo.ACTUALIZAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Actualizar");
-                }
-
-
+                administrador = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.UpdateAdministrador(administrador);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El usuario no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public void Borrar(IEntidad entidad)
         {
+            clsAdministrador administrador = new clsAdministrador();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("DELETE Administradores WHERE IdAdministrador = "+entidad.Id + ";", Tipo.ELIMINAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Eliminar");
-                }
-
-
+                administrador = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.DeleteAdministrador(administrador);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El usuario no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public IEntidad ObtenerPorId(int id)
         {
+            clsAdministrador administrador = new clsAdministrador();
+            administrador.Id = id;
+            clsAdministrador nadministrador = null;
 
-            DataTable dt = new DataTable();
-            clsAdministrador A = new clsAdministrador();
             try
             {
-
-                dt = DBManager.Consultar("SELECT * FROM Cuentas WHERE IdAdministrador="+id);
-
-                if (dt == null)
+                nadministrador = manager.SelectAdministrador(administrador)[0];
+                if (nadministrador == null)
                 {
-                    throw new ArgumentException("Cuenta Inexistente");
+                    throw new ArgumentException("El usuario no existe");
                 }
-                else
-                {
-                    A.Id = Convert.ToInt32(dt.Rows[0]["IdAdministrador"]);
-                    A.Usuario = dt.Rows[0]["Usuario"].ToString();
-                    A.Contraseña = dt.Rows[0]["Contraseña"].ToString();
-                    A.Nombre = dt.Rows[0]["Nombre"].ToString();
-                    A.Apellido= dt.Rows[0]["Apellido"].ToString();
-                    A.Dni = Convert.ToInt32(dt.Rows[0]["Contraseña"]);
-                    A.Telefono = dt.Rows[0]["Telefono"].ToString();
-                    A.Estado = Convert.ToBoolean(dt.Rows[0]["Estado"]);
-                }
-
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-
-            return A;
-
+            return nadministrador;
         }
 
         public List<IEntidad> Lista()
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> AL = new List<IEntidad>();
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar("SELECT * FROM Administradores;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsAdministrador A = new clsAdministrador();
-                    A.Id = Convert.ToInt32(r["IdAdministrador"]);
-                    A.Usuario = r["Usuario"].ToString();
-                    A.Contraseña = r["Contraseña"].ToString();
-                    A.Nombre = r["Nombre"].ToString();
-                    A.Apellido = r["Apellido"].ToString();
-                    A.Dni = Convert.ToInt32(r["Dni"]);
-                    A.Telefono = r["Telefono"].ToString();
-                    A.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    AL.Add(A);
-                }
-
+                list.AddRange(manager.ListarAdministradores());
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            return AL;
+            return list;
         }
 
-        public List<IEntidad> Lista(string filtro)
+        public List<IEntidad> Lista(IEntidad filtro)
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> AL = new List<IEntidad>();
+            clsAdministrador administrador = new clsAdministrador();
+
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar(filtro);
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsAdministrador A = new clsAdministrador();
-                    A.Id = Convert.ToInt32(r["IdAdministrador"]);
-                    A.Usuario = r["Usuario"].ToString();
-                    A.Contraseña = r["Contraseña"].ToString();
-                    A.Nombre = r["Nombre"].ToString();
-                    A.Apellido = r["Apellido"].ToString();
-                    A.Dni = Convert.ToInt32(r["Dni"]);
-                    A.Telefono = r["Telefono"].ToString();
-                    A.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    AL.Add(A);
-                }
-
+                administrador = getCast(filtro);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
-
-            return AL;
-        }
-
-        public clsAdministrador Login(string user, string pass)
-        {
-
-            DataTable dt = new DataTable();
-            clsAdministrador ret = null;
 
             try
             {
-
-                dt = DBManager.Consultar("SELECT * FROM Administradores;");
+                list.AddRange(manager.SelectAdministrador(administrador));
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            foreach (DataRow r in dt.Rows)
-            {
-                if (r["Usuario"].ToString() == user && r["Contraseña"].ToString() == pass)
-                {
-                    ret = new clsAdministrador();
-                    ret.Id = Convert.ToInt32(r["IdAdministrador"]);
-                    ret.Usuario = r["Usuario"].ToString();
-                    ret.Contraseña = r["Contraseña"].ToString();
-                    ret.Nombre = r["Nombre"].ToString();
-                    ret.Apellido = r["Apellido"].ToString();
-                    ret.Dni = Convert.ToInt32(r["Dni"]);
-                    ret.Telefono = r["Telefono"].ToString();
-                    ret.Estado = Convert.ToBoolean(r["Estado"]);
-                }
-            }
-
-            return ret;
+            return list;
         }
-    
-
     }
 }

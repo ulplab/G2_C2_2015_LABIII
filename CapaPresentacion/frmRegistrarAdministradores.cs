@@ -120,7 +120,7 @@ namespace CapaPresentacion
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Apellido"].Value = EAdmin.Apellido;
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Dni"].Value = EAdmin.Dni;
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Telefono"].Value = EAdmin.Telefono;
-                    if (EAdmin.Estado)
+                    if (EAdmin.Estado == 1)
                     {
                         dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }
@@ -175,7 +175,7 @@ namespace CapaPresentacion
                         Administrador.Apellido = tbApellido.Text;
                         Administrador.Dni = Convert.ToInt32(tbDni.Text);
                         Administrador.Telefono = tbTelefono.Text;
-                        Administrador.Estado = true;
+                        Administrador.Estado = 1;
 
                         Repo.Agregar(Administrador);
 
@@ -228,11 +228,11 @@ namespace CapaPresentacion
 
             if (Convert.ToString(dgvAdministradores.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
-                Administrador.Estado = true;
+                Administrador.Estado = 1;
             }
             else
             {
-                Administrador.Estado = false;
+                Administrador.Estado = 0;
             }
 
             int FilaSeleccionada = dgvAdministradores.CurrentRow.Index;
@@ -295,7 +295,7 @@ namespace CapaPresentacion
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Apellido"].Value = EAdmin.Apellido;
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Dni"].Value = EAdmin.Dni;
                     dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Telefono"].Value = EAdmin.Telefono;
-                    if (EAdmin.Estado)
+                    if (EAdmin.Estado == 1)
                     {
                         dgvAdministradores.Rows[dgvAdministradores.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }

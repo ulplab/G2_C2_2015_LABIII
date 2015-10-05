@@ -141,7 +141,7 @@ namespace CapaPresentacion
 
                 if (Administrador != null)
                 {
-                    if (Administrador.Estado)
+                    if (Administrador.Estado == 1)
                     {
 
                         frmMenu ABMA = new frmMenu(Administrador);
@@ -184,7 +184,7 @@ namespace CapaPresentacion
 
                         if (Administrador != null)
                         {
-                            if (Administrador.Estado)
+                            if (Administrador.Estado == 1)
                             {
                                 frmMenu ABMA = new frmMenu(Administrador);
                                 this.Hide();

@@ -76,7 +76,7 @@ namespace CapaPresentacion
                 tbDescripcion.Text = Curso.Descripcion;
                 dtpFechaIncio.Value = Curso.FechaInicio;
                 dtpFechaFin.Value = Curso.FechaFin;
-                if (Curso.Estado)
+                if (Curso.Estado == 1)
                 {
                     ckbEstado.Checked = true;
                 }
@@ -102,7 +102,7 @@ namespace CapaPresentacion
                     CursoModificado.Descripcion = tbDescripcion.Text;
                     CursoModificado.FechaInicio = Convert.ToDateTime(dtpFechaIncio.Value);
                     CursoModificado.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
-                    CursoModificado.Estado = ckbEstado.Checked;
+                    CursoModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
                     Repo.Actualizar(CursoModificado);
                     Curso = CursoModificado;

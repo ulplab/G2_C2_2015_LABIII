@@ -73,7 +73,7 @@ namespace CapaPresentacion
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
-                    if (ECurso.Estado)
+                    if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }
@@ -145,7 +145,7 @@ namespace CapaPresentacion
                     Curso.Descripcion = tbDescripcion.Text;
                     Curso.FechaInicio = Convert.ToDateTime(dtpFechaIncio.Value);
                     Curso.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
-                    Curso.Estado = true;
+                    Curso.Estado = 1;
 
                     Repo.Agregar(Curso);
 
@@ -187,11 +187,11 @@ namespace CapaPresentacion
             Curso.FechaFin = Convert.ToDateTime(dgvCursos.CurrentRow.Cells["FechaFin"].Value);
             if (Convert.ToString(dgvCursos.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
-                Curso.Estado = true;
+                Curso.Estado = 1;
             }
             else
             {
-                Curso.Estado = false;
+                Curso.Estado = 0;
             }
 
             int FilaSeleccionada = dgvCursos.CurrentRow.Index;
@@ -257,7 +257,7 @@ namespace CapaPresentacion
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
-                    if (ECurso.Estado)
+                    if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }

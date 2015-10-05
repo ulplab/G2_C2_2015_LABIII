@@ -40,7 +40,7 @@ namespace CapaPresentacion
                 tbApellido.Text = Administrador.Apellido;
                 tbDni.Text = Convert.ToString(Administrador.Dni);
                 tbTelefono.Text = Administrador.Telefono;
-                if (Administrador.Estado)
+                if (Administrador.Estado == 1)
                 {
                     ckbEstado.Checked = true;
                 }
@@ -86,7 +86,7 @@ namespace CapaPresentacion
                         AdministradorModificado.Apellido = tbApellido.Text;
                         AdministradorModificado.Dni = Convert.ToInt32(tbDni.Text);
                         AdministradorModificado.Telefono = tbTelefono.Text;
-                        AdministradorModificado.Estado = ckbEstado.Checked;
+                        AdministradorModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
                         Repo.Actualizar(AdministradorModificado);
                         Administrador = AdministradorModificado;

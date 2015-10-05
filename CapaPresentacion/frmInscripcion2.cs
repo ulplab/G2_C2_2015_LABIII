@@ -70,7 +70,7 @@ namespace CapaPresentacion
             List<clsCurso> CursosDelAlumno = nuevo.CursosNoAsistentes(Alumno.Id);
             foreach (clsCurso ECurso in CursosDelAlumno)
             {
-                if (ECurso.Estado)
+                if (ECurso.Estado == 1)
                 {
                     dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
                 }
@@ -94,7 +94,7 @@ namespace CapaPresentacion
                 AlumnosDelCurso = nuevo.AlumnosNoAsistentes(Curso.Id);
                 foreach (clsAlumno EAlum in AlumnosDelCurso)
                 {
-                    if (EAlum.Estado)
+                    if (EAlum.Estado == 1)
                     {
                         dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
                     }
@@ -123,11 +123,11 @@ namespace CapaPresentacion
                         Curso.FechaFin = Convert.ToDateTime(dgvEtapaUno.SelectedRows[0].Cells["FechaFin"].Value);
                         if (dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString() == "habilitado")
                         {
-                            Curso.Estado = true;
+                            Curso.Estado = 1;
                         }
                         else
                         {
-                            Curso.Estado = false;
+                            Curso.Estado = 0;
                         }
                         btnContinuar.Enabled = true;
                     }
@@ -155,11 +155,11 @@ namespace CapaPresentacion
                         Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();
                         if (dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString() == "Habilitado")
                         {
-                            Alumno.Estado = true;
+                            Alumno.Estado = 1;
                         }
                         else
                         {
-                            Alumno.Estado = false;
+                            Alumno.Estado = 0;
                         }
 
                         btnContinuar.Enabled = true;

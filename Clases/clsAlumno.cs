@@ -64,9 +64,9 @@ namespace Clases
             set { email = value; }
         }
 
-        bool estado;
+        int estado;
 
-        public bool Estado
+        public int Estado
         {
             get { return estado; }
             set { estado = value; }

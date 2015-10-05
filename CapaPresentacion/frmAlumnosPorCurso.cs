@@ -88,7 +88,7 @@ namespace CapaPresentacion
 
                 foreach (clsCurso ECurso in LE)
                 {
-                    if (ECurso.Estado)
+                    if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows.Add();
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["IdCurso"].Value = ECurso.Id;
@@ -133,7 +133,7 @@ namespace CapaPresentacion
 
                 foreach (clsCurso ECurso in LE)
                 {
-                    if (ECurso.Estado)
+                    if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows.Add();
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["IdCurso"].Value = ECurso.Id;

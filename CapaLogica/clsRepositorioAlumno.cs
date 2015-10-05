@@ -11,7 +11,7 @@ namespace CapaLogica
 {
     public class clsRepositorioAlumno : IRepositorio
     {
-        IDBManager DBManager = new clsDBManager();
+        clsManejadorAlumno manager = new clsManejadorAlumno();
             
         private clsAlumno getCast(IEntidad e)
         {
@@ -23,182 +23,154 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
-            DataTable dt = new DataTable();
+            clsAlumno alumno = new clsAlumno();
 
             try
             {
-                entidad = getCast(entidad);
-                dt = DBManager.Consultar("SELECT * FROM Alumnos;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    if (Convert.ToInt32(r["Dni"]) == ((clsAlumno)entidad).Dni)
-                    {
-                        throw new ArgumentException("El Alumno ya existe");
-                    }
-                }
-
-                DBManager.Ejecutar("INSERT INTO Alumnos VALUES('" + ((clsAlumno)entidad).Dni + "','" + ((clsAlumno)entidad).Nombre + "','" + ((clsAlumno)entidad).Apellido + "','" + ((clsAlumno)entidad).Direccion + "','" + ((clsAlumno)entidad).Telefono + "','" + ((clsAlumno)entidad).Email + "','" +((clsAlumno)entidad).Estado + "');", Tipo.INSERTAR);
-
+                alumno = getCast(entidad);
             }
-            catch (Exception ex)
+            catch(Exception e)
             {
-                throw ex;
+                throw e;
             }
 
+            clsAlumno compare = new clsAlumno();
+            compare.Dni = alumno.Dni;
 
-
+            try
+            {
+                if (manager.SelectAlumno(compare).Count == 0)
+                    manager.InsertAlumno(alumno);
+                else
+                    throw new ArgumentException("El Alumno ingresado ya existe");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void Actualizar(IEntidad entidad)
         {
+            clsAlumno alumno = new clsAlumno();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("UPDATE Alumnos Set Dni=" + ((clsAlumno)entidad).Dni + ", Nombre='" + ((clsAlumno)entidad).Nombre + "', Apellido='" + ((clsAlumno)entidad).Apellido + "', Direccion='" + ((clsAlumno)entidad).Direccion + "', Telefono='" + ((clsAlumno)entidad).Telefono + "', Email='" + ((clsAlumno)entidad).Email + "', Estado='" + ((clsAlumno)entidad).Estado + "' WHERE IdAlumno =" + entidad.Id + ";", Tipo.ACTUALIZAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Actualizar");
-                }
-
-
+                alumno = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.UpdateAlumno(alumno);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El alumno no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public void Borrar(IEntidad entidad)
         {
+            clsAlumno alumno = new clsAlumno();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("DELETE Alumnos WHERE IdAlumnos = " + entidad.Id + ";", Tipo.ELIMINAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Eliminar");
-                }
-
-
+                alumno = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.DeleteAlumno(alumno);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El alumno no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public IEntidad ObtenerPorId(int id)
         {
+            clsAlumno alumno = new clsAlumno();
+            alumno.Id = id;
+            clsAlumno nalumno = null;
 
-            DataTable dt = new DataTable();
-            clsAlumno Alum = new clsAlumno();
             try
             {
-
-                dt = DBManager.Consultar("SELECT * FROM Alumnos WHERE IdAlumnos =" + id);
-
-                if (dt == null)
+                nalumno = manager.SelectAlumno(alumno)[0];
+                if (nalumno == null)
                 {
-                    throw new ArgumentException("Alumno Inexistente");
+                    throw new ArgumentException("El alumno no existe");
                 }
-                else
-                {
-                    Alum.Id = Convert.ToInt32(dt.Rows[0]["IdAlumno"]);
-                    Alum.Dni = Convert.ToInt32(dt.Rows[0]["Dni"]);
-                    Alum.Nombre = Convert.ToString(dt.Rows[0]["Nombre"]);
-                    Alum.Apellido = Convert.ToString(dt.Rows[0]["Apellido"]);
-                    Alum.Direccion = Convert.ToString(dt.Rows[0]["Direccion"]);
-                    Alum.Telefono = Convert.ToString(dt.Rows[0]["Telefono"]);
-                    Alum.Email = Convert.ToString(dt.Rows[0]["Email"]);
-                    Alum.Estado = Convert.ToBoolean(dt.Rows[0]["Estado"]);
-                }
-
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-
-            return Alum;
-
+            return nalumno;
         }
 
         public List<IEntidad> Lista()
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> AlumL = new List<IEntidad>();
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar("SELECT * FROM Alumnos;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsAlumno Alum = new clsAlumno();
-                    Alum.Id = Convert.ToInt32(r["IdAlumno"]);
-                    Alum.Dni = Convert.ToInt32(r["Dni"]);
-                    Alum.Nombre = Convert.ToString(r["Nombre"]);
-                    Alum.Apellido = Convert.ToString(r["Apellido"]);
-                    Alum.Direccion = Convert.ToString(r["Direccion"]);
-                    Alum.Telefono = Convert.ToString(r["Telefono"]);
-                    Alum.Email = Convert.ToString(r["Email"]);
-                    Alum.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    AlumL.Add(Alum);
-                }
-
+                list.AddRange(manager.ListarAlumnos());
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            return AlumL;
+            return list;
         }
 
-        public List<IEntidad> Lista(string filtro)
+        public List<IEntidad> Lista(IEntidad filtro)
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> AlumL = new List<IEntidad>();
+            clsAlumno alumno = new clsAlumno();
+
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar(filtro);
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsAlumno Alum = new clsAlumno();
-                    Alum.Id = Convert.ToInt32(r["IdAlumno"]);
-                    Alum.Dni = Convert.ToInt32(r["Dni"]);
-                    Alum.Nombre = Convert.ToString(r["Nombre"]);
-                    Alum.Apellido = Convert.ToString(r["Apellido"]);
-                    Alum.Direccion = Convert.ToString(r["Direccion"]);
-                    Alum.Telefono = Convert.ToString(r["Telefono"]);
-                    Alum.Email = Convert.ToString(r["Email"]);
-                    Alum.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    AlumL.Add(Alum);
-                }
-
+                alumno = getCast(filtro);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            return AlumL;
+            try
+            {
+                list.AddRange(manager.SelectAlumno(alumno));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
         }
-
-
     }
 }

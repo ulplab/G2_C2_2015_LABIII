@@ -85,7 +85,7 @@ namespace CapaPresentacion
 
                 foreach (clsAlumno EAlum in LE)
                 {
-                    if (EAlum.Estado)
+                    if (EAlum.Estado == 1)
                     {
                         dgvAlumnos.Rows.Add();
                         dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;

@@ -77,7 +77,7 @@ namespace CapaPresentacion
                 tbDireccion.Text = Alumno.Direccion;
                 tbTelefono.Text = Alumno.Telefono;
                 tbEmail.Text = Alumno.Email;
-                if (Alumno.Estado)
+                if (Alumno.Estado == 1)
                 {
                     ckbEstado.Checked = true;
                 }
@@ -124,7 +124,7 @@ namespace CapaPresentacion
                         AlumnoModificado.Direccion = tbDireccion.Text;
                         AlumnoModificado.Telefono = tbTelefono.Text;
                         AlumnoModificado.Email = tbEmail.Text;
-                        AlumnoModificado.Estado = ckbEstado.Checked;
+                        AlumnoModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
                         Repo.Actualizar(AlumnoModificado);
                         Alumno = AlumnoModificado;
@@ -156,7 +156,7 @@ namespace CapaPresentacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && ckbEstado.Checked == Alumno.Estado)
+            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
             {
                 this.Close();
             }
@@ -178,7 +178,7 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && ckbEstado.Checked == Alumno.Estado)
+            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
             {
                 this.Close();
             }

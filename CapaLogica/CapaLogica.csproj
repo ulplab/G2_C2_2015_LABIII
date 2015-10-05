@@ -45,6 +45,7 @@
     <Compile Include="clsManejoAsiste.cs" />
     <Compile Include="clsRepositorioAdministrador.cs" />
     <Compile Include="clsRepositorioCurso.cs" />
+    <Compile Include="clsRepositorioInscripcion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

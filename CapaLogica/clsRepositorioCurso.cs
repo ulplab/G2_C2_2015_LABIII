@@ -11,7 +11,7 @@ namespace CapaLogica
 {
     public class clsRepositorioCurso : IRepositorio
     {
-        IDBManager DBManager = new clsDBManager();
+        clsManejadorCurso manager = new clsManejadorCurso();
 
         private clsCurso getCast(IEntidad e)
         {
@@ -23,177 +23,154 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
-            DataTable dt = new DataTable();
+            clsCurso curso = new clsCurso();
 
             try
             {
-                entidad = getCast(entidad);
-                dt = DBManager.Consultar("SELECT * FROM Cursos;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    if (Convert.ToString(r["Nombre"]) == ((clsCurso)entidad).Nombre && Convert.ToString(r["Descripcion"]) == ((clsCurso)entidad).Descripcion)
-                    {
-                        throw new ArgumentException("El Curso ya existe");
-                    }
-                }
-
-                DBManager.Ejecutar("INSERT INTO Cursos VALUES('" + ((clsCurso)entidad).Nombre + "','" + String.Format("{0:s}",((clsCurso)entidad).FechaInicio) + "','" + String.Format("{0:s}", ((clsCurso)entidad).FechaFin) + "','" + ((clsCurso)entidad).Descripcion + "','" + ((clsCurso)entidad).Estado + "');", Tipo.INSERTAR);
-
+                curso = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
+            clsCurso compare = new clsCurso();
+            compare.Nombre = curso.Nombre;
 
-
+            try
+            {
+                if (manager.SelectCurso(compare).Count == 0 && curso.FechaInicio < curso.FechaFin)
+                    manager.InsertCurso(curso);
+                else
+                    throw new ArgumentException("El Curso ingresado ya existe");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public void Actualizar(IEntidad entidad)
         {
+            clsCurso curso = new clsCurso();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("UPDATE Cursos Set Nombre='" + ((clsCurso)entidad).Nombre + "', FechaInicio='" + String.Format("{0:s}", ((clsCurso)entidad).FechaInicio) + "', FechaFin='" + String.Format("{0:s}", ((clsCurso)entidad).FechaFin) + "', Descripcion='" + ((clsCurso)entidad).Descripcion + "', Estado='" + ((clsCurso)entidad).Estado + "' WHERE IdCurso =" + entidad.Id + ";", Tipo.ACTUALIZAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Actualizar");
-                }
-
-
+                curso = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.UpdateCurso(curso);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El curso no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public void Borrar(IEntidad entidad)
         {
+            clsCurso curso = new clsCurso();
 
             try
             {
-                entidad = getCast(entidad);
-                int filaAfectada;
-
-                filaAfectada = DBManager.Ejecutar("DELETE Cursos WHERE IdCurso = " + entidad.Id + ";", Tipo.ELIMINAR);
-
-                if (filaAfectada == 0)
-                {
-                    throw new ArgumentException("Error al Eliminar");
-                }
-
-
+                curso = getCast(entidad);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.DeleteCurso(curso);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("El curso no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
             }
         }
 
         public IEntidad ObtenerPorId(int id)
         {
+            clsCurso curso = new clsCurso();
+            curso.Id = id;
+            clsCurso ncurso = null;
 
-            DataTable dt = new DataTable();
-            clsCurso C = new clsCurso();
             try
             {
-
-                dt = DBManager.Consultar("SELECT * FROM Cursos WHERE IdCurso=" + id);
-
-                if (dt == null)
+                ncurso = manager.SelectCurso(curso)[0];
+                if (ncurso == null)
                 {
-                    throw new ArgumentException("Curso Inexistente");
+                    throw new ArgumentException("El curso no existe");
                 }
-                else
-                {
-                    C.Id = Convert.ToInt32(dt.Rows[0]["IdCurso"]);
-                    C.Nombre = Convert.ToString(dt.Rows[0]["Nombre"]);
-                    C.FechaInicio = Convert.ToDateTime(dt.Rows[0]["FechaInicio"]);
-                    C.FechaFin = Convert.ToDateTime(dt.Rows[0]["FechaFin"]);
-                    C.Descripcion = Convert.ToString(dt.Rows[0]["Descripcion"]);
-                    C.Estado = Convert.ToBoolean(dt.Rows[0]["Estado"]);
-                }
-
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-
-            return C;
-
+            return ncurso;
         }
 
         public List<IEntidad> Lista()
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> CL = new List<IEntidad>();
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar("SELECT * FROM Cursos;");
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsCurso C = new clsCurso();
-                    C.Id = Convert.ToInt32(r["IdCurso"]);
-                    C.Nombre = Convert.ToString(r["Nombre"]);
-                    C.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
-                    C.FechaFin = Convert.ToDateTime(r["FechaFin"]);
-                    C.Descripcion = Convert.ToString(r["Descripcion"]);
-                    C.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    CL.Add(C);
-                }
-
+                list.AddRange(manager.ListarCursos());
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            return CL;
+            return list;
         }
 
-        public List<IEntidad> Lista(string filtro)
+        public List<IEntidad> Lista(IEntidad filtro)
         {
-            DataTable dt = new DataTable();
-            List<IEntidad> CL = new List<IEntidad>();
+            clsCurso curso = new clsCurso();
+
+            List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                dt = DBManager.Consultar(filtro);
-
-                foreach (DataRow r in dt.Rows)
-                {
-                    clsCurso C = new clsCurso();
-                    C.Id = Convert.ToInt32(r["IdCurso"]);
-                    C.Nombre = Convert.ToString(r["Nombre"]);
-                    C.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
-                    C.FechaFin = Convert.ToDateTime(r["FechaFin"]);
-                    C.Descripcion = Convert.ToString(r["Descripcion"]);
-                    C.Estado = Convert.ToBoolean(r["Estado"]);
-
-                    CL.Add(C);
-                }
-
+                curso = getCast(filtro);
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                throw ex;
+                throw e;
             }
 
-            return CL;
+            try
+            {
+                list.AddRange(manager.SelectCurso(curso));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
         }
-
-
-
     }
 }

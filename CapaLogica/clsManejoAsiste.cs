@@ -11,9 +11,9 @@ namespace CapaLogica
 {
     public class clsManejoAsiste
     {
-        IDBManager DBManager = new clsDBManager();
+        /*IDBManager DBManager = new clsDBManager();
 
-        public void Agregar(clsAsiste Asiste)
+        public void Agregar(clsInscripcion Asiste)
         {
             DataTable dt = new DataTable();
             DataTable TablaNroInscripcion = new DataTable();
@@ -63,7 +63,7 @@ namespace CapaLogica
             }
 
         }
-        public void Actualizar(clsAsiste Asiste)
+        public void Actualizar(clsInscripcion Asiste)
         {
             DataTable dt1 = new DataTable();
             DataTable dt2 = new DataTable();
@@ -104,7 +104,7 @@ namespace CapaLogica
                 throw ex;
             }
         }
-        public int DarDeBaja(clsAlumno Alumno, clsCurso Curso)
+        public int DarDeBaja(clsCurso Alumno, clsCurso Curso)
         {
             DataTable Consultar = new DataTable();
             int filas_afectadas;
@@ -140,7 +140,7 @@ namespace CapaLogica
                 throw (a);
             }
         }
-        public int inscribir(clsAlumno Alumnos, clsCurso Curso, clsAdministrador Admin)
+        public int inscribir(clsCurso Alumnos, clsCurso Curso, clsAdministrador Admin)
         {
             int nroInscripcion;
             try
@@ -226,10 +226,10 @@ namespace CapaLogica
 
             return ret;
         }
-        public List<clsAlumno> AlumnosNoAsistentes(int IdCurso)
+        public List<clsCurso> AlumnosNoAsistentes(int IdCurso)
         {
             DataTable dt = new DataTable();
-            List<clsAlumno> LAlum = new List<clsAlumno>();
+            List<clsCurso> LAlum = new List<clsCurso>();
 
 
             try
@@ -239,7 +239,7 @@ namespace CapaLogica
 
                 foreach (DataRow r in dt.Rows)
                 {
-                    clsAlumno Alumno = new clsAlumno();
+                    clsCurso Alumno = new clsCurso();
                     Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
                     Alumno.Dni = Convert.ToInt32(r["Dni"]);
                     Alumno.Nombre = Convert.ToString(r["Nombre"]);
@@ -294,10 +294,10 @@ namespace CapaLogica
 
             return LCurso;
         }
-        public List<clsAlumno> ListaAlumnos(int IdCurso)
+        public List<clsCurso> ListaAlumnos(int IdCurso)
         {
             DataTable dt = new DataTable();
-            List<clsAlumno> LAlum = new List<clsAlumno>();
+            List<clsCurso> LAlum = new List<clsCurso>();
 
 
             try
@@ -310,7 +310,7 @@ namespace CapaLogica
 
                 foreach (DataRow r in dt.Rows)
                 {
-                    clsAlumno Alumno = new clsAlumno();
+                    clsCurso Alumno = new clsCurso();
                     Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
                     Alumno.Dni = Convert.ToInt32(r["Dni"]);
                     Alumno.Nombre= Convert.ToString(r["Nombre"]);
@@ -367,10 +367,10 @@ namespace CapaLogica
 
             return LCurso;
         }
-        public List<clsAsiste> Lista()
+        public List<clsInscripcion> Lista()
         {
             DataTable dt = new DataTable();
-            List<clsAsiste> LAsiste = new List<clsAsiste>();
+            List<clsInscripcion> LAsiste = new List<clsInscripcion>();
 
             try
             {
@@ -378,11 +378,11 @@ namespace CapaLogica
 
                 foreach (DataRow r in dt.Rows)
                 {
-                    clsAsiste Asiste = new clsAsiste();
+                    clsInscripcion Asiste = new clsInscripcion();
                     Asiste.IdAdministrador = Convert.ToInt32(r["IdAdministrador"]);
                     Asiste.IdCurso = Convert.ToInt32(r["IdCurso"]);
                     Asiste.IdAlumno = Convert.ToInt32(r["IdAlumno"]);
-                    Asiste.NroInscripcion = Convert.ToInt32(r["NroInscripcion"]);
+                    Asiste.Id = Convert.ToInt32(r["NroInscripcion"]);
                     Asiste.Estado = Convert.ToBoolean(r["Estado"]);
 
                     LAsiste.Add(Asiste);
@@ -396,10 +396,10 @@ namespace CapaLogica
 
             return LAsiste;
         }
-        public List<clsAsiste> Lista(string filtro)
+        public List<clsInscripcion> Lista(string filtro)
         {
             DataTable dt = new DataTable();
-            List<clsAsiste> LAsiste = new List<clsAsiste>();
+            List<clsInscripcion> LAsiste = new List<clsInscripcion>();
 
             try
             {
@@ -407,11 +407,11 @@ namespace CapaLogica
 
                 foreach (DataRow r in dt.Rows)
                 {
-                    clsAsiste Asiste = new clsAsiste();
+                    clsInscripcion Asiste = new clsInscripcion();
                     Asiste.IdAdministrador = Convert.ToInt32(r["IdAdministrador"]);
                     Asiste.IdCurso = Convert.ToInt32(r["IdCurso"]);
                     Asiste.IdAlumno = Convert.ToInt32(r["IdAlumno"]);
-                    Asiste.NroInscripcion = Convert.ToInt32(r["NroInscripcion"]);
+                    Asiste.Id = Convert.ToInt32(r["NroInscripcion"]);
                     Asiste.Estado = Convert.ToBoolean(r["Estado"]);
 
                     LAsiste.Add(Asiste);
@@ -427,6 +427,6 @@ namespace CapaLogica
         }
 
 
-    
+    */
     }
 }
