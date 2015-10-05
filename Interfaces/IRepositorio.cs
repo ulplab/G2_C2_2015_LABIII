@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Interfaces
 {
-    public enum RepoType { ADMINISTRADOR, ALUMNO, CURSO}
+    public enum RepoType { ADMINISTRADOR, ALUMNO, CURSO, INSCRIPCION}
 
     public enum Tipo { INSERTAR, ELIMINAR, ACTUALIZAR}
 
