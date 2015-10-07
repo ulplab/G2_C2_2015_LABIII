@@ -184,5 +184,147 @@ namespace CapaLogica
 
             return list;
         }
+
+        public int Cantidad(int idCurso)
+        {
+            int i;
+            try
+            {
+                i = manager.Cantidad(idCurso);
+            }
+            catch (Exception e)
+            {
+                
+                throw e;
+            }
+            return i;
+        }
+
+        public int CantidadAlumno(int idAlumno)
+        {
+            int i;
+            try
+            {
+                i = manager.CantidadAlumno(idAlumno);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return i;
+        }
+
+        public List<IEntidad> AlumnosNoAsistentes(int IdCurso)
+        {
+            List<IEntidad> LAlum = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.AlumnosNoAsistentes(IdCurso).Rows)
+                {
+                    clsAlumno Alumno = new clsAlumno();
+                    Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
+                    Alumno.Dni = Convert.ToInt32(r["Dni"]);
+                    Alumno.Nombre = Convert.ToString(r["Nombre"]);
+                    Alumno.Apellido = Convert.ToString(r["Apellido"]);
+                    Alumno.Direccion = Convert.ToString(r["Direccion"]);
+                    Alumno.Telefono = Convert.ToString(r["Telefono"]);
+                    Alumno.Email = Convert.ToString(r["Email"]);
+                    Alumno.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LAlum.Add(Alumno);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LAlum;
+        }
+
+        public List<IEntidad> CursosNoAsistentes(int idAlumno)
+        {
+            List<IEntidad> LCurso = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.CursosNoAsistentes(idAlumno).Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LCurso;
+        }
+
+        public List<IEntidad> ListaAlumnos(int idCurso)
+        {
+            List<IEntidad> LAlum = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.ListaAlumnos(idCurso).Rows)
+                {
+                    clsAlumno Alumno = new clsAlumno();
+                    Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
+                    Alumno.Dni = Convert.ToInt32(r["Dni"]);
+                    Alumno.Nombre = Convert.ToString(r["Nombre"]);
+                    Alumno.Apellido = Convert.ToString(r["Apellido"]);
+                    Alumno.Direccion = Convert.ToString(r["Direccion"]);
+                    Alumno.Telefono = Convert.ToString(r["Telefono"]);
+                    Alumno.Email = Convert.ToString(r["Email"]);
+                    Alumno.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LAlum.Add(Alumno);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LAlum;
+        }
+
+        public List<IEntidad> ListaCursos(int idAlumno)
+        {
+            List<IEntidad> LCurso = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.ListaCursos(idAlumno).Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LCurso;
+        }
     }
 }

@@ -12,6 +12,7 @@ namespace CapaLogica
     public class clsRepositorioCurso : IRepositorio
     {
         clsManejadorCurso manager = new clsManejadorCurso();
+        clsManejadorInscripcion managerI = new clsManejadorInscripcion();
 
         private clsCurso getCast(IEntidad e)
         {
@@ -71,6 +72,23 @@ namespace CapaLogica
                 if (filas == 0)
                 {
                     throw new ArgumentException("El curso no existe");
+                }
+
+                if (curso.Estado == 0)
+                {
+                    List<clsInscripcion> li = new List<clsInscripcion>();
+                    clsInscripcion i = new clsInscripcion();
+                    i.IdCurso = curso.Id;
+
+                    li.AddRange(managerI.SelectInscripcion(i));
+
+                    foreach (clsInscripcion ins in li)
+                    {
+                        i = new clsInscripcion();
+                        i.Id = ins.Id;
+                        i.Estado = 0;
+                        managerI.UpdateInscripcion(i);
+                    }
                 }
             }
             catch (Exception e)

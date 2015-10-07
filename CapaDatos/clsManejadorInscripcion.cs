@@ -88,9 +88,18 @@ namespace CapaDatos
                 query += " IdAlumno = " + entidad.IdAlumno;
                 idAl = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.IdCurso != null)
             {
                 if (id || idAd || idAl)
+                {
+                    query += " AND";
+                }
+                query += " IdCurso = " + entidad.IdCurso;
+                estado = true;
+            }
+            if (entidad.Estado != null)
+            {
+                if (id || idAd || idAl || idC)
                 {
                     query += " AND";
                 }
@@ -156,6 +165,123 @@ namespace CapaDatos
             }
 
             return list;
+        }
+
+        public int Cantidad(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+            int ret = 0;
+
+            try
+            {
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
+                ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ret;
+        }
+
+        public int CantidadAlumno(int IdAlumno)
+        {
+            DataTable dt = new DataTable();
+            int ret = 0;
+
+            try
+            {
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdAlumno =" + IdAlumno);
+                ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ret;
+        }
+
+        public DataTable AlumnosNoAsistentes(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+
+
+            try
+            {
+                dt = dbman.Consultar(
+"select distinct * from Alumnos where Alumnos.IdAlumno not in((select distinct IdAlumno from Asiste where IdCurso ='" + IdCurso.ToString() + "' And Estado = 'True')) and Alumnos.Estado = 'True';");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
+
+        public DataTable CursosNoAsistentes(int IdAlumno)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbman.Consultar(
+                    "select distinct * from Cursos where Cursos.IdCurso not in((select distinct IdCurso from Asiste where IdAlumno = '" + IdAlumno.ToString() + "' And Estado = 'True')) and Cursos.Estado = 'True';"
+                    );
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
+
+        public DataTable ListaAlumnos(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbman.Consultar("SELECT A1.IdAlumno,Dni,Nombre,Apellido,Direccion,Telefono,Email,Estado " +
+                                            "FROM Alumnos as A1, (SELECT IdAlumno " +
+                                             "FROM Asiste " +
+                                             "WHERE IdCurso = " + IdCurso + " AND Estado = 1) as A2 " +
+                                         "WHERE A1.IdAlumno = A2.IdAlumno");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+
+        }
+
+        public DataTable ListaCursos(int IdAlumno)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbman.Consultar("SELECT A1.IdCurso, Nombre, FechaInicio, FechaFin, Descripcion, Estado " +
+                                            "FROM Cursos as A1,(SELECT IdCurso " +
+                                             "FROM Asiste " +
+                                             "WHERE IdAlumno = " + IdAlumno + " AND Estado = 1) as A2 " +
+                                         "WHERE A1.IdCurso = A2.IdCurso");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
         }
     }
 }
