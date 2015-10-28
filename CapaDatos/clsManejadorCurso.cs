@@ -85,7 +85,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " FechaInicio = " + String.Format("{0:s}", entidad.FechaInicio);
+                query += " FechaInicio >= " + String.Format("{0:s}", entidad.FechaInicio);
                 fechaI = true;
             }
             if (entidad.FechaFin != null)
@@ -94,7 +94,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " FechaFin = " + String.Format("{0:s}", entidad.FechaFin);
+                query += " FechaFin <= " + String.Format("{0:s}", entidad.FechaFin);
                 fechaF = true;
             }
             if (entidad.Descripcion != "")
