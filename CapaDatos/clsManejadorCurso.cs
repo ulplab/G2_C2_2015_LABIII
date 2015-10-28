@@ -76,7 +76,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
             if (entidad.FechaInicio != null)
@@ -103,7 +103,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Descripcion = " + entidad.Descripcion;
+                query += " Descripcion LIKE " + entidad.Descripcion + "%";
                 descripcion = true;
             }
             if (entidad.Estado != null)
