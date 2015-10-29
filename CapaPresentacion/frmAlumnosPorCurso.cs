@@ -114,16 +114,13 @@ namespace CapaPresentacion
 
             clsCurso temp = new clsCurso();
             temp.Nombre = tbFiltroNombre.Text;
-            query = "SELECT * " +
-                        "FROM Cursos " +
-                        "WHERE Nombre LIKE '" + tbFiltroNombre.Text + "%' ";
             if (ckbFiltroFechaInicio.Checked)
             {
-                query += "AND FechaInicio >= '" + String.Format("{0:s}", Convert.ToDateTime(dtpFiltroFechaInicio.Value)) + "' ";
+                temp.FechaFin = Convert.ToDateTime(dtpFiltroFechaFin.Value);
             }
             if (ckbFiltroFechaFin.Checked)
             {
-                query += "AND FechaFin <= '" + String.Format("{0:s}", Convert.ToDateTime(dtpFiltroFechaFin.Value)) + "' ";
+                temp.FechaFin = Convert.ToDateTime(dtpFiltroFechaInicio.Value);
             }
 
             dgvCursos.Rows.Clear();
@@ -131,7 +128,7 @@ namespace CapaPresentacion
             try
             {
                 Repo = RepoF.getRepositorio(RepoType.CURSO);
-                List<IEntidad> LE = Repo.Lista(query);
+                List<IEntidad> LE = Repo.Lista(Curso);
 
                 foreach (clsCurso ECurso in LE)
                 {
@@ -189,7 +186,7 @@ namespace CapaPresentacion
 
                 try
                 {
-                    List<clsAlumno> LA = MA.ListaAlumnos(Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value));
+                    List<IEntidad> LA = MA.ListaAlumnos(Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value));
 
                     foreach (clsAlumno EAlum in LA)
                     {

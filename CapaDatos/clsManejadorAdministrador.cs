@@ -65,18 +65,18 @@ namespace CapaDatos
             bool id = false, dni = false, nombre = false, apellido = false, usuario = false, telefono = false, contraseña = false, estado = false;
 
             string query = "SELECT * FROM Administradores WHERE";
-            if (entidad.Id != null)
+            if (entidad.Id != -1)
             {
-                query += " IdAdministrador = " + entidad.Id;
+                query += " IdAdministrador = '" + entidad.Id + "' ";
                 id = true;
             }
-            if (entidad.Dni != null)
+            if (entidad.Dni != -1)
             {
                 if (id)
                 {
                     query += " AND";
                 }
-                query += " Dni = " + entidad.Dni;
+                query += " Dni = '" + entidad.Dni + " ' ";
                 dni = true;
             }
             if (entidad.Apellido != "")
@@ -85,7 +85,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Apellido LIKE " + entidad.Apellido + "%";
+                query += " Apellido LIKE '" + entidad.Apellido + "%'";
                 apellido = true;
             }
             if (entidad.Usuario != "")
@@ -94,7 +94,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Usuario LIKE " + entidad.Usuario + "%";
+                query += " Usuario LIKE '" + entidad.Usuario + "%'";
                 usuario = true;
             }
             if (entidad.Contraseña != "")
@@ -103,7 +103,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Contraseña = " + entidad.Contraseña;
+                query += " Contraseña = '" + entidad.Contraseña + "'";
                 contraseña = true;
             }
             if (entidad.Nombre != "")
@@ -112,7 +112,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre LIKE " + entidad.Nombre + "%";
+                query += " Nombre LIKE '" + entidad.Nombre + "%'";
                 nombre = true;
             }
             if (entidad.Telefono != "")
@@ -121,7 +121,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Telefono = " + entidad.Telefono;
+                query += " Telefono = '" + entidad.Telefono + "'";
                 telefono = true;
             }
             if (entidad.Estado != null)
@@ -130,7 +130,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Estado = " + entidad.Estado;
+                query += " Estado = '" + entidad.Estado + "'";
             }
 
             query += ";";

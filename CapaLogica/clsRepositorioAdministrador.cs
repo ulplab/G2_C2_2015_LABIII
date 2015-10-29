@@ -173,5 +173,35 @@ namespace CapaLogica
 
             return list;
         }
+        public clsAdministrador Login(string usuario, string contraseña)
+        {
+            clsAdministrador consulta = new clsAdministrador();
+            clsAdministrador result;
+            try
+            {
+                consulta.Nombre = string.Empty;
+                consulta.Usuario = usuario;
+                consulta.Contraseña = contraseña;
+                consulta.Apellido = string.Empty;
+                consulta.Dni = -1;
+                consulta.Estado = 1;
+                consulta.Id = -1;
+                consulta.Telefono = string.Empty;
+                List<clsAdministrador> resultados = manager.SelectAdministrador(consulta);
+                if (resultados.Count() != 0)
+                {
+                    result = resultados[0];
+                }
+                else
+                {
+                    throw (new Exception("usuario o contraseña no validos"));
+                }
+            }
+            catch (Exception a)
+            {
+                throw (a);
+            }
+            return (result);
+        }
     }
 }

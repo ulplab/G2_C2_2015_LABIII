@@ -219,26 +219,27 @@ namespace CapaPresentacion
         {
             string query = string.Empty;
 
-            query = "SELECT * " +
-                        "FROM Cursos " +
-                        "WHERE Nombre LIKE '" + tbFiltroNombre.Text + "%' ";
+            clsCurso temp = new clsCurso();
+            temp.Nombre = tbFiltroNombre.Text;
             if (ckbFiltroFechaInicio.Checked)
             {
-                query += "AND FechaInicio >= '" + String.Format("{0:s}", Convert.ToDateTime(dtpFiltroFechaInicio.Value)) + "' ";
+                temp.FechaInicio = Convert.ToDateTime(dtpFiltroFechaInicio.Value);
             }
             if (ckbFiltroFechaFin.Checked)
             {
-                query += "AND FechaFin <= '" + String.Format("{0:s}", Convert.ToDateTime(dtpFiltroFechaFin.Value)) + "' ";
+                temp.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
             }
-            if (cbFiltroEstado.SelectedItem != "Todos")
+            if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {
-                if (cbFiltroEstado.SelectedItem == "Habilitados")
+                if (cbFiltroEstado.SelectedItem.ToString() == "Habilitados")
                 {
                     query += "AND Estado = 1;";
+                    temp.Estado = 1;
                 }
                 else
                 {
                     query += "AND Estado = 0;";
+                    temp.Estado = 0;
                 }
             }   
 
@@ -247,7 +248,7 @@ namespace CapaPresentacion
             try
             {
                 Repo = RepoF.getRepositorio(RepoType.CURSO);
-                List<IEntidad> LE = Repo.Lista(query);
+                List<IEntidad> LE = Repo.Lista(temp);
 
                 foreach (clsCurso ECurso in LE)
                 {

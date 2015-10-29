@@ -153,10 +153,6 @@ namespace CapaPresentacion
                         MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
-                else
-                {
-                    MessageBox.Show("El usuario o contraseña es invalido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
             }
             else
             {
