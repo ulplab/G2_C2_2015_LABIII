@@ -22,7 +22,7 @@ namespace CapaPresentacion
         clsAlumno Alumno = new clsAlumno();
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
-        clsManejoAsiste MA = new clsManejoAsiste();
+        clsRepositorioInscripcion MA = new clsRepositorioInscripcion();
         bool filtro = false;
 
         private void CursosPorAlumno_Load(object sender, EventArgs e)
@@ -108,7 +108,7 @@ namespace CapaPresentacion
         private void ActualizarGrillaFiltrada()
         {
             string query = string.Empty;
-
+            
 
             query = "SELECT * " +
                     "FROM Alumnos " +
@@ -122,7 +122,7 @@ namespace CapaPresentacion
 
             try
             {
-                List<IEntidad> LE = Repo.Lista(query);
+                List<IEntidad> LE = Repo.Lista();
 
                 foreach (clsAlumno EAlum in LE)
                 {
@@ -178,7 +178,7 @@ namespace CapaPresentacion
 
                 try
                 {
-                    List<clsCurso> LA = MA.ListaCursos(Convert.ToInt32(dgvAlumnos.CurrentRow.Cells["IdAlumno"].Value));
+                    List<IEntidad> LA = MA.ListaCursos(Convert.ToInt32(dgvAlumnos.CurrentRow.Cells["IdAlumno"].Value));
 
                     foreach (clsCurso ECurso in LA)
                     {

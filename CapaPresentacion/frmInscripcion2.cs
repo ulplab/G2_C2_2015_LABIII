@@ -64,10 +64,10 @@ namespace CapaPresentacion
         private void ActualizarCursos()
         {
             dgvEtapaUno.Rows.Clear();
-            clsManejoAsiste nuevo = new clsManejoAsiste();
+            clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
             try
             {
-            List<clsCurso> CursosDelAlumno = nuevo.CursosNoAsistentes(Alumno.Id);
+            List<IEntidad> CursosDelAlumno = nuevo.CursosNoAsistentes(Alumno.Id);
             foreach (clsCurso ECurso in CursosDelAlumno)
             {
                 if (ECurso.Estado == 1)
@@ -87,8 +87,8 @@ namespace CapaPresentacion
         private void ActualizarAlumnos()
         {
             dgvEtapaUno.Rows.Clear();
-            clsManejoAsiste nuevo = new clsManejoAsiste();
-            List<clsAlumno> AlumnosDelCurso = new List<clsAlumno>();
+            clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
+            List<IEntidad> AlumnosDelCurso = new List<IEntidad>();
             try
             {
                 AlumnosDelCurso = nuevo.AlumnosNoAsistentes(Curso.Id);
@@ -184,12 +184,16 @@ namespace CapaPresentacion
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
-            clsManejoAsiste nuevo = new clsManejoAsiste();
+            clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
             try
             {
                 if ((Alumno.Id != -1) && (Curso.Id != -1) && (Actual != null))
                 {
-                    int result = nuevo.inscribir(Alumno, Curso, Actual);
+                    clsInscripcion Inscripcion = new clsInscripcion();
+                    Inscripcion.IdAdministrador = Actual.Id;
+                    Inscripcion.IdAlumno = Alumno.Id;
+                    Inscripcion.IdCurso = Curso.Id;
+                    int result = nuevo.Inscribir(Inscripcion);
                     MessageBox.Show("Se ha realizado correctamente la Inscripcion. Su numero de inscripcion es " + result.ToString(), "Exito!");
                     if (ArrancoAlumno)
                     {

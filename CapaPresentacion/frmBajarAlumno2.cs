@@ -97,8 +97,8 @@ namespace CapaPresentacion
         private void ActualizarCursos()
         {
             dgvEtapaUno.Rows.Clear();
-            clsManejoAsiste nuevo = new clsManejoAsiste();
-            List<clsCurso> CursosDelAlumno = nuevo.ListaCursos(Alumno.Id);
+            clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
+            List<IEntidad> CursosDelAlumno = nuevo.ListaCursos(Alumno.Id);
             try
             {
                 foreach (clsCurso ECurso in CursosDelAlumno)
@@ -120,8 +120,8 @@ namespace CapaPresentacion
         private void ActualizarAlumnos()
         {
             dgvEtapaUno.Rows.Clear();
-            clsManejoAsiste nuevo = new clsManejoAsiste();
-            List<clsAlumno> AlumnosDelCurso = nuevo.ListaAlumnos(Curso.Id);
+            clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
+            List<IEntidad> AlumnosDelCurso = nuevo.ListaAlumnos(Curso.Id);
             try{
                 foreach (clsAlumno EAlum in AlumnosDelCurso)
                 {
@@ -218,9 +218,12 @@ namespace CapaPresentacion
             {
                 if ((Alumno.Id != -1) && (Curso.Id != -1))
                 {
-                    clsManejoAsiste eliminar = new clsManejoAsiste();
-                    int filas = eliminar.DarDeBaja(Alumno, Curso);
-                    DialogResult temp = MessageBox.Show("Se afectaron " + filas.ToString() + " filas", "Exito!", MessageBoxButtons.OK);
+                    clsRepositorioInscripcion eliminar = new clsRepositorioInscripcion();
+                    clsInscripcion viejo = new clsInscripcion();
+                    viejo.IdCurso = Curso.Id;
+                    viejo.IdAlumno = Alumno.Id;
+                    eliminar.Borrar(viejo);
+                    DialogResult temp = MessageBox.Show("La inscripcion fue correctamente dada de baja", "Exito!", MessageBoxButtons.OK);
                     if (temp == DialogResult.OK)
                     {
                         if (ArrancoAlumno)

@@ -266,6 +266,7 @@ namespace CapaPresentacion
                         "WHERE Nombre LIKE '" + tbFiltroNombre.Text + "%' " +
                         "AND Apellido LIKE '" + tbFiltroApellido.Text + "%' " +
                         "AND cast(Dni as varchar(10)) LIKE'" + tbFiltroDni.Text + "%' ";
+            
                 if (cbFiltroEstado.SelectedItem != "Todos")
                 {
                     if (cbFiltroEstado.SelectedItem == "Habilitados")
@@ -334,9 +335,6 @@ namespace CapaPresentacion
                 ActualizarGrillaFiltrada();
             }
         }
-
-
-
 
     }
 }

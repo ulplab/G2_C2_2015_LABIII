@@ -259,22 +259,30 @@ namespace CapaPresentacion
         private void ActualizarGrillaFiltrada()
         {
             string query = string.Empty;
+            clsAdministrador temp = new clsAdministrador();
 
+            temp.Usuario = tbFiltroUsuario.Text;
+            temp.Apellido = tbFiltroApellido.Text;
+            temp.Dni = Convert.ToInt32( tbFiltroDni.Text );
 
-            query = "SELECT * " +
+          /*  query = "SELECT * " +
                     "FROM Administradores " +
                     "WHERE Usuario LIKE '" + tbFiltroUsuario.Text + "%' " +
                     "AND Apellido LIKE '" + tbFiltroApellido.Text + "%' " +
                     "AND cast(Dni as varchar(10)) LIKE'" + tbFiltroDni.Text + "%' ";
-            if (cbFiltroEstado.SelectedItem != "Todos")
+            
+           */
+            if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {
-                if (cbFiltroEstado.SelectedItem == "Habilitados")
+                if (cbFiltroEstado.SelectedItem.ToString() == "Habilitados")
                 {
-                    query += "AND Estado = 1;";
+                   // query += "AND Estado = 1;";
+                    temp.Estado = 1;
                 }
                 else
                 {
-                    query += "AND Estado = 0;";
+                    //query += "AND Estado = 0;";
+                    temp.Estado = 0;
                 }
             }
 
@@ -283,7 +291,7 @@ namespace CapaPresentacion
             try
             {
                 Repo = RepoF.getRepositorio(RepoType.ADMINISTRADOR);
-                List<IEntidad> LE = Repo.Lista(query);
+                List<IEntidad> LE = Repo.Lista(temp);
 
                 foreach (clsAdministrador EAdmin in LE)
                 {

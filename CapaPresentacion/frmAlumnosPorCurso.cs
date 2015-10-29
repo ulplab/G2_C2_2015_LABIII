@@ -22,7 +22,7 @@ namespace CapaPresentacion
         clsCurso Curso = new clsCurso();
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
-        clsManejoAsiste MA = new clsManejoAsiste();
+        clsRepositorioInscripcion MA = new clsRepositorioInscripcion();
         bool filtro = false;
 
         private void frmListadosRegistros_Load(object sender, EventArgs e)
@@ -112,6 +112,8 @@ namespace CapaPresentacion
         {
             string query = string.Empty;
 
+            clsCurso temp = new clsCurso();
+            temp.Nombre = tbFiltroNombre.Text;
             query = "SELECT * " +
                         "FROM Cursos " +
                         "WHERE Nombre LIKE '" + tbFiltroNombre.Text + "%' ";
@@ -125,7 +127,7 @@ namespace CapaPresentacion
             }
 
             dgvCursos.Rows.Clear();
-
+            
             try
             {
                 Repo = RepoF.getRepositorio(RepoType.CURSO);

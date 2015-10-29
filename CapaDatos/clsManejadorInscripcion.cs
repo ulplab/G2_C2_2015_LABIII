@@ -49,7 +49,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "DELETE Asiste WHERE NroInscripcion = " + entidad.Id + ";";
+                string query = "UPDATE Asiste SET estado = 0 WHERE IdAlumno= '" + entidad.IdAlumno + "' AND IdCurso ='" + entidad.IdCurso + "';";
                 filas = dbman.Ejecutar(query, Tipo.ELIMINAR);
             }
             catch (Exception e)

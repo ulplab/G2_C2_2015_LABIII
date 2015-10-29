@@ -9,7 +9,7 @@ using CapaDatos;
 
 namespace CapaLogica
 {
-    class clsRepositorioInscripcion : IRepositorio
+    public class clsRepositorioInscripcion : IRepositorio
     {
         clsManejadorInscripcion manager = new clsManejadorInscripcion();
 
@@ -55,6 +55,52 @@ namespace CapaLogica
 
                 if(i >= 10)
                     throw new ArgumentException("El curso ya esta lleno");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+        public int Inscribir(IEntidad entidad)
+        {
+            clsInscripcion inscripcion = new clsInscripcion();
+            int result = 0;
+            try
+            {
+                inscripcion = getCast(entidad);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            clsInscripcion compare = new clsInscripcion();
+            compare.IdAlumno = inscripcion.IdAlumno;
+            compare.IdCurso = inscripcion.IdCurso;
+
+            try
+            {
+                if (manager.SelectInscripcion(compare).Count == 0)
+                {
+                    result = manager.InsertInscripcion(inscripcion);
+                }
+                else
+                {
+                    throw new ArgumentException("El alumno ya esta inscripto en este curso");
+                }
+                int i = 0;
+                foreach (clsInscripcion a in manager.ListarInscripciones())
+                {
+                    if (a.Estado == 1 && a.IdCurso == inscripcion.IdCurso)
+                    {
+                        i++;
+                    }
+                }
+                if (i >= 10)
+                {
+                    throw new ArgumentException("El curso ya esta lleno");
+                }
+                return (result);
             }
             catch (Exception e)
             {
