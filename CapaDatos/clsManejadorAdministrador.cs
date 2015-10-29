@@ -85,7 +85,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Apellido = " + entidad.Apellido;
+                query += " Apellido LIKE " + entidad.Apellido + "%";
                 apellido = true;
             }
             if (entidad.Usuario != "")
@@ -94,7 +94,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Usuario = " + entidad.Usuario;
+                query += " Usuario LIKE " + entidad.Usuario + "%";
                 usuario = true;
             }
             if (entidad.Contraseña != "")
@@ -112,7 +112,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
             if (entidad.Telefono != "")

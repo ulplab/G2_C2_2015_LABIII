@@ -76,7 +76,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
             if (entidad.FechaInicio != null)
@@ -85,7 +85,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " FechaInicio = " + String.Format("{0:s}", entidad.FechaInicio);
+                query += " FechaInicio >= " + String.Format("{0:s}", entidad.FechaInicio);
                 fechaI = true;
             }
             if (entidad.FechaFin != null)
@@ -94,7 +94,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " FechaFin = " + String.Format("{0:s}", entidad.FechaFin);
+                query += " FechaFin <= " + String.Format("{0:s}", entidad.FechaFin);
                 fechaF = true;
             }
             if (entidad.Descripcion != "")
@@ -103,7 +103,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Descripcion = " + entidad.Descripcion;
+                query += " Descripcion LIKE " + entidad.Descripcion + "%";
                 descripcion = true;
             }
             if (entidad.Estado != null)

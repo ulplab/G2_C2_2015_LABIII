@@ -63,7 +63,6 @@ namespace CapaDatos
         public List<clsAlumno> SelectAlumno(clsAlumno entidad)
         {
             bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false,estado = false;
-
             string query = "SELECT * FROM Alumnos WHERE";
             if (entidad.Id != null)
             {
@@ -85,7 +84,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Apellido = " + entidad.Apellido;
+                query += " Apellido LIKE " + entidad.Apellido + "%";
                 apellido = true;
             }
             if (entidad.Direccion != "")
@@ -94,7 +93,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Direccion = " + entidad.Direccion;
+                query += " Direccion LIKE " + entidad.Direccion + "%";
                 direccion = true;
             }
             if (entidad.Email != "")
@@ -103,7 +102,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Email = " + entidad.Email;
+                query += " Email LIKE " + entidad.Email + "%";
                 email = true;
             }
             if (entidad.Nombre != "")
@@ -112,7 +111,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
             if (entidad.Telefono != "")
@@ -121,7 +120,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Telefono = " + entidad.Nombre;
                 telefono = true;
             }
             if (entidad.Estado != null)
