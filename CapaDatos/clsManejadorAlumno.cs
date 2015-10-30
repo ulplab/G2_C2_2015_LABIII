@@ -62,14 +62,14 @@ namespace CapaDatos
 
         public List<clsAlumno> SelectAlumno(clsAlumno entidad)
         {
-            bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false,estado = false;
+            bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false;
             string query = "SELECT * FROM Alumnos WHERE";
-            if (entidad.Id != null)
+            if (entidad.Id != -1)
             {
                 query += " IdAlumno = " + entidad.Id;
                 id = true;
             }
-            if (entidad.Dni != null)
+            if (entidad.Dni != -1)
             {
                 if (id)
                 {
@@ -123,7 +123,7 @@ namespace CapaDatos
                 query += " Telefono = " + entidad.Nombre;
                 telefono = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.Estado != -1)
             {
                 if (id || dni || apellido || direccion || email || nombre || telefono)
                 {

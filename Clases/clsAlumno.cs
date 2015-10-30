@@ -8,7 +8,7 @@ namespace Clases
 {
     public class clsAlumno : IEntidad
     {
-        int idAlumno;
+        int idAlumno = -1;
 
         public int Id
         {
@@ -16,7 +16,7 @@ namespace Clases
             set { idAlumno = value; }
         }
 
-        int dni;
+        int dni = -1;
 
         public int Dni
         {
@@ -64,12 +64,20 @@ namespace Clases
             set { email = value; }
         }
 
-        int estado;
+        int estado = -1;
 
         public int Estado
         {
             get { return estado; }
             set { estado = value; }
+        }
+
+        string contraseña;
+
+        public string Contraseña
+        {
+            get { return contraseña; }
+            set { contraseña = value; }
         }
     }
 }

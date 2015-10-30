@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="clsRepoFactory.cs" />
     <Compile Include="clsRepositorioAlumno.cs" />
-    <Compile Include="clsManejoAsiste.cs" />
     <Compile Include="clsRepositorioAdministrador.cs" />
     <Compile Include="clsRepositorioCurso.cs" />
     <Compile Include="clsRepositorioInscripcion.cs" />

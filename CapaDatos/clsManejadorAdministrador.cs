@@ -62,7 +62,7 @@ namespace CapaDatos
 
         public List<clsAdministrador> SelectAdministrador(clsAdministrador entidad)
         {
-            bool id = false, dni = false, nombre = false, apellido = false, usuario = false, telefono = false, contraseña = false, estado = false;
+            bool id = false, dni = false, nombre = false, apellido = false, usuario = false, telefono = false, contraseña = false;
 
             string query = "SELECT * FROM Administradores WHERE";
             if (entidad.Id != -1)
@@ -124,7 +124,7 @@ namespace CapaDatos
                 query += " Telefono = '" + entidad.Telefono + "'";
                 telefono = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.Estado != -1)
             {
                 if (id || dni || apellido || usuario || contraseña || nombre || telefono)
                 {

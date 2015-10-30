@@ -8,8 +8,15 @@ namespace Clases
 {
     public class clsInscripcion : IEntidad
     {
+        int nroInscripcion = -1;
 
-        int idAdministrador;
+        public int NroInscripcion
+        {
+            get { return nroInscripcion; }
+            set { nroInscripcion = value; }
+        }
+
+        int idAdministrador = -1;
 
         public int IdAdministrador
         {
@@ -17,7 +24,7 @@ namespace Clases
             set { idAdministrador = value; }
         }
 
-        int idCurso;
+        int idCurso = -1;
 
         public int IdCurso
         {
@@ -25,7 +32,7 @@ namespace Clases
             set { idCurso = value; }
         }
 
-        int idAlumno;
+        int idAlumno = -1;
 
         public int IdAlumno
         {
@@ -33,7 +40,7 @@ namespace Clases
             set { idAlumno = value; }
         }
 
-        int id;
+        int id = -1;
 
         public int Id
         {
@@ -41,7 +48,7 @@ namespace Clases
             set { id = value; }
         }
 
-        int estado;
+        int estado = -1;
 
         public int Estado
         {

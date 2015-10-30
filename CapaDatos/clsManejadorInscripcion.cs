@@ -33,7 +33,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Asiste Set IdAdministrador = '" + entidad.IdAdministrador + "', IdCurso = '" + entidad.IdCurso + "', IdAlumno = '" + entidad.IdAlumno + "', Estado = '" + entidad.Estado + "' WHERE NroInscripcion =" + entidad.Id + ";";
+                string query = "UPDATE Asiste Set IdAdministrador = '" + entidad.IdAdministrador + "', IdCurso = '" + entidad.IdCurso + "', IdAlumno = '" + entidad.IdAlumno + "', Estado = '" + entidad.Estado + "' WHERE NroInscripcion =" + entidad.NroInscripcion + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)
@@ -62,15 +62,15 @@ namespace CapaDatos
 
         public List<clsInscripcion> SelectInscripcion(clsInscripcion entidad)
         {
-            bool id = false, idAd = false, idC = false, idAl = false, estado = false;
+            bool id = false, idAd = false, idC = false, idAl = false;
 
             string query = "SELECT * FROM Asiste WHERE";
-            if (entidad.Id != null)
+            if (entidad.NroInscripcion != -1)
             {
-                query += " NroInscripcion = " + entidad.Id;
+                query += " NroInscripcion = " + entidad.NroInscripcion;
                 id = true;
             }
-            if (entidad.IdAdministrador != null)
+            if (entidad.IdAdministrador != -1)
             {
                 if (id)
                 {
@@ -79,7 +79,7 @@ namespace CapaDatos
                 query += " IdAdministrador = " + entidad.IdAdministrador;
                 idAd = true;
             }
-            if (entidad.IdAlumno != null)
+            if (entidad.IdAlumno != -1)
             {
                 if (id || idAd)
                 {
@@ -88,23 +88,21 @@ namespace CapaDatos
                 query += " IdAlumno = " + entidad.IdAlumno;
                 idAl = true;
             }
-            if (entidad.IdCurso != null)
+            if (entidad.IdCurso != -1)
             {
                 if (id || idAd || idAl)
                 {
                     query += " AND";
                 }
                 query += " IdCurso = " + entidad.IdCurso;
-                estado = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.Estado != -1)
             {
                 if (id || idAd || idAl || idC)
                 {
                     query += " AND";
                 }
                 query += " Estado = " + entidad.Estado;
-                estado = true;
             }
 
             query += ";";
@@ -125,7 +123,7 @@ namespace CapaDatos
             {
                 clsInscripcion a = new clsInscripcion();
 
-                a.Id = Convert.ToInt32(dr["NroInscripcion"]);
+                a.NroInscripcion = Convert.ToInt32(dr["NroInscripcion"]);
                 a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
                 a.IdCurso = Convert.ToInt32(dr["IdCurso"]);
                 a.IdAlumno = Convert.ToInt32(dr["IdAlumno"]);
@@ -155,7 +153,7 @@ namespace CapaDatos
             {
                 clsInscripcion a = new clsInscripcion();
 
-                a.Id = Convert.ToInt32(dr["NroInscripcion"]);
+                a.NroInscripcion = Convert.ToInt32(dr["NroInscripcion"]);
                 a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
                 a.IdCurso = Convert.ToInt32(dr["IdCurso"]);
                 a.IdAlumno = Convert.ToInt32(dr["IdAlumno"]);

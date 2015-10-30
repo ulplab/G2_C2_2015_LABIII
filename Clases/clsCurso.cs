@@ -8,7 +8,7 @@ namespace Clases
 {
     public class clsCurso : IEntidad
     {
-        int idCurso;
+        int idCurso = -1;
 
         public int Id
         {
@@ -48,7 +48,7 @@ namespace Clases
             set { descripcion = value; }
         }
 
-        int estado;
+        int estado = -1;
 
         public int Estado
         {
@@ -56,6 +56,13 @@ namespace Clases
             set { estado = value; }
         }
 
+        float precio = -1;
+
+        public float Contraseña
+        {
+            get { return precio; }
+            set { precio = value; }
+        }
     }
 }
 

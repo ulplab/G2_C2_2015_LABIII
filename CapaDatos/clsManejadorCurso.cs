@@ -62,10 +62,10 @@ namespace CapaDatos
 
         public List<clsCurso> SelectCurso(clsCurso entidad)
         {
-            bool id = false,fechaI = false,fechaF = false,descripcion = false,nombre = false,estado = false;
+            bool id = false,fechaI = false,fechaF = false,descripcion = false,nombre = false;
 
             string query = "SELECT * FROM Alumnos WHERE";
-            if (entidad.Id != null)
+            if (entidad.Id != -1)
             {
                 query += " IdCurso = " + entidad.Id;
                 id = true;
@@ -106,7 +106,7 @@ namespace CapaDatos
                 query += " Descripcion LIKE " + entidad.Descripcion + "%";
                 descripcion = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.Estado != -1)
             {
                 if (id || nombre || fechaI || fechaF || descripcion)
                 {

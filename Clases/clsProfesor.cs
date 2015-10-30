@@ -6,30 +6,14 @@ using Interfaces;
 
 namespace Clases
 {
-    public class clsAdministrador : IEntidad
+    public class clsProfesor : IEntidad
     {
-        int idAdministrador = -1;
+        int idProfesor = -1;
 
         public int Id
         {
-            get { return idAdministrador; }
-            set { idAdministrador = value; }
-        }
-
-        string usuario;
-
-        public string Usuario
-        {
-            get { return usuario; }
-            set { usuario = value; }
-        }
-
-        string contraseña;
-
-        public string Contraseña
-        {
-            get { return contraseña; }
-            set { contraseña = value; }
+            get { return idProfesor; }
+            set { idProfesor = value; }
         }
 
         string nombre;
@@ -64,6 +48,14 @@ namespace Clases
             set { telefono = value; }
         }
 
+        int contraseña = -1;
+
+        public int Contraseña
+        {
+            get { return contraseña; }
+            set { contraseña = value; }
+        }
+
         int estado = -1;
 
         public int Estado
@@ -71,6 +63,5 @@ namespace Clases
             get { return estado; }
             set { estado = value; }
         }
-
     }
 }
