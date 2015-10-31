@@ -11,7 +11,8 @@
     <RootNamespace>CapaPresentacion</RootNamespace>
     <AssemblyName>Presentacion</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -175,6 +176,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmRegistroCalificaciones.resx">
+      <DependentUpon>frmRegistroCalificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCertificadoFinCurso.cs</LastGenOutput>
@@ -231,9 +235,6 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRegistroCalificaciones.resx">
-      <DependentUpon>frmRegistroCalificaciones.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmAlumnosPorCurso.resources" />
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmBajarAlumno2.resources" />
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmBajarAlumnos.resources" />
@@ -261,6 +262,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="bin\Debug\Presentacion.vshost.exe.manifest" />
     <None Include="obj\x86\Debug\CapaPresentacion.csproj.GenerateResource.Cache" />
     <None Include="obj\x86\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache" />
