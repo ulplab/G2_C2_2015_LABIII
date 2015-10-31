@@ -214,5 +214,12 @@ namespace Clases
 
             return listMorosos;
         }
+
+        public List<IEntidad> Pagos_Por_Cursos()
+        {
+            List<IEntidad> result = new List<IEntidad>();
+            
+            return (result);
+        }
     }
 }

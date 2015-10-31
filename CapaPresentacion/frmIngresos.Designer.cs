@@ -35,7 +35,6 @@
             this.tcInformacion = new System.Windows.Forms.TabControl();
             this.tpGrilla = new System.Windows.Forms.TabPage();
             this.tpGrafico = new System.Windows.Forms.TabPage();
-            this.ccGrafico = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.lblIngresosPor = new System.Windows.Forms.Label();
             this.cbIngresosPor = new System.Windows.Forms.ComboBox();
@@ -62,6 +61,7 @@
             this.dtpVariable6 = new System.Windows.Forms.DateTimePicker();
             this.cbVariable7 = new System.Windows.Forms.ComboBox();
             this.chbCampos = new System.Windows.Forms.CheckBox();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
@@ -69,7 +69,7 @@
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
             this.tpGrafico.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ccGrafico)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -144,7 +144,7 @@
             // 
             // tpGrafico
             // 
-            this.tpGrafico.Controls.Add(this.ccGrafico);
+            this.tpGrafico.Controls.Add(this.chart1);
             this.tpGrafico.Location = new System.Drawing.Point(4, 22);
             this.tpGrafico.Name = "tpGrafico";
             this.tpGrafico.Padding = new System.Windows.Forms.Padding(3);
@@ -152,22 +152,6 @@
             this.tpGrafico.TabIndex = 1;
             this.tpGrafico.Text = "Grafico";
             this.tpGrafico.UseVisualStyleBackColor = true;
-            // 
-            // ccGrafico
-            // 
-            chartArea1.Name = "ChartArea1";
-            this.ccGrafico.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.ccGrafico.Legends.Add(legend1);
-            this.ccGrafico.Location = new System.Drawing.Point(3, 6);
-            this.ccGrafico.Name = "ccGrafico";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.ccGrafico.Series.Add(series1);
-            this.ccGrafico.Size = new System.Drawing.Size(735, 517);
-            this.ccGrafico.TabIndex = 25;
-            this.ccGrafico.Text = "Grafico";
             // 
             // label1
             // 
@@ -454,6 +438,22 @@
             this.chbCampos.UseVisualStyleBackColor = false;
             this.chbCampos.CheckedChanged += new System.EventHandler(this.chbCampos_CheckedChanged);
             // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(3, 6);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(732, 514);
+            this.chart1.TabIndex = 0;
+            this.chart1.Text = "chart1";
+            // 
             // frmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -525,7 +525,7 @@
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);
             this.tpGrafico.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ccGrafico)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,7 +537,6 @@
         private System.Windows.Forms.TabControl tcInformacion;
         private System.Windows.Forms.TabPage tpGrilla;
         private System.Windows.Forms.TabPage tpGrafico;
-        private System.Windows.Forms.DataVisualization.Charting.Chart ccGrafico;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblIngresosPor;
         private System.Windows.Forms.ComboBox cbIngresosPor;
@@ -564,6 +563,7 @@
         private System.Windows.Forms.DateTimePicker dtpVariable6;
         private System.Windows.Forms.ComboBox cbVariable7;
         private System.Windows.Forms.CheckBox chbCampos;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
 
     }
 }

@@ -154,6 +154,17 @@ namespace CapaPresentacion
                 case IngresosPor.Cursos: consulta += " Cursos "; break;
                 case IngresosPor.Alumno: consulta += " Alumno " ; break;
             }
+            switch (Segunda_seleccion)
+            {
+                case Periodo.Diario: consulta += ""; break;
+                case Periodo.Semanal: consulta += ""; break;
+                case Periodo.Quincenal: consulta += ""; break;
+                case Periodo.Mensual: consulta += ""; break;
+                case Periodo.Anual: consulta += ""; break;
+                case Periodo.Todo: consulta += ""; break;
+                
+            }
+            
         }
     }
 }
