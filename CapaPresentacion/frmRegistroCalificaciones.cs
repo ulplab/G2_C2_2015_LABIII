@@ -14,6 +14,7 @@ namespace CapaPresentacion
 {
     public partial class frmRegistroCalificaciones : frmPrincipal
     {
+
         public frmRegistroCalificaciones()
         {
             InitializeComponent();
