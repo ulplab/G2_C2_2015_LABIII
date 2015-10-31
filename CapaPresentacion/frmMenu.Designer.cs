@@ -36,6 +36,7 @@
             this.btnDarBajaInscripcion = new System.Windows.Forms.Button();
             this.btnAlumnosPorCurso = new System.Windows.Forms.Button();
             this.btnCursosPorAlumno = new System.Windows.Forms.Button();
+            this.btnEstadisticas = new System.Windows.Forms.Button();
             this.pnlTitulo.SuspendLayout();
             this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
@@ -252,11 +253,34 @@
             this.btnCursosPorAlumno.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnCursosPorAlumno.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // btnEstadisticas
+            // 
+            this.btnEstadisticas.BackColor = System.Drawing.Color.Transparent;
+            this.btnEstadisticas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEstadisticas.FlatAppearance.BorderSize = 0;
+            this.btnEstadisticas.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnEstadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 16.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
+            this.btnEstadisticas.Image = global::CapaPresentacion.Properties.Resources.icono3;
+            this.btnEstadisticas.Location = new System.Drawing.Point(506, 85);
+            this.btnEstadisticas.Name = "btnEstadisticas";
+            this.btnEstadisticas.Size = new System.Drawing.Size(196, 175);
+            this.btnEstadisticas.TabIndex = 42;
+            this.btnEstadisticas.TabStop = false;
+            this.btnEstadisticas.Text = "Estadísticas";
+            this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnEstadisticas.UseVisualStyleBackColor = false;
+            this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(911, 763);
+            this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnCursosPorAlumno);
             this.Controls.Add(this.btnAlumnosPorCurso);
             this.Controls.Add(this.btnDarBajaInscripcion);
@@ -276,6 +300,7 @@
             this.Controls.SetChildIndex(this.btnDarBajaInscripcion, 0);
             this.Controls.SetChildIndex(this.btnAlumnosPorCurso, 0);
             this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
+            this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);
@@ -293,6 +318,7 @@
         private System.Windows.Forms.Button btnDarBajaInscripcion;
         private System.Windows.Forms.Button btnAlumnosPorCurso;
         private System.Windows.Forms.Button btnCursosPorAlumno;
+        private System.Windows.Forms.Button btnEstadisticas;
 
     }
 }

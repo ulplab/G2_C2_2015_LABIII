@@ -161,6 +161,14 @@ namespace CapaPresentacion
 
         }
 
+        private void btnEstadisticas_Click(object sender, EventArgs e)
+        {
+            frmIngresos ConsultarEstadisticas = new frmIngresos();
+            this.Visible = false;
+            ConsultarEstadisticas.ShowDialog();
+            this.Visible = true;
+        }
+
 
 
 
