@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "CapaLogica\Ca
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaPresentacion", "CapaPresentacion\CapaPresentacion.csproj", "{D87A6CE3-B06A-4847-A432-AA0018D9CA93}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controles", "Controles\Controles.csproj", "{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -71,6 +73,16 @@ Global
 		{D87A6CE3-B06A-4847-A432-AA0018D9CA93}.Release|Mixed Platforms.Build.0 = Release|x86
 		{D87A6CE3-B06A-4847-A432-AA0018D9CA93}.Release|x86.ActiveCfg = Release|x86
 		{D87A6CE3-B06A-4847-A432-AA0018D9CA93}.Release|x86.Build.0 = Release|x86
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
