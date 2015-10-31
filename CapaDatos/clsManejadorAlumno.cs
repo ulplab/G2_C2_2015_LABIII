@@ -17,7 +17,6 @@ namespace CapaDatos
             int filas;
             try
             {
-                //insert Alumnos values('contraseña','nombre','apellido','3333','44444','0','direccion','email');
                 string query = "INSERT INTO Alumnos VALUES('" + entidad.Contraseña + "','" + entidad.Nombre + "','" + entidad.Apellido + "','" + entidad.Dni + "','" + entidad.Telefono + "','" + entidad.Estado + "','" + entidad.Direccion + "','" + entidad.Email + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
@@ -34,7 +33,15 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Alumnos Set Dni=" + entidad.Dni + ", Nombre='" + entidad.Nombre + "', Apellido='" + entidad.Apellido + "', Direccion='" + entidad.Direccion + "', Telefono='" + entidad.Telefono + "', Email='" + entidad.Email + "', Estado='" + entidad.Estado + ", Contraseña = '" + entidad.Contraseña + "' WHERE IdAlumno =" + entidad.Id + ";";
+                string query = "UPDATE Alumnos Set Dni='" + entidad.Dni 
+                                + "', Nombre='" + entidad.Nombre 
+                                + "', Apellido='" + entidad.Apellido 
+                                + "', Direccion='" + entidad.Direccion 
+                                + "', Telefono='" + entidad.Telefono 
+                                + "', Email='" + entidad.Email 
+                                + "', Estado='" + entidad.Estado 
+                                + ", Contraseña = '" + entidad.Contraseña 
+                                + "' WHERE IdAlumno =" + entidad.Id + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)

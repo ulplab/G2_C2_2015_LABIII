@@ -11,7 +11,7 @@ namespace CapaLogica
 {
     public class clsRepositorioProfesor : IRepositorio
     {
-        clsManejadorAlumno manager = new clsManejadorAlumno();
+        clsManejadorProfesor manager = new clsManejadorProfesor();
 
         private clsProfesor getCast(IEntidad e)
         {

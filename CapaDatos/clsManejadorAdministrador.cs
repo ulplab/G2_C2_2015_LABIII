@@ -17,6 +17,7 @@ namespace CapaDatos
             int filas;
             try
             {
+                //IdAdministrador,Usuario,Contraseña,Nombre,Apellido,Dni,Telefono,Estado
                 string query = "INSERT INTO Administradores VALUES(" + "'" + entidad.Usuario + "','" + entidad.Contraseña + "','" + entidad.Nombre + "','" + entidad.Apellido + "','" + entidad.Dni + "','" + entidad.Telefono + "','" + entidad.Estado + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
