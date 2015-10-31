@@ -43,8 +43,11 @@
     <Compile Include="clsRepoFactory.cs" />
     <Compile Include="clsRepositorioAlumno.cs" />
     <Compile Include="clsRepositorioAdministrador.cs" />
+    <Compile Include="clsRepositorioCuota.cs" />
     <Compile Include="clsRepositorioCurso.cs" />
     <Compile Include="clsRepositorioInscripcion.cs" />
+    <Compile Include="clsRepositorioNota.cs" />
+    <Compile Include="clsRepositorioProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

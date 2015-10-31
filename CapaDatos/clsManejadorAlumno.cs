@@ -17,7 +17,8 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "INSERT INTO Alumnos VALUES('" + entidad.Dni + "','" + entidad.Nombre + "','" + entidad.Apellido + "','" + entidad.Direccion + "','" + entidad.Telefono + "','" + entidad.Email + "','" + entidad.Estado + "');";
+                //insert Alumnos values('contraseña','nombre','apellido','3333','44444','0','direccion','email');
+                string query = "INSERT INTO Alumnos VALUES('" + entidad.Contraseña + "','" + entidad.Nombre + "','" + entidad.Apellido + "','" + entidad.Dni + "','" + entidad.Telefono + "','" + entidad.Estado + "','" + entidad.Direccion + "','" + entidad.Email + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
             catch (Exception e)
@@ -33,7 +34,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Alumnos Set Dni=" + entidad.Dni + ", Nombre='" + entidad.Nombre + "', Apellido='" + entidad.Apellido + "', Direccion='" + entidad.Direccion + "', Telefono='" + entidad.Telefono + "', Email='" + entidad.Email + "', Estado='" + entidad.Estado + "' WHERE IdAlumno =" + entidad.Id + ";";
+                string query = "UPDATE Alumnos Set Dni=" + entidad.Dni + ", Nombre='" + entidad.Nombre + "', Apellido='" + entidad.Apellido + "', Direccion='" + entidad.Direccion + "', Telefono='" + entidad.Telefono + "', Email='" + entidad.Email + "', Estado='" + entidad.Estado + ", Contraseña = '" + entidad.Contraseña + "' WHERE IdAlumno =" + entidad.Id + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)
@@ -62,7 +63,7 @@ namespace CapaDatos
 
         public List<clsAlumno> SelectAlumno(clsAlumno entidad)
         {
-            bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false;
+            bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false, contraseña = false;
             string query = "SELECT * FROM Alumnos WHERE";
             if (entidad.Id != -1)
             {
@@ -78,7 +79,7 @@ namespace CapaDatos
                 query += " Dni = " + entidad.Dni;
                 dni = true;
             }
-            if (entidad.Apellido != "")
+            if (entidad.Apellido != null)
             {
                 if (id || dni)
                 {
@@ -87,7 +88,7 @@ namespace CapaDatos
                 query += " Apellido LIKE " + entidad.Apellido + "%";
                 apellido = true;
             }
-            if (entidad.Direccion != "")
+            if (entidad.Direccion != null)
             {
                 if (id || dni || apellido)
                 {
@@ -96,7 +97,7 @@ namespace CapaDatos
                 query += " Direccion LIKE " + entidad.Direccion + "%";
                 direccion = true;
             }
-            if (entidad.Email != "")
+            if (entidad.Email != null)
             {
                 if (id || dni || apellido || direccion)
                 {
@@ -105,7 +106,7 @@ namespace CapaDatos
                 query += " Email LIKE " + entidad.Email + "%";
                 email = true;
             }
-            if (entidad.Nombre != "")
+            if (entidad.Nombre != null)
             {
                 if (id || dni || apellido || direccion || email)
                 {
@@ -114,18 +115,28 @@ namespace CapaDatos
                 query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
-            if (entidad.Telefono != "")
+            if (entidad.Telefono != null)
             {
                 if (id || dni || apellido || direccion || email || nombre)
                 {
                     query += " AND";
                 }
-                query += " Telefono = " + entidad.Nombre;
+                query += " Telefono = " + entidad.Telefono;
                 telefono = true;
+            }
+            if (entidad.Contraseña != null)
+            {
+                if (id | dni | apellido | direccion | email | nombre | telefono)
+                {
+                    query += " AND";
+                }
+
+                query += " Contraseña = " + entidad.Contraseña;
+                contraseña = true;
             }
             if (entidad.Estado != -1)
             {
-                if (id || dni || apellido || direccion || email || nombre || telefono)
+                if (id || dni || apellido || direccion || email || nombre || contraseña || telefono)
                 {
                     query += " AND";
                 }
@@ -158,6 +169,7 @@ namespace CapaDatos
                 a.Telefono = Convert.ToString(dr["Telefono"]);
                 a.Email = Convert.ToString(dr["Email"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
+                a.Contraseña = Convert.ToString(dr["Contraseña"]);
 
                 list.Add(a);
             }
@@ -191,6 +203,7 @@ namespace CapaDatos
                 a.Telefono = Convert.ToString(dr["Telefono"]);
                 a.Email = Convert.ToString(dr["Email"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
+                a.Contraseña = Convert.ToString(dr["Contraseña"]);
 
                 list.Add(a);
             }
