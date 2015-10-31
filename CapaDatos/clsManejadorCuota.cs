@@ -8,7 +8,7 @@ using System.Data;
 
 namespace CapaDatos
 {
-    class clsManejadorCuota
+    public class clsManejadorCuota
     {
         clsDBManager dbManager = new clsDBManager();
 

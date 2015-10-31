@@ -11,7 +11,7 @@ namespace CapaLogica
 {
     public class clsRepositorioNota : IRepositorio
     {
-        clsManejadorAlumno manager = new clsManejadorAlumno();
+        clsManejadorNota manager = new clsManejadorNota();
 
         private clsNota getCast(IEntidad e)
         {
@@ -40,8 +40,8 @@ namespace CapaLogica
 
             try
             {
-                if (manager.SelectAlumno(compare).Count == 0)
-                    manager.InsertAlumno(nota);
+                if (manager.SelectNota(compare).Count == 0)
+                    manager.InsertarNota(nota);
                 else
                     throw new ArgumentException("Esta nota ya fue registrada");
             }
@@ -68,7 +68,7 @@ namespace CapaLogica
 
             try
             {
-                filas = manager.UpdateAlumno(nota);
+                filas = manager.UpdateNota(nota);
                 if (filas == 0)
                 {
                     throw new ArgumentException("La nota no existe");
@@ -97,7 +97,7 @@ namespace CapaLogica
 
             try
             {
-                filas = manager.DeleteAlumno(nota);
+                filas = manager.DeleteNota(nota);
                 if (filas == 0)
                 {
                     throw new ArgumentException("La nota no existe");
@@ -117,7 +117,7 @@ namespace CapaLogica
 
             try
             {
-                nalumno = manager.SelectAlumno(nota)[0];
+                nalumno = manager.SelectNota(nota)[0];
                 if (nalumno == null)
                 {
                     throw new ArgumentException("La nota no existe");
@@ -137,7 +137,7 @@ namespace CapaLogica
 
             try
             {
-                list.AddRange(manager.ListarAlumnos());
+                list.AddRange(manager.ListarNota());
             }
             catch (Exception e)
             {
@@ -149,13 +149,13 @@ namespace CapaLogica
 
         public List<IEntidad> Lista(IEntidad filtro)
         {
-            clsNota alumno = new clsNota();
+            clsNota nota = new clsNota();
 
             List<IEntidad> list = new List<IEntidad>();
 
             try
             {
-                alumno = getCast(filtro);
+                nota = getCast(filtro);
             }
             catch (Exception e)
             {
@@ -164,7 +164,7 @@ namespace CapaLogica
 
             try
             {
-                list.AddRange(manager.SelectAlumno(alumno));
+                list.AddRange(manager.SelectNota(nota));
             }
             catch (Exception e)
             {

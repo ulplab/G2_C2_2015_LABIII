@@ -11,7 +11,7 @@ namespace Clases
 {
     public class clsRepositorioCuota : IRepositorio
     {
-        clsManejadorAlumno manager = new clsManejadorAlumno();
+        clsManejadorCuota manager = new clsManejadorCuota();
 
         private clsCuota getCast(IEntidad e)
         {
@@ -40,8 +40,8 @@ namespace Clases
 
             try
             {
-                if (manager.SelectAlumno(compare).Count == 0)
-                    manager.InsertAlumno(cuota);
+                if (manager.SelectCuota(compare).Count == 0)
+                    manager.InsertarCuota(cuota);
                 else
                     throw new ArgumentException("Esta matricula ya fue pagada");
             }
@@ -68,7 +68,7 @@ namespace Clases
 
             try
             {
-                filas = manager.UpdateAlumno(cuota);
+                filas = manager.UpdateCuota(cuota);
                 if (filas == 0)
                 {
                     throw new ArgumentException("La matricula ingresada no fue pagada aun");
@@ -97,7 +97,7 @@ namespace Clases
 
             try
             {
-                filas = manager.DeleteAlumno(cuota);
+                filas = manager.DeleteCuota(cuota);
                 if (filas == 0)
                 {
                     throw new ArgumentException("La matricula ingresada no fue pagada aun");
@@ -113,12 +113,12 @@ namespace Clases
         {
             clsCuota cuota = new clsCuota();
             cuota.Id = id;
-            clsCuota nalumno = null;
+            clsCuota ncuota = null;
 
             try
             {
-                nalumno = manager.SelectAlumno(cuota)[0];
-                if (nalumno == null)
+                ncuota = manager.SelectCuota(cuota)[0];
+                if (ncuota == null)
                 {
                     throw new ArgumentException("La matricula ingresada no fue pagada aun");
                 }
@@ -128,7 +128,7 @@ namespace Clases
                 throw e;
             }
 
-            return nalumno;
+            return ncuota;
         }
 
         public List<IEntidad> Lista()
@@ -137,7 +137,7 @@ namespace Clases
 
             try
             {
-                list.AddRange(manager.ListarAlumnos());
+                list.AddRange(manager.ListarCuota());
             }
             catch (Exception e)
             {
@@ -164,7 +164,7 @@ namespace Clases
 
             try
             {
-                list.AddRange(manager.SelectAlumno(cuota));
+                list.AddRange(manager.SelectCuota(cuota));
             }
             catch (Exception e)
             {
@@ -185,7 +185,7 @@ namespace Clases
             try
             {
                 listAlumnos.AddRange(managerInscripciones.ListarInscripciones());
-                listCuotas.AddRange(manager.ListarCuotas());
+                listCuotas.AddRange(manager.ListarCuota());
             }
             catch (Exception e)
             {
@@ -198,7 +198,7 @@ namespace Clases
             {
                 foreach (clsCuota c in listCuotas)
                 {
-                    if ((c.IdAlumno = i.IdAlumno) && (c.IdCurso = i.IdCurso))
+                    if (c.IdAlumno == i.IdAlumno && c.IdCurso == i.IdCurso)
                     {
                         gotcha = true;
                     }

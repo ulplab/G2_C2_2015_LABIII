@@ -6,7 +6,7 @@ using Clases;
 
 namespace CapaDatos
 {
-    class clsManejadorNota
+    public class clsManejadorNota
     {
 
         public int InsertarNota(clsNota entidad)

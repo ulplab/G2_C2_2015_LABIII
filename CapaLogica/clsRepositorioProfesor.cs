@@ -39,8 +39,8 @@ namespace CapaLogica
 
             try
             {
-                if (manager.SelectAlumno(compare).Count == 0)
-                    manager.InsertAlumno(profesor);
+                if (manager.SelectProfesor(compare).Count == 0)
+                    manager.InsertarProfesor(profesor);
                 else
                     throw new ArgumentException("El Profesor ingresado ya existe");
             }
@@ -67,7 +67,7 @@ namespace CapaLogica
 
             try
             {
-                filas = manager.UpdateAlumno(profesor);
+                filas = manager.UpdateProfesor(profesor);
                 if (filas == 0)
                 {
                     throw new ArgumentException("El profesor no existe");
@@ -96,7 +96,7 @@ namespace CapaLogica
 
             try
             {
-                filas = manager.DeleteAlumno(profesor);
+                filas = manager.DeleteProfesor(profesor);
                 if (filas == 0)
                 {
                     throw new ArgumentException("El profesor no existe");
@@ -116,7 +116,7 @@ namespace CapaLogica
 
             try
             {
-                nalumno = manager.SelectAlumno(profesor)[0];
+                nalumno = manager.SelectProfesor(profesor)[0];
                 if (nalumno == null)
                 {
                     throw new ArgumentException("El profesor no existe");
@@ -136,7 +136,7 @@ namespace CapaLogica
 
             try
             {
-                list.AddRange(manager.ListarAlumnos());
+                list.AddRange(manager.ListarProfesores());
             }
             catch (Exception e)
             {
@@ -163,7 +163,7 @@ namespace CapaLogica
 
             try
             {
-                list.AddRange(manager.SelectAlumno(alumno));
+                list.AddRange(manager.SelectProfesor(alumno));
             }
             catch (Exception e)
             {
