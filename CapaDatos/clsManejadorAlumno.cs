@@ -120,7 +120,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Telefono = " + entidad.Nombre;
+                query += " Telefono = " + entidad.Telefono;
                 telefono = true;
             }
             if (entidad.Estado != -1)

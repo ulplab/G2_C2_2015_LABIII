@@ -45,6 +45,7 @@
     <Compile Include="clsManejadorAlumno.cs" />
     <Compile Include="clsManejadorCurso.cs" />
     <Compile Include="clsManejadorInscripcion.cs" />
+    <Compile Include="clsManejadorProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
