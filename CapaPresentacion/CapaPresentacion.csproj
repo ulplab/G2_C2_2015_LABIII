@@ -11,7 +11,8 @@
     <RootNamespace>CapaPresentacion</RootNamespace>
     <AssemblyName>Presentacion</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -261,6 +262,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="bin\Debug\Presentacion.vshost.exe.manifest" />
     <None Include="obj\x86\Debug\CapaPresentacion.csproj.GenerateResource.Cache" />
     <None Include="obj\x86\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache" />
