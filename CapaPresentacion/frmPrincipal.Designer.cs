@@ -169,6 +169,7 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
@@ -186,6 +187,7 @@
         public System.Windows.Forms.Button btnMinimizar;
         public System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.Panel pnlTitulo;
+
 
 
     }
