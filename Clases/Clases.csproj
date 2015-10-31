@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="clsAlumno.cs" />
     <Compile Include="clsCuota.cs" />
-    <Compile Include="clsDicta.cs" />
     <Compile Include="clsInscripcion.cs" />
     <Compile Include="clsAdministrador.cs" />
     <Compile Include="clsCurso.cs" />

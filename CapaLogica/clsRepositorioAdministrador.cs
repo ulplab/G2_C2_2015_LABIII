@@ -179,14 +179,14 @@ namespace CapaLogica
             clsAdministrador result;
             try
             {
-                consulta.Nombre = string.Empty;
+                //consulta.Nombre = string.Empty;
                 consulta.Usuario = usuario;
                 consulta.Contraseña = contraseña;
-                consulta.Apellido = string.Empty;
-                consulta.Dni = -1;
+                //consulta.Apellido = string.Empty;
+                //consulta.Dni = -1;
                 consulta.Estado = 1;
-                consulta.Id = -1;
-                consulta.Telefono = string.Empty;
+                //consulta.Id = -1;
+                //consulta.Telefono = string.Empty;
                 List<clsAdministrador> resultados = manager.SelectAdministrador(consulta);
                 if (resultados.Count() != 0)
                 {
@@ -194,7 +194,7 @@ namespace CapaLogica
                 }
                 else
                 {
-                    throw (new Exception("usuario o contraseña no validos"));
+                    throw (new Exception("Esta combinacion de Usuario y Contraseña no son validos"));
                 }
             }
             catch (Exception a)

@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace CapaDatos
 {
-    class clsManejadorProfesor
+    public class clsManejadorProfesor
     {
         clsDBManager dbmanager = new clsDBManager();
 
