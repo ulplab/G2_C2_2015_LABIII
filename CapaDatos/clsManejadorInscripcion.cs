@@ -17,7 +17,8 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "INSERT INTO Asiste VALUES(" + "'" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
+                //NroInscripcion,IdAdministrador,IdCurso,IdAlumno,Estado
+                string query = "INSERT INTO Asiste VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
             catch (Exception e)

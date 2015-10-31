@@ -56,13 +56,16 @@ namespace Clases
             set { estado = value; }
         }
 
-        float precio = -1;
+        double precio = -1;
 
-        public float Contraseña
+        public double Precio
         {
             get { return precio; }
             set { precio = value; }
         }
+
+        
+
     }
 }
 

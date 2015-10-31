@@ -43,8 +43,10 @@
     <Compile Include="clsDBManager.cs" />
     <Compile Include="clsManejadorAdministrador.cs" />
     <Compile Include="clsManejadorAlumno.cs" />
+    <Compile Include="clsManejadorCuota.cs" />
     <Compile Include="clsManejadorCurso.cs" />
     <Compile Include="clsManejadorInscripcion.cs" />
+    <Compile Include="clsManejadorNota.cs" />
     <Compile Include="clsManejadorProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

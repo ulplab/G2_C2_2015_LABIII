@@ -17,7 +17,8 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "INSERT INTO Cursos VALUES('" + entidad.Nombre + "','" + String.Format("{0:s}",entidad.FechaInicio) + "','" + String.Format("{0:s}", entidad.FechaFin) + "','" + entidad.Descripcion + "','" + entidad.Estado + "');";
+                //idCurso,Nombre,FechaInicio,FechaFin,Descripcion,Estado,Precio
+                string query = "INSERT INTO Cursos VALUES('" + entidad.Nombre + "','" + String.Format("{0:s}",entidad.FechaInicio) + "','" + String.Format("{0:s}", entidad.FechaFin) + "','" + entidad.Descripcion + "','" + entidad.Estado + "','" + entidad.Precio + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
             catch (Exception e)
@@ -33,7 +34,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Cursos Set Nombre='" + entidad.Nombre + "', FechaInicio='" + String.Format("{0:s}", entidad.FechaInicio) + "', FechaFin='" + String.Format("{0:s}", entidad.FechaFin) + "', Descripcion='" + entidad.Descripcion + "', Estado='" + entidad.Estado + "' WHERE IdCurso =" + entidad.Id + ";";
+                string query = "UPDATE Cursos Set Nombre='" + entidad.Nombre + "', FechaInicio='" + String.Format("{0:s}", entidad.FechaInicio) + "', FechaFin='" + String.Format("{0:s}", entidad.FechaFin) + "', Descripcion='" + entidad.Descripcion + "', Estado='" + entidad.Estado + "', Precio = "+ entidad.Precio + "' WHERE IdCurso =" + entidad.Id + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)
@@ -62,7 +63,7 @@ namespace CapaDatos
 
         public List<clsCurso> SelectCurso(clsCurso entidad)
         {
-            bool id = false,fechaI = false,fechaF = false,descripcion = false,nombre = false;
+            bool id = false,fechaI = false,fechaF = false,descripcion = false,nombre = false, precio = false;
 
             string query = "SELECT * FROM Alumnos WHERE";
             if (entidad.Id != -1)
@@ -106,9 +107,19 @@ namespace CapaDatos
                 query += " Descripcion LIKE " + entidad.Descripcion + "%";
                 descripcion = true;
             }
+            if (entidad.Precio != -1)
+            {
+                if (id | nombre | fechaI | fechaF | descripcion)
+                {
+                    query += " AND";
+                }
+
+                query += " Precio = " + entidad.Precio;
+                precio = true;
+            }
             if (entidad.Estado != -1)
             {
-                if (id || nombre || fechaI || fechaF || descripcion)
+                if (id || nombre || fechaI || fechaF || descripcion | precio)
                 {
                     query += " AND";
                 }
@@ -139,6 +150,7 @@ namespace CapaDatos
                 a.FechaFin = Convert.ToDateTime(dr["FechaFin"]);
                 a.Descripcion = Convert.ToString(dr["Descripcion"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
+                a.Precio = Convert.ToDouble(dr["Precio"]);
 
                 list.Add(a);
             }
@@ -170,6 +182,7 @@ namespace CapaDatos
                 a.FechaFin = Convert.ToDateTime(dr["FechaFin"]);
                 a.Descripcion = Convert.ToString(dr["Descripcion"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
+                a.Precio = Convert.ToDouble(dr["Precio"]);
 
                 list.Add(a);
             }
