@@ -25,6 +25,15 @@ namespace CapaLogica
                 case RepoType.INSCRIPCION:
                     repo = new clsRepositorioInscripcion();
                     break;
+                case RepoType.PROFESOR:
+                    repo = new clsRepositorioProfesor();
+                    break;
+                case RepoType.CUOTA:
+                    repo = new clsRepositorioCuota();
+                    break;
+                case RepoType.NOTA:
+                    repo = new clsRepositorioNota();
+                    break;
             }
             return repo;
         }

@@ -78,7 +78,7 @@ namespace CapaDatos
                 query += " Dni = " + entidad.Dni;
                 dni = true;
             }
-            if (entidad.Apellido != "")
+            if (entidad.Apellido != null)
             {
                 if (id || dni)
                 {
@@ -87,7 +87,7 @@ namespace CapaDatos
                 query += " Apellido LIKE " + entidad.Apellido + "%";
                 apellido = true;
             }
-            if (entidad.Direccion != "")
+            if (entidad.Direccion != null)
             {
                 if (id || dni || apellido)
                 {
@@ -96,7 +96,7 @@ namespace CapaDatos
                 query += " Direccion LIKE " + entidad.Direccion + "%";
                 direccion = true;
             }
-            if (entidad.Email != "")
+            if (entidad.Email != null)
             {
                 if (id || dni || apellido || direccion)
                 {
@@ -105,7 +105,7 @@ namespace CapaDatos
                 query += " Email LIKE " + entidad.Email + "%";
                 email = true;
             }
-            if (entidad.Nombre != "")
+            if (entidad.Nombre != null)
             {
                 if (id || dni || apellido || direccion || email)
                 {
@@ -114,7 +114,7 @@ namespace CapaDatos
                 query += " Nombre LIKE " + entidad.Nombre + "%";
                 nombre = true;
             }
-            if (entidad.Telefono != "")
+            if (entidad.Telefono != null)
             {
                 if (id || dni || apellido || direccion || email || nombre)
                 {

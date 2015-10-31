@@ -1,0 +1,218 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Interfaces;
+using Clases;
+using System.Data;
+using CapaDatos;
+
+namespace Clases
+{
+    public class clsRepositorioCuota : IRepositorio
+    {
+        clsManejadorAlumno manager = new clsManejadorAlumno();
+
+        private clsCuota getCast(IEntidad e)
+        {
+            if (e.GetType().Equals(typeof(clsCuota)))
+                return (clsCuota)e;
+            else
+                throw new ArgumentException("el tipo '" + e.GetType().ToString() + "' no esta soportado en un repositorio del tipo '" + this.GetType().ToString());
+        }
+
+        public void Agregar(IEntidad entidad)
+        {
+            clsCuota cuota = new clsCuota();
+
+            try
+            {
+                cuota = getCast(entidad);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            clsCuota compare = new clsCuota();
+            compare.IdAlumno = cuota.IdAlumno;
+            compare.IdCurso = cuota.IdAlumno;
+
+            try
+            {
+                if (manager.SelectAlumno(compare).Count == 0)
+                    manager.InsertAlumno(cuota);
+                else
+                    throw new ArgumentException("Esta matricula ya fue pagada");
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void Actualizar(IEntidad entidad)
+        {
+            clsCuota cuota = new clsCuota();
+
+            try
+            {
+                cuota = getCast(entidad);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.UpdateAlumno(cuota);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void Borrar(IEntidad entidad)
+        {
+            clsCuota cuota = new clsCuota();
+
+            try
+            {
+                cuota = getCast(entidad);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            int filas;
+
+            try
+            {
+                filas = manager.DeleteAlumno(cuota);
+                if (filas == 0)
+                {
+                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public IEntidad ObtenerPorId(int id)
+        {
+            clsCuota cuota = new clsCuota();
+            cuota.Id = id;
+            clsCuota nalumno = null;
+
+            try
+            {
+                nalumno = manager.SelectAlumno(cuota)[0];
+                if (nalumno == null)
+                {
+                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return nalumno;
+        }
+
+        public List<IEntidad> Lista()
+        {
+            List<IEntidad> list = new List<IEntidad>();
+
+            try
+            {
+                list.AddRange(manager.ListarAlumnos());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
+        }
+
+        public List<IEntidad> Lista(IEntidad filtro)
+        {
+            clsCuota cuota = new clsCuota();
+
+            List<IEntidad> list = new List<IEntidad>();
+
+            try
+            {
+                cuota = getCast(filtro);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            try
+            {
+                list.AddRange(manager.SelectAlumno(cuota));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
+        }
+
+        public List<IEntidad> ListaMorosos()
+        {
+            clsManejadorInscripcion managerInscripciones = new clsManejadorInscripcion();
+
+            List<clsInscripcion> listAlumnos = new List<clsInscripcion>();
+            List<clsCuota> listCuotas = new List<clsCuota>();
+            List<IEntidad> listMorosos = new List<IEntidad>();
+
+            try
+            {
+                listAlumnos.AddRange(managerInscripciones.ListarInscripciones());
+                listCuotas.AddRange(manager.ListarCuotas());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            bool gotcha = false;
+
+            foreach (clsInscripcion i in listAlumnos)
+            {
+                foreach (clsCuota c in listCuotas)
+                {
+                    if ((c.IdAlumno = i.IdAlumno) && (c.IdCurso = i.IdCurso))
+                    {
+                        gotcha = true;
+                    }
+                }
+
+                if (!gotcha)
+                {
+                    listMorosos.Add(i);
+                }
+
+                gotcha = false;
+            }
+
+            return listMorosos;
+        }
+    }
+}
