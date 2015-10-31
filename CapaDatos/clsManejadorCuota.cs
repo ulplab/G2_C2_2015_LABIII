@@ -7,7 +7,7 @@ using Interfaces;
 
 namespace CapaDatos
 {
-    class clsManejadorCuota
+    public class clsManejadorCuota
     {
         clsDBManager dbManager = new clsDBManager();
 
