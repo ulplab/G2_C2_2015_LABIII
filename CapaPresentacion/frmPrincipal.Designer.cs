@@ -29,17 +29,41 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.btnMinimizar = new System.Windows.Forms.Button();
-            this.btnCerrar = new System.Windows.Forms.Button();
-            this.btnMaximizar = new System.Windows.Forms.Button();
-            this.pnlTitulo = new System.Windows.Forms.Panel();
-            this.lblTitulo = new System.Windows.Forms.Label();
-            this.pnlBotones = new System.Windows.Forms.Panel();
             this.pbLinea = new System.Windows.Forms.PictureBox();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
+            this.pnlBotones = new System.Windows.Forms.Panel();
+            this.btnMinimizar = new System.Windows.Forms.Button();
+            this.btnMaximizar = new System.Windows.Forms.Button();
+            this.btnCerrar = new System.Windows.Forms.Button();
+            this.lblTitulo = new System.Windows.Forms.Label();
+            this.pnlTitulo = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
+            this.pnlBotones.SuspendLayout();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // pbLinea
+            // 
+            this.pbLinea.BackColor = System.Drawing.Color.Transparent;
+            this.pbLinea.BackgroundImage = global::CapaPresentacion.Properties.Resources.Linea;
+            this.pbLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbLinea.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbLinea.Location = new System.Drawing.Point(0, 69);
+            this.pbLinea.Name = "pbLinea";
+            this.pbLinea.Size = new System.Drawing.Size(873, 10);
+            this.pbLinea.TabIndex = 21;
+            this.pbLinea.TabStop = false;
+            // 
+            // pnlBotones
+            // 
+            this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBotones.Controls.Add(this.btnCerrar);
+            this.pnlBotones.Controls.Add(this.btnMaximizar);
+            this.pnlBotones.Controls.Add(this.btnMinimizar);
+            this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pnlBotones.Location = new System.Drawing.Point(687, 0);
+            this.pnlBotones.Name = "pnlBotones";
+            this.pnlBotones.Size = new System.Drawing.Size(186, 69);
+            this.pnlBotones.TabIndex = 23;
             // 
             // btnMinimizar
             // 
@@ -61,26 +85,6 @@
             this.btnMinimizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMinimizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(102, 18);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(48, 48);
-            this.btnCerrar.TabIndex = 17;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.UseVisualStyleBackColor = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            this.btnCerrar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
-            this.btnCerrar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
-            // 
             // btnMaximizar
             // 
             this.btnMaximizar.BackColor = System.Drawing.Color.Transparent;
@@ -101,20 +105,25 @@
             this.btnMaximizar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
             this.btnMaximizar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
-            // pnlTitulo
+            // btnCerrar
             // 
-            this.pnlTitulo.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTitulo.Controls.Add(this.lblTitulo);
-            this.pnlTitulo.Controls.Add(this.pnlBotones);
-            this.pnlTitulo.Controls.Add(this.pbLinea);
-            this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
-            this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(873, 79);
-            this.pnlTitulo.TabIndex = 21;
-            this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
-            this.pnlTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
-            this.pnlTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
+            this.btnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCerrar.FlatAppearance.BorderSize = 0;
+            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(102, 18);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(48, 48);
+            this.btnCerrar.TabIndex = 17;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.btnCerrar.MouseEnter += new System.EventHandler(this.btnMinimizar_MouseEnter);
+            this.btnCerrar.MouseLeave += new System.EventHandler(this.btnMinimizar_MouseLeave);
             // 
             // lblTitulo
             // 
@@ -130,29 +139,20 @@
             this.lblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
             this.lblTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
             // 
-            // pnlBotones
+            // pnlTitulo
             // 
-            this.pnlBotones.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBotones.Controls.Add(this.btnCerrar);
-            this.pnlBotones.Controls.Add(this.btnMaximizar);
-            this.pnlBotones.Controls.Add(this.btnMinimizar);
-            this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBotones.Location = new System.Drawing.Point(687, 0);
-            this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(186, 69);
-            this.pnlBotones.TabIndex = 23;
-            // 
-            // pbLinea
-            // 
-            this.pbLinea.BackColor = System.Drawing.Color.Transparent;
-            this.pbLinea.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLinea.BackgroundImage")));
-            this.pbLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbLinea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbLinea.Location = new System.Drawing.Point(0, 69);
-            this.pbLinea.Name = "pbLinea";
-            this.pbLinea.Size = new System.Drawing.Size(873, 10);
-            this.pbLinea.TabIndex = 21;
-            this.pbLinea.TabStop = false;
+            this.pnlTitulo.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTitulo.Controls.Add(this.lblTitulo);
+            this.pnlTitulo.Controls.Add(this.pnlBotones);
+            this.pnlTitulo.Controls.Add(this.pbLinea);
+            this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
+            this.pnlTitulo.Name = "pnlTitulo";
+            this.pnlTitulo.Size = new System.Drawing.Size(873, 79);
+            this.pnlTitulo.TabIndex = 21;
+            this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
+            this.pnlTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
+            this.pnlTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
             // 
             // frmPrincipal
             // 
@@ -169,23 +169,24 @@
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPrincipal";
+            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
+            this.pnlBotones.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        public System.Windows.Forms.PictureBox pbLinea;
+        public System.Windows.Forms.Panel pnlBotones;
+        public System.Windows.Forms.Button btnCerrar;
+        public System.Windows.Forms.Button btnMaximizar;
+        public System.Windows.Forms.Button btnMinimizar;
         public System.Windows.Forms.Label lblTitulo;
         public System.Windows.Forms.Panel pnlTitulo;
-        public System.Windows.Forms.Panel pnlBotones;
-        public System.Windows.Forms.PictureBox pbLinea;
-        public System.Windows.Forms.Button btnMinimizar;
-        public System.Windows.Forms.Button btnMaximizar;
-        public System.Windows.Forms.Button btnCerrar;
+
 
     }
 }
