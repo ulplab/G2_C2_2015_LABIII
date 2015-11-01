@@ -18,7 +18,6 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        //para conectarme a la base cambie esto. El usuario anterior era "LaboIII"
         string usuario = "LaboIII";
         
         public string Usuario
@@ -27,22 +26,20 @@ namespace CapaDatos
             set { usuario = value; }
         }
         string clave = "1234";
-        //La clave anterior era "1234"
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
-        //El servidor anterior era "NOTEBOOK"  
-        string server = "NOTEBOOK";
 
-        //La base anterior era "BDExamen1LaboIII
+        string server = "mario-ulp\\sqlexpress";
+
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamen1LaboIII";
+        string baseDeDatos = "BDInstituto";
 
         public string BaseDeDatos
         {
