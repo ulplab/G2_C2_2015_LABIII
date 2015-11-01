@@ -238,7 +238,38 @@ namespace CapaLogica
             return (result);
 
         }
-        
+
+        public DataTable ListarDicta()
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(-1, -1);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
+
+        public DataTable ListarDicta(int idProfesor, int idCurso)
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
     }
 }
  
