@@ -14,13 +14,13 @@ namespace CapaPresentacion
 {
     public partial class frmMenu : frmPrincipal
     {
-        IEntidad entidad;
+        IEntidad usuario;
         NivelSeguridad seguridad;
 
         public frmMenu(IEntidad usuario, NivelSeguridad seguridad)
         {
             InitializeComponent();
-            this.entidad = entidad;
+            this.usuario = usuario;
             this.seguridad = seguridad;
         }
 
@@ -28,15 +28,15 @@ namespace CapaPresentacion
         {
             if (seguridad == NivelSeguridad.ADMINISTRADOR)
             {
-                ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)entidad).Usuario;
+                ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)usuario).Usuario;
             }
             else if(seguridad == NivelSeguridad.PROFESOR)
             {
-                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)entidad).Dni;
+                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Dni;
             }
             else
             {
-                ousEncabezado.Titulo += "    Alumno: " + ((clsProfesor)entidad).Dni;
+                ousEncabezado.Titulo += "    Alumno: " + ((clsProfesor)usuario).Dni;
             }
         }
 
@@ -163,7 +163,7 @@ namespace CapaPresentacion
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(entidad);
+            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(usuario);
             this.Visible = false;
             InscribirCurso.ShowDialog();
             this.Visible = true;

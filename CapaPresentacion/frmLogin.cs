@@ -32,6 +32,10 @@ namespace CapaPresentacion
         private void frmLogin_Load(object sender, EventArgs e)
         {
             tbUsuario.Focus();
+            cbNivelSeguridad.Items.Add("Administrador");
+            cbNivelSeguridad.Items.Add("Profesor");
+            cbNivelSeguridad.Items.Add("Alumno");
+            cbNivelSeguridad.SelectedIndex = 0;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -136,57 +140,76 @@ namespace CapaPresentacion
             {
                 try
                 {
-                    Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
-                    Alumno = RepoAlum.Login(tbUsuario.Text, tbContraseña.Text);
-                    Profesor = RepoPro.Login(tbUsuario.Text, tbContraseña.Text);
 
-                    if (Administrador != null)
+                    if (cbNivelSeguridad.SelectedIndex == 0)
                     {
-                        if (Administrador.Estado == 1)
-                        {
+                        Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
 
-                            frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
-                            this.Hide();
-                            ABMA.ShowDialog();
+                        if (Administrador != null)
+                        {
+                            if (Administrador.Estado == 1)
+                            {
+
+                                frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
+                                this.Hide();
+                                ABMA.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                    else if(cbNivelSeguridad.SelectedIndex == 1)
+                    {
+                        Alumno = RepoAlum.Login(tbUsuario.Text, tbContraseña.Text);
+
+                        if (Profesor != null)
+                        {
+                            if (Profesor.Estado == 1)
+                            {
+                                frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
+                                this.Hide();
+                                ABMA.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else 
+                        {
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    else if(Alumno != null)
+                    else if(cbNivelSeguridad.SelectedIndex == 2)
                     {
-                        if (Alumno.Estado == 1)
-                        {
+                        Profesor = RepoPro.Login(tbUsuario.Text, tbContraseña.Text);
 
-                            frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.ALUMNO);
-                            this.Hide();
-                            ABMA.ShowDialog();
+                        if (Alumno != null)
+                        {
+                            if (Alumno.Estado == 1)
+                            {
+                                frmMenu ABMA = new frmMenu(Alumno, NivelSeguridad.ALUMNO);
+                                this.Hide();
+                                ABMA.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    else if(Profesor != null)
-                    {
-                        if (Profesor.Estado == 1)
-                        {
-
-                            frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
-                            this.Hide();
-                            ABMA.ShowDialog();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("El usuario o contraseña es invalido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    
+              
                 }
                 catch(Exception ex)
                 {
@@ -198,8 +221,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Debe ingresar todos los datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
-
            
         }
 
@@ -217,55 +238,74 @@ namespace CapaPresentacion
                 {
                     try
                     {
-                        Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
-                        Alumno = RepoAlum.Login(tbUsuario.Text, tbContraseña.Text);
-                        Profesor = RepoPro.Login(tbUsuario.Text, tbContraseña.Text);
 
-                        if (Administrador != null)
+                        if (cbNivelSeguridad.SelectedIndex == 0)
                         {
-                            if (Administrador.Estado == 1)
-                            {
+                            Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
 
-                                frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
-                                this.Hide();
-                                ABMA.ShowDialog();
+                            if (Administrador != null)
+                            {
+                                if (Administrador.Estado == 1)
+                                {
+
+                                    frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
+                                    this.Hide();
+                                    ABMA.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                        }
-                        else if (Alumno != null)
-                        {
-                            if (Alumno.Estado == 1)
-                            {
 
-                                frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.ALUMNO);
-                                this.Hide();
-                                ABMA.ShowDialog();
+                        }
+                        else if (cbNivelSeguridad.SelectedIndex == 1)
+                        {
+                            Alumno = RepoAlum.Login(tbUsuario.Text, tbContraseña.Text);
+
+                            if (Profesor != null)
+                            {
+                                if (Profesor.Estado == 1)
+                                {
+                                    frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
+                                    this.Hide();
+                                    ABMA.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
-                        else if (Profesor != null)
+                        else if (cbNivelSeguridad.SelectedIndex == 2)
                         {
-                            if (Profesor.Estado == 1)
-                            {
+                            Profesor = RepoPro.Login(tbUsuario.Text, tbContraseña.Text);
 
-                                frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
-                                this.Hide();
-                                ABMA.ShowDialog();
+                            if (Alumno != null)
+                            {
+                                if (Alumno.Estado == 1)
+                                {
+                                    frmMenu ABMA = new frmMenu(Alumno, NivelSeguridad.ALUMNO);
+                                    this.Hide();
+                                    ABMA.ShowDialog();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
                             }
                             else
                             {
-                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
-                        }
-                        else
-                        {
-                            MessageBox.Show("El usuario o contraseña es invalido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
@@ -279,6 +319,7 @@ namespace CapaPresentacion
                 {
                     MessageBox.Show("Debe ingresar todos los datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+
 
             }
                 
