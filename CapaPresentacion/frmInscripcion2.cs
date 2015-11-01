@@ -20,7 +20,7 @@ namespace CapaPresentacion
             Alumno = nuevo;
             Actual = actual;
             ArrancoAlumno = true;
-            lblTitulo.Text = "Seleccione el curso al cual inscribir";
+            ousEncabezado.Titulo = "Seleccione el curso al cual inscribir";
         }
         public frmInscripcion2(clsCurso nuevo,clsAdministrador actual)
         {
@@ -28,7 +28,7 @@ namespace CapaPresentacion
             Curso = nuevo;
             ArrancoAlumno = false;
             Actual = actual;
-            lblTitulo.Text = "Seleccione el alumno al cual inscribir";
+            ousEncabezado.Titulo = "Seleccione el alumno al cual inscribir";
         }
 
         private clsAdministrador Actual;

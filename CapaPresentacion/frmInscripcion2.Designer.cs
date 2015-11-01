@@ -41,45 +41,15 @@
             this.rdApellido = new System.Windows.Forms.RadioButton();
             this.rdNombre = new System.Windows.Forms.RadioButton();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlTitulo
+            // ousEncabezado
             // 
-            this.pnlTitulo.Size = new System.Drawing.Size(1193, 79);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(1007, 0);
-            // 
-            // pbLinea
-            // 
-            this.pbLinea.Size = new System.Drawing.Size(1193, 10);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(1193, 79);
+            this.ousEncabezado.Titulo = "Inscripciones";
             // 
             // btnBuscar
             // 
@@ -278,18 +248,14 @@
             this.Name = "frmInscripcion2";
             this.Text = "frmInscripcion2";
             this.Load += new System.EventHandler(this.frmInscripcion2_Load);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnContinuar, 0);
             this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.Controls.SetChildIndex(this.tbBuscar, 0);
             this.Controls.SetChildIndex(this.btnBuscar, 0);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
             this.Controls.SetChildIndex(this.pnlBusqueda, 0);
             this.Controls.SetChildIndex(this.cbParametros, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();

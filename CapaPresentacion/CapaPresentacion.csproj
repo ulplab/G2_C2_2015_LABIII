@@ -294,6 +294,10 @@
       <Project>{82C9015F-4668-442E-ACD6-CD69FF8254D5}</Project>
       <Name>Clases</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Controles\Controles.csproj">
+      <Project>{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}</Project>
+      <Name>Controles</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{1F24C5CF-4711-461F-B2C0-F03A86078A0E}</Project>
       <Name>Interfaces</Name>

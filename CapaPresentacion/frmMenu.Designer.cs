@@ -39,46 +39,14 @@
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
-            this.pnlBotones.SuspendLayout();
-            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pbLinea
+            // ousEncabezado
             // 
-            this.pbLinea.Size = new System.Drawing.Size(1016, 10);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(830, 0);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Tag = "1";
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Enabled = false;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(1016, 79);
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(1016, 79);
+            this.ousEncabezado.Titulo = "Menu";
+            this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);
             // 
             // btnAgregarAdministrador
             // 
@@ -348,6 +316,7 @@
             this.Tag = "";
             this.Text = "frmAMBAlumnos";
             this.Load += new System.EventHandler(this.frmMenu_Load);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnAgregarAdministrador, 0);
             this.Controls.SetChildIndex(this.btnAgregarAlumno, 0);
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
@@ -356,13 +325,8 @@
             this.Controls.SetChildIndex(this.btnAlumnosPorCurso, 0);
             this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
             this.Controls.SetChildIndex(this.btnRegistrosCalificaciones, 0);
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
-            this.pnlBotones.ResumeLayout(false);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
             this.ResumeLayout(false);
 
         }

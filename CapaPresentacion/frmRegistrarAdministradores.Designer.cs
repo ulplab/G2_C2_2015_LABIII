@@ -62,9 +62,6 @@
             this.tbFiltroUsuario = new System.Windows.Forms.TextBox();
             this.lblAyuda = new System.Windows.Forms.Label();
             this.dgvAdministradores = new System.Windows.Forms.DataGridView();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -73,45 +70,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvAdministradores)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTitulo
+            // ousEncabezado
             // 
-            this.lblTitulo.Size = new System.Drawing.Size(485, 42);
-            this.lblTitulo.Text = "Registrar Administradores";
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(1071, 79);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(885, 0);
-            // 
-            // pbLinea
-            // 
-            this.pbLinea.Size = new System.Drawing.Size(1071, 10);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Enabled = false;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Tag = "";
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(1071, 79);
+            this.ousEncabezado.Titulo = "Registrar Administradores";
             // 
             // lblUsuario
             // 
@@ -538,6 +501,7 @@
             this.Name = "frmRegistrarAdministradores";
             this.Text = "frmAgregarAdministrador";
             this.Load += new System.EventHandler(this.frmRegistrarAdministrador_Load);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.lblUsuario, 0);
             this.Controls.SetChildIndex(this.tbUsuario, 0);
             this.Controls.SetChildIndex(this.lblContraseña, 0);
@@ -552,14 +516,9 @@
             this.Controls.SetChildIndex(this.tbTelefono, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.btnRegistrar, 0);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
             this.Controls.SetChildIndex(this.dgvAdministradores, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();

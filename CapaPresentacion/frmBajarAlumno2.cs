@@ -19,14 +19,14 @@ namespace CapaPresentacion
             InitializeComponent();
             Alumno = seleccionado;
             ArrancoAlumno = true;
-            lblTitulo.Text = "Seleccione el Curso a desinscribirse";
+            ousEncabezado.Titulo = "Seleccione el Curso a desinscribirse";
         }
         public frmBajarAlumno2(clsCurso seleccionado)
         {
             InitializeComponent();
             Curso = seleccionado;
             ArrancoAlumno = false;
-            lblTitulo.Text = "Seleccione el Alumno a desinscribir";
+            ousEncabezado.Titulo = "Seleccione el Alumno a desinscribir";
         }
         clsCurso Curso;
         clsAlumno Alumno;

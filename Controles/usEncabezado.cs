@@ -10,16 +10,16 @@ using System.Windows.Forms;
 
 namespace Controles
 {
-    public partial class usHeader : UserControl
+    public partial class usEncabezado : UserControl
     {
-        public usHeader(Form formu)
+        public usEncabezado()
         {
             InitializeComponent();
-            formulario = formu;
         }
 
-        private Point Coordenadas;
-        private bool EventoMouseDown = false;
+
+        public Point Coordenadas;
+        public bool EventoMouseDown = false;
         public delegate void delHeader();
         public event delHeader evCerrar;
 
@@ -29,6 +29,18 @@ namespace Controles
         {
             get { return formulario; }
             set { formulario = value; }
+        }
+
+        string titulo;
+
+        public string Titulo
+        {
+            get { return titulo; }
+            set
+            {
+                titulo = value;
+                lblTitulo.Text = titulo;
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -48,7 +60,7 @@ namespace Controles
             }
         }
 
-        private void pnlTitulo_MouseDown(object sender, MouseEventArgs e)
+        private void lblTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             int Horizontal, Vertical;
 
@@ -71,17 +83,17 @@ namespace Controles
             }
         }
 
-        private void pnlTitulo_MouseMove(object sender, MouseEventArgs e)
+        private void lblTitulo_MouseMove(object sender, MouseEventArgs e)
         {
             if (EventoMouseDown)
             {
                 Point mousePos = Control.MousePosition;
                 mousePos.Offset(Coordenadas.X, Coordenadas.Y);
-                Location = mousePos;
+                formulario.Location = mousePos;
             }
         }
 
-        private void pnlTitulo_MouseUp(object sender, MouseEventArgs e)
+        private void lblTitulo_MouseUp(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -94,6 +106,10 @@ namespace Controles
             if (evCerrar != null)
             {
                 evCerrar();
+            }
+            else
+            {
+                formulario.Close();
             }
         }
 
@@ -143,5 +159,10 @@ namespace Controles
                 MessageBox.Show("Iconos no encontrados");
             }
         }
+
+
+
+
     }
+
 }

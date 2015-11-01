@@ -45,51 +45,13 @@
             this.ckbEstado = new System.Windows.Forms.CheckBox();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblTitulo
+            // ousEncabezado
             // 
-            this.lblTitulo.Size = new System.Drawing.Size(329, 42);
-            this.lblTitulo.Text = "Modificar Alumno";
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(557, 79);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(371, 0);
-            // 
-            // pbLinea
-            // 
-            this.pbLinea.Size = new System.Drawing.Size(557, 10);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Enabled = false;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.Tag = "1";
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(588, 79);
+            this.ousEncabezado.Titulo = "Modificar Alumnos";
             // 
             // tbEmail
             // 
@@ -284,7 +246,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 694);
+            this.ClientSize = new System.Drawing.Size(588, 694);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.lblEstado);
@@ -304,7 +266,7 @@
             this.Name = "frmModificarAlumnos";
             this.Text = "frmModificarAlumnos";
             this.Load += new System.EventHandler(this.frmModificarAlumnos_Load);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.lblNombre, 0);
             this.Controls.SetChildIndex(this.tbNombre, 0);
             this.Controls.SetChildIndex(this.lblApellido, 0);
@@ -321,10 +283,6 @@
             this.Controls.SetChildIndex(this.lblEstado, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.btnGuardar, 0);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

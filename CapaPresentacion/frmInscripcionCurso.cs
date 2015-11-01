@@ -111,7 +111,7 @@ namespace CapaPresentacion
         {
             if (rdAlumnos.Checked == true)
             {
-                this.lblTitulo.Text = "Seleccione un Alumno para comenzar";
+                ousEncabezado.Titulo = "Seleccione un Alumno para comenzar";
                 this.rdNombre.Text = "Nombre";
                 this.rdApellido.Text = "Apellido";
                 this.rdDNI.Text = "Dni";
@@ -129,7 +129,7 @@ namespace CapaPresentacion
         {
             if (rdCursos.Checked == true)
             {
-                this.lblTitulo.Text = "Seleccione un Curso para comenzar";
+                ousEncabezado.Titulo = "Seleccione un Curso para comenzar";
                 this.rdNombre.Text = "Nombre";
                 this.rdApellido.Text = "FechaInicio";
                 this.rdDNI.Text = "FechaFin";

@@ -23,16 +23,7 @@ namespace CapaPresentacion
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text += "    Usuario: " + Administrador.Usuario;
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            DialogResult prompt = MessageBox.Show("¿Desea cerrar la aplicación? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (prompt == DialogResult.OK)
-            {
-                Application.Restart();
-            }
+            ousEncabezado.Titulo += "    Usuario: " + Administrador.Usuario;
         }
 
 
@@ -199,6 +190,20 @@ namespace CapaPresentacion
             this.Visible = false;
             RegistroCalificaciones.ShowDialog();
             this.Visible = true;
+        }
+
+        void Cerrar()
+        {
+            DialogResult prompt = MessageBox.Show("¿Desea cerrar la aplicación? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (prompt == DialogResult.OK)
+            {
+                Application.Restart();
+            }
+        }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
         }
 
 

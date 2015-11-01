@@ -43,50 +43,15 @@
             this.rdEmail = new System.Windows.Forms.RadioButton();
             this.cbParametros = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.pnlBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblTitulo
+            // ousEncabezado
             // 
-            this.lblTitulo.Size = new System.Drawing.Size(837, 42);
-            this.lblTitulo.Text = "Seleccione un Alumno o Curso para continuar";
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(1225, 79);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(1039, 0);
-            // 
-            // pbLinea
-            // 
-            this.pbLinea.Size = new System.Drawing.Size(1225, 10);
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(1225, 79);
+            this.ousEncabezado.Titulo = "Dar baja alumnos";
             // 
             // btnContinuar
             // 
@@ -316,8 +281,8 @@
             this.Name = "frmBajarAlumnos";
             this.Text = "frmBajarAlumnos";
             this.Load += new System.EventHandler(this.frmBajarAlumnos_Load);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnContinuar, 0);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
             this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.Controls.SetChildIndex(this.rdAlumnos, 0);
             this.Controls.SetChildIndex(this.tbBuscar, 0);
@@ -326,10 +291,6 @@
             this.Controls.SetChildIndex(this.cbParametros, 0);
             this.Controls.SetChildIndex(this.pnlBusqueda, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
