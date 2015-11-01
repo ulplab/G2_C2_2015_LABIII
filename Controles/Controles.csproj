@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Controles</RootNamespace>
     <AssemblyName>Controles</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -26,6 +26,7 @@
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -76,11 +77,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="usHeader.cs">
+    <Compile Include="usEncabezado.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="usHeader.Designer.cs">
-      <DependentUpon>usHeader.cs</DependentUpon>
+    <Compile Include="usEncabezado.Designer.cs">
+      <DependentUpon>usEncabezado.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -94,8 +95,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="usHeader.resx">
-      <DependentUpon>usHeader.cs</DependentUpon>
+    <EmbeddedResource Include="usEncabezado.resx">
+      <DependentUpon>usEncabezado.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

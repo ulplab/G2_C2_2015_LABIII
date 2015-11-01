@@ -17,6 +17,9 @@ namespace CapaPresentacion
     {
 
         clsRepositorioAdministrador RepoAdmin = new clsRepositorioAdministrador();
+        clsRepositorioAlumno RepoAlum = new clsRepositorioAlumno();
+        clsRepositorioProfesor RepoPro = new clsRepositorioProfesor();
+        NivelSeguridad Seguridad;
         
         public frmLogin()
         {
@@ -29,7 +32,10 @@ namespace CapaPresentacion
         private void frmLogin_Load(object sender, EventArgs e)
         {
             tbUsuario.Focus();
-
+            cbNivelSeguridad.Items.Add("Administrador");
+            cbNivelSeguridad.Items.Add("Profesor");
+            cbNivelSeguridad.Items.Add("Alumno");
+            cbNivelSeguridad.SelectedIndex = 0;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -124,65 +130,28 @@ namespace CapaPresentacion
             (sender as Button).ForeColor = Color.Black;
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void Logeo()
         {
+
             clsAdministrador Administrador = null;
+            clsAlumno Alumno = null;
+            clsProfesor Profesor = null;
 
             if (tbUsuario.Text != string.Empty && tbContraseña.Text != string.Empty)
             {
                 try
                 {
-                    Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
-                if (Administrador != null)
-                {
-                    if (Administrador.Estado == 1)
-                    {
-
-                        frmMenu ABMA = new frmMenu(Administrador);
-                        this.Hide();
-                        ABMA.ShowDialog();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Tu cuenta a sido deshabilitada", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Debe ingresar todos los datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-
-           
-        }
-
-
-        private void tbContraseña_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-
-                clsAdministrador Administrador = null;
-
-                if (tbUsuario.Text != string.Empty && tbContraseña.Text != string.Empty)
-                {
-                    try
+                    if (cbNivelSeguridad.SelectedIndex == 0)
                     {
                         Administrador = RepoAdmin.Login(tbUsuario.Text, tbContraseña.Text);
-
 
                         if (Administrador != null)
                         {
                             if (Administrador.Estado == 1)
                             {
-                                frmMenu ABMA = new frmMenu(Administrador);
+
+                                frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
                                 this.Hide();
                                 ABMA.ShowDialog();
                             }
@@ -193,20 +162,82 @@ namespace CapaPresentacion
                         }
                         else
                         {
-                            MessageBox.Show("El usuario o contraseña es invalido", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+
+                    }
+                    else if (cbNivelSeguridad.SelectedIndex == 1)
+                    {
+                        Profesor = RepoPro.Login(tbUsuario.Text, tbContraseña.Text);
+
+                        if (Profesor != null)
+                        {
+                            if (Profesor.Estado == 1)
+                            {
+                                frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
+                                this.Hide();
+                                ABMA.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                     }
-                    catch (Exception ex)
+                    else if (cbNivelSeguridad.SelectedIndex == 2)
                     {
-                        MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        Alumno = RepoAlum.Login(tbUsuario.Text, tbContraseña.Text);
+
+                        if (Alumno != null)
+                        {
+                            if (Alumno.Estado == 1)
+                            {
+                                frmMenu ABMA = new frmMenu(Alumno, NivelSeguridad.ALUMNO);
+                                this.Hide();
+                                ABMA.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Fuiste dado de baja. Consulta con un administrador", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Usuario o contraseña invalidos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                     }
 
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Debe ingresar todos los datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Debe ingresar todos los datos", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+
+        }
+
+        private void btnEntrar_Click(object sender, EventArgs e)
+        {
+            Logeo();
+           
+        }
+
+        private void tbContraseña_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                Logeo();
             }
                 
         }

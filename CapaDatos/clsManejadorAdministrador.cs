@@ -71,7 +71,7 @@ namespace CapaDatos
                 query += " IdAdministrador = '" + entidad.Id + "' ";
                 id = true;
             }
-            if (entidad.Dni != -1)
+            if (entidad.Dni != null)
             {
                 if (id)
                 {
@@ -80,7 +80,7 @@ namespace CapaDatos
                 query += " Dni = '" + entidad.Dni + " ' ";
                 dni = true;
             }
-            if (entidad.Apellido != "")
+            if (entidad.Apellido != null)
             {
                 if (id || dni)
                 {
@@ -89,7 +89,7 @@ namespace CapaDatos
                 query += " Apellido LIKE '" + entidad.Apellido + "%'";
                 apellido = true;
             }
-            if (entidad.Usuario != "")
+            if (entidad.Usuario != null)
             {
                 if (id || dni || apellido)
                 {
@@ -98,7 +98,7 @@ namespace CapaDatos
                 query += " Usuario LIKE '" + entidad.Usuario + "%'";
                 usuario = true;
             }
-            if (entidad.Contraseña != "")
+            if (entidad.Contraseña != null)
             {
                 if (id || dni || apellido || usuario)
                 {
@@ -107,7 +107,7 @@ namespace CapaDatos
                 query += " Contraseña = '" + entidad.Contraseña + "'";
                 contraseña = true;
             }
-            if (entidad.Nombre != "")
+            if (entidad.Nombre != null)
             {
                 if (id || dni || apellido || usuario || contraseña)
                 {
@@ -116,7 +116,7 @@ namespace CapaDatos
                 query += " Nombre LIKE '" + entidad.Nombre + "%'";
                 nombre = true;
             }
-            if (entidad.Telefono != "")
+            if (entidad.Telefono != null)
             {
                 if (id || dni || apellido || usuario || contraseña || nombre)
                 {
@@ -153,7 +153,7 @@ namespace CapaDatos
                 clsAdministrador a = new clsAdministrador();
 
                 a.Id = Convert.ToInt32(dr["IdAdministrador"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Usuario = Convert.ToString(dr["Usuario"]);
@@ -186,7 +186,7 @@ namespace CapaDatos
                 clsAdministrador a = new clsAdministrador();
 
                 a.Id = Convert.ToInt32(dr["IdAdministrador"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Usuario = Convert.ToString(dr["Usuario"]);

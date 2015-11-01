@@ -23,7 +23,8 @@ namespace CapaDatos
                     + entidad.Dni + "','"
                     + entidad.Telefono + "','"
                     + entidad.Contraseña + "','"
-                    + entidad.Estado + "');";
+                    + entidad.Estado + "','"
+                    + entidad.Direccion + "');";
 
                 filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
             }
@@ -48,6 +49,7 @@ namespace CapaDatos
                     + "' Telefono = '" + entidad.Telefono
                     + "' Contraseña = '" + entidad.Contraseña
                     + "' Estado = '" + entidad.Estado
+                    + "' Direccion = '" + entidad.Direccion
                     + "' where IdProfesor = " + entidad.Id + ";";
                
                 filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
@@ -81,11 +83,11 @@ namespace CapaDatos
 
         public List<clsProfesor> SelectProfesor(clsProfesor entidad)
         {
-            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false;
+            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false, estado = false;
             string query = "select * from Profesores where";
             if (entidad.Id != -1)
             {
-                query += " IdProfesor = " + entidad.Id;
+                query += " IdProfesor = '" + entidad.Id + "'";
                 id = true;
             }
 
@@ -95,7 +97,7 @@ namespace CapaDatos
 	            {
                     query += " and";	 
 	            }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre = '" + entidad.Nombre + "'";
                 nombre = true;
 	        }
             if (entidad.Apellido != null)
@@ -104,18 +106,18 @@ namespace CapaDatos
                 {
                     query += " and";
                 }
-               
-                query += " Apellido = " + entidad.Apellido;
+
+                query += " Apellido = '" + entidad.Apellido + "'";
                 apellido = true;
 	        }
-            if (entidad.Dni != -1)
+            if (entidad.Dni != null)
             {
                 if (id | nombre | apellido)
                 {
                     query += " and";
                 }
 
-                query += " Dni = " + entidad.Dni;
+                query += " Dni = '" + entidad.Dni + "'";
                 dni = true;
             }
             if (entidad.Telefono != null)
@@ -125,17 +127,17 @@ namespace CapaDatos
                     query += " and";
                 }
 
-                query += " Telefono = " + entidad.Telefono;
+                query += " Telefono = '" + entidad.Telefono + "'";
                 telefono = true;
 	        }
-            if (entidad.Contraseña != -1)
+            if (entidad.Contraseña != null)
 	        {
                 if (id | nombre | apellido | dni | telefono)
                 {
                     query += " and";
                 }
 
-                query += " Contraseña = " + entidad.Contraseña;
+                query += " Contraseña = '" + entidad.Contraseña + "'";
                 contraseña = true;
 	        }
             if (entidad.Estado != -1)
@@ -146,6 +148,15 @@ namespace CapaDatos
                 }
                
                 query += " Estado = " + entidad.Estado;
+                estado = true;
+            }
+            if (entidad.Direccion != null)
+            {
+                if (id | nombre | apellido | dni | telefono | contraseña | estado)
+                {
+                    query += " and";
+                }
+                query += " Direccion = '" + entidad.Direccion + "'";
             }
 
             query += ";";
@@ -170,10 +181,11 @@ namespace CapaDatos
                 p.Id = Convert.ToInt32(item["IdProfesor"]);
                 p.Nombre = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
-                p.Dni = Convert.ToInt32(item["Dni"]);
+                p.Dni = Convert.ToString(item["Dni"]);
                 p.Telefono = Convert.ToString(item["Telefono"]);
-                p.Contraseña = Convert.ToInt32(item["Contraseña"]);
+                p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
+                p.Direccion = Convert.ToString(item["Direccion"]);
 
                 res.Add(p);
             }
@@ -205,10 +217,11 @@ namespace CapaDatos
                 p.Id = Convert.ToInt32(item["IdProfesor"]);
                 p.Nombre = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
-                p.Dni = Convert.ToInt32(item["Dni"]);
+                p.Dni = Convert.ToString(item["Dni"]);
                 p.Telefono = Convert.ToString(item["Telefono"]);
-                p.Contraseña = Convert.ToInt32(item["Contraseña"]);
+                p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
+                p.Direccion = Convert.ToString(item["Direccion"]);
 
                 res.Add(p);
             }
@@ -216,6 +229,103 @@ namespace CapaDatos
             return res;
         }
 
+        public int AgregarDictaCurso(int IdProfesor, int IdCurso)
+        {
+            int filas;
+
+            string query = "insert Dicta values ('" + IdProfesor + "','" + IdCurso + "');";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return filas;
+        }
+
+        public int UpdateDictaCurso(int IdProfesorOld, int IdCursoOld, int IdProfesorNew, int IdCursoNew)
+        {
+            int filas;
+
+            string query = "Update Dicta set IdProfesor = '" + IdProfesorNew + "', IdCurso = '" + IdCursoNew + "' where IdProfesor = " + IdProfesorOld + " and IdCurso = " + IdCursoOld + ";";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            return filas;
+        }
+
+        public int DeleteDictaCurso(int IdProfesor, int IdCurso)
+        {
+            int filas;
+
+            string query = "delete Dicta where IdProfesor = " + IdProfesor + " and IdCurso = " + IdCurso + ";";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.ELIMINAR);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return filas;
+        }
+
+        public DataTable ProfesorDicta(int IdProfesor, int IdCurso)
+        {
+            DataTable dt;
+            bool profesor = false, curso = false;
+
+            string query = "select * from Dicta where";
+
+            if (IdProfesor != -1)
+            {
+                query += " IdProfesor= '" + IdProfesor + "'";
+                profesor = true;
+            }
+            if (IdCurso != -1)
+            {
+                if (profesor)
+                {
+                    query += " and";
+                }
+
+                query += " IdCurso = '" + IdCurso + "'";
+                curso = true;
+            }
+
+            query += ";";
+
+            try
+            {
+                if (!(profesor | curso))
+                {
+                    query = "select * from Dicta;";
+                }
+
+                dt = dbmanager.Consultar(query);
+            }
+            catch (Exception e)
+            {   
+                
+                throw e;
+            }
+
+            return dt;
+        }
 
     }
 }

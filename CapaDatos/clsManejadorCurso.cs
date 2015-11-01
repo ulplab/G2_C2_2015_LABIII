@@ -71,13 +71,13 @@ namespace CapaDatos
                 query += " IdCurso = " + entidad.Id;
                 id = true;
             }
-            if (entidad.Nombre != "")
+            if (entidad.Nombre != null)
             {
                 if (id)
                 {
                     query += " AND";
                 }
-                query += " Nombre LIKE " + entidad.Nombre + "%";
+                query += " Nombre LIKE '%" + entidad.Nombre + "%'";
                 nombre = true;
             }
             if (entidad.FechaInicio != null)
@@ -98,13 +98,13 @@ namespace CapaDatos
                 query += " FechaFin <= " + String.Format("{0:s}", entidad.FechaFin);
                 fechaF = true;
             }
-            if (entidad.Descripcion != "")
+            if (entidad.Descripcion != null)
             {
                 if (id || nombre || fechaI || fechaF)
                 {
                     query += " AND";
                 }
-                query += " Descripcion LIKE " + entidad.Descripcion + "%";
+                query += " Descripcion LIKE '%" + entidad.Descripcion + "%'";
                 descripcion = true;
             }
             if (entidad.Precio != -1)

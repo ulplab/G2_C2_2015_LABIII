@@ -7,31 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clases;
+using Interfaces;
 
 
 namespace CapaPresentacion
 {
     public partial class frmMenu : frmPrincipal
     {
-        clsAdministrador Administrador = new clsAdministrador();
+        IEntidad usuario;
+        NivelSeguridad seguridad;
 
-        public frmMenu(clsAdministrador Administrador)
+        public frmMenu(IEntidad usuario, NivelSeguridad seguridad)
         {
             InitializeComponent();
-            this.Administrador = Administrador;
+            this.usuario = usuario;
+            this.seguridad = seguridad;
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            lblTitulo.Text += "    Usuario: " + Administrador.Usuario;
-        }
-
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            DialogResult prompt = MessageBox.Show("¿Desea cerrar la aplicación? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (prompt == DialogResult.OK)
+            if (seguridad == NivelSeguridad.ADMINISTRADOR)
             {
-                Application.Restart();
+                ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)usuario).Usuario;
+            }
+            else if(seguridad == NivelSeguridad.PROFESOR)
+            {
+                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Apellido;
+            }
+            else
+            {
+                ousEncabezado.Titulo += "    Alumno: " + ((clsAlumno)usuario).Apellido;
             }
         }
 
@@ -63,6 +68,18 @@ namespace CapaPresentacion
                 else if ((sender as Button).Name == "btnAlumnosPorCurso")
                 {
                     btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnEstadisticas")
+                {
+                    btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnRegistrosCalificaciones")
+                {
+                    btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnAgregarDocentes")
+                {
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
                 }
                 else
                 {
@@ -103,6 +120,18 @@ namespace CapaPresentacion
                 {
                     btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
                 }
+                else if ((sender as Button).Name == "btnEstadisticas")
+                {
+                    btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnRegistrosCalificaciones")
+                {
+                    btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnAgregarDocentes")
+                {
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
+                }
                 else
                 {
                     btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
@@ -134,7 +163,7 @@ namespace CapaPresentacion
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(Administrador);
+            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(usuario);
             this.Visible = false;
             InscribirCurso.ShowDialog();
             this.Visible = true;
@@ -168,6 +197,30 @@ namespace CapaPresentacion
             ConsultarEstadisticas.ShowDialog();
             this.Visible = true;
         }
+
+        private void btnRegistrosCalificaciones_Click(object sender, EventArgs e)
+        {
+            frmRegistroCalificaciones RegistroCalificaciones = new frmRegistroCalificaciones();
+            this.Visible = false;
+            RegistroCalificaciones.ShowDialog();
+            this.Visible = true;
+        }
+
+        void Cerrar()
+        {
+            DialogResult prompt = MessageBox.Show("¿Desea cerrar la aplicación? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (prompt == DialogResult.OK)
+            {
+                Application.Restart();
+            }
+        }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
+        }
+
+
 
 
 

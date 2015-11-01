@@ -172,5 +172,104 @@ namespace CapaLogica
 
             return list;
         }
+
+        public void AsignarProfesorACurso(int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.AgregarDictaCurso(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void ModificarProfesorCurso(int OidProfesor, int OidCurso, int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.UpdateDictaCurso(OidProfesor, OidCurso, idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void BorrarProfesorACurso(int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.DeleteDictaCurso(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+
+        public clsProfesor Login(string usuario, string contraseña)
+        {
+            clsManejadorProfesor pmanager = new clsManejadorProfesor();
+            clsProfesor consulta = new clsProfesor();
+            clsProfesor result;
+
+            try
+            {
+                consulta.Dni = usuario;
+                consulta.Contraseña = contraseña;
+
+                List<clsProfesor> resultados = pmanager.SelectProfesor(consulta);
+                if (resultados.Count() != 0)
+                {
+                    result = resultados[0];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception a)
+            {
+                throw (a);
+            }
+            return (result);
+
+        }
+
+        public DataTable ListarDicta()
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(-1, -1);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
+
+        public DataTable ListarDicta(int idProfesor, int idCurso)
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
     }
 }
+ 

@@ -5,6 +5,8 @@ using System.Text;
 
 namespace Interfaces
 {
+    public enum NivelSeguridad { ADMINISTRADOR, PROFESOR, ALUMNO }
+
     public enum RepoType { ADMINISTRADOR, ALUMNO, CURSO, INSCRIPCION, PROFESOR, CUOTA, NOTA}
 
     public enum Tipo { INSERTAR, ELIMINAR, ACTUALIZAR}

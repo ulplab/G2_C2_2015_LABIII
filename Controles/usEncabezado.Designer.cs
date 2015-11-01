@@ -1,6 +1,6 @@
 ﻿namespace Controles
 {
-    partial class usHeader
+    partial class usEncabezado
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usHeader));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(usEncabezado));
             this.pnlTitulo = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.pnlBotones = new System.Windows.Forms.Panel();
@@ -50,11 +50,11 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(647, 79);
-            this.pnlTitulo.TabIndex = 22;
-            this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
-            this.pnlTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
-            this.pnlTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
+            this.pnlTitulo.Size = new System.Drawing.Size(594, 77);
+            this.pnlTitulo.TabIndex = 23;
+            this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseDown);
+            this.pnlTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseMove);
+            this.pnlTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseUp);
             // 
             // lblTitulo
             // 
@@ -66,9 +66,9 @@
             this.lblTitulo.Size = new System.Drawing.Size(118, 42);
             this.lblTitulo.TabIndex = 22;
             this.lblTitulo.Text = "Titulo";
-            this.lblTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseDown);
-            this.lblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseMove);
-            this.lblTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pnlTitulo_MouseUp);
+            this.lblTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseDown);
+            this.lblTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseMove);
+            this.lblTitulo.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseUp);
             // 
             // pnlBotones
             // 
@@ -77,9 +77,9 @@
             this.pnlBotones.Controls.Add(this.btnMaximizar);
             this.pnlBotones.Controls.Add(this.btnMinimizar);
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pnlBotones.Location = new System.Drawing.Point(461, 0);
+            this.pnlBotones.Location = new System.Drawing.Point(408, 0);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(186, 69);
+            this.pnlBotones.Size = new System.Drawing.Size(186, 67);
             this.pnlBotones.TabIndex = 23;
             // 
             // btnCerrar
@@ -148,19 +148,20 @@
             this.pbLinea.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLinea.BackgroundImage")));
             this.pbLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLinea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbLinea.Location = new System.Drawing.Point(0, 69);
+            this.pbLinea.Location = new System.Drawing.Point(0, 67);
             this.pbLinea.Name = "pbLinea";
-            this.pbLinea.Size = new System.Drawing.Size(647, 10);
+            this.pbLinea.Size = new System.Drawing.Size(594, 10);
             this.pbLinea.TabIndex = 21;
             this.pbLinea.TabStop = false;
             // 
-            // usHeader
+            // usEncabezado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.pnlTitulo);
-            this.Name = "usHeader";
-            this.Size = new System.Drawing.Size(647, 82);
+            this.Name = "usEncabezado";
+            this.Size = new System.Drawing.Size(594, 80);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);

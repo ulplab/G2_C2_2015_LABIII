@@ -38,8 +38,12 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -55,6 +59,18 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crCertificadoFinCurso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crListadoAlumnosPorCurso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crListadoAlumnosPorCurso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\crReciboCobroMatricula.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboCobroMatricula.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\crReporteMorosidad.cs">
@@ -176,12 +192,41 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmRegistroCalificaciones.resx">
-      <DependentUpon>frmRegistroCalificaciones.cs</DependentUpon>
-    </EmbeddedResource>
+    <Compile Include="Reportes\frmCertificadoFinCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmCertificadoFinCurso.Designer.cs">
+      <DependentUpon>frmCertificadoFinCurso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmEmisionRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmEmisionRecibo.Designer.cs">
+      <DependentUpon>frmEmisionRecibo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmListadoAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmListadoAlumnos.Designer.cs">
+      <DependentUpon>frmListadoAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\frmReporteMorosidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmReporteMorosidad.Designer.cs">
+      <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCertificadoFinCurso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crListadoAlumnosPorCurso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crListadoAlumnosPorCurso.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\crReciboCobroMatricula.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboCobroMatricula.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crReporteMorosidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -235,6 +280,9 @@
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroCalificaciones.resx">
+      <DependentUpon>frmRegistroCalificaciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmAlumnosPorCurso.resources" />
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmBajarAlumno2.resources" />
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.frmBajarAlumnos.resources" />
@@ -262,6 +310,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\frmCertificadoFinCurso.resx">
+      <DependentUpon>frmCertificadoFinCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmEmisionRecibo.resx">
+      <DependentUpon>frmEmisionRecibo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmListadoAlumnos.resx">
+      <DependentUpon>frmListadoAlumnos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\frmReporteMorosidad.resx">
+      <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\Presentacion.vshost.exe.manifest" />
     <None Include="obj\x86\Debug\CapaPresentacion.csproj.GenerateResource.Cache" />
@@ -293,6 +353,10 @@
     <ProjectReference Include="..\Clases\Clases.csproj">
       <Project>{82C9015F-4668-442E-ACD6-CD69FF8254D5}</Project>
       <Name>Clases</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controles\Controles.csproj">
+      <Project>{532FECAC-DDC6-4083-A4FD-67C8EFA007F2}</Project>
+      <Name>Controles</Name>
     </ProjectReference>
     <ProjectReference Include="..\Interfaces\Interfaces.csproj">
       <Project>{1F24C5CF-4711-461F-B2C0-F03A86078A0E}</Project>
@@ -327,6 +391,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

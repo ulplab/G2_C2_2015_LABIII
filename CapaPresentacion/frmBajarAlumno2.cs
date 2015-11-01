@@ -19,14 +19,14 @@ namespace CapaPresentacion
             InitializeComponent();
             Alumno = seleccionado;
             ArrancoAlumno = true;
-            lblTitulo.Text = "Seleccione el Curso a desinscribirse";
+            ousEncabezado.Titulo = "Seleccione el Curso a desinscribirse";
         }
         public frmBajarAlumno2(clsCurso seleccionado)
         {
             InitializeComponent();
             Curso = seleccionado;
             ArrancoAlumno = false;
-            lblTitulo.Text = "Seleccione el Alumno a desinscribir";
+            ousEncabezado.Titulo = "Seleccione el Alumno a desinscribir";
         }
         clsCurso Curso;
         clsAlumno Alumno;
@@ -180,7 +180,7 @@ namespace CapaPresentacion
                         Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdAlumno"].Value.ToString());
                         Alumno.Nombre = dgvEtapaUno.SelectedRows[0].Cells["Nombre"].Value.ToString();
                         Alumno.Apellido = dgvEtapaUno.SelectedRows[0].Cells["Apellido"].Value.ToString();
-                        Alumno.Dni = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString());
+                        Alumno.Dni = dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString();
                         Alumno.Direccion = dgvEtapaUno.SelectedRows[0].Cells["Direccion"].Value.ToString();
                         Alumno.Telefono = dgvEtapaUno.SelectedRows[0].Cells["Telefono"].Value.ToString();
                         Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();

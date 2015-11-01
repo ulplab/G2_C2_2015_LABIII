@@ -62,9 +62,6 @@
             this.dtpVariable6 = new System.Windows.Forms.DateTimePicker();
             this.cbVariable7 = new System.Windows.Forms.ComboBox();
             this.chbCampos = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
-            this.pnlBotones.SuspendLayout();
-            this.pnlTitulo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
@@ -72,43 +69,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pbLinea
+            // ousEncabezado
             // 
-            this.pbLinea.Size = new System.Drawing.Size(1167, 10);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(981, 0);
-            // 
-            // btnCerrar
-            // 
-            this.btnCerrar.FlatAppearance.BorderSize = 0;
-            this.btnCerrar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMinimizar
-            // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // lblTitulo
-            // 
-            this.lblTitulo.Size = new System.Drawing.Size(236, 42);
-            this.lblTitulo.Text = "Estadísticas";
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(1167, 79);
+            this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(1167, 79);
+            this.ousEncabezado.Titulo = "Ingresos";
             // 
             // dgvDatos
             // 
@@ -487,9 +452,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tcInformacion);
             this.Name = "frmIngresos";
-            this.Text = " ";
+            this.Text = "frmIngresos";
             this.Load += new System.EventHandler(this.frmIngresos_Load);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.tcInformacion, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.lblIngresosPor, 0);
@@ -517,10 +482,6 @@
             this.Controls.SetChildIndex(this.dtpVariable6, 0);
             this.Controls.SetChildIndex(this.cbVariable7, 0);
             this.Controls.SetChildIndex(this.chbCampos, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
-            this.pnlBotones.ResumeLayout(false);
-            this.pnlTitulo.ResumeLayout(false);
-            this.pnlTitulo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);

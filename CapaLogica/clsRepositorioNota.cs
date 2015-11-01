@@ -131,6 +131,29 @@ namespace CapaLogica
             return nalumno;
         }
 
+        public IEntidad ObtenerPorId(int idAlumno, int idCurso)
+        {
+            clsNota nota = new clsNota();
+            nota.IdAlumno = idAlumno;
+            nota.IdCurso = idCurso;
+            clsNota nalumno = null;
+
+            try
+            {
+                nalumno = manager.SelectNota(nota)[0];
+                if (nalumno == null)
+                {
+                    throw new ArgumentException("La nota no existe");
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return nalumno;
+        }
+
         public List<IEntidad> Lista()
         {
             List<IEntidad> list = new List<IEntidad>();

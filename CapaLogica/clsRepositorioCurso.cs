@@ -43,7 +43,7 @@ namespace CapaLogica
                 if (manager.SelectCurso(compare).Count == 0 && curso.FechaInicio < curso.FechaFin)
                     manager.InsertCurso(curso);
                 else
-                    throw new ArgumentException("El Curso ingresado ya existe");
+                    throw new ArgumentException("El Curso ingresado ya existe o es invalido");
             }
             catch (Exception e)
             {

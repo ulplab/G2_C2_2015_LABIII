@@ -32,9 +32,9 @@ namespace Clases
             set { apellido = value; }
         }
 
-        int dni = -1;
+        string dni;
 
-        public int Dni
+        public string Dni
         {
             get { return dni; }
             set { dni = value; }
@@ -48,9 +48,9 @@ namespace Clases
             set { telefono = value; }
         }
 
-        int contraseña = -1;
+        string contraseña;
 
-        public int Contraseña
+        public string Contraseña
         {
             get { return contraseña; }
             set { contraseña = value; }
@@ -63,5 +63,14 @@ namespace Clases
             get { return estado; }
             set { estado = value; }
         }
+
+        string direccion;
+
+        public string Direccion
+        {
+            get { return direccion; }
+            set { direccion = value; }
+        }
+
     }
 }

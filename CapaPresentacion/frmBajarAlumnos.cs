@@ -156,7 +156,7 @@ namespace CapaPresentacion
                             Alumno.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdAlumno"].Value.ToString());
                             Alumno.Nombre = dgvEtapaUno.SelectedRows[0].Cells["Nombre"].Value.ToString();
                             Alumno.Apellido = dgvEtapaUno.SelectedRows[0].Cells["Apellido"].Value.ToString();
-                            Alumno.Dni = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString());
+                            Alumno.Dni = dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString();
                             Alumno.Direccion = dgvEtapaUno.SelectedRows[0].Cells["Direccion"].Value.ToString();
                             Alumno.Telefono = dgvEtapaUno.SelectedRows[0].Cells["Telefono"].Value.ToString();
                             Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();
@@ -180,7 +180,7 @@ namespace CapaPresentacion
         }
         private void rdAlumnos_CheckedChanged(object sender, EventArgs e)
         {
-            this.lblTitulo.Text = "Seleccione un Alumno para comenzar";
+            ousEncabezado.Titulo = "Seleccione un Alumno para comenzar";
             this.rdNombre.Text = "Nombre";
             this.rdApellido.Text = "Apellido";
             this.rdDNI.Text = "Dni";
@@ -195,7 +195,7 @@ namespace CapaPresentacion
         }
         private void rdCursos_CheckedChanged(object sender, EventArgs e)
         {
-            this.lblTitulo.Text = "Seleccione un Curso para comenzar";
+            //this.lblTitulo.Text = "Seleccione un Curso para comenzar";
             this.rdNombre.Text = "Nombre";
             this.rdApellido.Text = "FechaInicio";
             this.rdDNI.Text = "FechaFin";

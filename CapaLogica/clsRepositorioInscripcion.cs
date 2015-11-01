@@ -271,7 +271,7 @@ namespace CapaLogica
                 {
                     clsAlumno Alumno = new clsAlumno();
                     Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
-                    Alumno.Dni = Convert.ToInt32(r["Dni"]);
+                    Alumno.Dni = Convert.ToString(r["Dni"]);
                     Alumno.Nombre = Convert.ToString(r["Nombre"]);
                     Alumno.Apellido = Convert.ToString(r["Apellido"]);
                     Alumno.Direccion = Convert.ToString(r["Direccion"]);
@@ -327,7 +327,7 @@ namespace CapaLogica
                 {
                     clsAlumno Alumno = new clsAlumno();
                     Alumno.Id = Convert.ToInt32(r["IdAlumno"]);
-                    Alumno.Dni = Convert.ToInt32(r["Dni"]);
+                    Alumno.Dni = Convert.ToString(r["Dni"]);
                     Alumno.Nombre = Convert.ToString(r["Nombre"]);
                     Alumno.Apellido = Convert.ToString(r["Apellido"]);
                     Alumno.Direccion = Convert.ToString(r["Direccion"]);

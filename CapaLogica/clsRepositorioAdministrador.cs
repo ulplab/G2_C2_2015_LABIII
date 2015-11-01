@@ -41,7 +41,9 @@ namespace CapaLogica
             try
             {
                 if (manager.SelectAdministrador(compare).Count == 0)
+                {
                     manager.InsertAdministrador(administrador);
+                }
                 else
                     throw new ArgumentException("Ese nombre de usuario ya esta en uso");
             }
@@ -173,20 +175,16 @@ namespace CapaLogica
 
             return list;
         }
+
         public clsAdministrador Login(string usuario, string contraseña)
         {
             clsAdministrador consulta = new clsAdministrador();
             clsAdministrador result;
             try
             {
-                //consulta.Nombre = string.Empty;
                 consulta.Usuario = usuario;
                 consulta.Contraseña = contraseña;
-                //consulta.Apellido = string.Empty;
-                //consulta.Dni = -1;
-                consulta.Estado = 1;
-                //consulta.Id = -1;
-                //consulta.Telefono = string.Empty;
+
                 List<clsAdministrador> resultados = manager.SelectAdministrador(consulta);
                 if (resultados.Count() != 0)
                 {
@@ -194,7 +192,7 @@ namespace CapaLogica
                 }
                 else
                 {
-                    throw (new Exception("Esta combinacion de Usuario y Contraseña no son validos"));
+                    return null;
                 }
             }
             catch (Exception a)
