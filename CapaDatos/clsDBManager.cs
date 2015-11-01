@@ -19,14 +19,14 @@ namespace CapaDatos
 
         string strcnn;
         //para conectarme a la base cambie esto. El usuario anterior era "LaboIII"
-        string usuario = "User";
+        string usuario = "LaboIII";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "brian";
+        string clave = "1234";
         //La clave anterior era "1234"
         public string Clave
         {
@@ -34,7 +34,7 @@ namespace CapaDatos
             set { clave = value; }
         }
         //El servidor anterior era "NOTEBOOK"  
-        string server = "LAVIEJAPHILCO\\SQLEXPRESS";
+        string server = "NOTEBOOK";
 
         //La base anterior era "BDExamen1LaboIII
         public string Server
@@ -42,7 +42,7 @@ namespace CapaDatos
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamenLaboIII";
+        string baseDeDatos = "BDExamen1LaboIII";
 
         public string BaseDeDatos
         {
@@ -63,7 +63,6 @@ namespace CapaDatos
             strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
                      ";User ID=" + Usuario + ";" +
                      "Password=" + Clave;
-            strcnn = "Data Source=PABLO-PC\\SQLEXPRESS;Initial Catalog=BDExamen1LaboIII;Integrated Security=True";
             return strcnn;
 
         }

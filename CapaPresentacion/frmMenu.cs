@@ -64,6 +64,10 @@ namespace CapaPresentacion
                 {
                     btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
                 }
+                else if ((sender as Button).Name == "btnEstadisticas")
+                {
+                    btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-140x140.png");
+                }
                 else
                 {
                     btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
@@ -102,6 +106,10 @@ namespace CapaPresentacion
                 else if ((sender as Button).Name == "btnAlumnosPorCurso")
                 {
                     btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnEstadisticas")
+                {
+                    btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-120x120.png");
                 }
                 else
                 {

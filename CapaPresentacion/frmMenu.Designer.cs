@@ -37,37 +37,18 @@
             this.btnAlumnosPorCurso = new System.Windows.Forms.Button();
             this.btnCursosPorAlumno = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
-            this.pnlTitulo.SuspendLayout();
-            this.pnlBotones.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
+            this.pnlBotones.SuspendLayout();
+            this.pnlTitulo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnlTitulo
-            // 
-            this.pnlTitulo.Size = new System.Drawing.Size(911, 79);
-            // 
-            // pnlBotones
-            // 
-            this.pnlBotones.Location = new System.Drawing.Point(725, 0);
             // 
             // pbLinea
             // 
             this.pbLinea.Size = new System.Drawing.Size(911, 10);
             // 
-            // btnMinimizar
+            // pnlBotones
             // 
-            this.btnMinimizar.FlatAppearance.BorderSize = 0;
-            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            // 
-            // btnMaximizar
-            // 
-            this.btnMaximizar.Enabled = false;
-            this.btnMaximizar.FlatAppearance.BorderSize = 0;
-            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.pnlBotones.Location = new System.Drawing.Point(725, 0);
             // 
             // btnCerrar
             // 
@@ -77,6 +58,25 @@
             this.btnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCerrar.Tag = "1";
             this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
+            // btnMaximizar
+            // 
+            this.btnMaximizar.Enabled = false;
+            this.btnMaximizar.FlatAppearance.BorderSize = 0;
+            this.btnMaximizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnMaximizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMaximizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.FlatAppearance.BorderSize = 0;
+            this.btnMinimizar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMinimizar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            // 
+            // pnlTitulo
+            // 
+            this.pnlTitulo.Size = new System.Drawing.Size(911, 79);
             // 
             // btnAgregarAdministrador
             // 
@@ -262,17 +262,21 @@
             this.btnEstadisticas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 16.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
-            this.btnEstadisticas.Location = new System.Drawing.Point(506, 85);
+            this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
+            this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEstadisticas.Location = new System.Drawing.Point(511, 91);
             this.btnEstadisticas.Name = "btnEstadisticas";
-            this.btnEstadisticas.Size = new System.Drawing.Size(196, 175);
+            this.btnEstadisticas.Size = new System.Drawing.Size(196, 187);
             this.btnEstadisticas.TabIndex = 42;
             this.btnEstadisticas.TabStop = false;
-            this.btnEstadisticas.Text = "Estadísticas";
+            this.btnEstadisticas.Text = "Reportes Estadisticos";
             this.btnEstadisticas.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnEstadisticas.UseVisualStyleBackColor = false;
             this.btnEstadisticas.Click += new System.EventHandler(this.btnEstadisticas_Click);
+            this.btnEstadisticas.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnEstadisticas.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
             // frmMenu
             // 
@@ -292,7 +296,6 @@
             this.Text = "frmAMBAlumnos";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.Controls.SetChildIndex(this.btnAgregarAdministrador, 0);
-            this.Controls.SetChildIndex(this.pnlTitulo, 0);
             this.Controls.SetChildIndex(this.btnAgregarAlumno, 0);
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
             this.Controls.SetChildIndex(this.btnInscribirAlumno, 0);
@@ -300,10 +303,11 @@
             this.Controls.SetChildIndex(this.btnAlumnosPorCurso, 0);
             this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
+            this.Controls.SetChildIndex(this.pnlTitulo, 0);
+            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
+            this.pnlBotones.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
-            this.pnlBotones.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.ResumeLayout(false);
 
         }
