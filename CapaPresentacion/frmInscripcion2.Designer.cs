@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmInscripcion2));
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
@@ -90,14 +91,19 @@
             // 
             // btnContinuar
             // 
-            this.btnContinuar.BackColor = System.Drawing.Color.Black;
+            this.btnContinuar.BackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContinuar.FlatAppearance.BorderSize = 0;
+            this.btnContinuar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
-            this.btnContinuar.Location = new System.Drawing.Point(902, 547);
+            this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
+            this.btnContinuar.Location = new System.Drawing.Point(881, 550);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(267, 73);
+            this.btnContinuar.Size = new System.Drawing.Size(184, 73);
             this.btnContinuar.TabIndex = 47;
-            this.btnContinuar.Text = "Inscribir";
             this.btnContinuar.UseVisualStyleBackColor = false;
             this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
             // 
@@ -222,14 +228,19 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Black;
+            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(39, 547);
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.Location = new System.Drawing.Point(88, 547);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(267, 73);
+            this.btnCancelar.Size = new System.Drawing.Size(184, 73);
             this.btnCancelar.TabIndex = 53;
-            this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
