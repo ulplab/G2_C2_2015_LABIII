@@ -33,13 +33,13 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(856, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(721, 79);
             // 
             // frmCertificadoFinCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(856, 490);
+            this.ClientSize = new System.Drawing.Size(721, 490);
             this.Name = "frmCertificadoFinCurso";
             this.Text = "frmCertificadoFinCurso";
             this.ResumeLayout(false);
