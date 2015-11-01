@@ -24,7 +24,12 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
+            clsManejadorAlumno amanager = new clsManejadorAlumno();
+            clsManejadorProfesor pmanager = new clsManejadorProfesor();
+
             clsAdministrador administrador = new clsAdministrador();
+            clsAlumno alumno = new clsAlumno();
+            clsProfesor profesor = new clsProfesor();
 
             try
             {
@@ -37,11 +42,15 @@ namespace CapaLogica
 
             clsAdministrador compare = new clsAdministrador();
             compare.Usuario = administrador.Usuario;
+            alumno.Dni = administrador.Usuario;
+            profesor.Dni = administrador.Usuario;
 
             try
             {
-                if (manager.SelectAdministrador(compare).Count == 0)
+                if (manager.SelectAdministrador(compare).Count == 0 && amanager.SelectAlumno(alumno).Count == 0 && pmanager.SelectProfesor(profesor).Count == 0)
+                {
                     manager.InsertAdministrador(administrador);
+                }
                 else
                     throw new ArgumentException("Ese nombre de usuario ya esta en uso");
             }

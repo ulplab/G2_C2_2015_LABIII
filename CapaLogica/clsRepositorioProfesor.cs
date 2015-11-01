@@ -23,7 +23,12 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
+            clsManejadorAdministrador amanager = new clsManejadorAdministrador();
+            clsManejadorAlumno almanager = new clsManejadorAlumno();
+
             clsProfesor profesor = new clsProfesor();
+            clsAdministrador admin = new clsAdministrador();
+            clsAlumno alum = new clsAlumno();
 
             try
             {
@@ -36,10 +41,12 @@ namespace CapaLogica
 
             clsProfesor compare = new clsProfesor();
             compare.Dni = profesor.Dni;
+            admin.Usuario = profesor.Dni;
+            alum.Dni = profesor.Dni;
 
             try
             {
-                if (manager.SelectProfesor(compare).Count == 0)
+                if (manager.SelectProfesor(compare).Count == 0 && amanager.SelectAdministrador(admin).Count == 0 && almanager.SelectAlumno(alum).Count == 0)
                     manager.InsertarProfesor(profesor);
                 else
                     throw new ArgumentException("El Profesor ingresado ya existe");
