@@ -37,6 +37,8 @@
             this.btnAlumnosPorCurso = new System.Windows.Forms.Button();
             this.btnCursosPorAlumno = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
+            this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
+            this.btnAgregarDocentes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).BeginInit();
             this.pnlBotones.SuspendLayout();
             this.pnlTitulo.SuspendLayout();
@@ -44,11 +46,11 @@
             // 
             // pbLinea
             // 
-            this.pbLinea.Size = new System.Drawing.Size(911, 10);
+            this.pbLinea.Size = new System.Drawing.Size(1016, 10);
             // 
             // pnlBotones
             // 
-            this.pnlBotones.Location = new System.Drawing.Point(725, 0);
+            this.pnlBotones.Location = new System.Drawing.Point(830, 0);
             // 
             // btnCerrar
             // 
@@ -76,7 +78,7 @@
             // 
             // pnlTitulo
             // 
-            this.pnlTitulo.Size = new System.Drawing.Size(911, 79);
+            this.pnlTitulo.Size = new System.Drawing.Size(1016, 79);
             // 
             // btnAgregarAdministrador
             // 
@@ -91,7 +93,7 @@
             this.btnAgregarAdministrador.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAdministrador.Image")));
             this.btnAgregarAdministrador.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAdministrador.Location = new System.Drawing.Point(679, 507);
+            this.btnAgregarAdministrador.Location = new System.Drawing.Point(764, 507);
             this.btnAgregarAdministrador.Name = "btnAgregarAdministrador";
             this.btnAgregarAdministrador.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAdministrador.TabIndex = 32;
@@ -141,7 +143,7 @@
             this.btnAgregarCurso.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCurso.Image")));
             this.btnAgregarCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarCurso.Location = new System.Drawing.Point(318, 91);
+            this.btnAgregarCurso.Location = new System.Drawing.Point(538, 85);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
             this.btnAgregarCurso.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarCurso.TabIndex = 34;
@@ -191,7 +193,7 @@
             this.btnDarBajaInscripcion.ForeColor = System.Drawing.Color.White;
             this.btnDarBajaInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBajaInscripcion.Image")));
             this.btnDarBajaInscripcion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(318, 299);
+            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(327, 299);
             this.btnDarBajaInscripcion.Name = "btnDarBajaInscripcion";
             this.btnDarBajaInscripcion.Size = new System.Drawing.Size(196, 187);
             this.btnDarBajaInscripcion.TabIndex = 39;
@@ -241,7 +243,7 @@
             this.btnCursosPorAlumno.ForeColor = System.Drawing.Color.White;
             this.btnCursosPorAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnCursosPorAlumno.Image")));
             this.btnCursosPorAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCursosPorAlumno.Location = new System.Drawing.Point(318, 507);
+            this.btnCursosPorAlumno.Location = new System.Drawing.Point(327, 507);
             this.btnCursosPorAlumno.Name = "btnCursosPorAlumno";
             this.btnCursosPorAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnCursosPorAlumno.TabIndex = 41;
@@ -266,7 +268,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEstadisticas.Location = new System.Drawing.Point(511, 91);
+            this.btnEstadisticas.Location = new System.Drawing.Point(538, 507);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(196, 187);
             this.btnEstadisticas.TabIndex = 42;
@@ -278,11 +280,62 @@
             this.btnEstadisticas.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnEstadisticas.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // btnRegistrosCalificaciones
+            // 
+            this.btnRegistrosCalificaciones.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosCalificaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrosCalificaciones.FlatAppearance.BorderSize = 0;
+            this.btnRegistrosCalificaciones.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosCalificaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosCalificaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrosCalificaciones.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrosCalificaciones.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrosCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosCalificaciones.Image")));
+            this.btnRegistrosCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(538, 299);
+            this.btnRegistrosCalificaciones.Name = "btnRegistrosCalificaciones";
+            this.btnRegistrosCalificaciones.Size = new System.Drawing.Size(196, 187);
+            this.btnRegistrosCalificaciones.TabIndex = 43;
+            this.btnRegistrosCalificaciones.TabStop = false;
+            this.btnRegistrosCalificaciones.Text = "Registros Calificaciones";
+            this.btnRegistrosCalificaciones.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegistrosCalificaciones.UseVisualStyleBackColor = false;
+            this.btnRegistrosCalificaciones.Click += new System.EventHandler(this.btnRegistrosCalificaciones_Click);
+            this.btnRegistrosCalificaciones.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnRegistrosCalificaciones.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            // 
+            // btnAgregarDocentes
+            // 
+            this.btnAgregarDocentes.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarDocentes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarDocentes.FlatAppearance.BorderSize = 0;
+            this.btnAgregarDocentes.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarDocentes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarDocentes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarDocentes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDocentes.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarDocentes.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarDocentes.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDocentes.Image")));
+            this.btnAgregarDocentes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAgregarDocentes.Location = new System.Drawing.Point(327, 85);
+            this.btnAgregarDocentes.Name = "btnAgregarDocentes";
+            this.btnAgregarDocentes.Size = new System.Drawing.Size(196, 187);
+            this.btnAgregarDocentes.TabIndex = 44;
+            this.btnAgregarDocentes.TabStop = false;
+            this.btnAgregarDocentes.Text = "Cargar \r\nDocentes";
+            this.btnAgregarDocentes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAgregarDocentes.UseVisualStyleBackColor = false;
+            this.btnAgregarDocentes.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnAgregarDocentes.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 763);
+            this.ClientSize = new System.Drawing.Size(1016, 758);
+            this.Controls.Add(this.btnAgregarDocentes);
+            this.Controls.Add(this.btnRegistrosCalificaciones);
             this.Controls.Add(this.btnEstadisticas);
             this.Controls.Add(this.btnCursosPorAlumno);
             this.Controls.Add(this.btnAlumnosPorCurso);
@@ -304,6 +357,8 @@
             this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.Controls.SetChildIndex(this.pnlTitulo, 0);
+            this.Controls.SetChildIndex(this.btnRegistrosCalificaciones, 0);
+            this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
             ((System.ComponentModel.ISupportInitialize)(this.pbLinea)).EndInit();
             this.pnlBotones.ResumeLayout(false);
             this.pnlTitulo.ResumeLayout(false);
@@ -322,6 +377,8 @@
         private System.Windows.Forms.Button btnAlumnosPorCurso;
         private System.Windows.Forms.Button btnCursosPorAlumno;
         private System.Windows.Forms.Button btnEstadisticas;
+        private System.Windows.Forms.Button btnRegistrosCalificaciones;
+        private System.Windows.Forms.Button btnAgregarDocentes;
 
     }
 }

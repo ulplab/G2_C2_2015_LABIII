@@ -68,6 +68,14 @@ namespace CapaPresentacion
                 {
                     btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-140x140.png");
                 }
+                else if ((sender as Button).Name == "btnRegistrosCalificaciones")
+                {
+                    btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnAgregarDocentes")
+                {
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
+                }
                 else
                 {
                     btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
@@ -110,6 +118,14 @@ namespace CapaPresentacion
                 else if ((sender as Button).Name == "btnEstadisticas")
                 {
                     btnEstadisticas.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Estadisticas-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnRegistrosCalificaciones")
+                {
+                    btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnAgregarDocentes")
+                {
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
                 }
                 else
                 {
@@ -176,6 +192,16 @@ namespace CapaPresentacion
             ConsultarEstadisticas.ShowDialog();
             this.Visible = true;
         }
+
+        private void btnRegistrosCalificaciones_Click(object sender, EventArgs e)
+        {
+            frmRegistroCalificaciones RegistroCalificaciones = new frmRegistroCalificaciones();
+            this.Visible = false;
+            RegistroCalificaciones.ShowDialog();
+            this.Visible = true;
+        }
+
+
 
 
 
