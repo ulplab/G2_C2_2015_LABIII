@@ -274,7 +274,7 @@ namespace CapaDatos
         public DataTable ProfesorDicta(int IdProfesor, int IdCurso)
         {
             DataTable dt;
-            bool profesor = false;
+            bool profesor = false, curso = false;
 
             string query = "select * from Dicta where";
 
@@ -291,12 +291,18 @@ namespace CapaDatos
                 }
 
                 query += " IdCurso = '" + IdCurso + "'";
+                curso = true;
             }
 
             query += ";";
 
             try
             {
+                if (!(profesor | curso))
+                {
+                    query = "select * from Dicta;";
+                }
+
                 dt = dbmanager.Consultar(query);
             }
             catch (Exception e)
@@ -307,5 +313,6 @@ namespace CapaDatos
 
             return dt;
         }
+
     }
 }

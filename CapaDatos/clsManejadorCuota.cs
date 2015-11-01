@@ -111,6 +111,8 @@ namespace CapaDatos
                 query += " Fecha =" + String.Format("{0:s}", entidad.Fecha);
             }
 
+            query += ";";
+
             try
             {
                 dt = dbManager.Consultar(query);
