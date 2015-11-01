@@ -108,7 +108,7 @@ namespace CapaDatos
                 query += " Apellido = " + entidad.Apellido;
                 apellido = true;
 	        }
-            if (entidad.Dni != -1)
+            if (entidad.Dni != null)
             {
                 if (id | nombre | apellido)
                 {
