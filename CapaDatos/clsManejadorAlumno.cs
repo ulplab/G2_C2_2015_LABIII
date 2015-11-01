@@ -74,7 +74,7 @@ namespace CapaDatos
             string query = "SELECT * FROM Alumnos WHERE";
             if (entidad.Id != -1)
             {
-                query += " IdAlumno = " + entidad.Id;
+                query += " IdAlumno = '" + entidad.Id + "'";
                 id = true;
             }
             if (entidad.Dni != null)
@@ -83,7 +83,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Dni = " + entidad.Dni;
+                query += " Dni = '" + entidad.Dni + "'";
                 dni = true;
             }
             if (entidad.Apellido != null)
@@ -92,7 +92,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Apellido LIKE " + entidad.Apellido + "%";
+                query += " Apellido LIKE '" + entidad.Apellido + "%'";
                 apellido = true;
             }
             if (entidad.Direccion != null)
@@ -101,7 +101,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Direccion LIKE " + entidad.Direccion + "%";
+                query += " Direccion LIKE '" + entidad.Direccion + "%'";
                 direccion = true;
             }
             if (entidad.Email != null)
@@ -110,7 +110,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Email LIKE " + entidad.Email + "%";
+                query += " Email LIKE '" + entidad.Email + "%'";
                 email = true;
             }
             if (entidad.Nombre != null)
@@ -119,7 +119,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Nombre LIKE " + entidad.Nombre + "%";
+                query += " Nombre LIKE '" + entidad.Nombre + "%'";
                 nombre = true;
             }
             if (entidad.Telefono != null)
@@ -128,7 +128,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Telefono = " + entidad.Telefono;
+                query += " Telefono = '" + entidad.Telefono + "'";
                 telefono = true;
             }
             if (entidad.Contraseña != null)
@@ -138,7 +138,7 @@ namespace CapaDatos
                     query += " AND";
                 }
 
-                query += " Contraseña = " + entidad.Contraseña;
+                query += " Contraseña = '" + entidad.Contraseña + "'";
                 contraseña = true;
             }
             if (entidad.Estado != -1)
@@ -147,7 +147,7 @@ namespace CapaDatos
                 {
                     query += " AND";
                 }
-                query += " Estado = " + entidad.Estado;
+                query += " Estado = '" + entidad.Estado + "'";
             }
 
             query += ";";
