@@ -179,5 +179,37 @@ namespace CapaLogica
 
             return list;
         }
+
+
+        public clsAlumno Login(string usuario, string contraseña)
+        {
+            clsManejadorAlumno amanager = new clsManejadorAlumno();
+            clsAlumno consulta = new clsAlumno();
+            clsAlumno result;
+            try
+            {
+                consulta.Dni = Convert.ToInt32(usuario);
+                consulta.Contraseña = contraseña;
+
+                List<clsAlumno> resultados = amanager.SelectAlumno(consulta);
+                if (resultados.Count() != 0)
+                {
+                    result = resultados[0];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception a)
+            {
+                throw (a);
+            }
+            return (result);
+
+        }
+
+
+
     }
 }

@@ -173,7 +173,7 @@ namespace CapaPresentacion
                         Administrador.Contraseña = tbContraseña.Text;
                         Administrador.Nombre = tbNombre.Text;
                         Administrador.Apellido = tbApellido.Text;
-                        Administrador.Dni = Convert.ToInt32(tbDni.Text);
+                        Administrador.Dni = tbDni.Text;
                         Administrador.Telefono = tbTelefono.Text;
                         Administrador.Estado = 1;
 
@@ -223,7 +223,7 @@ namespace CapaPresentacion
             Administrador.Contraseña = Convert.ToString(dgvAdministradores.CurrentRow.Cells["Contraseña"].Value);
             Administrador.Nombre = Convert.ToString(dgvAdministradores.CurrentRow.Cells["Nombre"].Value);
             Administrador.Apellido = Convert.ToString(dgvAdministradores.CurrentRow.Cells["Apellido"].Value);
-            Administrador.Dni = Convert.ToInt32(dgvAdministradores.CurrentRow.Cells["Dni"].Value);
+            Administrador.Dni = Convert.ToString(dgvAdministradores.CurrentRow.Cells["Dni"].Value);
             Administrador.Telefono = Convert.ToString(dgvAdministradores.CurrentRow.Cells["Telefono"].Value);
 
             if (Convert.ToString(dgvAdministradores.CurrentRow.Cells["Estado"].Value) == "Habilitado")
@@ -263,7 +263,7 @@ namespace CapaPresentacion
 
             temp.Usuario = tbFiltroUsuario.Text;
             temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = Convert.ToInt32( tbFiltroDni.Text );
+            temp.Dni = tbFiltroDni.Text;
 
           /*  query = "SELECT * " +
                     "FROM Administradores " +
