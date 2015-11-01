@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Reportes
 {
-    public partial class frmCertificadoFinCurso : frmPrincipal
+    public partial class frmCertificadoFinCurso : Form
     {
         public frmCertificadoFinCurso()
         {
