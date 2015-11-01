@@ -176,6 +176,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReportes.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reportes\frmCertificadoFinCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\frmCertificadoFinCurso.Designer.cs">
+      <DependentUpon>frmCertificadoFinCurso.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCertificadoFinCurso.cs</LastGenOutput>
@@ -262,6 +268,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\frmCertificadoFinCurso.resx">
+      <DependentUpon>frmCertificadoFinCurso.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\Presentacion.vshost.exe.manifest" />
     <None Include="obj\x86\Debug\CapaPresentacion.csproj.GenerateResource.Cache" />

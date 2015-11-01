@@ -32,11 +32,11 @@ namespace CapaPresentacion
             }
             else if(seguridad == NivelSeguridad.PROFESOR)
             {
-                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Dni;
+                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Apellido;
             }
             else
             {
-                ousEncabezado.Titulo += "    Alumno: " + ((clsProfesor)usuario).Dni;
+                ousEncabezado.Titulo += "    Alumno: " + ((clsAlumno)usuario).Apellido;
             }
         }
 
