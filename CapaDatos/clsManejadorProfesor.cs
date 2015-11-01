@@ -270,5 +270,42 @@ namespace CapaDatos
 
             return filas;
         }
+
+        public DataTable ProfesorDicta(int IdProfesor, int IdCurso)
+        {
+            DataTable dt;
+            bool profesor = false;
+
+            string query = "select * from Dicta where";
+
+            if (IdProfesor != -1)
+            {
+                query += " IdProfesor= '" + IdProfesor + "'";
+                profesor = true;
+            }
+            if (IdCurso != -1)
+            {
+                if (profesor)
+                {
+                    query += " and";
+                }
+
+                query += " IdCurso = '" + IdCurso + "'";
+            }
+
+            query += ";";
+
+            try
+            {
+                dt = dbmanager.Consultar(query);
+            }
+            catch (Exception e)
+            {   
+                
+                throw e;
+            }
+
+            return dt;
+        }
     }
 }
