@@ -61,7 +61,30 @@ namespace CapaDatos
         {
             List<clsNota> list = new List<clsNota>();
 
+            bool idnota = false, alumno = false, curso = false, nota = false, fecha = false;
 
+            string query = "select * from Nota where";
+
+            if (entidad.Id != -1)
+            {
+                query += " IdNota = '" + entidad.Id + "'";
+                idnota = true;
+            }
+            if (entidad.IdAlumno != -1)
+            {
+                if (idnota)
+                {
+                    query += " and";
+                }
+
+                query += " IdAlumno = '" + entidad.IdAlumno + "'";
+                alumno = true;
+            }
+            if (entidad.IdCurso != -1)
+            {
+
+            }
+            
 
             return list;
         }
