@@ -48,9 +48,9 @@ namespace Clases
             set { telefono = value; }
         }
 
-        int contraseña = -1;
+        string contraseña;
 
-        public int Contraseña
+        public string Contraseña
         {
             get { return contraseña; }
             set { contraseña = value; }

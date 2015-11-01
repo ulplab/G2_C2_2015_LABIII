@@ -172,5 +172,41 @@ namespace CapaLogica
 
             return list;
         }
+
+        public void AsignarProfesorACurso(int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.AgregarDictaCurso(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void ModificarProfesorCurso(int OidProfesor, int OidCurso, int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.UpdateDictaCurso(OidProfesor, OidCurso, idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public void BorrarProfesorACurso(int idProfesor, int idCurso)
+        {
+            try
+            {
+                manager.DeleteDictaCurso(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

@@ -128,7 +128,7 @@ namespace CapaDatos
                 query += " Telefono = " + entidad.Telefono;
                 telefono = true;
 	        }
-            if (entidad.Contraseña != -1)
+            if (entidad.Contraseña != null)
 	        {
                 if (id | nombre | apellido | dni | telefono)
                 {
@@ -172,7 +172,7 @@ namespace CapaDatos
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Dni = Convert.ToInt32(item["Dni"]);
                 p.Telefono = Convert.ToString(item["Telefono"]);
-                p.Contraseña = Convert.ToInt32(item["Contraseña"]);
+                p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
                 res.Add(p);
@@ -207,7 +207,7 @@ namespace CapaDatos
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Dni = Convert.ToInt32(item["Dni"]);
                 p.Telefono = Convert.ToString(item["Telefono"]);
-                p.Contraseña = Convert.ToInt32(item["Contraseña"]);
+                p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
                 res.Add(p);

@@ -71,7 +71,7 @@ namespace CapaDatos
                 query += " IdCurso = " + entidad.Id;
                 id = true;
             }
-            if (entidad.Nombre != "")
+            if (entidad.Nombre != null)
             {
                 if (id)
                 {
@@ -98,7 +98,7 @@ namespace CapaDatos
                 query += " FechaFin <= " + String.Format("{0:s}", entidad.FechaFin);
                 fechaF = true;
             }
-            if (entidad.Descripcion != "")
+            if (entidad.Descripcion != null)
             {
                 if (id || nombre || fechaI || fechaF)
                 {
