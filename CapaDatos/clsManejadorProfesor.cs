@@ -216,6 +216,59 @@ namespace CapaDatos
             return res;
         }
 
+        public int AgregarDictaCurso(int IdProfesor, int IdCurso)
+        {
+            int filas;
 
+            string query = "insert Dicta values ('" + IdProfesor + "','" + IdCurso + "');";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return filas;
+        }
+
+        public int UpdateDictaCurso(int IdProfesorOld, int IdCursoOld, int IdProfesorNew, int IdCursoNew)
+        {
+            int filas;
+
+            string query = "Update Dicta set IdProfesor = '" + IdProfesorNew + "', IdCurso = '" + IdCursoNew + "' where IdProfesor = " + IdProfesorOld + " and IdCurso = " + IdCursoOld + ";";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            return filas;
+        }
+
+        public int DeleteDictaCurso(int IdProfesor, int IdCurso)
+        {
+            int filas;
+
+            string query = "delete Dicta where IdProfesor = " + IdProfesor + " and IdCurso = " + IdCurso + ";";
+
+            try
+            {
+                filas = dbmanager.Ejecutar(query, Tipo.ELIMINAR);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return filas;
+        }
     }
 }
