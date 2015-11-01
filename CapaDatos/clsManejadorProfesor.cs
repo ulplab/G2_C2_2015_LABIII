@@ -23,7 +23,8 @@ namespace CapaDatos
                     + entidad.Dni + "','"
                     + entidad.Telefono + "','"
                     + entidad.Contraseña + "','"
-                    + entidad.Estado + "');";
+                    + entidad.Estado + "','"
+                    + entidad.Direccion + "');";
 
                 filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
             }
@@ -48,6 +49,7 @@ namespace CapaDatos
                     + "' Telefono = '" + entidad.Telefono
                     + "' Contraseña = '" + entidad.Contraseña
                     + "' Estado = '" + entidad.Estado
+                    + "' Direccion = '" + entidad.Direccion
                     + "' where IdProfesor = " + entidad.Id + ";";
                
                 filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
@@ -81,7 +83,7 @@ namespace CapaDatos
 
         public List<clsProfesor> SelectProfesor(clsProfesor entidad)
         {
-            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false;
+            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false, estado = false;
             string query = "select * from Profesores where";
             if (entidad.Id != -1)
             {
@@ -146,6 +148,15 @@ namespace CapaDatos
                 }
                
                 query += " Estado = " + entidad.Estado;
+                estado = true;
+            }
+            if (entidad.Direccion != null)
+            {
+                if (id | nombre | apellido | dni | telefono | contraseña | estado)
+                {
+                    query += " and";
+                }
+                query += " Direccion = '" + entidad.Direccion + "'";
             }
 
             query += ";";
@@ -174,6 +185,7 @@ namespace CapaDatos
                 p.Telefono = Convert.ToString(item["Telefono"]);
                 p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
+                p.Direccion = Convert.ToString(item["Direccion"]);
 
                 res.Add(p);
             }
@@ -209,6 +221,7 @@ namespace CapaDatos
                 p.Telefono = Convert.ToString(item["Telefono"]);
                 p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
+                p.Direccion = Convert.ToString(item["Direccion"]);
 
                 res.Add(p);
             }
