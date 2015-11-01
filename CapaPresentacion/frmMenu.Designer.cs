@@ -264,7 +264,6 @@
             this.btnEstadisticas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEstadisticas.Font = new System.Drawing.Font("Arial", 16.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
-            //this.btnEstadisticas.Image = global::CapaPresentacion.Properties.Resources.icono3;
             this.btnEstadisticas.Location = new System.Drawing.Point(506, 85);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(196, 175);
