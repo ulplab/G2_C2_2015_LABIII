@@ -34,6 +34,7 @@
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.tbContraseña = new System.Windows.Forms.TextBox();
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.cbNivelSeguridad = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnMinimizar
@@ -118,6 +119,19 @@
             this.btnEntrar.MouseEnter += new System.EventHandler(this.btnEntrar_MouseEnter);
             this.btnEntrar.MouseLeave += new System.EventHandler(this.btnEntrar_MouseLeave);
             // 
+            // cbNivelSeguridad
+            // 
+            this.cbNivelSeguridad.BackColor = System.Drawing.Color.White;
+            this.cbNivelSeguridad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbNivelSeguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbNivelSeguridad.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNivelSeguridad.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.cbNivelSeguridad.FormattingEnabled = true;
+            this.cbNivelSeguridad.Location = new System.Drawing.Point(115, 68);
+            this.cbNivelSeguridad.Name = "cbNivelSeguridad";
+            this.cbNivelSeguridad.Size = new System.Drawing.Size(136, 28);
+            this.cbNivelSeguridad.TabIndex = 17;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -126,6 +140,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(380, 548);
+            this.Controls.Add(this.cbNivelSeguridad);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnEntrar);
@@ -154,5 +169,6 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.TextBox tbContraseña;
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.ComboBox cbNivelSeguridad;
     }
 }
