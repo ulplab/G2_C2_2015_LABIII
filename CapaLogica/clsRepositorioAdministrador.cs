@@ -173,35 +173,91 @@ namespace CapaLogica
 
             return list;
         }
-        public clsAdministrador Login(string usuario, string contraseña)
+
+        public IEntidad Login(string usuario, string contraseña, NivelSeguridad nivel)
         {
-            clsAdministrador consulta = new clsAdministrador();
-            clsAdministrador result;
-            try
+            if (nivel == NivelSeguridad.ADMINISTRADOR)
             {
-                //consulta.Nombre = string.Empty;
-                consulta.Usuario = usuario;
-                consulta.Contraseña = contraseña;
-                //consulta.Apellido = string.Empty;
-                //consulta.Dni = -1;
-                //consulta.Estado = 1;
-                //consulta.Id = -1;
-                //consulta.Telefono = string.Empty;
-                List<clsAdministrador> resultados = manager.SelectAdministrador(consulta);
-                if (resultados.Count() != 0)
+                clsAdministrador consulta = new clsAdministrador();
+                clsAdministrador result;
+                try
                 {
-                    result = resultados[0];
+                    //consulta.Nombre = string.Empty;
+                    consulta.Usuario = usuario;
+                    consulta.Contraseña = contraseña;
+                    //consulta.Apellido = string.Empty;
+                    //consulta.Dni = -1;
+                    //consulta.Estado = 1;
+                    //consulta.Id = -1;
+                    //consulta.Telefono = string.Empty;
+                    List<clsAdministrador> resultados = manager.SelectAdministrador(consulta);
+                    if (resultados.Count() != 0)
+                    {
+                        result = resultados[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
                 }
-                else
+                catch (Exception a)
                 {
-                    return null;
+                    throw (a);
                 }
+                return (result);
             }
-            catch (Exception a)
+            else if (nivel == NivelSeguridad.PROFESOR)
             {
-                throw (a);
+                clsManejadorProfesor pmanager = new clsManejadorProfesor();
+                clsProfesor consulta = new clsProfesor();
+                clsProfesor result;
+                try
+                {
+                    consulta.Dni = Convert.ToInt32(usuario);
+                    consulta.Contraseña = contraseña;
+
+                    List<clsProfesor> resultados = pmanager.SelectProfesor(consulta);
+                    if (resultados.Count() != 0)
+                    {
+                        result = resultados[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception a)
+                {
+                    throw (a);
+                }
+                return (result);
             }
-            return (result);
+            else
+            {
+                clsManejadorAlumno amanager = new clsManejadorAlumno();
+                clsAlumno consulta = new clsAlumno();
+                clsAlumno result;
+                try
+                {
+                    consulta.Dni = Convert.ToInt32(usuario);
+                    consulta.Contraseña = contraseña;
+
+                    List<clsAlumno> resultados = amanager.SelectAlumno(consulta);
+                    if (resultados.Count() != 0)
+                    {
+                        result = resultados[0];
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch (Exception a)
+                {
+                    throw (a);
+                }
+                return (result);
+            }
         }
     }
 }
