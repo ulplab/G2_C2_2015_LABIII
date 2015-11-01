@@ -188,7 +188,7 @@ namespace CapaLogica
             clsAlumno result;
             try
             {
-                consulta.Dni = Convert.ToInt32(usuario);
+                consulta.Dni = usuario;
                 consulta.Contraseña = contraseña;
 
                 List<clsAlumno> resultados = amanager.SelectAlumno(consulta);

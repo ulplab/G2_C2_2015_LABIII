@@ -225,7 +225,7 @@ namespace CapaLogica
             clsProfesor result;
             try
             {
-                consulta.Dni = Convert.ToInt32(usuario);
+                consulta.Dni = usuario;
                 consulta.Contraseña = contraseña;
 
                 List<clsProfesor> resultados = pmanager.SelectProfesor(consulta);
