@@ -120,7 +120,7 @@ namespace CapaPresentacion
                         AlumnoModificado.Id = Alumno.Id;
                         AlumnoModificado.Nombre = tbNombre.Text;
                         AlumnoModificado.Apellido = tbApellido.Text;
-                        AlumnoModificado.Dni = Convert.ToInt32(tbDni.Text);
+                        AlumnoModificado.Dni = tbDni.Text;
                         AlumnoModificado.Direccion = tbDireccion.Text;
                         AlumnoModificado.Telefono = tbTelefono.Text;
                         AlumnoModificado.Email = tbEmail.Text;
@@ -156,7 +156,7 @@ namespace CapaPresentacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
+            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && tbDni.Text == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
             {
                 this.Close();
             }
@@ -178,7 +178,7 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && Convert.ToInt32(tbDni.Text) == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
+            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && tbDni.Text == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
             {
                 this.Close();
             }

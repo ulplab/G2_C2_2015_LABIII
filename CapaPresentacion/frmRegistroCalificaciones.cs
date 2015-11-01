@@ -106,7 +106,7 @@ namespace CapaPresentacion
             clsAlumno temp = new clsAlumno();
             temp.Nombre = tbFiltroNombre.Text;
             temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = Convert.ToInt32(tbFiltroDni.Text);
+            temp.Dni = tbFiltroDni.Text;
 
             if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {

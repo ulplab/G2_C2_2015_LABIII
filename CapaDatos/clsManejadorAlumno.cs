@@ -77,7 +77,7 @@ namespace CapaDatos
                 query += " IdAlumno = " + entidad.Id;
                 id = true;
             }
-            if (entidad.Dni != -1)
+            if (entidad.Dni != null)
             {
                 if (id)
                 {
@@ -169,7 +169,7 @@ namespace CapaDatos
                 clsAlumno a = new clsAlumno();
 
                 a.Id = Convert.ToInt32(dr["IdAlumno"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Direccion = Convert.ToString(dr["Direccion"]);
@@ -203,7 +203,7 @@ namespace CapaDatos
                 clsAlumno a = new clsAlumno();
 
                 a.Id = Convert.ToInt32(dr["IdAlumno"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Direccion = Convert.ToString(dr["Direccion"]);

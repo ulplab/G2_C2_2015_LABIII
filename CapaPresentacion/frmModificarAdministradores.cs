@@ -84,7 +84,7 @@ namespace CapaPresentacion
                         AdministradorModificado.Contraseña = tbContraseña.Text;
                         AdministradorModificado.Nombre = tbNombre.Text;
                         AdministradorModificado.Apellido = tbApellido.Text;
-                        AdministradorModificado.Dni = Convert.ToInt32(tbDni.Text);
+                        AdministradorModificado.Dni = tbDni.Text;
                         AdministradorModificado.Telefono = tbTelefono.Text;
                         AdministradorModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
@@ -119,7 +119,7 @@ namespace CapaPresentacion
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (tbUsuario.Text == Administrador.Usuario && tbContraseña.Text == Administrador.Contraseña && tbNombre.Text == Administrador.Nombre && tbApellido.Text == Administrador.Apellido && Convert.ToInt32(tbDni.Text) == Administrador.Dni && tbTelefono.Text == tbTelefono.Text)
+            if (tbUsuario.Text == Administrador.Usuario && tbContraseña.Text == Administrador.Contraseña && tbNombre.Text == Administrador.Nombre && tbApellido.Text == Administrador.Apellido && Convert.ToString(tbDni.Text) == Administrador.Dni && tbTelefono.Text == tbTelefono.Text)
             {
                 this.Close();
             }

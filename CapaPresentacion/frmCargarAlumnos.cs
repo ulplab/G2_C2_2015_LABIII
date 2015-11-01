@@ -172,7 +172,7 @@ namespace CapaPresentacion
 
                         Alumno.Nombre = tbNombre.Text;
                         Alumno.Apellido = tbApellido.Text;
-                        Alumno.Dni = Convert.ToInt32(tbDni.Text);
+                        Alumno.Dni = tbDni.Text;
                         Alumno.Direccion = tbDireccion.Text;
                         Alumno.Telefono = tbTelefono.Text;
                         Alumno.Email = tbEmail.Text;
@@ -222,7 +222,7 @@ namespace CapaPresentacion
             Alumno.Id = Convert.ToInt32(dgvAlumnos.CurrentRow.Cells["IdAlumno"].Value);
             Alumno.Nombre = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Nombre"].Value);
             Alumno.Apellido = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Apellido"].Value);
-            Alumno.Dni = Convert.ToInt32(dgvAlumnos.CurrentRow.Cells["Dni"].Value);
+            Alumno.Dni = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Dni"].Value);
             Alumno.Direccion = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Direccion"].Value);
             Alumno.Telefono = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Telefono"].Value);
             Alumno.Email = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Email"].Value);
@@ -263,7 +263,7 @@ namespace CapaPresentacion
             clsAlumno temp = new clsAlumno();
             temp.Nombre = tbFiltroNombre.Text;
             temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = Convert.ToInt32( tbFiltroDni.Text);
+            temp.Dni = tbFiltroDni.Text;
             
                 if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
                 {

@@ -7,23 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Clases;
+using Interfaces;
 
 
 namespace CapaPresentacion
 {
     public partial class frmMenu : frmPrincipal
     {
-        clsAdministrador Administrador = new clsAdministrador();
+        IEntidad entidad;
+        NivelSeguridad seguridad;
 
-        public frmMenu(clsAdministrador Administrador)
+        public frmMenu(IEntidad usuario, NivelSeguridad seguridad)
         {
             InitializeComponent();
-            this.Administrador = Administrador;
+            this.entidad = entidad;
+            this.seguridad = seguridad;
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            ousEncabezado.Titulo += "    Usuario: " + Administrador.Usuario;
+            if (seguridad == NivelSeguridad.ADMINISTRADOR)
+            {
+                ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)entidad).Usuario;
+            }
+            else if(seguridad == NivelSeguridad.PROFESOR)
+            {
+                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)entidad).Dni;
+            }
+            else
+            {
+                ousEncabezado.Titulo += "    Alumno: " + ((clsProfesor)entidad).Dni;
+            }
         }
 
 
@@ -149,7 +163,7 @@ namespace CapaPresentacion
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(Administrador);
+            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(entidad);
             this.Visible = false;
             InscribirCurso.ShowDialog();
             this.Visible = true;

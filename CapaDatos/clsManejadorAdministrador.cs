@@ -71,7 +71,7 @@ namespace CapaDatos
                 query += " IdAdministrador = '" + entidad.Id + "' ";
                 id = true;
             }
-            if (entidad.Dni != -1)
+            if (entidad.Dni != null)
             {
                 if (id)
                 {
@@ -153,7 +153,7 @@ namespace CapaDatos
                 clsAdministrador a = new clsAdministrador();
 
                 a.Id = Convert.ToInt32(dr["IdAdministrador"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Usuario = Convert.ToString(dr["Usuario"]);
@@ -186,7 +186,7 @@ namespace CapaDatos
                 clsAdministrador a = new clsAdministrador();
 
                 a.Id = Convert.ToInt32(dr["IdAdministrador"]);
-                a.Dni = Convert.ToInt32(dr["Dni"]);
+                a.Dni = Convert.ToString(dr["Dni"]);
                 a.Nombre = Convert.ToString(dr["Nombre"]);
                 a.Apellido = Convert.ToString(dr["Apellido"]);
                 a.Usuario = Convert.ToString(dr["Usuario"]);

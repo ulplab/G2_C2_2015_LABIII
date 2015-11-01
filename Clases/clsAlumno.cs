@@ -16,9 +16,9 @@ namespace Clases
             set { idAlumno = value; }
         }
 
-        int dni = -1;
+        string dni;
 
-        public int Dni
+        public string Dni
         {
             get { return dni; }
             set { dni = value; }
