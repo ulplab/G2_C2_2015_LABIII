@@ -23,12 +23,7 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
-            clsManejadorAdministrador amanager = new clsManejadorAdministrador();
-            clsManejadorAlumno almanager = new clsManejadorAlumno();
-
             clsProfesor profesor = new clsProfesor();
-            clsAdministrador admin = new clsAdministrador();
-            clsAlumno alum = new clsAlumno();
 
             try
             {
@@ -41,12 +36,10 @@ namespace CapaLogica
 
             clsProfesor compare = new clsProfesor();
             compare.Dni = profesor.Dni;
-            admin.Usuario = profesor.Dni;
-            alum.Dni = profesor.Dni;
 
             try
             {
-                if (manager.SelectProfesor(compare).Count == 0 && amanager.SelectAdministrador(admin).Count == 0 && almanager.SelectAlumno(alum).Count == 0)
+                if (manager.SelectProfesor(compare).Count == 0)
                     manager.InsertarProfesor(profesor);
                 else
                     throw new ArgumentException("El Profesor ingresado ya existe");
@@ -219,10 +212,10 @@ namespace CapaLogica
 
         public clsProfesor Login(string usuario, string contraseña)
         {
-
             clsManejadorProfesor pmanager = new clsManejadorProfesor();
             clsProfesor consulta = new clsProfesor();
             clsProfesor result;
+
             try
             {
                 consulta.Dni = usuario;
@@ -245,7 +238,38 @@ namespace CapaLogica
             return (result);
 
         }
-        
+
+        public DataTable ListarDicta()
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(-1, -1);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
+
+        public DataTable ListarDicta(int idProfesor, int idCurso)
+        {
+            DataTable dt;
+
+            try
+            {
+                dt = manager.ProfesorDicta(idProfesor, idCurso);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
     }
 }
  

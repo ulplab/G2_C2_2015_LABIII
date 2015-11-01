@@ -81,7 +81,7 @@ namespace CapaDatos
             string query = "select * from Cuota where";
             if (entidad.Id != -1)
             {
-                query += " IdCuota= " + entidad.Id;
+                query += " IdCuota= '" + entidad.Id + "'";
                 cuota = true;
             }
             if (entidad.IdAlumno != -1)
@@ -90,7 +90,7 @@ namespace CapaDatos
                 {
                     query += " and";
                 }
-                query += " IdAlumno= " + entidad.IdAlumno;
+                query += " IdAlumno= '" + entidad.IdAlumno + "'";
                 alumno = true;
             }
             if (entidad.IdCurso != -1)
@@ -99,7 +99,7 @@ namespace CapaDatos
                 {
                     query += " and";
                 }
-                query += " IdCurso= " + entidad.IdCurso;
+                query += " IdCurso= '" + entidad.IdCurso + "'";
                 curso = true;
             }
             if (entidad.Fecha != null)
@@ -108,7 +108,7 @@ namespace CapaDatos
                 {
                     query += " and";
                 }
-                query += " Fecha =" + String.Format("{0:s}", entidad.Fecha);
+                query += " Fecha = " + String.Format("{0:s}", entidad.Fecha);
             }
 
             query += ";";

@@ -85,7 +85,7 @@ namespace CapaDatos
             string query = "select * from Profesores where";
             if (entidad.Id != -1)
             {
-                query += " IdProfesor = " + entidad.Id;
+                query += " IdProfesor = '" + entidad.Id + "'";
                 id = true;
             }
 
@@ -95,7 +95,7 @@ namespace CapaDatos
 	            {
                     query += " and";	 
 	            }
-                query += " Nombre = " + entidad.Nombre;
+                query += " Nombre = '" + entidad.Nombre + "'";
                 nombre = true;
 	        }
             if (entidad.Apellido != null)
@@ -104,8 +104,8 @@ namespace CapaDatos
                 {
                     query += " and";
                 }
-               
-                query += " Apellido = " + entidad.Apellido;
+
+                query += " Apellido = '" + entidad.Apellido + "'";
                 apellido = true;
 	        }
             if (entidad.Dni != null)
@@ -115,7 +115,7 @@ namespace CapaDatos
                     query += " and";
                 }
 
-                query += " Dni = " + entidad.Dni;
+                query += " Dni = '" + entidad.Dni + "'";
                 dni = true;
             }
             if (entidad.Telefono != null)
@@ -125,7 +125,7 @@ namespace CapaDatos
                     query += " and";
                 }
 
-                query += " Telefono = " + entidad.Telefono;
+                query += " Telefono = '" + entidad.Telefono + "'";
                 telefono = true;
 	        }
             if (entidad.Contraseña != null)
@@ -135,7 +135,7 @@ namespace CapaDatos
                     query += " and";
                 }
 
-                query += " Contraseña = " + entidad.Contraseña;
+                query += " Contraseña = '" + entidad.Contraseña + "'";
                 contraseña = true;
 	        }
             if (entidad.Estado != -1)
