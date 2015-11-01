@@ -82,8 +82,27 @@ namespace CapaDatos
             }
             if (entidad.IdCurso != -1)
             {
-
+                if (idnota | alumno)
+                {
+                    query += " and";
+                }
+                query += " IdCurso = '" + entidad.IdCurso + "'";
+                curso = true;
             }
+            if (entidad.Nota != -1)
+            {
+                if (idnota | alumno | curso)
+                {
+                    query += " and";
+                }
+                query += " Nota = '" + entidad.Nota + "'";
+                nota = true;
+            }
+            if (true)
+            {
+                
+            }
+
             
 
             return list;

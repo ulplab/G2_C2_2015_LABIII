@@ -63,5 +63,14 @@ namespace Clases
             get { return estado; }
             set { estado = value; }
         }
+
+        string direccion;
+
+        public string Direccion
+        {
+            get { return direccion; }
+            set { direccion = value; }
+        }
+
     }
 }
