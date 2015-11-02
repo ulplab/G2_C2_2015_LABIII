@@ -1,8 +1,8 @@
---Administradores = (idAdministrador, Usuario, Contrase�a, Nombre, Apellido, Dni, Telefono, Estado)
+--Administradores = (idAdministrador, Usuario, Contraseña, Nombre, Apellido, Dni, Telefono, Estado)
 create table Administradores(
 	IdAdministrador int not null identity(10,10),
 	Usuario varchar(20) not null,
-	Contrase�a varchar(20) not null,
+	Contraseña varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
@@ -12,14 +12,14 @@ create table Administradores(
 )
 --drop table Administradores;
 
---Alumnos = (idAlumno, Dni, Nombre, Apellido, Direccion, Telefono, Email, Estado, Contrase�a)
+--Alumnos = (idAlumno, Dni, Nombre, Apellido, Direccion, Telefono, Email, Estado, Contraseña)
 create table Alumnos(
 	IdAlumno int not null identity(10,10),
-	Contrase�a varchar(20) not null,
+	Contraseña varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
-	Telefono int null,
+	Telefono varchar(30) null,
 	Estado bit not null,
 	Direccion varchar(30) not null,
 	Email varchar(30) null
@@ -41,15 +41,17 @@ create table Cursos(
 --drop table Cursos;
 
 
---Profesores = (IdProfesor, Nombre, Apellido, Dni, Telefono, Contrase�a, Estado)
+--Profesores = (IdProfesor, Nombre, Apellido, Dni, Telefono, Contraseña, Estado, Direccion, Email)
 create table Profesores(
 	IdProfesor int not null identity(10,10),
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
-	Telefono int null,
-	Contrase�a varchar(20) not null,
+	Telefono varchar(30) null,
+	Contraseña varchar(10) not null,
 	Estado bit not null,
+	Direccion varchar(30) null,
+	Email varchar(30) null,
 	constraint PK_ID_PROFESOR primary key(IdProfesor)
 )
 --drop table Profesores;
@@ -98,19 +100,26 @@ create table Cuota(
 	constraint FK_ASISTE_ID_CURSO foreign key (IdCurso) references Cursos(IdCurso),
 	constraint FK_ASISTE_ID_ALUMNO foreign key (IdAlumno) references Alumnos(IdAlumno)
  )
- --drop table Asiste;
+--drop table Asiste;
 
  SELECT *
- FROM Alumnos;
+ FROM Profesores;
 
  INSERT INTO Administradores VALUES('gon','gon','gonzalo','podesta',37599841,'2664010989', 1);
 
  INSERT INTO Alumnos VALUES('mario', 'mario', 'mario', '37599332', 2022323, 1, 'avenida', 'ggpq@wqwqw.com');
 
+ INSERT INTO Profesores VALUES('pablo', 'pablo', '32455321', '23232323', 'pablo', 1, 'villa mercedes', 'pablo@hotmail.com');
+
+ update Profesores 
+ set Nombre = 'pablo', Apellido = 'pablo', Dni ='32455321', Telefono = '23232323', Contraseña = '', Estado = '1', Direccion = 'villa mercedes', Email = 'pablo@hotmail.com'
+ where IdProfesor = 20;
+
+ INSERT INTO Alumnos VALUES('232we32232','wew','wew','23232232','2323','1','wew','ew')
 
 
- SELECT * 
- FROM Cursos
-  WHERE Nombre LIKE '%ewe%' 
-  AND FechaInicio >= '01-01-01:00:00' 
-  AND FechaFin <= '01-01-01:00:00'
+
+
+SELECT * 
+FROM Alumnos 
+WHERE FechaInicio >= '2015/01/01' AND FechaFin <= '2016/01/01';

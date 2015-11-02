@@ -51,7 +51,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1225, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1225, 96);
             this.ousEncabezado.Titulo = "Dar baja alumnos";
             // 
             // btnContinuar

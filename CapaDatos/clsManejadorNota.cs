@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using Clases;
 using Interfaces;
+using System.Data;
 
 namespace CapaDatos
 {
@@ -98,12 +99,50 @@ namespace CapaDatos
                 query += " Nota = '" + entidad.Nota + "'";
                 nota = true;
             }
-            if (true)
+            if (entidad.Fecha != null)
             {
-                
+                if (idnota | alumno | curso | nota)
+                {
+                    query += " and";
+                }
+                query += " Fecha = '" + entidad.Fecha + "'";
+                fecha = true;
+            }
+            if (entidad.Estado != null)
+            {
+                if (idnota | alumno | curso | nota | fecha)
+                {
+                    query += " and";
+                }
+                query += " Estado = '" + entidad.Estado + "'";
             }
 
-            
+            query += ";";
+
+            DataTable dt;
+            try
+            {
+                dt = dbManager.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsNota n = new clsNota();
+
+                n.Id = Convert.ToInt32(item["IdNota"]);
+                n.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
+                n.IdCurso = Convert.ToInt32(item["IdCurso"]);
+                n.Nota = Convert.ToInt32(item["Nota"]);
+                n.Fecha = Convert.ToDateTime(item["Fecha"]);
+                n.Estado = Convert.ToInt32(item["Estado"]);
+
+                list.Add(n);
+            }
 
             return list;
         }

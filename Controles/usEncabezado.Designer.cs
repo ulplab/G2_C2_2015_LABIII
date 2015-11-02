@@ -50,7 +50,7 @@
             this.pnlTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlTitulo.Location = new System.Drawing.Point(0, 0);
             this.pnlTitulo.Name = "pnlTitulo";
-            this.pnlTitulo.Size = new System.Drawing.Size(594, 77);
+            this.pnlTitulo.Size = new System.Drawing.Size(594, 89);
             this.pnlTitulo.TabIndex = 23;
             this.pnlTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseDown);
             this.pnlTitulo.MouseMove += new System.Windows.Forms.MouseEventHandler(this.lblTitulo_MouseMove);
@@ -79,7 +79,7 @@
             this.pnlBotones.Dock = System.Windows.Forms.DockStyle.Right;
             this.pnlBotones.Location = new System.Drawing.Point(408, 0);
             this.pnlBotones.Name = "pnlBotones";
-            this.pnlBotones.Size = new System.Drawing.Size(186, 67);
+            this.pnlBotones.Size = new System.Drawing.Size(186, 79);
             this.pnlBotones.TabIndex = 23;
             // 
             // btnCerrar
@@ -148,7 +148,7 @@
             this.pbLinea.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbLinea.BackgroundImage")));
             this.pbLinea.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbLinea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pbLinea.Location = new System.Drawing.Point(0, 67);
+            this.pbLinea.Location = new System.Drawing.Point(0, 79);
             this.pbLinea.Name = "pbLinea";
             this.pbLinea.Size = new System.Drawing.Size(594, 10);
             this.pbLinea.TabIndex = 21;
@@ -161,7 +161,7 @@
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.pnlTitulo);
             this.Name = "usEncabezado";
-            this.Size = new System.Drawing.Size(594, 80);
+            this.Size = new System.Drawing.Size(594, 92);
             this.pnlTitulo.ResumeLayout(false);
             this.pnlTitulo.PerformLayout();
             this.pnlBotones.ResumeLayout(false);

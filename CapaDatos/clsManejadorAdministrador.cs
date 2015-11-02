@@ -63,75 +63,84 @@ namespace CapaDatos
 
         public List<clsAdministrador> SelectAdministrador(clsAdministrador entidad)
         {
+            string query;
             bool id = false, dni = false, nombre = false, apellido = false, usuario = false, telefono = false, contraseña = false;
 
-            string query = "SELECT * FROM Administradores WHERE";
-            if (entidad.Id != -1)
+            if (entidad.Id != -1 || entidad.Dni != null || entidad.Apellido != null || entidad.Nombre != null || entidad.Usuario != null || entidad.Contraseña != null || entidad.Telefono != null || entidad.Estado != -1)
             {
-                query += " IdAdministrador = '" + entidad.Id + "' ";
-                id = true;
-            }
-            if (entidad.Dni != null)
-            {
-                if (id)
+
+                query = "SELECT * FROM Administradores WHERE";
+                if (entidad.Id != -1)
                 {
-                    query += " AND";
+                    query += " IdAdministrador = '" + entidad.Id + "' ";
+                    id = true;
                 }
-                query += " Dni = '" + entidad.Dni + " ' ";
-                dni = true;
-            }
-            if (entidad.Apellido != null)
-            {
-                if (id || dni)
+                if (entidad.Dni != null)
                 {
-                    query += " AND";
+                    if (id)
+                    {
+                        query += " AND";
+                    }
+                    query += " Dni LIKE '" + entidad.Dni + "%' ";
+                    dni = true;
                 }
-                query += " Apellido LIKE '" + entidad.Apellido + "%'";
-                apellido = true;
-            }
-            if (entidad.Usuario != null)
-            {
-                if (id || dni || apellido)
+                if (entidad.Apellido != null)
                 {
-                    query += " AND";
+                    if (id || dni)
+                    {
+                        query += " AND";
+                    }
+                    query += " Apellido LIKE '" + entidad.Apellido + "%'";
+                    apellido = true;
                 }
-                query += " Usuario LIKE '" + entidad.Usuario + "%'";
-                usuario = true;
-            }
-            if (entidad.Contraseña != null)
-            {
-                if (id || dni || apellido || usuario)
+                if (entidad.Usuario != null)
                 {
-                    query += " AND";
+                    if (id || dni || apellido)
+                    {
+                        query += " AND";
+                    }
+                    query += " Usuario LIKE '" + entidad.Usuario + "%'";
+                    usuario = true;
                 }
-                query += " Contraseña = '" + entidad.Contraseña + "'";
-                contraseña = true;
-            }
-            if (entidad.Nombre != null)
-            {
-                if (id || dni || apellido || usuario || contraseña)
+                if (entidad.Contraseña != null)
                 {
-                    query += " AND";
+                    if (id || dni || apellido || usuario)
+                    {
+                        query += " AND";
+                    }
+                    query += " Contraseña = '" + entidad.Contraseña + "'";
+                    contraseña = true;
                 }
-                query += " Nombre LIKE '" + entidad.Nombre + "%'";
-                nombre = true;
-            }
-            if (entidad.Telefono != null)
-            {
-                if (id || dni || apellido || usuario || contraseña || nombre)
+                if (entidad.Nombre != null)
                 {
-                    query += " AND";
+                    if (id || dni || apellido || usuario || contraseña)
+                    {
+                        query += " AND";
+                    }
+                    query += " Nombre LIKE '" + entidad.Nombre + "%'";
+                    nombre = true;
                 }
-                query += " Telefono = '" + entidad.Telefono + "'";
-                telefono = true;
-            }
-            if (entidad.Estado != -1)
-            {
-                if (id || dni || apellido || usuario || contraseña || nombre || telefono)
+                if (entidad.Telefono != null)
                 {
-                    query += " AND";
+                    if (id || dni || apellido || usuario || contraseña || nombre)
+                    {
+                        query += " AND";
+                    }
+                    query += " Telefono = '" + entidad.Telefono + "'";
+                    telefono = true;
                 }
-                query += " Estado = '" + entidad.Estado + "'";
+                if (entidad.Estado != -1)
+                {
+                    if (id || dni || apellido || usuario || contraseña || nombre || telefono)
+                    {
+                        query += " AND";
+                    }
+                    query += " Estado = '" + entidad.Estado + "'";
+                }
+            }
+            else
+            {
+                query = "SELECT * FROM Administradores WHERE";
             }
 
             query += ";";

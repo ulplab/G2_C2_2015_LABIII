@@ -10,40 +10,22 @@ using Clases;
 using CapaLogica;
 using Interfaces;
 
+
 namespace CapaPresentacion
 {
-    public partial class frmModificarAlumnos : frmPrincipal
+    public partial class frmModificarDocente : frmPrincipal
     {
-        public frmModificarAlumnos(clsAlumno Alumno)
+        public frmModificarDocente(clsProfesor Profesor)
         {
             InitializeComponent();
-            this.Alumno = Alumno;
+            this.Profesor = Profesor;
         }
 
-        clsAlumno Alumno;
+        clsProfesor Profesor;
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
 
-        private void btnGuardar_MouseEnter(object sender, EventArgs e)
-        {
-            try
-            {
-                if ((sender as Button).Name == "btnGuardar")
-                {
-                    btnGuardar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Guardar-Grande.png");
-                }
-                else
-                {
-                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
-                }
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Iconos no encontrados");
-            }
-        }
-
-        private void btnGuardar_MouseLeave(object sender, EventArgs e)
+        private void btnCancelar_MouseLeave(object sender, EventArgs e)
         {
             try
             {
@@ -62,24 +44,43 @@ namespace CapaPresentacion
             }
         }
 
-        private void frmModificarAlumnos_Load(object sender, EventArgs e)
+        private void btnCancelar_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((sender as Button).Name == "btnGuardar")
+                {
+                    btnGuardar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Guardar-Grande.png");
+                }
+                else
+                {
+                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Iconos no encontrados");
+            }
+        }
+
+        private void frmModificarProfesor_Load(object sender, EventArgs e)
         {
             CargarTextBox();
         }
 
         private void CargarTextBox()
         {
-            if(Alumno != null)
+            if (Profesor != null)
             {
-                tbNombre.Text = Alumno.Nombre;
-                tbApellido.Text = Alumno.Apellido;
-                tbDni.Text = Convert.ToString(Alumno.Dni);
-                tbDireccion.Text = Alumno.Direccion;
-                tbTelefono.Text = Alumno.Telefono;
-                tbEmail.Text = Alumno.Email;
-                tbContraseña.Text = Alumno.Contraseña;
-                tbUsuario.Text = Alumno.Dni;
-                if (Alumno.Estado == 1)
+                tbNombre.Text = Profesor.Nombre;
+                tbApellido.Text = Profesor.Apellido;
+                tbDni.Text = Convert.ToString(Profesor.Dni);
+                tbDireccion.Text = Profesor.Direccion;
+                tbTelefono.Text = Profesor.Telefono;
+                tbEmail.Text = Profesor.Email;
+                tbContraseña.Text = Profesor.Contraseña;
+                tbUsuario.Text = Profesor.Dni;
+                if (Profesor.Estado == 1)
                 {
                     ckbEstado.Checked = true;
                 }
@@ -90,31 +91,30 @@ namespace CapaPresentacion
             }
         }
 
-
         private void GuardarCambios()
         {
-            if (tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty && tbDireccion.Text != string.Empty && tbTelefono.Text != string.Empty && tbEmail.Text != string.Empty)
+            if (tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty)
             {
                 try
                 {
                     if (tbDni.Text.Length == 8)
                     {
-                        Repo = RepoF.getRepositorio(RepoType.ALUMNO);
-                        clsAlumno AlumnoModificado = new clsAlumno();
+                        Repo = RepoF.getRepositorio(RepoType.PROFESOR);
+                        clsProfesor ProfesorModificado = new clsProfesor();
 
-                        AlumnoModificado.Id = Alumno.Id;
-                        AlumnoModificado.Nombre = tbNombre.Text;
-                        AlumnoModificado.Apellido = tbApellido.Text;
-                        AlumnoModificado.Dni = tbDni.Text;
-                        AlumnoModificado.Direccion = tbDireccion.Text;
-                        AlumnoModificado.Telefono = tbTelefono.Text;
-                        AlumnoModificado.Email = tbEmail.Text;
-                        AlumnoModificado.Contraseña = tbContraseña.Text;
-                        AlumnoModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
+                        ProfesorModificado.Id = Profesor.Id;
+                        ProfesorModificado.Nombre = tbNombre.Text;
+                        ProfesorModificado.Apellido = tbApellido.Text;
+                        ProfesorModificado.Dni = tbDni.Text;
+                        ProfesorModificado.Direccion = tbDireccion.Text;
+                        ProfesorModificado.Telefono = tbTelefono.Text;
+                        ProfesorModificado.Email = tbEmail.Text;
+                        ProfesorModificado.Contraseña = tbContraseña.Text;
+                        ProfesorModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
-                        Repo.Actualizar(AlumnoModificado);
-                        Alumno = AlumnoModificado;
-                        tbUsuario.Text = AlumnoModificado.Dni;
+                        Repo.Actualizar(ProfesorModificado);
+                        Profesor = ProfesorModificado;
+                        tbUsuario.Text = ProfesorModificado.Dni;
 
                         MessageBox.Show("Los cambios del alumno se guardaron correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -143,7 +143,7 @@ namespace CapaPresentacion
 
         void Cerrar()
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && tbDni.Text == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
+            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && tbEmail.Text == Profesor.Email && Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
             {
                 this.Close();
             }
@@ -159,8 +159,13 @@ namespace CapaPresentacion
                 {
                     this.Close();
                 }
-                
+
             }
+        }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -172,13 +177,9 @@ namespace CapaPresentacion
         {
             GuardarCambios();
         }
+   
 
-        private void ousEncabezado_Load(object sender, EventArgs e)
-        {
-            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
-        }
 
- 
 
 
 

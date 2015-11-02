@@ -49,7 +49,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1193, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1193, 91);
             this.ousEncabezado.Titulo = "Inscripciones";
             // 
             // btnBuscar
@@ -57,7 +57,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Black;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(494, 92);
+            this.btnBuscar.Location = new System.Drawing.Point(493, 118);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(158, 38);
             this.btnBuscar.TabIndex = 50;
@@ -68,7 +68,7 @@
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.tbBuscar.Location = new System.Drawing.Point(39, 92);
+            this.tbBuscar.Location = new System.Drawing.Point(38, 118);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(459, 38);
             this.tbBuscar.TabIndex = 49;
@@ -79,12 +79,12 @@
             this.dgvEtapaUno.AllowUserToAddRows = false;
             this.dgvEtapaUno.AllowUserToDeleteRows = false;
             this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapaUno.Location = new System.Drawing.Point(39, 183);
+            this.dgvEtapaUno.Location = new System.Drawing.Point(38, 209);
             this.dgvEtapaUno.MultiSelect = false;
             this.dgvEtapaUno.Name = "dgvEtapaUno";
             this.dgvEtapaUno.ReadOnly = true;
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapaUno.Size = new System.Drawing.Size(1130, 358);
+            this.dgvEtapaUno.Size = new System.Drawing.Size(1130, 332);
             this.dgvEtapaUno.TabIndex = 48;
             this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
@@ -113,7 +113,7 @@
             this.cbParametros.BackColor = System.Drawing.Color.Transparent;
             this.cbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbParametros.ForeColor = System.Drawing.Color.White;
-            this.cbParametros.Location = new System.Drawing.Point(658, 92);
+            this.cbParametros.Location = new System.Drawing.Point(657, 118);
             this.cbParametros.Name = "cbParametros";
             this.cbParametros.Size = new System.Drawing.Size(124, 28);
             this.cbParametros.TabIndex = 52;
@@ -130,7 +130,7 @@
             this.pnlBusqueda.Controls.Add(this.rdDNI);
             this.pnlBusqueda.Controls.Add(this.rdApellido);
             this.pnlBusqueda.Controls.Add(this.rdNombre);
-            this.pnlBusqueda.Location = new System.Drawing.Point(39, 136);
+            this.pnlBusqueda.Location = new System.Drawing.Point(38, 162);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(937, 41);
             this.pnlBusqueda.TabIndex = 51;

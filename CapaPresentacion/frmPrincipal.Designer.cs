@@ -39,7 +39,7 @@
             this.ousEncabezado.Formulario = null;
             this.ousEncabezado.Location = new System.Drawing.Point(0, 0);
             this.ousEncabezado.Name = "ousEncabezado";
-            this.ousEncabezado.Size = new System.Drawing.Size(873, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(873, 94);
             this.ousEncabezado.TabIndex = 22;
             this.ousEncabezado.Titulo = "Titulo";
             this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);

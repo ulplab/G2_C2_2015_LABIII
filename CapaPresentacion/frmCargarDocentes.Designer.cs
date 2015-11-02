@@ -32,14 +32,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnDesactivarFiltro = new System.Windows.Forms.Button();
-            this.btnActivarFiltro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbFiltroDni = new Controles.NumTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbFiltroDni = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tbFiltroApellido = new System.Windows.Forms.TextBox();
@@ -47,7 +46,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.lblAyuda = new System.Windows.Forms.Label();
-            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.dgvDocentes = new System.Windows.Forms.DataGridView();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
@@ -56,31 +55,30 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.tbDni = new System.Windows.Forms.TextBox();
             this.lblDni = new System.Windows.Forms.Label();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.tbDni = new Controles.NumTextBox();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).BeginInit();
             this.SuspendLayout();
             // 
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1083, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1083, 96);
             this.ousEncabezado.Titulo = "Cargar Docentes";
             // 
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.gbFiltros.Controls.Add(this.btnDesactivarFiltro);
-            this.gbFiltros.Controls.Add(this.btnActivarFiltro);
+            this.gbFiltros.Controls.Add(this.btnBuscar);
             this.gbFiltros.Controls.Add(this.panel4);
             this.gbFiltros.Controls.Add(this.panel3);
             this.gbFiltros.Controls.Add(this.panel2);
@@ -94,47 +92,24 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
             // 
-            // btnDesactivarFiltro
+            // btnBuscar
             // 
-            this.btnDesactivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnDesactivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivarFiltro.Image")));
-            this.btnDesactivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDesactivarFiltro.Location = new System.Drawing.Point(829, 32);
-            this.btnDesactivarFiltro.Name = "btnDesactivarFiltro";
-            this.btnDesactivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnDesactivarFiltro.TabIndex = 80;
-            this.btnDesactivarFiltro.Tag = "6";
-            this.btnDesactivarFiltro.Text = "Desactivar Filtro";
-            this.btnDesactivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesactivarFiltro.UseVisualStyleBackColor = false;
-            // 
-            // btnActivarFiltro
-            // 
-            this.btnActivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnActivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnActivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnActivarFiltro.Image")));
-            this.btnActivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActivarFiltro.Location = new System.Drawing.Point(746, 32);
-            this.btnActivarFiltro.Name = "btnActivarFiltro";
-            this.btnActivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnActivarFiltro.TabIndex = 67;
-            this.btnActivarFiltro.Tag = "6";
-            this.btnActivarFiltro.Text = "Activar Filtro";
-            this.btnActivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivarFiltro.UseVisualStyleBackColor = false;
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(739, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(169, 66);
+            this.btnBuscar.TabIndex = 81;
+            this.btnBuscar.Tag = "6";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // panel4
             // 
@@ -171,12 +146,21 @@
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tbFiltroDni);
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(392, 34);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(181, 66);
             this.panel3.TabIndex = 77;
+            // 
+            // tbFiltroDni
+            // 
+            this.tbFiltroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbFiltroDni.Location = new System.Drawing.Point(10, 31);
+            this.tbFiltroDni.MaxLength = 8;
+            this.tbFiltroDni.Name = "tbFiltroDni";
+            this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
+            this.tbFiltroDni.TabIndex = 84;
             // 
             // label2
             // 
@@ -189,14 +173,6 @@
             this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 70;
             this.label2.Text = "DNI:";
-            // 
-            // tbFiltroDni
-            // 
-            this.tbFiltroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltroDni.Location = new System.Drawing.Point(12, 31);
-            this.tbFiltroDni.Name = "tbFiltroDni";
-            this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroDni.TabIndex = 67;
             // 
             // panel2
             // 
@@ -266,17 +242,17 @@
             this.lblAyuda.ForeColor = System.Drawing.Color.White;
             this.lblAyuda.Location = new System.Drawing.Point(84, 425);
             this.lblAyuda.Name = "lblAyuda";
-            this.lblAyuda.Size = new System.Drawing.Size(389, 16);
+            this.lblAyuda.Size = new System.Drawing.Size(394, 16);
             this.lblAyuda.TabIndex = 82;
-            this.lblAyuda.Text = "Haga doble click en una fila para modificar los datos del alumno";
+            this.lblAyuda.Text = "Haga doble click en una fila para modificar los datos del docente";
             // 
-            // dgvAlumnos
+            // dgvDocentes
             // 
-            this.dgvAlumnos.AllowUserToAddRows = false;
-            this.dgvAlumnos.AllowUserToDeleteRows = false;
-            this.dgvAlumnos.AllowUserToResizeColumns = false;
-            this.dgvAlumnos.AllowUserToResizeRows = false;
-            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvDocentes.AllowUserToAddRows = false;
+            this.dgvDocentes.AllowUserToDeleteRows = false;
+            this.dgvDocentes.AllowUserToResizeColumns = false;
+            this.dgvDocentes.AllowUserToResizeRows = false;
+            this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -284,8 +260,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -293,16 +269,17 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAlumnos.Location = new System.Drawing.Point(57, 239);
-            this.dgvAlumnos.MultiSelect = false;
-            this.dgvAlumnos.Name = "dgvAlumnos";
-            this.dgvAlumnos.ReadOnly = true;
-            this.dgvAlumnos.RowHeadersVisible = false;
-            this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnos.Size = new System.Drawing.Size(922, 183);
-            this.dgvAlumnos.TabIndex = 81;
-            this.dgvAlumnos.TabStop = false;
+            this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDocentes.Location = new System.Drawing.Point(57, 239);
+            this.dgvDocentes.MultiSelect = false;
+            this.dgvDocentes.Name = "dgvDocentes";
+            this.dgvDocentes.ReadOnly = true;
+            this.dgvDocentes.RowHeadersVisible = false;
+            this.dgvDocentes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDocentes.Size = new System.Drawing.Size(922, 183);
+            this.dgvDocentes.TabIndex = 81;
+            this.dgvDocentes.TabStop = false;
+            this.dgvDocentes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocentes_CellDoubleClick);
             // 
             // btnAgregar
             // 
@@ -319,6 +296,9 @@
             this.btnAgregar.TabIndex = 80;
             this.btnAgregar.Tag = "6";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // btnCancelar
             // 
@@ -336,6 +316,9 @@
             this.btnCancelar.TabStop = false;
             this.btnCancelar.Tag = "7";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // tbEmail
             // 
@@ -399,22 +382,13 @@
             this.lblDireccion.TabIndex = 76;
             this.lblDireccion.Text = "Direccion:";
             // 
-            // tbDni
-            // 
-            this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDni.Location = new System.Drawing.Point(275, 580);
-            this.tbDni.MaxLength = 8;
-            this.tbDni.Name = "tbDni";
-            this.tbDni.Size = new System.Drawing.Size(200, 35);
-            this.tbDni.TabIndex = 69;
-            // 
             // lblDni
             // 
             this.lblDni.AutoSize = true;
             this.lblDni.BackColor = System.Drawing.Color.Transparent;
             this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(162, 586);
+            this.lblDni.Location = new System.Drawing.Point(128, 586);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(55, 29);
             this.lblDni.TabIndex = 75;
@@ -423,7 +397,7 @@
             // tbApellido
             // 
             this.tbApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbApellido.Location = new System.Drawing.Point(275, 526);
+            this.tbApellido.Location = new System.Drawing.Point(241, 526);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(200, 35);
             this.tbApellido.TabIndex = 68;
@@ -434,7 +408,7 @@
             this.lblApellido.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.ForeColor = System.Drawing.Color.White;
-            this.lblApellido.Location = new System.Drawing.Point(161, 533);
+            this.lblApellido.Location = new System.Drawing.Point(127, 533);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(108, 29);
             this.lblApellido.TabIndex = 74;
@@ -443,7 +417,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(275, 472);
+            this.tbNombre.Location = new System.Drawing.Point(241, 472);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(200, 35);
             this.tbNombre.TabIndex = 67;
@@ -454,20 +428,30 @@
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(162, 478);
+            this.lblNombre.Location = new System.Drawing.Point(128, 478);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(107, 29);
             this.lblNombre.TabIndex = 73;
             this.lblNombre.Text = "Nombre:";
+            // 
+            // tbDni
+            // 
+            this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tbDni.Location = new System.Drawing.Point(240, 583);
+            this.tbDni.MaxLength = 8;
+            this.tbDni.Name = "tbDni";
+            this.tbDni.Size = new System.Drawing.Size(200, 35);
+            this.tbDni.TabIndex = 85;
             // 
             // frmCargarDocentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 735);
+            this.Controls.Add(this.tbDni);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.lblAyuda);
-            this.Controls.Add(this.dgvAlumnos);
+            this.Controls.Add(this.dgvDocentes);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tbEmail);
@@ -476,7 +460,6 @@
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.tbDireccion);
             this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.tbDni);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.lblApellido);
@@ -484,13 +467,13 @@
             this.Controls.Add(this.lblNombre);
             this.Name = "frmCargarDocentes";
             this.Text = "frmCargarDocentes";
+            this.Load += new System.EventHandler(this.frmCargarDocentes_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.lblNombre, 0);
             this.Controls.SetChildIndex(this.tbNombre, 0);
             this.Controls.SetChildIndex(this.lblApellido, 0);
             this.Controls.SetChildIndex(this.tbApellido, 0);
             this.Controls.SetChildIndex(this.lblDni, 0);
-            this.Controls.SetChildIndex(this.tbDni, 0);
             this.Controls.SetChildIndex(this.lblDireccion, 0);
             this.Controls.SetChildIndex(this.tbDireccion, 0);
             this.Controls.SetChildIndex(this.lblTelefono, 0);
@@ -499,9 +482,10 @@
             this.Controls.SetChildIndex(this.tbEmail, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.btnAgregar, 0);
-            this.Controls.SetChildIndex(this.dgvAlumnos, 0);
+            this.Controls.SetChildIndex(this.dgvDocentes, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
+            this.Controls.SetChildIndex(this.tbDni, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -511,7 +495,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocentes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -520,14 +504,11 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbFiltros;
-        private System.Windows.Forms.Button btnDesactivarFiltro;
-        private System.Windows.Forms.Button btnActivarFiltro;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbFiltroEstado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbFiltroDni;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbFiltroApellido;
@@ -535,7 +516,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbFiltroNombre;
         private System.Windows.Forms.Label lblAyuda;
-        private System.Windows.Forms.DataGridView dgvAlumnos;
+        private System.Windows.Forms.DataGridView dgvDocentes;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox tbEmail;
@@ -544,11 +525,13 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox tbDni;
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label lblNombre;
+        private Controles.NumTextBox tbDni;
+        private Controles.NumTextBox tbFiltroDni;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

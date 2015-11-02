@@ -44,7 +44,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1016, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1016, 93);
             this.ousEncabezado.Titulo = "Menu";
             this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);
             // 
@@ -61,7 +61,7 @@
             this.btnAgregarAdministrador.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAdministrador.Image")));
             this.btnAgregarAdministrador.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAdministrador.Location = new System.Drawing.Point(764, 507);
+            this.btnAgregarAdministrador.Location = new System.Drawing.Point(762, 541);
             this.btnAgregarAdministrador.Name = "btnAgregarAdministrador";
             this.btnAgregarAdministrador.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAdministrador.TabIndex = 32;
@@ -86,7 +86,7 @@
             this.btnAgregarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAlumno.Image")));
             this.btnAgregarAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(116, 85);
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(114, 119);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
             this.btnAgregarAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAlumno.TabIndex = 33;
@@ -111,7 +111,7 @@
             this.btnAgregarCurso.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCurso.Image")));
             this.btnAgregarCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarCurso.Location = new System.Drawing.Point(538, 85);
+            this.btnAgregarCurso.Location = new System.Drawing.Point(536, 119);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
             this.btnAgregarCurso.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarCurso.TabIndex = 34;
@@ -136,7 +136,7 @@
             this.btnInscribirAlumno.ForeColor = System.Drawing.Color.White;
             this.btnInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnInscribirAlumno.Image")));
             this.btnInscribirAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInscribirAlumno.Location = new System.Drawing.Point(116, 299);
+            this.btnInscribirAlumno.Location = new System.Drawing.Point(114, 333);
             this.btnInscribirAlumno.Name = "btnInscribirAlumno";
             this.btnInscribirAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnInscribirAlumno.TabIndex = 38;
@@ -161,7 +161,7 @@
             this.btnDarBajaInscripcion.ForeColor = System.Drawing.Color.White;
             this.btnDarBajaInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBajaInscripcion.Image")));
             this.btnDarBajaInscripcion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(327, 299);
+            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(325, 333);
             this.btnDarBajaInscripcion.Name = "btnDarBajaInscripcion";
             this.btnDarBajaInscripcion.Size = new System.Drawing.Size(196, 187);
             this.btnDarBajaInscripcion.TabIndex = 39;
@@ -186,7 +186,7 @@
             this.btnAlumnosPorCurso.ForeColor = System.Drawing.Color.White;
             this.btnAlumnosPorCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAlumnosPorCurso.Image")));
             this.btnAlumnosPorCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAlumnosPorCurso.Location = new System.Drawing.Point(116, 507);
+            this.btnAlumnosPorCurso.Location = new System.Drawing.Point(114, 541);
             this.btnAlumnosPorCurso.Name = "btnAlumnosPorCurso";
             this.btnAlumnosPorCurso.Size = new System.Drawing.Size(196, 187);
             this.btnAlumnosPorCurso.TabIndex = 40;
@@ -211,7 +211,7 @@
             this.btnCursosPorAlumno.ForeColor = System.Drawing.Color.White;
             this.btnCursosPorAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnCursosPorAlumno.Image")));
             this.btnCursosPorAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCursosPorAlumno.Location = new System.Drawing.Point(327, 507);
+            this.btnCursosPorAlumno.Location = new System.Drawing.Point(325, 541);
             this.btnCursosPorAlumno.Name = "btnCursosPorAlumno";
             this.btnCursosPorAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnCursosPorAlumno.TabIndex = 41;
@@ -236,7 +236,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEstadisticas.Location = new System.Drawing.Point(538, 507);
+            this.btnEstadisticas.Location = new System.Drawing.Point(536, 541);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(196, 187);
             this.btnEstadisticas.TabIndex = 42;
@@ -261,7 +261,7 @@
             this.btnRegistrosCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosCalificaciones.Image")));
             this.btnRegistrosCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(538, 299);
+            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(536, 333);
             this.btnRegistrosCalificaciones.Name = "btnRegistrosCalificaciones";
             this.btnRegistrosCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnRegistrosCalificaciones.TabIndex = 43;
@@ -286,7 +286,7 @@
             this.btnAgregarDocentes.ForeColor = System.Drawing.Color.White;
             this.btnAgregarDocentes.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDocentes.Image")));
             this.btnAgregarDocentes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarDocentes.Location = new System.Drawing.Point(327, 85);
+            this.btnAgregarDocentes.Location = new System.Drawing.Point(325, 119);
             this.btnAgregarDocentes.Name = "btnAgregarDocentes";
             this.btnAgregarDocentes.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarDocentes.TabIndex = 44;

@@ -48,8 +48,6 @@ namespace CapaPresentacion
             cbFiltroEstado.Items.Add("Todos");
             cbFiltroEstado.SelectedItem = "Todos";
 
-            btnDesactivarFiltro.BackColor = Color.Red;
-
             dgvAdministradores.Columns["IdAdministrador"].Visible = false;
             dgvAdministradores.Columns["Contraseña"].Visible = false;
 
@@ -71,6 +69,10 @@ namespace CapaPresentacion
                 {
                     btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Grande.png");
                 }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                }
                 else
                 {
                     btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
@@ -89,6 +91,10 @@ namespace CapaPresentacion
                 if ((sender as Button).Name == "btnRegistrar")
                 {
                     btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Chico.png");
+                }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
                 else
                 {
@@ -141,27 +147,10 @@ namespace CapaPresentacion
             this.Close();
         }
 
-        private void tbDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
 
-            if (tbUsuario.Text != string.Empty && tbContraseña.Text != string.Empty && tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty && tbTelefono.Text != string.Empty)
+            if (tbUsuario.Text != string.Empty && tbContraseña.Text != string.Empty && tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty)
             {
                 try
                 {
@@ -261,27 +250,27 @@ namespace CapaPresentacion
             string query = string.Empty;
             clsAdministrador temp = new clsAdministrador();
 
-            temp.Usuario = tbFiltroUsuario.Text;
-            temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = tbFiltroDni.Text;
+            if (tbFiltroUsuario.Text != null)
+            {
+                temp.Usuario = tbFiltroUsuario.Text;
+            }
+            if (tbFiltroApellido.Text != string.Empty)
+            {
+                temp.Apellido = tbFiltroApellido.Text;
+            }
+            if (tbFiltroDni.Text != string.Empty)
+            {
+                temp.Dni = tbFiltroDni.Text;
+            }
 
-          /*  query = "SELECT * " +
-                    "FROM Administradores " +
-                    "WHERE Usuario LIKE '" + tbFiltroUsuario.Text + "%' " +
-                    "AND Apellido LIKE '" + tbFiltroApellido.Text + "%' " +
-                    "AND cast(Dni as varchar(10)) LIKE'" + tbFiltroDni.Text + "%' ";
-            
-           */
             if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {
                 if (cbFiltroEstado.SelectedItem.ToString() == "Habilitados")
                 {
-                   // query += "AND Estado = 1;";
                     temp.Estado = 1;
                 }
                 else
                 {
-                    //query += "AND Estado = 0;";
                     temp.Estado = 0;
                 }
             }
@@ -319,30 +308,13 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
             ActualizarGrillaFiltrada();
+            filtro = true;
         }
 
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
-        {
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-            ActualizarGrilla();
-        }
 
-        private void tbFiltroUsuario_TextChanged(object sender, EventArgs e)
-        {
-            if (filtro)
-            {
-                ActualizarGrillaFiltrada();
-            }
-        }
-     
 
     }
 }

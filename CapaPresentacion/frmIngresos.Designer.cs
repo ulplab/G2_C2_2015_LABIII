@@ -62,7 +62,6 @@
             this.dtpVariable6 = new System.Windows.Forms.DateTimePicker();
             this.cbVariable7 = new System.Windows.Forms.ComboBox();
             this.chbCampos = new System.Windows.Forms.CheckBox();
-            this.btnConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
@@ -73,7 +72,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1167, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1167, 94);
             this.ousEncabezado.Titulo = "Ingresos";
             // 
             // dgvDatos
@@ -141,7 +140,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(44, 82);
+            this.label1.Location = new System.Drawing.Point(38, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 39);
             this.label1.TabIndex = 24;
@@ -153,7 +152,7 @@
             this.lblIngresosPor.BackColor = System.Drawing.Color.Transparent;
             this.lblIngresosPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblIngresosPor.ForeColor = System.Drawing.Color.White;
-            this.lblIngresosPor.Location = new System.Drawing.Point(53, 150);
+            this.lblIngresosPor.Location = new System.Drawing.Point(47, 165);
             this.lblIngresosPor.Name = "lblIngresosPor";
             this.lblIngresosPor.Size = new System.Drawing.Size(138, 26);
             this.lblIngresosPor.TabIndex = 26;
@@ -168,7 +167,7 @@
             "Alumnos",
             "Cursos",
             "Todo"});
-            this.cbIngresosPor.Location = new System.Drawing.Point(51, 179);
+            this.cbIngresosPor.Location = new System.Drawing.Point(45, 194);
             this.cbIngresosPor.Name = "cbIngresosPor";
             this.cbIngresosPor.Size = new System.Drawing.Size(248, 21);
             this.cbIngresosPor.TabIndex = 27;
@@ -180,7 +179,7 @@
             this.lblPeriodo.BackColor = System.Drawing.Color.Transparent;
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblPeriodo.ForeColor = System.Drawing.Color.White;
-            this.lblPeriodo.Location = new System.Drawing.Point(53, 203);
+            this.lblPeriodo.Location = new System.Drawing.Point(47, 218);
             this.lblPeriodo.Name = "lblPeriodo";
             this.lblPeriodo.Size = new System.Drawing.Size(93, 26);
             this.lblPeriodo.TabIndex = 28;
@@ -198,14 +197,14 @@
             "Trimestral",
             "Anual",
             "Cualquiera"});
-            this.cbPeriodo.Location = new System.Drawing.Point(51, 232);
+            this.cbPeriodo.Location = new System.Drawing.Point(45, 247);
             this.cbPeriodo.Name = "cbPeriodo";
             this.cbPeriodo.Size = new System.Drawing.Size(248, 21);
             this.cbPeriodo.TabIndex = 29;
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.Location = new System.Drawing.Point(51, 282);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(45, 297);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaInicio.TabIndex = 30;
@@ -213,7 +212,7 @@
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.Location = new System.Drawing.Point(51, 308);
+            this.dtpFechaFin.Location = new System.Drawing.Point(45, 323);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaFin.TabIndex = 31;
@@ -223,7 +222,7 @@
             // 
             this.chbPersonalizar.AutoSize = true;
             this.chbPersonalizar.BackColor = System.Drawing.Color.Transparent;
-            this.chbPersonalizar.Location = new System.Drawing.Point(51, 259);
+            this.chbPersonalizar.Location = new System.Drawing.Point(45, 274);
             this.chbPersonalizar.Name = "chbPersonalizar";
             this.chbPersonalizar.Size = new System.Drawing.Size(83, 17);
             this.chbPersonalizar.TabIndex = 32;
@@ -237,7 +236,7 @@
             this.lblCampos.BackColor = System.Drawing.Color.Transparent;
             this.lblCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblCampos.ForeColor = System.Drawing.Color.White;
-            this.lblCampos.Location = new System.Drawing.Point(46, 331);
+            this.lblCampos.Location = new System.Drawing.Point(40, 346);
             this.lblCampos.Name = "lblCampos";
             this.lblCampos.Size = new System.Drawing.Size(100, 26);
             this.lblCampos.TabIndex = 33;
@@ -249,7 +248,7 @@
             this.lblVariable1.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable1.ForeColor = System.Drawing.Color.White;
-            this.lblVariable1.Location = new System.Drawing.Point(53, 366);
+            this.lblVariable1.Location = new System.Drawing.Point(47, 381);
             this.lblVariable1.Name = "lblVariable1";
             this.lblVariable1.Size = new System.Drawing.Size(92, 26);
             this.lblVariable1.TabIndex = 34;
@@ -262,7 +261,7 @@
             this.lblVariable2.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable2.ForeColor = System.Drawing.Color.White;
-            this.lblVariable2.Location = new System.Drawing.Point(53, 401);
+            this.lblVariable2.Location = new System.Drawing.Point(47, 433);
             this.lblVariable2.Name = "lblVariable2";
             this.lblVariable2.Size = new System.Drawing.Size(104, 26);
             this.lblVariable2.TabIndex = 35;
@@ -288,7 +287,7 @@
             this.lblVariable4.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable4.ForeColor = System.Drawing.Color.White;
-            this.lblVariable4.Location = new System.Drawing.Point(53, 508);
+            this.lblVariable4.Location = new System.Drawing.Point(53, 502);
             this.lblVariable4.Name = "lblVariable4";
             this.lblVariable4.Size = new System.Drawing.Size(104, 26);
             this.lblVariable4.TabIndex = 37;
@@ -336,7 +335,7 @@
             // 
             // tbVariable1
             // 
-            this.tbVariable1.Location = new System.Drawing.Point(170, 372);
+            this.tbVariable1.Location = new System.Drawing.Point(164, 387);
             this.tbVariable1.Name = "tbVariable1";
             this.tbVariable1.Size = new System.Drawing.Size(193, 20);
             this.tbVariable1.TabIndex = 41;
@@ -344,7 +343,7 @@
             // 
             // tbVariable2
             // 
-            this.tbVariable2.Location = new System.Drawing.Point(170, 407);
+            this.tbVariable2.Location = new System.Drawing.Point(164, 433);
             this.tbVariable2.Name = "tbVariable2";
             this.tbVariable2.Size = new System.Drawing.Size(193, 20);
             this.tbVariable2.TabIndex = 42;
@@ -352,7 +351,7 @@
             // 
             // tbVariable3
             // 
-            this.tbVariable3.Location = new System.Drawing.Point(170, 459);
+            this.tbVariable3.Location = new System.Drawing.Point(170, 462);
             this.tbVariable3.Name = "tbVariable3";
             this.tbVariable3.Size = new System.Drawing.Size(193, 20);
             this.tbVariable3.TabIndex = 43;
@@ -360,7 +359,7 @@
             // 
             // tbVariable4
             // 
-            this.tbVariable4.Location = new System.Drawing.Point(135, 673);
+            this.tbVariable4.Location = new System.Drawing.Point(170, 508);
             this.tbVariable4.Name = "tbVariable4";
             this.tbVariable4.Size = new System.Drawing.Size(193, 20);
             this.tbVariable4.TabIndex = 44;
@@ -384,7 +383,7 @@
             // 
             // dtpVariable5
             // 
-            this.dtpVariable5.Location = new System.Drawing.Point(58, 433);
+            this.dtpVariable5.Location = new System.Drawing.Point(58, 579);
             this.dtpVariable5.Name = "dtpVariable5";
             this.dtpVariable5.Size = new System.Drawing.Size(305, 20);
             this.dtpVariable5.TabIndex = 48;
@@ -392,7 +391,7 @@
             // 
             // dtpVariable6
             // 
-            this.dtpVariable6.Location = new System.Drawing.Point(58, 485);
+            this.dtpVariable6.Location = new System.Drawing.Point(58, 626);
             this.dtpVariable6.Name = "dtpVariable6";
             this.dtpVariable6.Size = new System.Drawing.Size(305, 20);
             this.dtpVariable6.TabIndex = 49;
@@ -402,7 +401,7 @@
             // 
             this.cbVariable7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVariable7.FormattingEnabled = true;
-            this.cbVariable7.Location = new System.Drawing.Point(170, 513);
+            this.cbVariable7.Location = new System.Drawing.Point(170, 646);
             this.cbVariable7.Name = "cbVariable7";
             this.cbVariable7.Size = new System.Drawing.Size(193, 21);
             this.cbVariable7.TabIndex = 50;
@@ -412,7 +411,7 @@
             // 
             this.chbCampos.AutoSize = true;
             this.chbCampos.BackColor = System.Drawing.Color.Transparent;
-            this.chbCampos.Location = new System.Drawing.Point(170, 340);
+            this.chbCampos.Location = new System.Drawing.Point(164, 355);
             this.chbCampos.Name = "chbCampos";
             this.chbCampos.Size = new System.Drawing.Size(83, 17);
             this.chbCampos.TabIndex = 51;
@@ -420,22 +419,11 @@
             this.chbCampos.UseVisualStyleBackColor = false;
             this.chbCampos.CheckedChanged += new System.EventHandler(this.chbCampos_CheckedChanged);
             // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(224, 122);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 52;
-            this.btnConsultar.Text = "Buscar";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
             // frmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 718);
-            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.chbCampos);
             this.Controls.Add(this.cbVariable7);
             this.Controls.Add(this.dtpVariable6);
@@ -494,7 +482,6 @@
             this.Controls.SetChildIndex(this.dtpVariable6, 0);
             this.Controls.SetChildIndex(this.cbVariable7, 0);
             this.Controls.SetChildIndex(this.chbCampos, 0);
-            this.Controls.SetChildIndex(this.btnConsultar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);
@@ -538,7 +525,6 @@
         private System.Windows.Forms.ComboBox cbVariable7;
         private System.Windows.Forms.CheckBox chbCampos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.Button btnConsultar;
 
     }
 }

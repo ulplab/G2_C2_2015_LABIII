@@ -72,5 +72,13 @@ namespace Clases
             set { direccion = value; }
         }
 
+        string email;
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
+
     }
 }
