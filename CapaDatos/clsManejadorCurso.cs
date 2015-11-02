@@ -205,23 +205,23 @@ namespace CapaDatos
         {
             List<clsCursoFormateado> list = new List<clsCursoFormateado>();
             DataTable dt;
-            string query = " Select Cursos.IdCurso,Cursos.Nombre,Cursos.FechaInicio,Cursos.FechaFin,Cursos.Estado, (Cuotas.conteo * Cursos.Precio) as 'Recaudado',(inscriptos.cantidad * Cursos.Precio) as 'Esperado'," +
-                            "(((Cuotas.conteo * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) as " + "Pagado " +
-                            "from Cursos , " +
+            string query = "Select distinct Cursos.IdCurso ,Cursos.Nombre ,Cursos.FechaInicio ,Cursos.FechaFin,Cursos.Estado ,(Cuotas.conteo * Cursos.Precio) as 'Recaudado' ,(inscriptos.cantidad * Cursos.Precio) as 'Esperado' ," +
+                            "(((Cuotas.conteo * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) as \"Pagado\" " +
+                            "from Cursos ," +
                             "( " +
-                            "select Cuota.IdCurso, COUNT(Cuota.IdCurso) as " + "conteo " +
+                            "select Cuota.IdCurso ,COUNT(Cuota.IdCurso) as \"conteo \" " +
                             "from  Cuota " +
                             "group by Cuota.IdCurso " +
-                            ") as " + "Cuotas" + "," +
+                            ") as \"Cuotas\" , " +
                             "(" +
-                            "Select Asiste.IdCurso,COUNT(Asiste.IdCurso) as cantidad " +
+                            "Select Asiste.IdCurso,COUNT(Asiste.IdCurso) as \"cantidad\" " +
                             "from Asiste " +
                             "where Asiste.Estado = '1' " +
                             "group by Asiste.IdCurso " +
-                            ") as " + "inscriptos" +
+                            ") as \"inscriptos\" ,Cuota " +
                             "where Cursos.IdCurso = Cuotas.IdCurso " +
                             "and " +
-                            "Cursos.IdCurso = inscriptos.IdCurso;";
+                            "Cursos.IdCurso = inscriptos.IdCurso ";
 
             try
             {

@@ -135,7 +135,7 @@ namespace CapaPresentacion
                     case Periodo.Quincenal: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddDays(-15); ; break;
                     case Periodo.Mensual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-1); ; break;
                     case Periodo.Anual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-12); ; break;
-                    case Periodo.Todo: FechaFin = DateTime.Today; FechaInicio = DateTime.Today ; break;
+                    case Periodo.Todo:; break;
                 }
             }
             if (chbCampos.Checked)
@@ -160,7 +160,7 @@ namespace CapaPresentacion
                     dgvDatos.Rows.Clear();
                     foreach (clsCuotaFormateada temp in Resultado)
                     {
-                        dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha, temp.Precio);
+                        dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha,"$ "+ temp.Precio.ToString());
                     }
                     break;
                 case IngresosPor.Cursos:
@@ -169,10 +169,18 @@ namespace CapaPresentacion
                     dgvDatos.Rows.Clear();
                     foreach (clsCursoFormateado temp in Resultado)
                     {
-                        dgvDatos.Rows.Add(temp.Nombre, temp.FechaInicio, temp.FechaFin, temp.Estado, temp.Recaudado, temp.Esperado, temp.Porcentaje_pagado.ToString() + " %");
+                        dgvDatos.Rows.Add(temp.Nombre, temp.FechaInicio, temp.FechaFin, temp.Estado, "$ " + temp.Recaudado.ToString(), "$ " + temp.Esperado.ToString(), temp.Porcentaje_pagado.ToString() + " %");
                     }
                     break;
-                case IngresosPor.Alumno: ; break;
+                case IngresosPor.Alumno:
+                    clsRepositorioAlumno consultador3 = new clsRepositorioAlumno();
+                    Resultado = consultador3.Alumnos_Formateados(Fecha_Inicio, Fecha_Fin);
+                    dgvDatos.Rows.Clear();
+                    foreach (clsAlumnoFormateado temp in Resultado)
+                    {
+                        dgvDatos.Rows.Add(temp.Dni,temp.Nombre,temp.Apellido,temp.Estado,"$ " + temp.Pagado.ToString(),"$ " + temp.Esperado,temp.Porcentaje + " %");
+                    }
+                    ; break;
             }
 
 
