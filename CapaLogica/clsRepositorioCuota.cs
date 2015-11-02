@@ -43,7 +43,7 @@ namespace Clases
                 if (manager.SelectCuota(compare).Count == 0)
                     manager.InsertarCuota(cuota);
                 else
-                    throw new ArgumentException("Esta matricula ya fue pagada");
+                    throw new ArgumentException("Esta deuda ya existe");
             }
             catch (Exception e)
             {
@@ -71,7 +71,7 @@ namespace Clases
                 filas = manager.UpdateCuota(cuota);
                 if (filas == 0)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -100,7 +100,7 @@ namespace Clases
                 filas = manager.DeleteCuota(cuota);
                 if (filas == 0)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -120,7 +120,7 @@ namespace Clases
                 ncuota = manager.SelectCuota(cuota)[0];
                 if (ncuota == null)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -219,8 +219,15 @@ namespace Clases
         {
             List<IEntidad> result = new List<IEntidad>();
 
-            result.AddRange(manager.ListarCuotaFormateada());
-            
+            try
+            {
+                result.AddRange(manager.ListarCuotaFormateada());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
             return (result);
         }
 
