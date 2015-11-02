@@ -56,6 +56,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmEmisionRecibo";
             this.Text = "frmEmisionRecibo";
+            this.Load += new System.EventHandler(this.frmEmisionRecibo_Load);
             this.ResumeLayout(false);
 
         }
