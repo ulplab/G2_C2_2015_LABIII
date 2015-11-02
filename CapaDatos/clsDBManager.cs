@@ -18,21 +18,21 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        string usuario = "LaboIII";
+        string usuario = "User";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "1234";
+        string clave = "brian";
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
 
-        string server = "NOTEBOOK";
+        string server = "LAVIEJAPHILCO\\SQLEXPRESS";
 
         public string Server
         {
@@ -60,6 +60,7 @@ namespace CapaDatos
             strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
                      ";User ID=" + Usuario + ";" +
                      "Password=" + Clave;
+            
             return strcnn;
 
         }

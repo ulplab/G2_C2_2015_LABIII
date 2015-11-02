@@ -62,6 +62,7 @@
             this.dtpVariable6 = new System.Windows.Forms.DateTimePicker();
             this.cbVariable7 = new System.Windows.Forms.ComboBox();
             this.chbCampos = new System.Windows.Forms.CheckBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
@@ -261,7 +262,7 @@
             this.lblVariable2.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable2.ForeColor = System.Drawing.Color.White;
-            this.lblVariable2.Location = new System.Drawing.Point(53, 418);
+            this.lblVariable2.Location = new System.Drawing.Point(53, 401);
             this.lblVariable2.Name = "lblVariable2";
             this.lblVariable2.Size = new System.Drawing.Size(104, 26);
             this.lblVariable2.TabIndex = 35;
@@ -287,7 +288,7 @@
             this.lblVariable4.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable4.ForeColor = System.Drawing.Color.White;
-            this.lblVariable4.Location = new System.Drawing.Point(53, 502);
+            this.lblVariable4.Location = new System.Drawing.Point(53, 508);
             this.lblVariable4.Name = "lblVariable4";
             this.lblVariable4.Size = new System.Drawing.Size(104, 26);
             this.lblVariable4.TabIndex = 37;
@@ -343,7 +344,7 @@
             // 
             // tbVariable2
             // 
-            this.tbVariable2.Location = new System.Drawing.Point(170, 418);
+            this.tbVariable2.Location = new System.Drawing.Point(170, 407);
             this.tbVariable2.Name = "tbVariable2";
             this.tbVariable2.Size = new System.Drawing.Size(193, 20);
             this.tbVariable2.TabIndex = 42;
@@ -351,7 +352,7 @@
             // 
             // tbVariable3
             // 
-            this.tbVariable3.Location = new System.Drawing.Point(170, 462);
+            this.tbVariable3.Location = new System.Drawing.Point(170, 459);
             this.tbVariable3.Name = "tbVariable3";
             this.tbVariable3.Size = new System.Drawing.Size(193, 20);
             this.tbVariable3.TabIndex = 43;
@@ -359,7 +360,7 @@
             // 
             // tbVariable4
             // 
-            this.tbVariable4.Location = new System.Drawing.Point(170, 508);
+            this.tbVariable4.Location = new System.Drawing.Point(135, 673);
             this.tbVariable4.Name = "tbVariable4";
             this.tbVariable4.Size = new System.Drawing.Size(193, 20);
             this.tbVariable4.TabIndex = 44;
@@ -383,7 +384,7 @@
             // 
             // dtpVariable5
             // 
-            this.dtpVariable5.Location = new System.Drawing.Point(58, 579);
+            this.dtpVariable5.Location = new System.Drawing.Point(58, 433);
             this.dtpVariable5.Name = "dtpVariable5";
             this.dtpVariable5.Size = new System.Drawing.Size(305, 20);
             this.dtpVariable5.TabIndex = 48;
@@ -391,7 +392,7 @@
             // 
             // dtpVariable6
             // 
-            this.dtpVariable6.Location = new System.Drawing.Point(58, 626);
+            this.dtpVariable6.Location = new System.Drawing.Point(58, 485);
             this.dtpVariable6.Name = "dtpVariable6";
             this.dtpVariable6.Size = new System.Drawing.Size(305, 20);
             this.dtpVariable6.TabIndex = 49;
@@ -401,7 +402,7 @@
             // 
             this.cbVariable7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbVariable7.FormattingEnabled = true;
-            this.cbVariable7.Location = new System.Drawing.Point(170, 646);
+            this.cbVariable7.Location = new System.Drawing.Point(170, 513);
             this.cbVariable7.Name = "cbVariable7";
             this.cbVariable7.Size = new System.Drawing.Size(193, 21);
             this.cbVariable7.TabIndex = 50;
@@ -419,11 +420,22 @@
             this.chbCampos.UseVisualStyleBackColor = false;
             this.chbCampos.CheckedChanged += new System.EventHandler(this.chbCampos_CheckedChanged);
             // 
+            // btnConsultar
+            // 
+            this.btnConsultar.Location = new System.Drawing.Point(224, 122);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
+            this.btnConsultar.TabIndex = 52;
+            this.btnConsultar.Text = "Buscar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
+            // 
             // frmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 718);
+            this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.chbCampos);
             this.Controls.Add(this.cbVariable7);
             this.Controls.Add(this.dtpVariable6);
@@ -482,6 +494,7 @@
             this.Controls.SetChildIndex(this.dtpVariable6, 0);
             this.Controls.SetChildIndex(this.cbVariable7, 0);
             this.Controls.SetChildIndex(this.chbCampos, 0);
+            this.Controls.SetChildIndex(this.btnConsultar, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);
@@ -525,6 +538,7 @@
         private System.Windows.Forms.ComboBox cbVariable7;
         private System.Windows.Forms.CheckBox chbCampos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button btnConsultar;
 
     }
 }

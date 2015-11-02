@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Interfaces;
+using Clases;
+using CapaLogica;
 
 namespace CapaPresentacion
 {
@@ -26,7 +29,9 @@ namespace CapaPresentacion
         private void frmIngresos_Load(object sender, EventArgs e)
         {
             cbIngresosPor.SelectedItem = "Todo";
+            seleccion = IngresosPor.Todo;
             cbPeriodo.SelectedItem = "Cualquiera";
+            Segunda_seleccion = Periodo.Todo;
             chbPersonalizar.Checked = false;
             chbCampos.Checked = false;
         }
@@ -45,44 +50,7 @@ namespace CapaPresentacion
         }
         private void chbCampos_CheckedChanged(object sender, EventArgs e)
         {
-            if (chbCampos.Checked)
-            {
-                lblVariable1.Visible = true;
-                lblVariable2.Visible = true;
-                lblVariable3.Visible = true;
-                lblVariable4.Visible = true;
-                lblVariable5.Visible = true;
-                lblVariable6.Visible = true;
-                lblVariable7.Visible = true;
-                tbVariable1.Visible = true;
-                tbVariable2.Visible = true;
-                tbVariable3.Visible = true;
-                tbVariable4.Visible = true;
-                tbVariable5.Visible = true;
-                tbVariable6.Visible = true;
-                dtpVariable5.Visible = true;
-                dtpVariable6.Visible = true;
-                cbVariable7.Visible = true;
-            }
-            else
-            {
-                lblVariable1.Visible = false;
-                lblVariable2.Visible = false;
-                lblVariable3.Visible = false;
-                lblVariable4.Visible = false;
-                lblVariable5.Visible = false;
-                lblVariable6.Visible = false;
-                lblVariable7.Visible = false;
-                tbVariable1.Visible = false;
-                tbVariable2.Visible = false;
-                tbVariable3.Visible = false;
-                tbVariable4.Visible = false;
-                tbVariable5.Visible = false;
-                tbVariable6.Visible = false;
-                dtpVariable5.Visible = false;
-                dtpVariable6.Visible = false;
-                cbVariable7.Visible = false;
-            }
+                this.Campos(seleccion);
         }
         private void cbIngresosPor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -103,6 +71,10 @@ namespace CapaPresentacion
                 }
             }
             Creacion_Columnas();
+            if (chbCampos.Checked)
+            {
+                this.Campos(seleccion);
+            }
         }
         private void Creacion_Columnas()
         {
@@ -119,9 +91,6 @@ namespace CapaPresentacion
             dgvDatos.Columns.Add("Alumno", "Alumno");
             dgvDatos.Columns.Add("Fecha", "Fecha");
             dgvDatos.Columns.Add("Pago", "Pago");
-            dgvDatos.Columns.Add("Esperado", "Esperado");
-            dgvDatos.Columns.Add("Restante", "Restante");
-            dgvDatos.Columns.Add("Porcentaje", "Porcentaje pagado");
         }
         private void Columnas_Curso()
         {
@@ -147,24 +116,135 @@ namespace CapaPresentacion
         }
         private void Construccion_Consulta()
         {
-            string consulta = "Select * from ";
+            string fechaComodin = "02/02/1950";
+            DateTime FechaInicio = Convert.ToDateTime(fechaComodin);
+            DateTime FechaFin = Convert.ToDateTime(fechaComodin);
+            clsAlumno Alumno = new clsAlumno();
+            clsCurso Curso = new clsCurso();
+            clsCuota cuota = new clsCuota();
+
+            if (chbPersonalizar.Checked)
+            {
+                 FechaInicio = dtpFechaInicio.Value.Date;
+                 FechaFin = dtpFechaFin.Value.Date;
+            }
+            else
+            {
+                switch (Segunda_seleccion)
+                {
+                    case Periodo.Diario: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddDays(-1); ; break;
+                    case Periodo.Semanal: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddDays(-7); ; break;
+                    case Periodo.Quincenal: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddDays(-15); ; break;
+                    case Periodo.Mensual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-1); ; break;
+                    case Periodo.Anual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-12); ; break;
+                    case Periodo.Todo: FechaFin = DateTime.Today; FechaInicio = DateTime.Today ; break;
+                }
+            }
+            if (chbCampos.Checked)
+            {
+
+            }
+            else
+            {
+                this.Procedimiento_sin_campos(FechaInicio, FechaFin);
+            }
+
+        }
+        private void Procedimiento_sin_campos(DateTime Fecha_Inicio,DateTime Fecha_Fin)
+        {
+            List<IEntidad> Resultado = new List<IEntidad>();
+            clsRepositorioCuota consultador = new clsRepositorioCuota();
             switch (seleccion)
             {
-                case IngresosPor.Todo: consulta += " Cuota "; break;
-                case IngresosPor.Cursos: consulta += " Cursos "; break;
-                case IngresosPor.Alumno: consulta += " Alumno " ; break;
+                case IngresosPor.Todo: Resultado = consultador.Lista_Formateada(Fecha_Inicio,Fecha_Fin) ; break;
+                case IngresosPor.Cursos: ; break;
+                case IngresosPor.Alumno: ; break;
             }
-            switch (Segunda_seleccion)
+
+            dgvDatos.Rows.Clear();
+            foreach (clsCuotaFormateada temp in Resultado)
             {
-                case Periodo.Diario: consulta += ""; break;
-                case Periodo.Semanal: consulta += ""; break;
-                case Periodo.Quincenal: consulta += ""; break;
-                case Periodo.Mensual: consulta += ""; break;
-                case Periodo.Anual: consulta += ""; break;
-                case Periodo.Todo: consulta += ""; break;
-                
+                dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha, temp.Precio);
             }
-            
+        }
+        private void Campos(IngresosPor temp)
+        {
+            this.mostrar_Campos();
+            if (temp != IngresosPor.Todo)
+            {
+                if (temp == IngresosPor.Alumno)
+                {
+                    lblVariable1.Text = "Dni";
+                    lblVariable2.Text = "Nombre";
+                    lblVariable3.Text = "Apellido";
+                    lblVariable4.Text = "Estado";
+                    lblVariable5.Visible = false;
+                    tbVariable5.Visible = false;
+                    lblVariable6.Visible = false;
+                    tbVariable6.Visible = false;
+                    lblVariable7.Visible = false;
+                    dtpVariable5.Visible = false;
+                    dtpVariable6.Visible = false;
+                    tbVariable4.Visible = false;
+                }
+                else
+                {
+                    lblVariable1.Text = "Nombre";
+                    lblVariable2.Text = "Fecha de inicio";
+                    lblVariable3.Text = "fecha de finalizacion";
+                    lblVariable4.Text = "Estado";
+                    lblVariable5.Visible = false;
+                    tbVariable5.Visible = false;
+                    lblVariable6.Visible = false;
+                    tbVariable6.Visible = false;
+                    tbVariable4.Visible = false;
+                    lblVariable7.Visible = false;
+                    tbVariable2.Visible = false;
+                    tbVariable3.Visible = false;
+                }
+            }
+        }
+        private void mostrar_Campos()
+        {
+            lblVariable1.Visible = true;
+            lblVariable2.Visible = true;
+            lblVariable3.Visible = true;
+            lblVariable4.Visible = true;
+            lblVariable5.Visible = true;
+            lblVariable6.Visible = true;
+            lblVariable7.Visible = true;
+            tbVariable1.Visible = true;
+            tbVariable2.Visible = true;
+            tbVariable3.Visible = true;
+            tbVariable4.Visible = true;
+            tbVariable5.Visible = true;
+            tbVariable6.Visible = true;
+            dtpVariable5.Visible = true;
+            dtpVariable6.Visible = true;
+            cbVariable7.Visible = true;
+        }
+        private void ocultar_Campos()
+        {
+            lblVariable1.Visible = false;
+            lblVariable2.Visible = false;
+            lblVariable3.Visible = false;
+            lblVariable4.Visible = false;
+            lblVariable5.Visible = false;
+            lblVariable6.Visible = false;
+            lblVariable7.Visible = false;
+            tbVariable1.Visible = false;
+            tbVariable2.Visible = false;
+            tbVariable3.Visible = false;
+            tbVariable4.Visible = false;
+            tbVariable5.Visible = false;
+            tbVariable6.Visible = false;
+            dtpVariable5.Visible = false;
+            dtpVariable6.Visible = false;
+            cbVariable7.Visible = false;
+        }
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            this.Construccion_Consulta();
         }
     }
 }
