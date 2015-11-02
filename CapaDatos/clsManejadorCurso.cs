@@ -63,67 +63,77 @@ namespace CapaDatos
 
         public List<clsCurso> SelectCurso(clsCurso entidad)
         {
+
+            string query = string.Empty;
             bool id = false,fechaI = false,fechaF = false,descripcion = false,nombre = false, precio = false;
 
-            string query = "SELECT * FROM Alumnos WHERE";
-            if (entidad.Id != -1)
+            if (entidad.Id != -1 || entidad.Nombre != null || entidad.FechaInicio != DateTime.MinValue || entidad.FechaFin != DateTime.MinValue || entidad.Descripcion != null || entidad.Precio != -1 || entidad.Estado != -1)
             {
-                query += " IdCurso = " + entidad.Id;
-                id = true;
-            }
-            if (entidad.Nombre != null)
-            {
-                if (id)
-                {
-                    query += " AND";
-                }
-                query += " Nombre LIKE '%" + entidad.Nombre + "%'";
-                nombre = true;
-            }
-            if (entidad.FechaInicio != null)
-            {
-                if (id || nombre)
-                {
-                    query += " AND";
-                }
-                query += " FechaInicio >= " + String.Format("{0:s}" , entidad.FechaInicio);
-                fechaI = true;
-            }
-            if (entidad.FechaFin != null)
-            {
-                if (id || nombre || fechaI)
-                {
-                    query += " AND";
-                }
-                query += " FechaFin <= " + String.Format("{0:s}", entidad.FechaFin);
-                fechaF = true;
-            }
-            if (entidad.Descripcion != null)
-            {
-                if (id || nombre || fechaI || fechaF)
-                {
-                    query += " AND";
-                }
-                query += " Descripcion LIKE '%" + entidad.Descripcion + "%'";
-                descripcion = true;
-            }
-            if (entidad.Precio != -1)
-            {
-                if (id | nombre | fechaI | fechaF | descripcion)
-                {
-                    query += " AND";
-                }
 
-                query += " Precio = " + entidad.Precio;
-                precio = true;
-            }
-            if (entidad.Estado != -1)
-            {
-                if (id || nombre || fechaI || fechaF || descripcion | precio)
+                query = "SELECT * FROM Cursos WHERE";
+                if (entidad.Id != -1)
                 {
-                    query += " AND";
+                    query += " IdCurso = " + entidad.Id;
+                    id = true;
                 }
-                query += " Estado = " + entidad.Estado;
+                if (entidad.Nombre != null)
+                {
+                    if (id)
+                    {
+                        query += " AND";
+                    }
+                    query += " Nombre LIKE '" + entidad.Nombre + "%'";
+                    nombre = true;
+                }
+                if (entidad.FechaInicio != DateTime.MinValue)
+                {
+                    if (id || nombre)
+                    {
+                        query += " AND";
+                    }
+                    query += " FechaInicio >= " + "'" + String.Format("{0:s}", entidad.FechaInicio) + "'";
+                    fechaI = true;
+                }
+                if (entidad.FechaFin != DateTime.MinValue)
+                {
+                    if (id || nombre || fechaI)
+                    {
+                        query += " AND";
+                    }
+                    query += " FechaFin <= " + "'" + String.Format("{0:s}", entidad.FechaFin) + "'";
+                    fechaF = true;
+                }
+                if (entidad.Descripcion != null)
+                {
+                    if (id || nombre || fechaI || fechaF)
+                    {
+                        query += " AND";
+                    }
+                    query += " Descripcion LIKE '" + entidad.Descripcion + "%'";
+                    descripcion = true;
+                }
+                if (entidad.Precio != -1)
+                {
+                    if (id | nombre | fechaI | fechaF | descripcion)
+                    {
+                        query += " AND";
+                    }
+
+                    query += " Precio = " + entidad.Precio;
+                    precio = true;
+                }
+                if (entidad.Estado != -1)
+                {
+                    if (id || nombre || fechaI || fechaF || descripcion | precio)
+                    {
+                        query += " AND";
+                    }
+                    query += " Estado = " + entidad.Estado;
+                }
+            }
+            else
+            {
+                query = "SELECT * FROM Cursos";
             }
 
             query += ";";

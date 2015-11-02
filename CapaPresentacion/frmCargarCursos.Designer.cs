@@ -42,8 +42,7 @@
             this.dtpFechaIncio = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaFin = new System.Windows.Forms.DateTimePicker();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnDesactivarFiltro = new System.Windows.Forms.Button();
-            this.btnActivarFiltro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -83,7 +82,7 @@
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(622, 625);
+            this.btnAgregar.Location = new System.Drawing.Point(618, 630);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(169, 68);
             this.btnAgregar.TabIndex = 4;
@@ -102,7 +101,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(316, 625);
+            this.btnCancelar.Location = new System.Drawing.Point(312, 630);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(169, 68);
             this.btnCancelar.TabIndex = 77;
@@ -116,7 +115,7 @@
             // tbDescripcion
             // 
             this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDescripcion.Location = new System.Drawing.Point(295, 543);
+            this.tbDescripcion.Location = new System.Drawing.Point(291, 548);
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(175, 35);
             this.tbDescripcion.TabIndex = 1;
@@ -127,7 +126,7 @@
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(140, 549);
+            this.lblDescripcion.Location = new System.Drawing.Point(136, 554);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(147, 29);
             this.lblDescripcion.TabIndex = 74;
@@ -139,7 +138,7 @@
             this.lblFechaFin.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFin.ForeColor = System.Drawing.Color.White;
-            this.lblFechaFin.Location = new System.Drawing.Point(507, 546);
+            this.lblFechaFin.Location = new System.Drawing.Point(492, 550);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(126, 29);
             this.lblFechaFin.TabIndex = 73;
@@ -151,7 +150,7 @@
             this.lblFechaIncio.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaIncio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaIncio.ForeColor = System.Drawing.Color.White;
-            this.lblFechaIncio.Location = new System.Drawing.Point(505, 489);
+            this.lblFechaIncio.Location = new System.Drawing.Point(492, 494);
             this.lblFechaIncio.Name = "lblFechaIncio";
             this.lblFechaIncio.Size = new System.Drawing.Size(143, 29);
             this.lblFechaIncio.TabIndex = 72;
@@ -160,7 +159,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(295, 483);
+            this.tbNombre.Location = new System.Drawing.Point(291, 488);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(175, 35);
             this.tbNombre.TabIndex = 0;
@@ -171,7 +170,7 @@
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(140, 489);
+            this.lblNombre.Location = new System.Drawing.Point(136, 494);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(107, 29);
             this.lblNombre.TabIndex = 71;
@@ -179,33 +178,32 @@
             // 
             // dtpFechaIncio
             // 
-            this.dtpFechaIncio.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.dtpFechaIncio.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFechaIncio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaIncio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaIncio.Location = new System.Drawing.Point(654, 483);
+            this.dtpFechaIncio.Location = new System.Drawing.Point(650, 488);
             this.dtpFechaIncio.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaIncio.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFechaIncio.Name = "dtpFechaIncio";
-            this.dtpFechaIncio.Size = new System.Drawing.Size(271, 35);
+            this.dtpFechaIncio.Size = new System.Drawing.Size(268, 35);
             this.dtpFechaIncio.TabIndex = 2;
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.dtpFechaFin.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaFin.Location = new System.Drawing.Point(654, 540);
+            this.dtpFechaFin.Location = new System.Drawing.Point(650, 545);
             this.dtpFechaFin.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaFin.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFechaFin.Name = "dtpFechaFin";
-            this.dtpFechaFin.Size = new System.Drawing.Size(272, 35);
+            this.dtpFechaFin.Size = new System.Drawing.Size(268, 35);
             this.dtpFechaFin.TabIndex = 3;
             // 
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.gbFiltros.Controls.Add(this.btnDesactivarFiltro);
-            this.gbFiltros.Controls.Add(this.btnActivarFiltro);
+            this.gbFiltros.Controls.Add(this.btnBuscar);
             this.gbFiltros.Controls.Add(this.panel4);
             this.gbFiltros.Controls.Add(this.panel3);
             this.gbFiltros.Controls.Add(this.panel2);
@@ -219,49 +217,24 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
             // 
-            // btnDesactivarFiltro
+            // btnBuscar
             // 
-            this.btnDesactivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnDesactivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivarFiltro.Image")));
-            this.btnDesactivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDesactivarFiltro.Location = new System.Drawing.Point(875, 34);
-            this.btnDesactivarFiltro.Name = "btnDesactivarFiltro";
-            this.btnDesactivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnDesactivarFiltro.TabIndex = 82;
-            this.btnDesactivarFiltro.Tag = "6";
-            this.btnDesactivarFiltro.Text = "Desactivar Filtro";
-            this.btnDesactivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesactivarFiltro.UseVisualStyleBackColor = false;
-            this.btnDesactivarFiltro.Click += new System.EventHandler(this.btnDesactivarFiltro_Click);
-            // 
-            // btnActivarFiltro
-            // 
-            this.btnActivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnActivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnActivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnActivarFiltro.Image")));
-            this.btnActivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActivarFiltro.Location = new System.Drawing.Point(792, 34);
-            this.btnActivarFiltro.Name = "btnActivarFiltro";
-            this.btnActivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnActivarFiltro.TabIndex = 81;
-            this.btnActivarFiltro.Tag = "6";
-            this.btnActivarFiltro.Text = "Activar Filtro";
-            this.btnActivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivarFiltro.UseVisualStyleBackColor = false;
-            this.btnActivarFiltro.Click += new System.EventHandler(this.btnActivarFiltro_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(791, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(169, 66);
+            this.btnBuscar.TabIndex = 82;
+            this.btnBuscar.Tag = "6";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnAgregar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnAgregar_MouseLeave);
             // 
             // panel4
             // 
@@ -282,7 +255,6 @@
             this.cbFiltroEstado.Name = "cbFiltroEstado";
             this.cbFiltroEstado.Size = new System.Drawing.Size(121, 28);
             this.cbFiltroEstado.TabIndex = 71;
-            this.cbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // label4
             // 
@@ -315,20 +287,18 @@
             this.ckbFiltroFechaFin.Size = new System.Drawing.Size(15, 14);
             this.ckbFiltroFechaFin.TabIndex = 80;
             this.ckbFiltroFechaFin.UseVisualStyleBackColor = true;
-            this.ckbFiltroFechaFin.CheckedChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // dtpFiltroFechaFin
             // 
-            this.dtpFiltroFechaFin.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.dtpFiltroFechaFin.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFiltroFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFiltroFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFiltroFechaFin.Location = new System.Drawing.Point(13, 31);
+            this.dtpFiltroFechaFin.Location = new System.Drawing.Point(3, 31);
             this.dtpFiltroFechaFin.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFiltroFechaFin.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFiltroFechaFin.Name = "dtpFiltroFechaFin";
-            this.dtpFiltroFechaFin.Size = new System.Drawing.Size(181, 24);
+            this.dtpFiltroFechaFin.Size = new System.Drawing.Size(191, 24);
             this.dtpFiltroFechaFin.TabIndex = 79;
-            this.dtpFiltroFechaFin.ValueChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // label2
             // 
@@ -361,20 +331,18 @@
             this.ckbFiltroFechaInicio.Size = new System.Drawing.Size(15, 14);
             this.ckbFiltroFechaInicio.TabIndex = 79;
             this.ckbFiltroFechaInicio.UseVisualStyleBackColor = true;
-            this.ckbFiltroFechaInicio.CheckedChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // dtpFiltroFechaInicio
             // 
-            this.dtpFiltroFechaInicio.CustomFormat = "dd/MM/yyyy hh:mm tt";
+            this.dtpFiltroFechaInicio.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFiltroFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFiltroFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFiltroFechaInicio.Location = new System.Drawing.Point(15, 31);
+            this.dtpFiltroFechaInicio.Location = new System.Drawing.Point(3, 31);
             this.dtpFiltroFechaInicio.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFiltroFechaInicio.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFiltroFechaInicio.Name = "dtpFiltroFechaInicio";
-            this.dtpFiltroFechaInicio.Size = new System.Drawing.Size(182, 24);
+            this.dtpFiltroFechaInicio.Size = new System.Drawing.Size(188, 24);
             this.dtpFiltroFechaInicio.TabIndex = 78;
-            this.dtpFiltroFechaInicio.ValueChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // label1
             // 
@@ -417,7 +385,6 @@
             this.tbFiltroNombre.Name = "tbFiltroNombre";
             this.tbFiltroNombre.Size = new System.Drawing.Size(150, 26);
             this.tbFiltroNombre.TabIndex = 67;
-            this.tbFiltroNombre.TextChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // dgvCursos
             // 
@@ -543,9 +510,8 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbFiltroEstado;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button btnDesactivarFiltro;
-        private System.Windows.Forms.Button btnActivarFiltro;
         private System.Windows.Forms.CheckBox ckbFiltroFechaFin;
         private System.Windows.Forms.CheckBox ckbFiltroFechaInicio;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

@@ -43,8 +43,6 @@ namespace CapaPresentacion
             cbFiltroEstado.Items.Add("Todos");
             cbFiltroEstado.SelectedItem = "Todos";
 
-            btnDesactivarFiltro.BackColor = Color.Red;
-
             dgvCursos.Columns["IdCurso"].Visible = false;
 
             ActualizarGrilla();
@@ -97,6 +95,10 @@ namespace CapaPresentacion
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Grande.png");
                 }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                }
                 else
                 {
                     btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
@@ -115,6 +117,10 @@ namespace CapaPresentacion
                 if ((sender as Button).Name == "btnAgregar")
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Chico.png");
+                }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
                 else
                 {
@@ -274,31 +280,10 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
             ActualizarGrillaFiltrada();
-        }
-
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
-        {
-
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-            ActualizarGrilla();
-        }
-
-        private void tbFiltroNombre_TextChanged(object sender, EventArgs e)
-        {
-
-            if (filtro)
-            {
-                ActualizarGrillaFiltrada();
-            }
-            
+            filtro = true;
         }
 
 
