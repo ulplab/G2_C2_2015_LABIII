@@ -124,7 +124,7 @@
             this.tbNombre.Location = new System.Drawing.Point(688, 476);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(200, 35);
-            this.tbNombre.TabIndex = 2;
+            this.tbNombre.TabIndex = 4;
             // 
             // lblNombre
             // 
@@ -144,7 +144,7 @@
             this.tbApellido.Location = new System.Drawing.Point(688, 531);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(200, 35);
-            this.tbApellido.TabIndex = 3;
+            this.tbApellido.TabIndex = 5;
             // 
             // lblApellido
             // 
@@ -177,7 +177,7 @@
             this.tbTelefono.MaxLength = 15;
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(200, 35);
-            this.tbTelefono.TabIndex = 5;
+            this.tbTelefono.TabIndex = 6;
             // 
             // lblTelefono
             // 
@@ -284,7 +284,7 @@
             this.cbFiltroEstado.Location = new System.Drawing.Point(13, 29);
             this.cbFiltroEstado.Name = "cbFiltroEstado";
             this.cbFiltroEstado.Size = new System.Drawing.Size(121, 28);
-            this.cbFiltroEstado.TabIndex = 71;
+            this.cbFiltroEstado.TabIndex = 70;
             // 
             // label4
             // 
@@ -315,7 +315,7 @@
             this.tbFiltroDni.MaxLength = 8;
             this.tbFiltroDni.Name = "tbFiltroDni";
             this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroDni.TabIndex = 85;
+            this.tbFiltroDni.TabIndex = 69;
             // 
             // label2
             // 
@@ -357,7 +357,7 @@
             this.tbFiltroApellido.Location = new System.Drawing.Point(12, 31);
             this.tbFiltroApellido.Name = "tbFiltroApellido";
             this.tbFiltroApellido.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroApellido.TabIndex = 67;
+            this.tbFiltroApellido.TabIndex = 68;
             // 
             // panel1
             // 
@@ -443,7 +443,7 @@
             this.tbDni.MaxLength = 8;
             this.tbDni.Name = "tbDni";
             this.tbDni.Size = new System.Drawing.Size(200, 35);
-            this.tbDni.TabIndex = 86;
+            this.tbDni.TabIndex = 3;
             // 
             // frmRegistrarAdministradores
             // 

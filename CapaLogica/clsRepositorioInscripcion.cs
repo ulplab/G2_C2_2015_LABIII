@@ -23,6 +23,9 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
+            clsRepositorioCuota repoC = new clsRepositorioCuota();
+            clsCuota cuota = new clsCuota();
+
             clsInscripcion inscripcion = new clsInscripcion();
 
             try
@@ -34,6 +37,10 @@ namespace CapaLogica
                 throw e;
             }
 
+            cuota.IdAlumno = inscripcion.IdAlumno;
+            cuota.IdCurso = inscripcion.IdCurso;
+            cuota.Fecha = DateTime.Now;
+
             clsInscripcion compare = new clsInscripcion();
             compare.IdAlumno = inscripcion.IdAlumno;
             compare.IdCurso = inscripcion.IdCurso;
@@ -41,7 +48,10 @@ namespace CapaLogica
             try
             {
                 if (manager.SelectInscripcion(compare).Count == 0)
+                {
                     manager.InsertInscripcion(inscripcion);
+                    repoC.Agregar(cuota);
+                }
                 else
                     throw new ArgumentException("El alumno ya esta inscripto en este curso");
 
@@ -77,28 +87,33 @@ namespace CapaLogica
             clsInscripcion compare = new clsInscripcion();
             compare.IdAlumno = inscripcion.IdAlumno;
             compare.IdCurso = inscripcion.IdCurso;
+            compare.Estado = 1;
 
             try
             {
                 if (manager.SelectInscripcion(compare).Count == 0)
                 {
-                    result = manager.InsertInscripcion(inscripcion);
+                    int i = 0;
+                    foreach (clsInscripcion a in manager.ListarInscripciones())
+                    {
+                        if (a.Estado == 1 && a.IdCurso == inscripcion.IdCurso)
+                        {
+                            i++;
+                        }
+                    }
+                    if (i >= 10)
+                    {
+                        throw new ArgumentException("El curso ya esta lleno");
+                    }
+                    else
+                    {
+                            inscripcion.Estado = 1;
+                            result = manager.InsertInscripcion(inscripcion);
+                    }
                 }
                 else
                 {
                     throw new ArgumentException("El alumno ya esta inscripto en este curso");
-                }
-                int i = 0;
-                foreach (clsInscripcion a in manager.ListarInscripciones())
-                {
-                    if (a.Estado == 1 && a.IdCurso == inscripcion.IdCurso)
-                    {
-                        i++;
-                    }
-                }
-                if (i >= 10)
-                {
-                    throw new ArgumentException("El curso ya esta lleno");
                 }
                 return (result);
             }

@@ -30,6 +30,7 @@ namespace CapaPresentacion
             dgvCursos.Columns.Add("Descripcion", "Descripcion");
             dgvCursos.Columns.Add("FechaInicio", "Fecha Incio");
             dgvCursos.Columns.Add("FechaFin", "Fecha Fin");
+            dgvCursos.Columns.Add("Valor", "Valor $");
             dgvCursos.Columns.Add("Estado", "Estado");
 
             dgvCursos.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -71,6 +72,7 @@ namespace CapaPresentacion
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
+                    dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Valor"].Value = ECurso.Precio;
                     if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
@@ -140,7 +142,7 @@ namespace CapaPresentacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text != string.Empty && tbDescripcion.Text != string.Empty)
+            if (tbNombre.Text != string.Empty && tbDescripcion.Text != string.Empty && tbValorCurso.Text != string.Empty)
             {
                 try
                 {
@@ -151,6 +153,7 @@ namespace CapaPresentacion
                     Curso.Descripcion = tbDescripcion.Text;
                     Curso.FechaInicio = Convert.ToDateTime(dtpFechaIncio.Value);
                     Curso.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
+                    Curso.Precio = Convert.ToDouble(tbValorCurso.Text);
                     Curso.Estado = 1;
 
                     Repo.Agregar(Curso);
@@ -191,6 +194,7 @@ namespace CapaPresentacion
             Curso.Descripcion = Convert.ToString(dgvCursos.CurrentRow.Cells["Descripcion"].Value);
             Curso.FechaInicio = Convert.ToDateTime(dgvCursos.CurrentRow.Cells["FechaInicio"].Value);
             Curso.FechaFin = Convert.ToDateTime(dgvCursos.CurrentRow.Cells["FechaFin"].Value);
+            Curso.Precio = Convert.ToDouble(dgvCursos.CurrentRow.Cells["Valor"].Value);
             if (Convert.ToString(dgvCursos.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
                 Curso.Estado = 1;
@@ -264,6 +268,7 @@ namespace CapaPresentacion
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
+                    dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Valor"].Value = ECurso.Precio;
                     if (ECurso.Estado == 1)
                     {
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";

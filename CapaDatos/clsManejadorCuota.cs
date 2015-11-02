@@ -168,5 +168,78 @@ namespace CapaDatos
 
             return list;
         }
+
+        public List<clsCuotaFormateada> ListarCuotaFormateada()
+        {
+            List<clsCuotaFormateada> list = new List<clsCuotaFormateada>();
+            DataTable dt;
+            string query = "Select Cuota.IdCuota as 'IdCuota', Cursos.Nombre as 'Curso' , Alumnos.Nombre  as 'Alumno', Cursos.Precio as 'Monto', Cuota.Fecha " + 
+            "from Cursos,Alumnos,Cuota "+
+            "where Cursos.IdCurso = Cuota.IdCurso "+
+	        "and " +
+	        "Alumnos.IdAlumno = Cuota.IdAlumno; ";
+
+            try
+            {
+                dt = dbManager.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsCuotaFormateada c = new clsCuotaFormateada();
+
+                c.Id = Convert.ToInt32(item["IdCuota"]);
+                c.IdAlumno = Convert.ToString(item["Alumno"]);
+                c.IdCurso = Convert.ToString(item["Curso"]);
+                c.Fecha = Convert.ToDateTime(item["Fecha"]);
+                c.Precio = Convert.ToDouble(item["Monto"]);
+                list.Add(c);
+            }
+
+            return list;
+        }
+
+        public List<clsCuotaFormateada> ListarCuotaFormateada(DateTime Fecha_Inicio, DateTime Fecha_Fin)
+        {
+            List<clsCuotaFormateada> list = new List<clsCuotaFormateada>();
+            DataTable dt;
+            string query = "Select Cuota.IdCuota as 'IdCuota', Cursos.Nombre as 'Curso' , Alumnos.Nombre  as 'Alumno', Cursos.Precio as 'Monto', Cuota.Fecha as 'Fecha'" +
+            "from Cursos,Alumnos,Cuota " +
+            "where Cursos.IdCurso = Cuota.IdCurso " +
+            "and " +
+            "Alumnos.IdAlumno = Cuota.IdAlumno " +
+            "and " +
+            "( Cuota.fecha between '" + Fecha_Inicio.Date.ToString() + "' and '" + Fecha_Fin.Date.ToString() + "');"; 
+            
+            try
+            {
+                dt = dbManager.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsCuotaFormateada c = new clsCuotaFormateada();
+
+                c.Id = Convert.ToInt32(item["IdCuota"]);
+                c.IdAlumno = Convert.ToString(item["Alumno"]);
+                c.IdCurso = Convert.ToString(item["Curso"]);
+                c.Fecha = Convert.ToDateTime(item["Fecha"]);
+                c.Precio = Convert.ToDouble(item["Monto"]);
+
+                list.Add(c);
+            }
+
+            return list;
+        }
     }
 }
