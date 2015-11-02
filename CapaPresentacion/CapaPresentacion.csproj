@@ -55,6 +55,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCargarDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCargarDocentes.Designer.cs">
+      <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\crCertificadoFinCurso.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -216,6 +222,9 @@
     <Compile Include="Reportes\frmReporteMorosidad.Designer.cs">
       <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCargarDocentes.resx">
+      <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crCertificadoFinCurso.cs</LastGenOutput>
