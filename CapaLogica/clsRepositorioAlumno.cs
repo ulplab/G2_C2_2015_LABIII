@@ -172,8 +172,6 @@ namespace CapaLogica
 
             return list;
         }
-
-
         public clsAlumno Login(string usuario, string contraseña)
         {
             clsManejadorAlumno amanager = new clsManejadorAlumno();

@@ -233,7 +233,7 @@ namespace Clases
                     }
                     else
                     {
-                        if (DateTime.Compare(Fecha_Inicio,Fecha_Fin) == -1)
+                        if (DateTime.Compare(Fecha_Inicio,Fecha_Fin) <= 0)
                         {
                             list.AddRange(manager.ListarCuotaFormateada(Fecha_Inicio, Fecha_Fin));
                         }
@@ -245,5 +245,7 @@ namespace Clases
                 }
             return list;
         }
+
+
     }
 }

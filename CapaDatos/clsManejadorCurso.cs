@@ -200,5 +200,107 @@ namespace CapaDatos
 
             return list;
         }
+
+        public List<clsCursoFormateado> ListarCursosFormateados()
+        {
+            List<clsCursoFormateado> list = new List<clsCursoFormateado>();
+            DataTable dt;
+            string query = " Select Cursos.IdCurso,Cursos.Nombre,Cursos.FechaInicio,Cursos.FechaFin,Cursos.Estado, (Cuotas.conteo * Cursos.Precio) as 'Recaudado',(inscriptos.cantidad * Cursos.Precio) as 'Esperado'," +
+                            "(((Cuotas.conteo * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) as " + "Pagado " +
+                            "from Cursos , " +
+                            "( " +
+                            "select Cuota.IdCurso, COUNT(Cuota.IdCurso) as " + "conteo " +
+                            "from  Cuota " +
+                            "group by Cuota.IdCurso " +
+                            ") as " + "Cuotas" + "," +
+                            "(" +
+                            "Select Asiste.IdCurso,COUNT(Asiste.IdCurso) as cantidad " +
+                            "from Asiste " +
+                            "where Asiste.Estado = '1' " +
+                            "group by Asiste.IdCurso " +
+                            ") as " + "inscriptos" +
+                            "where Cursos.IdCurso = Cuotas.IdCurso " +
+                            "and " +
+                            "Cursos.IdCurso = inscriptos.IdCurso;";
+
+            try
+            {
+                dt = dbman.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsCursoFormateado c = new clsCursoFormateado();
+
+                c.Id = Convert.ToInt32(item["IdCurso"]);
+                c.Nombre = Convert.ToString(item["Nombre"]);
+                c.FechaInicio = Convert.ToDateTime(item["FechaInicio"]);
+                c.FechaFin = Convert.ToDateTime(item["FechaFin"]);
+                c.Estado = Convert.ToInt32(item["Estado"]);
+                c.Recaudado = Convert.ToDouble(item["Recaudado"]);
+                c.Esperado = Convert.ToDouble(item["Esperado"]);
+                c.Porcentaje_pagado = Convert.ToDouble(item["Pagado"]);
+                list.Add(c);
+            }
+
+            return list;
+
+        }
+
+        public List<clsCursoFormateado> ListarCursosFormateados(DateTime Fecha_Inicio, DateTime Fecha_Fin)
+        {
+            List<clsCursoFormateado> list = new List<clsCursoFormateado>();
+            DataTable dt;
+            string query = "Select distinct Cursos.IdCurso ,Cursos.Nombre ,Cursos.FechaInicio ,Cursos.FechaFin,Cursos.Estado ,(Cuotas.conteo * Cursos.Precio) as 'Recaudado' ,(inscriptos.cantidad * Cursos.Precio) as 'Esperado' ," +
+                            "(((Cuotas.conteo * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) as \"Pagado\" " +
+                            "from Cursos ," +
+                            "( " +
+                            "select Cuota.IdCurso ,COUNT(Cuota.IdCurso) as \"conteo \" " +
+                            "from  Cuota " +
+                            "group by Cuota.IdCurso " +
+                            ") as \"Cuotas\" , " +
+                            "(" +
+                            "Select Asiste.IdCurso,COUNT(Asiste.IdCurso) as \"cantidad\" " +
+                            "from Asiste " +
+                            "where Asiste.Estado = '1' " +
+                            "group by Asiste.IdCurso " +
+                            ") as \"inscriptos\" ,Cuota " +
+                            "where Cursos.IdCurso = Cuotas.IdCurso " +
+                            "and " +
+                            "Cursos.IdCurso = inscriptos.IdCurso " +
+                            "and " +
+                            "Cuota.Fecha between '" + Fecha_Inicio.Date.ToString() + "' and '" + Fecha_Fin.Date.ToString() + "';";
+
+            try
+            {
+                dt = dbman.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsCursoFormateado c = new clsCursoFormateado();
+                c.Id = Convert.ToInt32(item["IdCurso"]);
+                c.Nombre = Convert.ToString(item["Nombre"]);
+                c.FechaInicio = Convert.ToDateTime(item["FechaInicio"]);
+                c.FechaFin = Convert.ToDateTime(item["FechaFin"]);
+                c.Estado = Convert.ToInt32(item["Estado"]);
+                c.Recaudado = Convert.ToDouble(item["Recaudado"]);
+                c.Esperado = Convert.ToDouble(item["Esperado"]);
+                c.Porcentaje_pagado = Convert.ToDouble(item["Pagado"]);
+                list.Add(c);
+            }
+
+            return list;
+        }
     }
 }

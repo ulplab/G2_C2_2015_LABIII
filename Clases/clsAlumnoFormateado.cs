@@ -6,7 +6,7 @@ using Interfaces;
 
 namespace Clases
 {
-    public class clsAlumno : IEntidad
+    public class clsAlumnoFormateado : IEntidad
     {
         int idAlumno = -1;
 
@@ -40,30 +40,6 @@ namespace Clases
             set { apellido = value; }
         }
 
-        string direccion;
-
-        public string Direccion
-        {
-            get { return direccion; }
-            set { direccion = value; }
-        }
-
-        string telefono;
-
-        public string Telefono
-        {
-            get { return telefono; }
-            set { telefono = value; }
-        }
-
-        string email;
-
-        public string Email
-        {
-            get { return email; }
-            set { email = value; }
-        }
-
         int estado = -1;
 
         public int Estado
@@ -72,13 +48,6 @@ namespace Clases
             set { estado = value; }
         }
 
-        string contraseña;
-
-        public string Contraseña
-        {
-            get { return contraseña; }
-            set { contraseña = value; }
-        }
 
         double pagado;
 
