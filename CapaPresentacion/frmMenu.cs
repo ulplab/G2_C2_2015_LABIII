@@ -220,6 +220,12 @@ namespace CapaPresentacion
             ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
         }
 
+        private void btnAgregarDocentes_Click(object sender, EventArgs e)
+        {
+            frmCargarDocentes CargarDocentes = new frmCargarDocentes();
+            CargarDocentes.ShowDialog();
+        }
+
 
 
 

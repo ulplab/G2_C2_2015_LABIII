@@ -294,6 +294,7 @@
             this.btnAgregarDocentes.Text = "Cargar \r\nDocentes";
             this.btnAgregarDocentes.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAgregarDocentes.UseVisualStyleBackColor = false;
+            this.btnAgregarDocentes.Click += new System.EventHandler(this.btnAgregarDocentes_Click);
             this.btnAgregarDocentes.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAgregarDocentes.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 

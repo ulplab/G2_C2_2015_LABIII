@@ -5,7 +5,7 @@ create table Administradores(
 	Contraseña varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
-	Dni int not null,
+	Dni varchar(8) not null,
 	Telefono varchar(30) null,
 	Estado bit not null,
 	constraint PK_ID_ADMINISTRADOR primary key (IdAdministrador)
@@ -18,7 +18,7 @@ create table Alumnos(
 	Contraseña varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
-	Dni int not null,
+	Dni varchar(8) not null,
 	Telefono int null,
 	Estado bit not null,
 	Direccion varchar(30) not null,
@@ -46,7 +46,7 @@ create table Profesores(
 	IdProfesor int not null identity(10,10),
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
-	Dni int not null,
+	Dni varchar(8) not null,
 	Telefono int null,
 	Contraseña varchar(20) not null,
 	Estado bit not null,
@@ -101,6 +101,16 @@ create table Cuota(
  --drop table Asiste;
 
  SELECT *
- FROM Administradores;
+ FROM Alumnos;
 
  INSERT INTO Administradores VALUES('gon','gon','gonzalo','podesta',37599841,'2664010989', 1);
+
+ INSERT INTO Alumnos VALUES('mario', 'mario', 'mario', '37599332', 2022323, 1, 'avenida', 'ggpq@wqwqw.com');
+
+
+
+ SELECT * 
+ FROM Cursos
+  WHERE Nombre LIKE '%ewe%' 
+  AND FechaInicio >= '01-01-01:00:00' 
+  AND FechaFin <= '01-01-01:00:00'
