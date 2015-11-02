@@ -50,7 +50,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(588, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(588, 93);
             this.ousEncabezado.Titulo = "Modificar Alumnos";
             // 
             // tbEmail

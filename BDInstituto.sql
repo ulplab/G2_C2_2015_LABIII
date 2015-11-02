@@ -1,8 +1,8 @@
---Administradores = (idAdministrador, Usuario, Contraseña, Nombre, Apellido, Dni, Telefono, Estado)
+--Administradores = (idAdministrador, Usuario, ContraseÃ±a, Nombre, Apellido, Dni, Telefono, Estado)
 create table Administradores(
 	IdAdministrador int not null identity(10,10),
 	Usuario varchar(20) not null,
-	Contraseña varchar(20) not null,
+	ContraseÃ±a varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
@@ -12,10 +12,10 @@ create table Administradores(
 )
 --drop table Administradores;
 
---Alumnos = (idAlumno, Dni, Nombre, Apellido, Direccion, Telefono, Email, Estado, Contraseña)
+--Alumnos = (idAlumno, Dni, Nombre, Apellido, Direccion, Telefono, Email, Estado, ContraseÃ±a)
 create table Alumnos(
 	IdAlumno int not null identity(10,10),
-	Contraseña varchar(20) not null,
+	ContraseÃ±a varchar(20) not null,
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
@@ -41,14 +41,14 @@ create table Cursos(
 --drop table Cursos;
 
 
---Profesores = (IdProfesor, Nombre, Apellido, Dni, Telefono, Contraseña, Estado)
+--Profesores = (IdProfesor, Nombre, Apellido, Dni, Telefono, ContraseÃ±a, Estado)
 create table Profesores(
 	IdProfesor int not null identity(10,10),
 	Nombre varchar(30) not null,
 	Apellido varchar(30) not null,
 	Dni varchar(8) not null,
 	Telefono int null,
-	Contraseña varchar(20) not null,
+	ContraseÃ±a varchar(20) not null,
 	Estado bit not null,
 	constraint PK_ID_PROFESOR primary key(IdProfesor)
 )

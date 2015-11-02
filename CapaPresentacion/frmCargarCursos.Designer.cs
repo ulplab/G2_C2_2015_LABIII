@@ -71,7 +71,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1096, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1096, 93);
             this.ousEncabezado.Titulo = "Cargar Cursos";
             // 
             // btnAgregar

@@ -61,11 +61,11 @@
     <Compile Include="frmCargarDocentes.Designer.cs">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmModificarProfesor.cs">
+    <Compile Include="frmModificarDocente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmModificarProfesor.Designer.cs">
-      <DependentUpon>frmModificarProfesor.cs</DependentUpon>
+    <Compile Include="frmModificarDocente.Designer.cs">
+      <DependentUpon>frmModificarDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\crCertificadoFinCurso.cs">
       <AutoGen>True</AutoGen>
@@ -231,8 +231,8 @@
     <EmbeddedResource Include="frmCargarDocentes.resx">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmModificarProfesor.resx">
-      <DependentUpon>frmModificarProfesor.cs</DependentUpon>
+    <EmbeddedResource Include="frmModificarDocente.resx">
+      <DependentUpon>frmModificarDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -62,7 +62,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1019, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1019, 90);
             this.ousEncabezado.Titulo = "Alumnos por Curso";
             // 
             // gbFiltros

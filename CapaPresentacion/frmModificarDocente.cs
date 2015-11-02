@@ -13,9 +13,9 @@ using Interfaces;
 
 namespace CapaPresentacion
 {
-    public partial class frmModificarProfesor : frmPrincipal
+    public partial class frmModificarDocente : frmPrincipal
     {
-        public frmModificarProfesor(clsProfesor Profesor)
+        public frmModificarDocente(clsProfesor Profesor)
         {
             InitializeComponent();
             this.Profesor = Profesor;
@@ -77,7 +77,9 @@ namespace CapaPresentacion
                 tbDni.Text = Convert.ToString(Profesor.Dni);
                 tbDireccion.Text = Profesor.Direccion;
                 tbTelefono.Text = Profesor.Telefono;
-                //tbEmail.Text = Profesor.Email;
+                tbEmail.Text = Profesor.Email;
+                tbContraseña.Text = Profesor.Contraseña;
+                tbUsuario.Text = Profesor.Dni;
                 if (Profesor.Estado == 1)
                 {
                     ckbEstado.Checked = true;
@@ -106,11 +108,13 @@ namespace CapaPresentacion
                         ProfesorModificado.Dni = tbDni.Text;
                         ProfesorModificado.Direccion = tbDireccion.Text;
                         ProfesorModificado.Telefono = tbTelefono.Text;
-                        //ProfesorModificado.Email = tbEmail.Text;
+                        ProfesorModificado.Email = tbEmail.Text;
+                        ProfesorModificado.Contraseña = tbContraseña.Text;
                         ProfesorModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
                         Repo.Actualizar(ProfesorModificado);
                         Profesor = ProfesorModificado;
+                        tbUsuario.Text = ProfesorModificado.Dni;
 
                         MessageBox.Show("Los cambios del alumno se guardaron correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -139,7 +143,7 @@ namespace CapaPresentacion
 
         void Cerrar()
         {
-            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && /*tbEmail.Text == Profesor.Email &&*/ Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
+            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && tbEmail.Text == Profesor.Email && Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
             {
                 this.Close();
             }
@@ -166,7 +170,7 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && /*tbEmail.Text == Profesor.Email &&*/ Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
+            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && tbEmail.Text == Profesor.Email && Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
             {
                 this.Close();
             }

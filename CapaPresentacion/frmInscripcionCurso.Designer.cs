@@ -51,7 +51,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1149, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1149, 94);
             this.ousEncabezado.Titulo = "Inscripciones";
             // 
             // dgvEtapaUno
@@ -59,7 +59,7 @@
             this.dgvEtapaUno.AllowUserToAddRows = false;
             this.dgvEtapaUno.AllowUserToDeleteRows = false;
             this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapaUno.Location = new System.Drawing.Point(39, 218);
+            this.dgvEtapaUno.Location = new System.Drawing.Point(40, 239);
             this.dgvEtapaUno.MultiSelect = false;
             this.dgvEtapaUno.Name = "dgvEtapaUno";
             this.dgvEtapaUno.ReadOnly = true;
@@ -75,7 +75,7 @@
             this.rdAlumnos.BackColor = System.Drawing.Color.Transparent;
             this.rdAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rdAlumnos.ForeColor = System.Drawing.Color.White;
-            this.rdAlumnos.Location = new System.Drawing.Point(39, 96);
+            this.rdAlumnos.Location = new System.Drawing.Point(40, 117);
             this.rdAlumnos.Name = "rdAlumnos";
             this.rdAlumnos.Size = new System.Drawing.Size(124, 33);
             this.rdAlumnos.TabIndex = 23;
@@ -106,7 +106,7 @@
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.tbBuscar.Location = new System.Drawing.Point(321, 121);
+            this.tbBuscar.Location = new System.Drawing.Point(322, 142);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(442, 38);
             this.tbBuscar.TabIndex = 26;
@@ -117,7 +117,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Black;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(769, 114);
+            this.btnBuscar.Location = new System.Drawing.Point(770, 135);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(214, 44);
             this.btnBuscar.TabIndex = 27;
@@ -131,7 +131,7 @@
             this.rdCursos.BackColor = System.Drawing.Color.Transparent;
             this.rdCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rdCursos.ForeColor = System.Drawing.Color.White;
-            this.rdCursos.Location = new System.Drawing.Point(169, 97);
+            this.rdCursos.Location = new System.Drawing.Point(170, 118);
             this.rdCursos.Name = "rdCursos";
             this.rdCursos.Size = new System.Drawing.Size(107, 33);
             this.rdCursos.TabIndex = 28;
@@ -150,7 +150,7 @@
             this.pnlBusqueda.Controls.Add(this.rdDNI);
             this.pnlBusqueda.Controls.Add(this.rdApellido);
             this.pnlBusqueda.Controls.Add(this.rdNombre);
-            this.pnlBusqueda.Location = new System.Drawing.Point(279, 171);
+            this.pnlBusqueda.Location = new System.Drawing.Point(280, 192);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(834, 41);
             this.pnlBusqueda.TabIndex = 29;
@@ -252,7 +252,7 @@
             this.cbParametros.BackColor = System.Drawing.Color.Transparent;
             this.cbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbParametros.ForeColor = System.Drawing.Color.White;
-            this.cbParametros.Location = new System.Drawing.Point(989, 130);
+            this.cbParametros.Location = new System.Drawing.Point(990, 151);
             this.cbParametros.Name = "cbParametros";
             this.cbParametros.Size = new System.Drawing.Size(124, 28);
             this.cbParametros.TabIndex = 30;

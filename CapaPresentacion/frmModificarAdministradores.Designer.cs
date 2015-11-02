@@ -50,7 +50,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(728, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(728, 92);
             this.ousEncabezado.Titulo = "Modificar Administradores";
             // 
             // tbTelefono

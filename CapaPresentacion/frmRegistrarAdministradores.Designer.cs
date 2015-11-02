@@ -73,7 +73,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1071, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1071, 95);
             this.ousEncabezado.Titulo = "Registrar Administradores";
             // 
             // lblUsuario

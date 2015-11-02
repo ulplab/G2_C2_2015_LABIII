@@ -46,6 +46,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
+            this.ousEncabezado.Size = new System.Drawing.Size(590, 90);
             this.ousEncabezado.Titulo = "Modificar Cursos";
             // 
             // dtpFechaFin

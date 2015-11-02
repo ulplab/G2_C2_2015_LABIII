@@ -32,8 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnDesactivarFiltro = new System.Windows.Forms.Button();
-            this.btnActivarFiltro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,8 +78,7 @@
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.gbFiltros.Controls.Add(this.btnDesactivarFiltro);
-            this.gbFiltros.Controls.Add(this.btnActivarFiltro);
+            this.gbFiltros.Controls.Add(this.btnBuscar);
             this.gbFiltros.Controls.Add(this.panel4);
             this.gbFiltros.Controls.Add(this.panel3);
             this.gbFiltros.Controls.Add(this.panel2);
@@ -94,49 +92,24 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
             // 
-            // btnDesactivarFiltro
+            // btnBuscar
             // 
-            this.btnDesactivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnDesactivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivarFiltro.Image")));
-            this.btnDesactivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDesactivarFiltro.Location = new System.Drawing.Point(829, 32);
-            this.btnDesactivarFiltro.Name = "btnDesactivarFiltro";
-            this.btnDesactivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnDesactivarFiltro.TabIndex = 80;
-            this.btnDesactivarFiltro.Tag = "6";
-            this.btnDesactivarFiltro.Text = "Desactivar Filtro";
-            this.btnDesactivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesactivarFiltro.UseVisualStyleBackColor = false;
-            this.btnDesactivarFiltro.Click += new System.EventHandler(this.btnDesactivarFiltro_Click);
-            // 
-            // btnActivarFiltro
-            // 
-            this.btnActivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnActivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnActivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnActivarFiltro.Image")));
-            this.btnActivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActivarFiltro.Location = new System.Drawing.Point(746, 32);
-            this.btnActivarFiltro.Name = "btnActivarFiltro";
-            this.btnActivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnActivarFiltro.TabIndex = 67;
-            this.btnActivarFiltro.Tag = "6";
-            this.btnActivarFiltro.Text = "Activar Filtro";
-            this.btnActivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivarFiltro.UseVisualStyleBackColor = false;
-            this.btnActivarFiltro.Click += new System.EventHandler(this.btnActivarFiltro_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(739, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(169, 66);
+            this.btnBuscar.TabIndex = 81;
+            this.btnBuscar.Tag = "6";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
             // panel4
             // 
@@ -184,6 +157,7 @@
             // 
             this.tbFiltroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.tbFiltroDni.Location = new System.Drawing.Point(10, 31);
+            this.tbFiltroDni.MaxLength = 8;
             this.tbFiltroDni.Name = "tbFiltroDni";
             this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
             this.tbFiltroDni.TabIndex = 84;
@@ -413,7 +387,7 @@
             this.lblDni.BackColor = System.Drawing.Color.Transparent;
             this.lblDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDni.ForeColor = System.Drawing.Color.White;
-            this.lblDni.Location = new System.Drawing.Point(162, 586);
+            this.lblDni.Location = new System.Drawing.Point(128, 586);
             this.lblDni.Name = "lblDni";
             this.lblDni.Size = new System.Drawing.Size(55, 29);
             this.lblDni.TabIndex = 75;
@@ -422,7 +396,7 @@
             // tbApellido
             // 
             this.tbApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbApellido.Location = new System.Drawing.Point(275, 526);
+            this.tbApellido.Location = new System.Drawing.Point(241, 526);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(200, 35);
             this.tbApellido.TabIndex = 68;
@@ -433,7 +407,7 @@
             this.lblApellido.BackColor = System.Drawing.Color.Transparent;
             this.lblApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApellido.ForeColor = System.Drawing.Color.White;
-            this.lblApellido.Location = new System.Drawing.Point(161, 533);
+            this.lblApellido.Location = new System.Drawing.Point(127, 533);
             this.lblApellido.Name = "lblApellido";
             this.lblApellido.Size = new System.Drawing.Size(108, 29);
             this.lblApellido.TabIndex = 74;
@@ -442,7 +416,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(275, 472);
+            this.tbNombre.Location = new System.Drawing.Point(241, 472);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(200, 35);
             this.tbNombre.TabIndex = 67;
@@ -453,7 +427,7 @@
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(162, 478);
+            this.lblNombre.Location = new System.Drawing.Point(128, 478);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(107, 29);
             this.lblNombre.TabIndex = 73;
@@ -462,7 +436,8 @@
             // tbDni
             // 
             this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.tbDni.Location = new System.Drawing.Point(274, 583);
+            this.tbDni.Location = new System.Drawing.Point(240, 583);
+            this.tbDni.MaxLength = 8;
             this.tbDni.Name = "tbDni";
             this.tbDni.Size = new System.Drawing.Size(200, 35);
             this.tbDni.TabIndex = 85;
@@ -528,8 +503,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbFiltros;
-        private System.Windows.Forms.Button btnDesactivarFiltro;
-        private System.Windows.Forms.Button btnActivarFiltro;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbFiltroEstado;
         private System.Windows.Forms.Label label4;
@@ -558,5 +531,6 @@
         private System.Windows.Forms.Label lblNombre;
         private Controles.NumTextBox tbDni;
         private Controles.NumTextBox tbFiltroDni;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

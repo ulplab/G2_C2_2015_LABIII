@@ -43,15 +43,15 @@ namespace CapaDatos
 
             try
             {
-                String query = "update Profesor set "
+                String query = "update Profesores set "
                     + "Nombre = '" + entidad.Nombre
-                    + "' Apellido = '" + entidad.Apellido
-                    + "' Dni ='" + entidad.Dni
-                    + "' Telefono = '" + entidad.Telefono
-                    + "' Contraseña = '" + entidad.Contraseña
-                    + "' Estado = '" + entidad.Estado
-                    + "' Direccion = '" + entidad.Direccion
-                    + "' Email= '" + entidad.Email
+                    + "', Apellido = '" + entidad.Apellido
+                    + "', Dni ='" + entidad.Dni 
+                    + "', Telefono = '" + entidad.Telefono
+                    + "', Contraseña = '" + entidad.Contraseña
+                    + "', Estado = '" + entidad.Estado
+                    + "', Direccion = '" + entidad.Direccion
+                    + "', Email= '" + entidad.Email
                     + "' where IdProfesor = " + entidad.Id + ";";
                
                 filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
@@ -86,88 +86,99 @@ namespace CapaDatos
         public List<clsProfesor> SelectProfesor(clsProfesor entidad)
         {
             bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false, estado = false, direccion = false;
-            string query = "select * from Profesores where";
-            if (entidad.Id != -1)
+            string query = string.Empty;
+
+            if (entidad.Id != -1 || entidad.Nombre != null || entidad.Apellido != null || entidad.Dni != null || entidad.Telefono != null || entidad.Contraseña != null || entidad.Estado != -1 || entidad.Direccion != null || entidad.Email != null)
             {
-                query += " IdProfesor = '" + entidad.Id + "'";
-                id = true;
+                query = "select * from Profesores where";
+
+
+                if (entidad.Id != -1)
+                {
+                    query += " IdProfesor = '" + entidad.Id + "'";
+                    id = true;
+                }
+
+                if (entidad.Nombre != null)
+                {
+                    if (id)
+                    {
+                        query += " and";
+                    }
+                    query += " Nombre LIKE '" + entidad.Nombre + "%'";
+                    nombre = true;
+                }
+                if (entidad.Apellido != null)
+                {
+                    if (id | nombre)
+                    {
+                        query += " and";
+                    }
+
+                    query += " Apellido LIKE '" + entidad.Apellido + "%'";
+                    apellido = true;
+                }
+                if (entidad.Dni != null)
+                {
+                    if (id | nombre | apellido)
+                    {
+                        query += " and";
+                    }
+
+                    query += " Dni LIKE '" + entidad.Dni + "%'";
+                    dni = true;
+                }
+                if (entidad.Telefono != null)
+                {
+                    if (id | nombre | apellido | dni)
+                    {
+                        query += " and";
+                    }
+
+                    query += " Telefono LIKE '" + entidad.Telefono + "%'";
+                    telefono = true;
+                }
+                if (entidad.Contraseña != null)
+                {
+                    if (id | nombre | apellido | dni | telefono)
+                    {
+                        query += " and";
+                    }
+
+                    query += " Contraseña = '" + entidad.Contraseña + "'";
+                    contraseña = true;
+                }
+                if (entidad.Estado != -1)
+                {
+                    if (id | nombre | apellido | dni | telefono | contraseña)
+                    {
+                        query += " and";
+                    }
+
+                    query += " Estado = " + entidad.Estado;
+                    estado = true;
+                }
+                if (entidad.Direccion != null)
+                {
+                    if (id | nombre | apellido | dni | telefono | contraseña | estado)
+                    {
+                        query += " and";
+                    }
+                    query += " Direccion LIKE '" + entidad.Direccion + "%'";
+                    direccion = true;
+                }
+                if (entidad.Email != null)
+                {
+                    if (id | nombre | apellido | dni | telefono | contraseña | estado | direccion)
+                    {
+                        query += " and";
+                    }
+                    query += " Email LIKE '" + entidad.Email + "%'";
+                }
             }
-
-            if (entidad.Nombre != null)
-	        {
-		        if (id)
-	            {
-                    query += " and";	 
-	            }
-                query += " Nombre = '" + entidad.Nombre + "'";
-                nombre = true;
-	        }
-            if (entidad.Apellido != null)
-	        {
-                if (id | nombre)
-                {
-                    query += " and";
-                }
-
-                query += " Apellido = '" + entidad.Apellido + "'";
-                apellido = true;
-	        }
-            if (entidad.Dni != null)
+            else
             {
-                if (id | nombre | apellido)
-                {
-                    query += " and";
-                }
-
-                query += " Dni = '" + entidad.Dni + "'";
-                dni = true;
-            }
-            if (entidad.Telefono != null)
-	        {
-                if (id | nombre | apellido | dni)
-                {
-                    query += " and";
-                }
-
-                query += " Telefono = '" + entidad.Telefono + "'";
-                telefono = true;
-	        }
-            if (entidad.Contraseña != null)
-	        {
-                if (id | nombre | apellido | dni | telefono)
-                {
-                    query += " and";
-                }
-
-                query += " Contraseña = '" + entidad.Contraseña + "'";
-                contraseña = true;
-	        }
-            if (entidad.Estado != -1)
-            {
-                if (id | nombre | apellido | dni | telefono | contraseña)
-                {
-                    query += " and";
-                }
-               
-                query += " Estado = " + entidad.Estado;
-                estado = true;
-            }
-            if (entidad.Direccion != null)
-            {
-                if (id | nombre | apellido | dni | telefono | contraseña | estado)
-                {
-                    query += " and";
-                }
-                query += " Direccion = '" + entidad.Direccion + "'";
-                direccion = true;
-            }
-            if (entidad.Email != null)
-            {
-                if (id | nombre | apellido | dni | telefono | contraseña | estado | direccion)
-                {
-                    query += " and";
-                }
-                query += " Email = '" + entidad.Email + "'";
+                query = "select * from Profesores";
             }
 
             query += ";";
@@ -197,6 +208,7 @@ namespace CapaDatos
                 p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
                 p.Direccion = Convert.ToString(item["Direccion"]);
+                p.Email = Convert.ToString(item["Email"]);
 
                 res.Add(p);
             }
@@ -233,6 +245,7 @@ namespace CapaDatos
                 p.Contraseña = Convert.ToString(item["Contraseña"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
                 p.Direccion = Convert.ToString(item["Direccion"]);
+                p.Email = Convert.ToString(item["Email"]);
 
                 res.Add(p);
             }

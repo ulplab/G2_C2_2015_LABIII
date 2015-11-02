@@ -35,6 +35,7 @@ namespace CapaPresentacion
             dgvDocentes.Columns.Add("Telefono", "Telefono");
             dgvDocentes.Columns.Add("Email", "Email");
             dgvDocentes.Columns.Add("Estado", "Estado");
+            dgvDocentes.Columns.Add("Contraseña", "Contraseña");
 
             dgvDocentes.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvDocentes.Columns["Apellido"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -49,9 +50,8 @@ namespace CapaPresentacion
             cbFiltroEstado.Items.Add("Todos");
             cbFiltroEstado.SelectedItem = "Todos";
 
-            btnDesactivarFiltro.BackColor = Color.Red;
-
             dgvDocentes.Columns["IdProfesor"].Visible = false;
+            dgvDocentes.Columns["Contraseña"].Visible = false;
 
             if (!filtro)
             {
@@ -81,7 +81,8 @@ namespace CapaPresentacion
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
-                    //dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Contraseña"].Value = EPro.Contraseña;
                     if (EPro.Estado == 1)
                     {
                         dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
@@ -106,6 +107,10 @@ namespace CapaPresentacion
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Grande.png");
                 }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                }
                 else
                 {
                     btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
@@ -124,6 +129,10 @@ namespace CapaPresentacion
                 if ((sender as Button).Name == "btnAgregar")
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Chico.png");
+                }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
                 else
                 {
@@ -144,15 +153,16 @@ namespace CapaPresentacion
                 {
                     if (tbDni.Text.Length == 8)
                     {
-                        Repo = RepoF.getRepositorio(RepoType.ALUMNO);
+                        Repo = RepoF.getRepositorio(RepoType.PROFESOR);
 
                         Profesor.Nombre = tbNombre.Text;
                         Profesor.Apellido = tbApellido.Text;
                         Profesor.Dni = tbDni.Text;
                         Profesor.Direccion = tbDireccion.Text;
                         Profesor.Telefono = tbTelefono.Text;
-                        //Profesor.Email = tbEmail.Text;
+                        Profesor.Email = tbEmail.Text;
                         Profesor.Estado = 1;
+                        Profesor.Contraseña = tbDni.Text;
 
                         Repo.Agregar(Profesor);
 
@@ -201,7 +211,8 @@ namespace CapaPresentacion
             Profesor.Dni = Convert.ToString(dgvDocentes.CurrentRow.Cells["Dni"].Value);
             Profesor.Direccion = Convert.ToString(dgvDocentes.CurrentRow.Cells["Direccion"].Value);
             Profesor.Telefono = Convert.ToString(dgvDocentes.CurrentRow.Cells["Telefono"].Value);
-            //Profesor.Email = Convert.ToString(dgvDocentes.CurrentRow.Cells["Email"].Value);
+            Profesor.Email = Convert.ToString(dgvDocentes.CurrentRow.Cells["Email"].Value);
+            Profesor.Contraseña = Convert.ToString(dgvDocentes.CurrentRow.Cells["Contraseña"].Value);
             if (Convert.ToString(dgvDocentes.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
                 Profesor.Estado = 1;
@@ -213,7 +224,7 @@ namespace CapaPresentacion
 
             int FilaSeleccionada = dgvDocentes.CurrentRow.Index;
 
-            frmModificarProfesor ModificarAlumnos = new frmModificarProfesor(Profesor);
+            frmModificarDocente ModificarAlumnos = new frmModificarDocente(Profesor);
             ModificarAlumnos.ShowDialog();
 
             if (!filtro)
@@ -236,9 +247,18 @@ namespace CapaPresentacion
             string query = string.Empty;
 
             clsProfesor temp = new clsProfesor();
-            temp.Nombre = tbFiltroNombre.Text;
-            temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = tbFiltroDni.Text;
+            if (tbFiltroNombre.Text != string.Empty)
+            {
+                temp.Nombre = tbFiltroNombre.Text;
+            }
+            if (tbFiltroApellido.Text != string.Empty)
+            {
+                temp.Apellido = tbFiltroApellido.Text;
+            }
+            if (tbFiltroDni.Text != string.Empty)
+            {
+                temp.Dni = tbFiltroDni.Text;
+            }
 
             if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {
@@ -267,7 +287,8 @@ namespace CapaPresentacion
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
                     dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
-                    //dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Contraseña"].Value = EPro.Contraseña;
                     if (EPro.Estado == 1)
                     {
                         dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
@@ -285,21 +306,13 @@ namespace CapaPresentacion
 
         }
 
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
             ActualizarGrillaFiltrada();
+            filtro = true;
         }
 
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
-        {
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-            ActualizarGrilla();
-        }
+
 
 
 

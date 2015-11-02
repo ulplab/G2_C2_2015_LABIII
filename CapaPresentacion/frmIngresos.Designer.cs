@@ -72,7 +72,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1167, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1167, 94);
             this.ousEncabezado.Titulo = "Ingresos";
             // 
             // dgvDatos
@@ -140,7 +140,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(44, 82);
+            this.label1.Location = new System.Drawing.Point(38, 97);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(172, 39);
             this.label1.TabIndex = 24;
@@ -152,7 +152,7 @@
             this.lblIngresosPor.BackColor = System.Drawing.Color.Transparent;
             this.lblIngresosPor.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblIngresosPor.ForeColor = System.Drawing.Color.White;
-            this.lblIngresosPor.Location = new System.Drawing.Point(53, 150);
+            this.lblIngresosPor.Location = new System.Drawing.Point(47, 165);
             this.lblIngresosPor.Name = "lblIngresosPor";
             this.lblIngresosPor.Size = new System.Drawing.Size(138, 26);
             this.lblIngresosPor.TabIndex = 26;
@@ -167,7 +167,7 @@
             "Alumnos",
             "Cursos",
             "Todo"});
-            this.cbIngresosPor.Location = new System.Drawing.Point(51, 179);
+            this.cbIngresosPor.Location = new System.Drawing.Point(45, 194);
             this.cbIngresosPor.Name = "cbIngresosPor";
             this.cbIngresosPor.Size = new System.Drawing.Size(248, 21);
             this.cbIngresosPor.TabIndex = 27;
@@ -179,7 +179,7 @@
             this.lblPeriodo.BackColor = System.Drawing.Color.Transparent;
             this.lblPeriodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblPeriodo.ForeColor = System.Drawing.Color.White;
-            this.lblPeriodo.Location = new System.Drawing.Point(53, 203);
+            this.lblPeriodo.Location = new System.Drawing.Point(47, 218);
             this.lblPeriodo.Name = "lblPeriodo";
             this.lblPeriodo.Size = new System.Drawing.Size(93, 26);
             this.lblPeriodo.TabIndex = 28;
@@ -197,14 +197,14 @@
             "Trimestral",
             "Anual",
             "Cualquiera"});
-            this.cbPeriodo.Location = new System.Drawing.Point(51, 232);
+            this.cbPeriodo.Location = new System.Drawing.Point(45, 247);
             this.cbPeriodo.Name = "cbPeriodo";
             this.cbPeriodo.Size = new System.Drawing.Size(248, 21);
             this.cbPeriodo.TabIndex = 29;
             // 
             // dtpFechaInicio
             // 
-            this.dtpFechaInicio.Location = new System.Drawing.Point(51, 282);
+            this.dtpFechaInicio.Location = new System.Drawing.Point(45, 297);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaInicio.TabIndex = 30;
@@ -212,7 +212,7 @@
             // 
             // dtpFechaFin
             // 
-            this.dtpFechaFin.Location = new System.Drawing.Point(51, 308);
+            this.dtpFechaFin.Location = new System.Drawing.Point(45, 323);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaFin.TabIndex = 31;
@@ -222,7 +222,7 @@
             // 
             this.chbPersonalizar.AutoSize = true;
             this.chbPersonalizar.BackColor = System.Drawing.Color.Transparent;
-            this.chbPersonalizar.Location = new System.Drawing.Point(51, 259);
+            this.chbPersonalizar.Location = new System.Drawing.Point(45, 274);
             this.chbPersonalizar.Name = "chbPersonalizar";
             this.chbPersonalizar.Size = new System.Drawing.Size(83, 17);
             this.chbPersonalizar.TabIndex = 32;
@@ -236,7 +236,7 @@
             this.lblCampos.BackColor = System.Drawing.Color.Transparent;
             this.lblCampos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblCampos.ForeColor = System.Drawing.Color.White;
-            this.lblCampos.Location = new System.Drawing.Point(46, 331);
+            this.lblCampos.Location = new System.Drawing.Point(40, 346);
             this.lblCampos.Name = "lblCampos";
             this.lblCampos.Size = new System.Drawing.Size(100, 26);
             this.lblCampos.TabIndex = 33;
@@ -248,7 +248,7 @@
             this.lblVariable1.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable1.ForeColor = System.Drawing.Color.White;
-            this.lblVariable1.Location = new System.Drawing.Point(53, 366);
+            this.lblVariable1.Location = new System.Drawing.Point(47, 381);
             this.lblVariable1.Name = "lblVariable1";
             this.lblVariable1.Size = new System.Drawing.Size(92, 26);
             this.lblVariable1.TabIndex = 34;
@@ -261,7 +261,7 @@
             this.lblVariable2.BackColor = System.Drawing.Color.Transparent;
             this.lblVariable2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
             this.lblVariable2.ForeColor = System.Drawing.Color.White;
-            this.lblVariable2.Location = new System.Drawing.Point(53, 418);
+            this.lblVariable2.Location = new System.Drawing.Point(47, 433);
             this.lblVariable2.Name = "lblVariable2";
             this.lblVariable2.Size = new System.Drawing.Size(104, 26);
             this.lblVariable2.TabIndex = 35;
@@ -335,7 +335,7 @@
             // 
             // tbVariable1
             // 
-            this.tbVariable1.Location = new System.Drawing.Point(170, 372);
+            this.tbVariable1.Location = new System.Drawing.Point(164, 387);
             this.tbVariable1.Name = "tbVariable1";
             this.tbVariable1.Size = new System.Drawing.Size(193, 20);
             this.tbVariable1.TabIndex = 41;
@@ -343,7 +343,7 @@
             // 
             // tbVariable2
             // 
-            this.tbVariable2.Location = new System.Drawing.Point(170, 418);
+            this.tbVariable2.Location = new System.Drawing.Point(164, 433);
             this.tbVariable2.Name = "tbVariable2";
             this.tbVariable2.Size = new System.Drawing.Size(193, 20);
             this.tbVariable2.TabIndex = 42;
@@ -411,7 +411,7 @@
             // 
             this.chbCampos.AutoSize = true;
             this.chbCampos.BackColor = System.Drawing.Color.Transparent;
-            this.chbCampos.Location = new System.Drawing.Point(170, 340);
+            this.chbCampos.Location = new System.Drawing.Point(164, 355);
             this.chbCampos.Name = "chbCampos";
             this.chbCampos.Size = new System.Drawing.Size(83, 17);
             this.chbCampos.TabIndex = 51;

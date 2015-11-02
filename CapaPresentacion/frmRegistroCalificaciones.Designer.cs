@@ -58,7 +58,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1046, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1046, 93);
             this.ousEncabezado.Titulo = "Registro Calificaciones";
             // 
             // gbFiltros
