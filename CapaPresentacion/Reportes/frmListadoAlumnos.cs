@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion.Reportes
 {
-    public partial class frmCertificadoFinCurso : Form
+    public partial class frmListadoAlumnos : Form
     {
-        public frmCertificadoFinCurso()
+        public frmListadoAlumnos()
         {
             InitializeComponent();
         }

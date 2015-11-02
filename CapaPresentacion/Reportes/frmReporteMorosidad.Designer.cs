@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion.Reportes
 {
-    partial class frmCertificadoFinCurso
+    partial class frmReporteMorosidad
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.crCertificadoFinCurso1 = new CapaPresentacion.Reportes.crCertificadoFinCurso();
+            this.crReporteMorosidad1 = new CapaPresentacion.Reportes.crReporteMorosidad();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -43,19 +43,19 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.crCertificadoFinCurso1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(1179, 750);
+            this.crystalReportViewer1.ReportSource = this.crReporteMorosidad1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(880, 750);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // frmCertificadoFinCurso
+            // frmReporteMorosidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 750);
+            this.ClientSize = new System.Drawing.Size(880, 750);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "frmCertificadoFinCurso";
-            this.Text = "frmCertificadoFinCurso";
+            this.Name = "frmReporteMorosidad";
+            this.Text = "Reporte de Morosidad";
             this.ResumeLayout(false);
 
         }
@@ -63,6 +63,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private crCertificadoFinCurso crCertificadoFinCurso1;
+        private crReporteMorosidad crReporteMorosidad1;
     }
 }
