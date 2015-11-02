@@ -76,6 +76,7 @@ namespace CapaPresentacion
                 tbDescripcion.Text = Curso.Descripcion;
                 dtpFechaIncio.Value = Curso.FechaInicio;
                 dtpFechaFin.Value = Curso.FechaFin;
+                tbValorCurso.Text = Convert.ToString(Curso.Precio);
                 if (Curso.Estado == 1)
                 {
                     ckbEstado.Checked = true;
@@ -103,6 +104,7 @@ namespace CapaPresentacion
                     CursoModificado.FechaInicio = Convert.ToDateTime(dtpFechaIncio.Value);
                     CursoModificado.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
                     CursoModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
+                    CursoModificado.Precio = Convert.ToDouble(tbValorCurso.Text);
 
                     Repo.Actualizar(CursoModificado);
                     Curso = CursoModificado;
@@ -131,9 +133,9 @@ namespace CapaPresentacion
             GuardarCambios();
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        void Cerrar()
         {
-            if (tbNombre.Text == Curso.Nombre && tbDescripcion.Text == Curso.Descripcion && dtpFechaIncio.Value == Curso.FechaInicio && dtpFechaFin.Value == Curso.FechaFin)
+            if (tbNombre.Text == Curso.Nombre && tbDescripcion.Text == Curso.Descripcion && dtpFechaIncio.Value == Curso.FechaInicio && dtpFechaFin.Value == Curso.FechaFin && Convert.ToDouble(tbValorCurso.Text) == Curso.Precio)
             {
                 this.Close();
             }
@@ -153,26 +155,15 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
-        {
-            if (tbNombre.Text == Curso.Nombre && tbDescripcion.Text == Curso.Descripcion && dtpFechaIncio.Value == Curso.FechaInicio && dtpFechaFin.Value == Curso.FechaFin)
-            {
-                this.Close();
-            }
-            else
-            {
-                DialogResult prompt = MessageBox.Show("¿Desea guardar los cambios efectuados? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (prompt == DialogResult.OK)
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
 
-            }
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Cerrar();
         }
 
 

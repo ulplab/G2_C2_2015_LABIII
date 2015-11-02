@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargarCursos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tbDescripcion = new System.Windows.Forms.TextBox();
@@ -59,6 +59,8 @@
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.lblAyuda = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.tbValorCurso = new Controles.DecTextBox();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -82,7 +84,7 @@
             this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(618, 630);
+            this.btnAgregar.Location = new System.Drawing.Point(592, 674);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(169, 68);
             this.btnAgregar.TabIndex = 4;
@@ -101,7 +103,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(312, 630);
+            this.btnCancelar.Location = new System.Drawing.Point(286, 674);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(169, 68);
             this.btnCancelar.TabIndex = 77;
@@ -115,7 +117,7 @@
             // tbDescripcion
             // 
             this.tbDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDescripcion.Location = new System.Drawing.Point(291, 548);
+            this.tbDescripcion.Location = new System.Drawing.Point(294, 537);
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(175, 35);
             this.tbDescripcion.TabIndex = 1;
@@ -126,7 +128,7 @@
             this.lblDescripcion.BackColor = System.Drawing.Color.Transparent;
             this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDescripcion.ForeColor = System.Drawing.Color.White;
-            this.lblDescripcion.Location = new System.Drawing.Point(136, 554);
+            this.lblDescripcion.Location = new System.Drawing.Point(139, 543);
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(147, 29);
             this.lblDescripcion.TabIndex = 74;
@@ -138,7 +140,7 @@
             this.lblFechaFin.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaFin.ForeColor = System.Drawing.Color.White;
-            this.lblFechaFin.Location = new System.Drawing.Point(492, 550);
+            this.lblFechaFin.Location = new System.Drawing.Point(495, 539);
             this.lblFechaFin.Name = "lblFechaFin";
             this.lblFechaFin.Size = new System.Drawing.Size(126, 29);
             this.lblFechaFin.TabIndex = 73;
@@ -150,7 +152,7 @@
             this.lblFechaIncio.BackColor = System.Drawing.Color.Transparent;
             this.lblFechaIncio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFechaIncio.ForeColor = System.Drawing.Color.White;
-            this.lblFechaIncio.Location = new System.Drawing.Point(492, 494);
+            this.lblFechaIncio.Location = new System.Drawing.Point(495, 483);
             this.lblFechaIncio.Name = "lblFechaIncio";
             this.lblFechaIncio.Size = new System.Drawing.Size(143, 29);
             this.lblFechaIncio.TabIndex = 72;
@@ -159,7 +161,7 @@
             // tbNombre
             // 
             this.tbNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbNombre.Location = new System.Drawing.Point(291, 488);
+            this.tbNombre.Location = new System.Drawing.Point(294, 477);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(175, 35);
             this.tbNombre.TabIndex = 0;
@@ -170,7 +172,7 @@
             this.lblNombre.BackColor = System.Drawing.Color.Transparent;
             this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.White;
-            this.lblNombre.Location = new System.Drawing.Point(136, 494);
+            this.lblNombre.Location = new System.Drawing.Point(139, 483);
             this.lblNombre.Name = "lblNombre";
             this.lblNombre.Size = new System.Drawing.Size(107, 29);
             this.lblNombre.TabIndex = 71;
@@ -181,7 +183,7 @@
             this.dtpFechaIncio.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFechaIncio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaIncio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaIncio.Location = new System.Drawing.Point(650, 488);
+            this.dtpFechaIncio.Location = new System.Drawing.Point(653, 477);
             this.dtpFechaIncio.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaIncio.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFechaIncio.Name = "dtpFechaIncio";
@@ -193,7 +195,7 @@
             this.dtpFechaFin.CustomFormat = "dd/MM/yyyy  hh:mm tt";
             this.dtpFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFechaFin.Location = new System.Drawing.Point(650, 545);
+            this.dtpFechaFin.Location = new System.Drawing.Point(653, 534);
             this.dtpFechaFin.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
             this.dtpFechaFin.MinDate = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
             this.dtpFechaFin.Name = "dtpFechaFin";
@@ -393,23 +395,23 @@
             this.dgvCursos.AllowUserToResizeColumns = false;
             this.dgvCursos.AllowUserToResizeRows = false;
             this.dgvCursos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCursos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvCursos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvCursos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvCursos.Location = new System.Drawing.Point(59, 238);
             this.dgvCursos.MultiSelect = false;
             this.dgvCursos.Name = "dgvCursos";
@@ -433,11 +435,35 @@
             this.lblAyuda.TabIndex = 80;
             this.lblAyuda.Text = "Haga doble click en una fila para modificar los datos del curso";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(648, 606);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(164, 29);
+            this.label5.TabIndex = 82;
+            this.label5.Text = "Valor Curso $:";
+            // 
+            // tbValorCurso
+            // 
+            this.tbValorCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tbValorCurso.Location = new System.Drawing.Point(817, 603);
+            this.tbValorCurso.MaxLength = 8;
+            this.tbValorCurso.Name = "tbValorCurso";
+            this.tbValorCurso.Size = new System.Drawing.Size(104, 35);
+            this.tbValorCurso.TabIndex = 83;
+            this.tbValorCurso.Text = "00,00";
+            // 
             // frmCargarCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1096, 730);
+            this.ClientSize = new System.Drawing.Size(1096, 770);
+            this.Controls.Add(this.tbValorCurso);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.dgvCursos);
@@ -468,6 +494,8 @@
             this.Controls.SetChildIndex(this.dgvCursos, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
+            this.Controls.SetChildIndex(this.label5, 0);
+            this.Controls.SetChildIndex(this.tbValorCurso, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -513,5 +541,7 @@
         private System.Windows.Forms.CheckBox ckbFiltroFechaFin;
         private System.Windows.Forms.CheckBox ckbFiltroFechaInicio;
         private System.Windows.Forms.Button btnBuscar;
+        private Controles.DecTextBox tbValorCurso;
+        private System.Windows.Forms.Label label5;
     }
 }

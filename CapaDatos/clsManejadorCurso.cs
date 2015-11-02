@@ -5,6 +5,7 @@ using System.Text;
 using Clases;
 using Interfaces;
 using System.Data;
+using System.Globalization;
 
 namespace CapaDatos
 {
@@ -18,7 +19,7 @@ namespace CapaDatos
             try
             {
                 //idCurso,Nombre,FechaInicio,FechaFin,Descripcion,Estado,Precio
-                string query = "INSERT INTO Cursos VALUES('" + entidad.Nombre + "','" + String.Format("{0:s}",entidad.FechaInicio) + "','" + String.Format("{0:s}", entidad.FechaFin) + "','" + entidad.Descripcion + "','" + entidad.Estado + "','" + entidad.Precio + "');";
+                string query = "INSERT INTO Cursos VALUES('" + entidad.Nombre + "','" + String.Format("{0:s}",entidad.FechaInicio) + "','" + String.Format("{0:s}", entidad.FechaFin) + "','" + entidad.Descripcion + "','" + entidad.Estado + "'," + String.Format(CultureInfo.InvariantCulture, "{0:00.00}", entidad.Precio) + ");";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
             catch (Exception e)
@@ -34,7 +35,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Cursos Set Nombre='" + entidad.Nombre + "', FechaInicio='" + String.Format("{0:s}", entidad.FechaInicio) + "', FechaFin='" + String.Format("{0:s}", entidad.FechaFin) + "', Descripcion='" + entidad.Descripcion + "', Estado='" + entidad.Estado + "', Precio = "+ entidad.Precio + "' WHERE IdCurso =" + entidad.Id + ";";
+                string query = "UPDATE Cursos Set Nombre='" + entidad.Nombre + "', FechaInicio='" + String.Format("{0:s}", entidad.FechaInicio) + "', FechaFin='" + String.Format("{0:s}", entidad.FechaFin) + "', Descripcion='" + entidad.Descripcion + "', Estado='" + entidad.Estado + "', Precio = " + String.Format(CultureInfo.InvariantCulture, "{0:00.00}", entidad.Precio) + " WHERE IdCurso =" + entidad.Id + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)
