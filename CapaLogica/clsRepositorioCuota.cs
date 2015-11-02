@@ -218,6 +218,8 @@ namespace Clases
         public List<IEntidad> Pagos_Por_Cursos()
         {
             List<IEntidad> result = new List<IEntidad>();
+
+            result.AddRange(manager.ListarCuotaFormateada());
             
             return (result);
         }

@@ -64,7 +64,7 @@ namespace CapaPresentacion
 
         private void frmModificarCursos_Load(object sender, EventArgs e)
         {
-            CargarTextBox();
+            CargarTextBox(); 
 
         }
 

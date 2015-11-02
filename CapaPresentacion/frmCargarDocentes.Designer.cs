@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargarDocentes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCargarDocentes));
             this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -104,7 +104,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(739, 34);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(169, 66);
-            this.btnBuscar.TabIndex = 81;
+            this.btnBuscar.TabIndex = 71;
             this.btnBuscar.Tag = "6";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -129,7 +129,7 @@
             this.cbFiltroEstado.Location = new System.Drawing.Point(13, 29);
             this.cbFiltroEstado.Name = "cbFiltroEstado";
             this.cbFiltroEstado.Size = new System.Drawing.Size(121, 28);
-            this.cbFiltroEstado.TabIndex = 71;
+            this.cbFiltroEstado.TabIndex = 70;
             // 
             // label4
             // 
@@ -160,7 +160,7 @@
             this.tbFiltroDni.MaxLength = 8;
             this.tbFiltroDni.Name = "tbFiltroDni";
             this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroDni.TabIndex = 84;
+            this.tbFiltroDni.TabIndex = 69;
             // 
             // label2
             // 
@@ -202,7 +202,7 @@
             this.tbFiltroApellido.Location = new System.Drawing.Point(12, 31);
             this.tbFiltroApellido.Name = "tbFiltroApellido";
             this.tbFiltroApellido.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroApellido.TabIndex = 67;
+            this.tbFiltroApellido.TabIndex = 68;
             // 
             // panel1
             // 
@@ -294,7 +294,7 @@
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(169, 68);
             this.btnAgregar.TabIndex = 80;
-            this.btnAgregar.Tag = "6";
+            this.btnAgregar.Tag = "7";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             this.btnAgregar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
@@ -304,6 +304,7 @@
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -312,7 +313,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(260, 651);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(169, 68);
-            this.btnCancelar.TabIndex = 79;
+            this.btnCancelar.TabIndex = 8;
             this.btnCancelar.TabStop = false;
             this.btnCancelar.Tag = "7";
             this.btnCancelar.UseVisualStyleBackColor = false;
@@ -327,7 +328,7 @@
             this.tbEmail.MaxLength = 50;
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(200, 35);
-            this.tbEmail.TabIndex = 72;
+            this.tbEmail.TabIndex = 6;
             // 
             // lblEmail
             // 
@@ -348,7 +349,7 @@
             this.tbTelefono.MaxLength = 15;
             this.tbTelefono.Name = "tbTelefono";
             this.tbTelefono.Size = new System.Drawing.Size(200, 35);
-            this.tbTelefono.TabIndex = 71;
+            this.tbTelefono.TabIndex = 5;
             // 
             // lblTelefono
             // 
@@ -368,7 +369,7 @@
             this.tbDireccion.Location = new System.Drawing.Point(658, 472);
             this.tbDireccion.Name = "tbDireccion";
             this.tbDireccion.Size = new System.Drawing.Size(200, 35);
-            this.tbDireccion.TabIndex = 70;
+            this.tbDireccion.TabIndex = 4;
             // 
             // lblDireccion
             // 
@@ -400,7 +401,7 @@
             this.tbApellido.Location = new System.Drawing.Point(241, 526);
             this.tbApellido.Name = "tbApellido";
             this.tbApellido.Size = new System.Drawing.Size(200, 35);
-            this.tbApellido.TabIndex = 68;
+            this.tbApellido.TabIndex = 2;
             // 
             // lblApellido
             // 
@@ -420,7 +421,7 @@
             this.tbNombre.Location = new System.Drawing.Point(241, 472);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(200, 35);
-            this.tbNombre.TabIndex = 67;
+            this.tbNombre.TabIndex = 1;
             // 
             // lblNombre
             // 
@@ -441,12 +442,14 @@
             this.tbDni.MaxLength = 8;
             this.tbDni.Name = "tbDni";
             this.tbDni.Size = new System.Drawing.Size(200, 35);
-            this.tbDni.TabIndex = 85;
+            this.tbDni.TabIndex = 3;
             // 
             // frmCargarDocentes
             // 
+            this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1083, 735);
             this.Controls.Add(this.tbDni);
             this.Controls.Add(this.gbFiltros);
