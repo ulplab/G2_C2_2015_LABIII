@@ -38,7 +38,6 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.tbDni = new System.Windows.Forms.TextBox();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
@@ -51,6 +50,7 @@
             this.gbCuenta = new System.Windows.Forms.GroupBox();
             this.tbUsuario = new System.Windows.Forms.TextBox();
             this.lblUsuario = new System.Windows.Forms.Label();
+            this.tbDni = new Controles.NumTextBox();
             this.gbDatos.SuspendLayout();
             this.gbCuenta.SuspendLayout();
             this.SuspendLayout();
@@ -162,15 +162,6 @@
             this.lblDireccion.TabIndex = 92;
             this.lblDireccion.Text = "Direccion:";
             // 
-            // tbDni
-            // 
-            this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDni.Location = new System.Drawing.Point(156, 191);
-            this.tbDni.MaxLength = 8;
-            this.tbDni.Name = "tbDni";
-            this.tbDni.Size = new System.Drawing.Size(200, 35);
-            this.tbDni.TabIndex = 86;
-            // 
             // tbApellido
             // 
             this.tbApellido.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,11 +265,11 @@
             // gbDatos
             // 
             this.gbDatos.BackColor = System.Drawing.Color.Transparent;
+            this.gbDatos.Controls.Add(this.tbDni);
             this.gbDatos.Controls.Add(this.tbApellido);
             this.gbDatos.Controls.Add(this.lblNombre);
             this.gbDatos.Controls.Add(this.tbNombre);
             this.gbDatos.Controls.Add(this.lblApellido);
-            this.gbDatos.Controls.Add(this.tbDni);
             this.gbDatos.Controls.Add(this.lblDni);
             this.gbDatos.Controls.Add(this.lblTelefono);
             this.gbDatos.Controls.Add(this.lblEmail);
@@ -293,7 +284,7 @@
             this.gbDatos.Size = new System.Drawing.Size(751, 267);
             this.gbDatos.TabIndex = 102;
             this.gbDatos.TabStop = false;
-            this.gbDatos.Text = "Datos Personales";
+            this.gbDatos.Text = "Datos Personales Docente";
             // 
             // gbCuenta
             // 
@@ -335,6 +326,14 @@
             this.lblUsuario.TabIndex = 103;
             this.lblUsuario.Text = "Usuario:";
             // 
+            // tbDni
+            // 
+            this.tbDni.Location = new System.Drawing.Point(156, 188);
+            this.tbDni.MaxLength = 8;
+            this.tbDni.Name = "tbDni";
+            this.tbDni.Size = new System.Drawing.Size(200, 35);
+            this.tbDni.TabIndex = 96;
+            // 
             // frmModificarDocente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,7 +370,6 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox tbDni;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.Label lblApellido;
         private System.Windows.Forms.TextBox tbNombre;
@@ -384,5 +382,6 @@
         private System.Windows.Forms.TextBox tbUsuario;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.GroupBox gbDatos;
+        private Controles.NumTextBox tbDni;
     }
 }

@@ -51,22 +51,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void tbDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
 
         private void GuardarCambios()
         {
@@ -117,7 +101,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        void Cerrar()
         {
             if (tbUsuario.Text == Administrador.Usuario && tbContraseña.Text == Administrador.Contraseña && tbNombre.Text == Administrador.Nombre && tbApellido.Text == Administrador.Apellido && Convert.ToString(tbDni.Text) == Administrador.Dni && tbTelefono.Text == tbTelefono.Text)
             {
@@ -146,24 +130,7 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbUsuario.Text != string.Empty && tbContraseña.Text != string.Empty && tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty && tbTelefono.Text != string.Empty)
-            {
-                this.Close();
-            }
-            else
-            {
-                DialogResult prompt = MessageBox.Show("¿Desea guardar los cambios efectuados? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (prompt == DialogResult.OK)
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
-
-            }
+            Cerrar();
         }
 
         private void btnGuardar_MouseEnter(object sender, EventArgs e)
@@ -203,6 +170,12 @@ namespace CapaPresentacion
                 MessageBox.Show("Iconos no encontrados");
             }
         }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
+        }
+
 
 
 

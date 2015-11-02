@@ -37,6 +37,7 @@ namespace CapaPresentacion
             dgvAlumnos.Columns.Add("Telefono", "Telefono");
             dgvAlumnos.Columns.Add("Email", "Email");
             dgvAlumnos.Columns.Add("Estado", "Estado");
+            dgvAlumnos.Columns.Add("Contraseña", "Contraseña");
 
             dgvAlumnos.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvAlumnos.Columns["Apellido"].SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -51,9 +52,9 @@ namespace CapaPresentacion
             cbFiltroEstado.Items.Add("Todos");
             cbFiltroEstado.SelectedItem = "Todos";
 
-            btnDesactivarFiltro.BackColor = Color.Red;
 
             dgvAlumnos.Columns["IdAlumno"].Visible = false;
+            dgvAlumnos.Columns["Contraseña"].Visible = false;
 
             if (!filtro)
             {
@@ -84,6 +85,7 @@ namespace CapaPresentacion
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Contraseña"].Value = EAlum.Contraseña;
                     if (EAlum.Estado == 1)
                     {
                         dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
@@ -108,6 +110,10 @@ namespace CapaPresentacion
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Grande.png");
                 }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                }
                 else
                 {
                     btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
@@ -127,6 +133,10 @@ namespace CapaPresentacion
                 {
                     btnAgregar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Chico.png");
                 }
+                else if ((sender as Button).Name == "btnBuscar")
+                {
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
+                }
                 else
                 {
                     btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Chico.png");
@@ -136,27 +146,6 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Iconos no encontrados");
             }
-        }
-
-        private void tbDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -177,6 +166,7 @@ namespace CapaPresentacion
                         Alumno.Telefono = tbTelefono.Text;
                         Alumno.Email = tbEmail.Text;
                         Alumno.Estado = 1;
+                        Alumno.Contraseña = tbDni.Text;
 
                         Repo.Agregar(Alumno);
 
@@ -226,6 +216,7 @@ namespace CapaPresentacion
             Alumno.Direccion = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Direccion"].Value);
             Alumno.Telefono = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Telefono"].Value);
             Alumno.Email = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Email"].Value);
+            Alumno.Contraseña = Convert.ToString(dgvAlumnos.CurrentRow.Cells["Dni"].Value);
             if (Convert.ToString(dgvAlumnos.CurrentRow.Cells["Estado"].Value) == "Habilitado")
             {
                 Alumno.Estado = 1;
@@ -258,18 +249,25 @@ namespace CapaPresentacion
 
         private void ActualizarGrillaFiltrada()
         {
-            string query = string.Empty;
 
             clsAlumno temp = new clsAlumno();
-            temp.Nombre = tbFiltroNombre.Text;
-            temp.Apellido = tbFiltroApellido.Text;
-            temp.Dni = tbFiltroDni.Text;
+            if (tbFiltroNombre.Text != string.Empty)
+            {
+                temp.Nombre = tbFiltroNombre.Text;
+            }
+            if (tbFiltroApellido.Text != string.Empty)
+            {
+                temp.Apellido = tbFiltroApellido.Text;
+            }
+            if (tbFiltroDni.Text != string.Empty)
+            {
+                temp.Dni = tbFiltroDni.Text;
+            }
             
                 if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
                 {
                     if (cbFiltroEstado.SelectedItem.ToString() == "Habilitados")
                     {
-                        query += "AND Estado = 1;";
                         temp.Estado = 1;
                     }
                     else
@@ -294,6 +292,7 @@ namespace CapaPresentacion
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
                     dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Contraseña"].Value = EAlum.Contraseña;
                     if (EAlum.Estado == 1)
                     {
                         dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
@@ -311,29 +310,20 @@ namespace CapaPresentacion
             
         }
 
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
+        private void btnBuscar_Click(object sender, EventArgs e)
         {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
             ActualizarGrillaFiltrada();
+            filtro = true;
         }
 
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-            ActualizarGrilla();
+            this.Close();
         }
 
-        private void tbFiltroNombre_TextChanged(object sender, EventArgs e)
-        {
-            if (filtro)
-            {
-                ActualizarGrillaFiltrada();
-            }
-        }
+
+
+
 
     }
 }

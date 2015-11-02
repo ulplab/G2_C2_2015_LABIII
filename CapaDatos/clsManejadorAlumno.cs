@@ -40,7 +40,7 @@ namespace CapaDatos
                                 + "', Telefono='" + entidad.Telefono 
                                 + "', Email='" + entidad.Email 
                                 + "', Estado='" + entidad.Estado 
-                                + ", Contraseña = '" + entidad.Contraseña 
+                                + "', Contraseña = '" + entidad.Contraseña 
                                 + "' WHERE IdAlumno =" + entidad.Id + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
@@ -70,84 +70,94 @@ namespace CapaDatos
 
         public List<clsAlumno> SelectAlumno(clsAlumno entidad)
         {
+            string query = string.Empty;
             bool id = false,dni = false,nombre = false,apellido = false,direccion = false,telefono = false,email = false, contraseña = false;
-            string query = "SELECT * FROM Alumnos WHERE";
-            if (entidad.Id != -1)
-            {
-                query += " IdAlumno = '" + entidad.Id + "'";
-                id = true;
-            }
-            if (entidad.Dni != null)
-            {
-                if (id)
-                {
-                    query += " AND";
-                }
-                query += " Dni = '" + entidad.Dni + "'";
-                dni = true;
-            }
-            if (entidad.Apellido != null)
-            {
-                if (id || dni)
-                {
-                    query += " AND";
-                }
-                query += " Apellido LIKE '" + entidad.Apellido + "%'";
-                apellido = true;
-            }
-            if (entidad.Direccion != null)
-            {
-                if (id || dni || apellido)
-                {
-                    query += " AND";
-                }
-                query += " Direccion LIKE '" + entidad.Direccion + "%'";
-                direccion = true;
-            }
-            if (entidad.Email != null)
-            {
-                if (id || dni || apellido || direccion)
-                {
-                    query += " AND";
-                }
-                query += " Email LIKE '" + entidad.Email + "%'";
-                email = true;
-            }
-            if (entidad.Nombre != null)
-            {
-                if (id || dni || apellido || direccion || email)
-                {
-                    query += " AND";
-                }
-                query += " Nombre LIKE '" + entidad.Nombre + "%'";
-                nombre = true;
-            }
-            if (entidad.Telefono != null)
-            {
-                if (id || dni || apellido || direccion || email || nombre)
-                {
-                    query += " AND";
-                }
-                query += " Telefono = '" + entidad.Telefono + "'";
-                telefono = true;
-            }
-            if (entidad.Contraseña != null)
-            {
-                if (id | dni | apellido | direccion | email | nombre | telefono)
-                {
-                    query += " AND";
-                }
 
-                query += " Contraseña = '" + entidad.Contraseña + "'";
-                contraseña = true;
-            }
-            if (entidad.Estado != -1)
+            if (entidad.Id != -1 || entidad.Nombre != null || entidad.Apellido != null || entidad.Dni != null || entidad.Telefono != null || entidad.Contraseña != null || entidad.Estado != -1 || entidad.Direccion != null || entidad.Email != null)
             {
-                if (id || dni || apellido || direccion || email || nombre || contraseña || telefono)
+                query = "SELECT * FROM Alumnos WHERE";
+
+                if (entidad.Id != -1)
                 {
-                    query += " AND";
+                    query += " IdAlumno = '" + entidad.Id + "'";
+                    id = true;
                 }
-                query += " Estado = '" + entidad.Estado + "'";
+                if (entidad.Dni != null)
+                {
+                    if (id)
+                    {
+                        query += " AND";
+                    }
+                    query += " Dni LIKE '" + entidad.Dni + "%'";
+                    dni = true;
+                }
+                if (entidad.Apellido != null)
+                {
+                    if (id || dni)
+                    {
+                        query += " AND";
+                    }
+                    query += " Apellido LIKE '" + entidad.Apellido + "%'";
+                    apellido = true;
+                }
+                if (entidad.Direccion != null)
+                {
+                    if (id || dni || apellido)
+                    {
+                        query += " AND";
+                    }
+                    query += " Direccion LIKE '" + entidad.Direccion + "%'";
+                    direccion = true;
+                }
+                if (entidad.Email != null)
+                {
+                    if (id || dni || apellido || direccion)
+                    {
+                        query += " AND";
+                    }
+                    query += " Email LIKE '" + entidad.Email + "%'";
+                    email = true;
+                }
+                if (entidad.Nombre != null)
+                {
+                    if (id || dni || apellido || direccion || email)
+                    {
+                        query += " AND";
+                    }
+                    query += " Nombre LIKE '" + entidad.Nombre + "%'";
+                    nombre = true;
+                }
+                if (entidad.Telefono != null)
+                {
+                    if (id || dni || apellido || direccion || email || nombre)
+                    {
+                        query += " AND";
+                    }
+                    query += " Telefono LIKE '" + entidad.Telefono + "%'";
+                    telefono = true;
+                }
+                if (entidad.Contraseña != null)
+                {
+                    if (id | dni | apellido | direccion | email | nombre | telefono)
+                    {
+                        query += " AND";
+                    }
+
+                    query += " Contraseña = '" + entidad.Contraseña + "'";
+                    contraseña = true;
+                }
+                if (entidad.Estado != -1)
+                {
+                    if (id || dni || apellido || direccion || email || nombre || contraseña || telefono)
+                    {
+                        query += " AND";
+                    }
+                    query += " Estado = '" + entidad.Estado + "'";
+                }
+            }
+            else
+            {
+                query = "SELECT * FROM Alumnos";
             }
 
             query += ";";

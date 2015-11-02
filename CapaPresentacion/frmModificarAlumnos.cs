@@ -77,6 +77,8 @@ namespace CapaPresentacion
                 tbDireccion.Text = Alumno.Direccion;
                 tbTelefono.Text = Alumno.Telefono;
                 tbEmail.Text = Alumno.Email;
+                tbContraseña.Text = Alumno.Contraseña;
+                tbUsuario.Text = Alumno.Dni;
                 if (Alumno.Estado == 1)
                 {
                     ckbEstado.Checked = true;
@@ -87,23 +89,6 @@ namespace CapaPresentacion
                 }
             }
         }
-
-        private void tbDni_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsSymbol(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-            else if (char.IsPunctuation(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
 
 
         private void GuardarCambios()
@@ -124,10 +109,12 @@ namespace CapaPresentacion
                         AlumnoModificado.Direccion = tbDireccion.Text;
                         AlumnoModificado.Telefono = tbTelefono.Text;
                         AlumnoModificado.Email = tbEmail.Text;
+                        AlumnoModificado.Contraseña = tbContraseña.Text;
                         AlumnoModificado.Estado = Convert.ToInt32(ckbEstado.Checked);
 
                         Repo.Actualizar(AlumnoModificado);
                         Alumno = AlumnoModificado;
+                        tbUsuario.Text = AlumnoModificado.Dni;
 
                         MessageBox.Show("Los cambios del alumno se guardaron correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -154,7 +141,7 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnCerrar_Click(object sender, EventArgs e)
+        void Cerrar()
         {
             if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && tbDni.Text == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
             {
@@ -178,29 +165,17 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Alumno.Nombre && tbApellido.Text == Alumno.Apellido && tbDni.Text == Alumno.Dni && tbDireccion.Text == Alumno.Direccion && tbTelefono.Text == Alumno.Telefono && tbEmail.Text == Alumno.Email && Convert.ToInt32(ckbEstado.Checked) == Alumno.Estado)
-            {
-                this.Close();
-            }
-            else
-            {
-                DialogResult prompt = MessageBox.Show("¿Desea guardar los cambios efectuados? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (prompt == DialogResult.OK)
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
-
-            }
+            Cerrar();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             GuardarCambios();
+        }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+            ousEncabezado.evCerrar += new Controles.usEncabezado.delHeader(Cerrar);
         }
 
  

@@ -170,24 +170,7 @@ namespace CapaPresentacion
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (tbNombre.Text == Profesor.Nombre && tbApellido.Text == Profesor.Apellido && tbDni.Text == Profesor.Dni && tbDireccion.Text == Profesor.Direccion && tbTelefono.Text == Profesor.Telefono && tbEmail.Text == Profesor.Email && Convert.ToInt32(ckbEstado.Checked) == Profesor.Estado)
-            {
-                this.Close();
-            }
-            else
-            {
-                DialogResult prompt = MessageBox.Show("¿Desea guardar los cambios efectuados? ", "ATENCION", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (prompt == DialogResult.OK)
-                {
-                    GuardarCambios();
-                    this.Close();
-                }
-                else
-                {
-                    this.Close();
-                }
-
-            }
+            Cerrar();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

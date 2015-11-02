@@ -37,7 +37,6 @@
             this.lblTelefono = new System.Windows.Forms.Label();
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.lblDireccion = new System.Windows.Forms.Label();
-            this.tbDni = new System.Windows.Forms.TextBox();
             this.lblDni = new System.Windows.Forms.Label();
             this.tbApellido = new System.Windows.Forms.TextBox();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -54,14 +53,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tbFiltroApellido = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.tbFiltroDni = new Controles.NumTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbFiltroDni = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnDesactivarFiltro = new System.Windows.Forms.Button();
-            this.btnActivarFiltro = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.tbDni = new Controles.NumTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -137,16 +136,6 @@
             this.lblDireccion.Size = new System.Drawing.Size(121, 29);
             this.lblDireccion.TabIndex = 42;
             this.lblDireccion.Text = "Direccion:";
-            // 
-            // tbDni
-            // 
-            this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbDni.Location = new System.Drawing.Point(294, 572);
-            this.tbDni.MaxLength = 8;
-            this.tbDni.Name = "tbDni";
-            this.tbDni.Size = new System.Drawing.Size(200, 35);
-            this.tbDni.TabIndex = 35;
-            this.tbDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDni_KeyPress);
             // 
             // lblDni
             // 
@@ -315,7 +304,6 @@
             this.tbFiltroNombre.Name = "tbFiltroNombre";
             this.tbFiltroNombre.Size = new System.Drawing.Size(150, 26);
             this.tbFiltroNombre.TabIndex = 67;
-            this.tbFiltroNombre.TextChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // panel2
             // 
@@ -346,17 +334,25 @@
             this.tbFiltroApellido.Name = "tbFiltroApellido";
             this.tbFiltroApellido.Size = new System.Drawing.Size(150, 26);
             this.tbFiltroApellido.TabIndex = 67;
-            this.tbFiltroApellido.TextChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.tbFiltroDni);
+            this.panel3.Controls.Add(this.label2);
             this.panel3.Location = new System.Drawing.Point(392, 34);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(181, 66);
             this.panel3.TabIndex = 77;
+            // 
+            // tbFiltroDni
+            // 
+            this.tbFiltroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbFiltroDni.Location = new System.Drawing.Point(10, 31);
+            this.tbFiltroDni.MaxLength = 8;
+            this.tbFiltroDni.Name = "tbFiltroDni";
+            this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
+            this.tbFiltroDni.TabIndex = 85;
             // 
             // label2
             // 
@@ -369,16 +365,6 @@
             this.label2.Size = new System.Drawing.Size(41, 20);
             this.label2.TabIndex = 70;
             this.label2.Text = "DNI:";
-            // 
-            // tbFiltroDni
-            // 
-            this.tbFiltroDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbFiltroDni.Location = new System.Drawing.Point(12, 31);
-            this.tbFiltroDni.Name = "tbFiltroDni";
-            this.tbFiltroDni.Size = new System.Drawing.Size(150, 26);
-            this.tbFiltroDni.TabIndex = 67;
-            this.tbFiltroDni.TextChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
-            this.tbFiltroDni.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbDni_KeyPress);
             // 
             // panel4
             // 
@@ -399,7 +385,6 @@
             this.cbFiltroEstado.Name = "cbFiltroEstado";
             this.cbFiltroEstado.Size = new System.Drawing.Size(121, 28);
             this.cbFiltroEstado.TabIndex = 71;
-            this.cbFiltroEstado.SelectedIndexChanged += new System.EventHandler(this.tbFiltroNombre_TextChanged);
             // 
             // label4
             // 
@@ -416,8 +401,7 @@
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.gbFiltros.Controls.Add(this.btnDesactivarFiltro);
-            this.gbFiltros.Controls.Add(this.btnActivarFiltro);
+            this.gbFiltros.Controls.Add(this.btnBuscar);
             this.gbFiltros.Controls.Add(this.panel4);
             this.gbFiltros.Controls.Add(this.panel3);
             this.gbFiltros.Controls.Add(this.panel2);
@@ -431,55 +415,40 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
             // 
-            // btnDesactivarFiltro
+            // btnBuscar
             // 
-            this.btnDesactivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnDesactivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivarFiltro.Image")));
-            this.btnDesactivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDesactivarFiltro.Location = new System.Drawing.Point(829, 32);
-            this.btnDesactivarFiltro.Name = "btnDesactivarFiltro";
-            this.btnDesactivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnDesactivarFiltro.TabIndex = 80;
-            this.btnDesactivarFiltro.Tag = "6";
-            this.btnDesactivarFiltro.Text = "Desactivar Filtro";
-            this.btnDesactivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesactivarFiltro.UseVisualStyleBackColor = false;
-            this.btnDesactivarFiltro.Click += new System.EventHandler(this.btnDesactivarFiltro_Click);
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(739, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(169, 66);
+            this.btnBuscar.TabIndex = 82;
+            this.btnBuscar.Tag = "6";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnAgregar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnAgregar_MouseLeave);
             // 
-            // btnActivarFiltro
+            // tbDni
             // 
-            this.btnActivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnActivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnActivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnActivarFiltro.Image")));
-            this.btnActivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActivarFiltro.Location = new System.Drawing.Point(746, 32);
-            this.btnActivarFiltro.Name = "btnActivarFiltro";
-            this.btnActivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnActivarFiltro.TabIndex = 67;
-            this.btnActivarFiltro.Tag = "6";
-            this.btnActivarFiltro.Text = "Activar Filtro";
-            this.btnActivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivarFiltro.UseVisualStyleBackColor = false;
-            this.btnActivarFiltro.Click += new System.EventHandler(this.btnActivarFiltro_Click);
+            this.tbDni.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.tbDni.Location = new System.Drawing.Point(292, 572);
+            this.tbDni.MaxLength = 8;
+            this.tbDni.Name = "tbDni";
+            this.tbDni.Size = new System.Drawing.Size(200, 35);
+            this.tbDni.TabIndex = 86;
             // 
             // frmCargarAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1083, 735);
+            this.Controls.Add(this.tbDni);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.dgvAlumnos);
@@ -491,7 +460,6 @@
             this.Controls.Add(this.lblTelefono);
             this.Controls.Add(this.tbDireccion);
             this.Controls.Add(this.lblDireccion);
-            this.Controls.Add(this.tbDni);
             this.Controls.Add(this.lblDni);
             this.Controls.Add(this.tbApellido);
             this.Controls.Add(this.lblApellido);
@@ -506,7 +474,6 @@
             this.Controls.SetChildIndex(this.lblApellido, 0);
             this.Controls.SetChildIndex(this.tbApellido, 0);
             this.Controls.SetChildIndex(this.lblDni, 0);
-            this.Controls.SetChildIndex(this.tbDni, 0);
             this.Controls.SetChildIndex(this.lblDireccion, 0);
             this.Controls.SetChildIndex(this.tbDireccion, 0);
             this.Controls.SetChildIndex(this.lblTelefono, 0);
@@ -518,6 +485,7 @@
             this.Controls.SetChildIndex(this.dgvAlumnos, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
+            this.Controls.SetChildIndex(this.tbDni, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -541,7 +509,6 @@
         private System.Windows.Forms.Label lblTelefono;
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.Label lblDireccion;
-        private System.Windows.Forms.TextBox tbDni;
         private System.Windows.Forms.Label lblDni;
         private System.Windows.Forms.TextBox tbApellido;
         private System.Windows.Forms.Label lblApellido;
@@ -559,12 +526,12 @@
         private System.Windows.Forms.TextBox tbFiltroApellido;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbFiltroDni;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbFiltroEstado;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox gbFiltros;
-        private System.Windows.Forms.Button btnDesactivarFiltro;
-        private System.Windows.Forms.Button btnActivarFiltro;
+        private System.Windows.Forms.Button btnBuscar;
+        private Controles.NumTextBox tbFiltroDni;
+        private Controles.NumTextBox tbDni;
     }
 }

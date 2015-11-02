@@ -244,7 +244,6 @@ namespace CapaPresentacion
 
         private void ActualizarGrillaFiltrada()
         {
-            string query = string.Empty;
 
             clsProfesor temp = new clsProfesor();
             if (tbFiltroNombre.Text != string.Empty)
@@ -310,6 +309,11 @@ namespace CapaPresentacion
         {
             ActualizarGrillaFiltrada();
             filtro = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
 
 

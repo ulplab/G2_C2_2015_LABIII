@@ -72,7 +72,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1083, 79);
+            this.ousEncabezado.Size = new System.Drawing.Size(1083, 96);
             this.ousEncabezado.Titulo = "Cargar Docentes";
             // 
             // gbFiltros
@@ -316,6 +316,7 @@
             this.btnCancelar.TabStop = false;
             this.btnCancelar.Tag = "7";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
             this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
