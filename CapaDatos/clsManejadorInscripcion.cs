@@ -18,7 +18,7 @@ namespace CapaDatos
             try
             {
                 //NroInscripcion,IdAdministrador,IdCurso,IdAlumno,Estado
-                string query = "INSERT INTO Asiste VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
+                string query = "INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
                 filas = dbman.Ejecutar(query, Tipo.INSERTAR);
             }
             catch (Exception e)
@@ -51,7 +51,7 @@ namespace CapaDatos
             try
             {
                 string query = "UPDATE Asiste SET estado = 0 WHERE IdAlumno= '" + entidad.IdAlumno + "' AND IdCurso ='" + entidad.IdCurso + "';";
-                filas = dbman.Ejecutar(query, Tipo.ELIMINAR);
+                filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
             }
             catch (Exception e)
             {

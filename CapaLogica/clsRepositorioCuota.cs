@@ -221,5 +221,29 @@ namespace Clases
             
             return (result);
         }
+
+        public List<IEntidad> Lista_Formateada(DateTime Fecha_Inicio,DateTime Fecha_Fin)
+        {
+            List<IEntidad> list = new List<IEntidad>();
+                try
+                {
+                    if (Fecha_Inicio.Date.ToString() == "02/02/1950")
+                    {
+                        list.AddRange(manager.ListarCuotaFormateada());
+                    }
+                    else
+                    {
+                        if (DateTime.Compare(Fecha_Inicio,Fecha_Fin) == -1)
+                        {
+                            list.AddRange(manager.ListarCuotaFormateada(Fecha_Inicio, Fecha_Fin));
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw e;
+                }
+            return list;
+        }
     }
 }

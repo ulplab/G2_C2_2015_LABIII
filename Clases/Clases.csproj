@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="clsAlumno.cs" />
     <Compile Include="clsCuota.cs" />
+    <Compile Include="clsCuotaFormateada.cs" />
     <Compile Include="clsInscripcion.cs" />
     <Compile Include="clsAdministrador.cs" />
     <Compile Include="clsCurso.cs" />
