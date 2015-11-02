@@ -24,7 +24,8 @@ namespace CapaDatos
                     + entidad.Telefono + "','"
                     + entidad.Contraseña + "','"
                     + entidad.Estado + "','"
-                    + entidad.Direccion + "');";
+                    + entidad.Direccion + "','"
+                    + entidad.Email + "');";
 
                 filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
             }
@@ -50,6 +51,7 @@ namespace CapaDatos
                     + "' Contraseña = '" + entidad.Contraseña
                     + "' Estado = '" + entidad.Estado
                     + "' Direccion = '" + entidad.Direccion
+                    + "' Email= '" + entidad.Email
                     + "' where IdProfesor = " + entidad.Id + ";";
                
                 filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
@@ -83,7 +85,7 @@ namespace CapaDatos
 
         public List<clsProfesor> SelectProfesor(clsProfesor entidad)
         {
-            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false, estado = false;
+            bool id = false, nombre = false, apellido = false, dni = false, telefono = false, contraseña = false, estado = false, direccion = false;
             string query = "select * from Profesores where";
             if (entidad.Id != -1)
             {
@@ -157,6 +159,15 @@ namespace CapaDatos
                     query += " and";
                 }
                 query += " Direccion = '" + entidad.Direccion + "'";
+                direccion = true;
+            }
+            if (entidad.Email != null)
+            {
+                if (id | nombre | apellido | dni | telefono | contraseña | estado | direccion)
+                {
+                    query += " and";
+                }
+                query += " Email = '" + entidad.Email + "'";
             }
 
             query += ";";
