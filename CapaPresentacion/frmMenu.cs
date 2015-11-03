@@ -65,9 +65,9 @@ namespace CapaPresentacion
                 {
                     btnDarBajaInscripcion.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\BajaInscripcion-140x140.png");
                 }
-                else if ((sender as Button).Name == "btnAlumnosPorCurso")
+                else if ((sender as Button).Name == "btnRegistrosInstituto")
                 {
-                    btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
+                    btnRegistrosInstituto.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
                 }
                 else if ((sender as Button).Name == "btnEstadisticas")
                 {
@@ -77,14 +77,11 @@ namespace CapaPresentacion
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-140x140.png");
                 }
-                else if ((sender as Button).Name == "btnAgregarDocentes")
+                else
                 {
                     btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
                 }
-                else
-                {
-                    btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
-                }
+
             }
             catch (Exception)
             {
@@ -116,9 +113,9 @@ namespace CapaPresentacion
                 {
                     btnDarBajaInscripcion.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\BajaInscripcion-120x120.png");
                 }
-                else if ((sender as Button).Name == "btnAlumnosPorCurso")
+                else if ((sender as Button).Name == "btnRegistrosInstituto")
                 {
-                    btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
+                    btnRegistrosInstituto.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
                 }
                 else if ((sender as Button).Name == "btnEstadisticas")
                 {
@@ -128,13 +125,9 @@ namespace CapaPresentacion
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-120x120.png");
                 }
-                else if ((sender as Button).Name == "btnAgregarDocentes")
-                {
-                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
-                }
                 else
                 {
-                    btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
                 }
             }
             catch (Exception)
