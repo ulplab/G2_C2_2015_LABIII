@@ -12,18 +12,15 @@ using CapaLogica;
 
 namespace CapaPresentacion
 {
-    public partial class frmRegistrarCuota : frmPrincipal
+    public partial class frmNotas : frmPrincipal
     {
-        public frmRegistrarCuota()
+        public frmNotas()
         {
             InitializeComponent();
         }
         private clsCurso Curso;
         private clsAlumno Alumno;
-        private clsCuota Cuota;
-        private IRepoFactory RepoF;
-        private IRepositorio Repo;
-
+        private clsRepositorioNota Nota;
 
         private void CursoSeleccionado()
         {
@@ -118,8 +115,8 @@ namespace CapaPresentacion
             this.ColumnasAlumnos();
             try
             {
-                Repo = RepoF.getRepositorio(RepoType.ALUMNO);
-                List<IEntidad> LE = Repo.Lista();
+                clsRepositorioAlumno consultador = new clsRepositorioAlumno();
+                List<IEntidad> LE = consultador.Lista();
                 foreach (clsAlumno EAlum in LE)
                 {
                     if (EAlum.Estado == 1)
@@ -159,48 +156,12 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
-        private void dgvEtapaUno_RowEnter(object sender, DataGridViewCellEventArgs e)
+        private void frmNotas_Load(object sender, EventArgs e)
         {
-            this.AlumnoSeleccionado();
+            this.ActualizarGrillaCursos();
         }
-        private void dgvetapa2_RowEnter(object sender, DataGridViewCellEventArgs e)
-        {
-            this.CursoSeleccionado();
-        }
-        private void frmRegistrarCuota_Load(object sender, EventArgs e)
-        {
-            this.ActualizarGrillaAlumnos();
-            this.Cuota = new clsCuota();
-            RepoF = new clsRepoFactory();
-        }
-        private void btnContinuar_Click(object sender, EventArgs e)
-        {
-            Cuota = new clsCuota();
-            if (Alumno.Id == -1)
-            {
-                MessageBox.Show("El Alumno es null");
-            }
-            if (Curso.Id == -1)
-            {
-                MessageBox.Show("El curso tambien lo rompiste");
-            }
-            Cuota.IdAlumno = Alumno.Id;
-            Cuota.IdCurso = Curso.Id;
-            Cuota.Fecha = DateTime.Today;
-            clsRepositorioCuota consultador = new clsRepositorioCuota();
-            consultador.Agregar(Cuota);
-            DialogResult continuar = MessageBox.Show("Cuota Registrada correctamente, ¿desea registrar otra?", "¡Exito!", MessageBoxButtons.YesNo);
-            if (continuar == System.Windows.Forms.DialogResult.Yes)
-            {
-                dgvEtapaUno.Rows.Clear();
-                dgvEtapaDos.Rows.Clear();
-                this.ActualizarGrillaAlumnos();
-            }
-            else
-            {
-                this.Close();
-            }
-        }
+        
     }
 }
