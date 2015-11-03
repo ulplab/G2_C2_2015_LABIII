@@ -249,9 +249,9 @@ namespace CapaPresentacion
 
         private void btnAsignarProfesor_Click(object sender, EventArgs e)
         {
-            frmAsignarProfesores AsignarProfesores = new frmAsignarProfesores();
+            frmAsignarDocentes AsignarDocentes = new frmAsignarDocentes();
             this.Visible = false;
-            AsignarProfesores.ShowDialog();
+            AsignarDocentes.ShowDialog();
             this.Visible = true;
         }
 

@@ -67,11 +67,17 @@
     <Compile Include="frmAlumnosMorosos.Designer.cs">
       <DependentUpon>frmAlumnosMorosos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmAsignarProfesores.cs">
+    <Compile Include="frmAsignarDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAsignarProfesores.Designer.cs">
-      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    <Compile Include="frmAsignarDocentes.Designer.cs">
+      <DependentUpon>frmAsignarDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignarDocentes2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignarDocentes2.Designer.cs">
+      <DependentUpon>frmAsignarDocentes2.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCargarDocentes.cs">
       <SubType>Form</SubType>
@@ -270,8 +276,8 @@
     <EmbeddedResource Include="frmAlumnosMorosos.resx">
       <DependentUpon>frmAlumnosMorosos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmAsignarProfesores.resx">
-      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    <EmbeddedResource Include="frmAsignarDocentes.resx">
+      <DependentUpon>frmAsignarDocentes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCargarDocentes.resx">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
