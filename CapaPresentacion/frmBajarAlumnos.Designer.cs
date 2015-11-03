@@ -65,7 +65,7 @@
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
             this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
-            this.btnContinuar.Location = new System.Drawing.Point(895, 592);
+            this.btnContinuar.Location = new System.Drawing.Point(887, 638);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(192, 78);
             this.btnContinuar.TabIndex = 23;
@@ -268,7 +268,7 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(125, 592);
+            this.btnCancelar.Location = new System.Drawing.Point(117, 638);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(192, 78);
             this.btnCancelar.TabIndex = 45;
@@ -279,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1225, 677);
+            this.ClientSize = new System.Drawing.Size(1225, 766);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.cbParametros);

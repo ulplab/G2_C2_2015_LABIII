@@ -270,6 +270,94 @@ namespace CapaLogica
 
             return dt;
         }
+
+        public int CantidadProfesores(int idCurso)
+        {
+            int i;
+            try
+            {
+                i = manager.CantidadProfesores(idCurso);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return i;
+        }
+
+        public int CantidadCursos(int idProfesor)
+        {
+            int i;
+            try
+            {
+                i = manager.CantidadProfesores(idProfesor);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return i;
+        }
+
+
+        public List<IEntidad> ListaProfesores(int idCurso)
+        {
+            List<IEntidad> LPro = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.ListaProfesores(idCurso).Rows)
+                {
+                    clsProfesor Profesor = new clsProfesor();
+                    Profesor.Id = Convert.ToInt32(r["IdProfesor"]);
+                    Profesor.Dni = Convert.ToString(r["Dni"]);
+                    Profesor.Nombre = Convert.ToString(r["Nombre"]);
+                    Profesor.Apellido = Convert.ToString(r["Apellido"]);
+                    Profesor.Direccion = Convert.ToString(r["Direccion"]);
+                    Profesor.Telefono = Convert.ToString(r["Telefono"]);
+                    Profesor.Email = Convert.ToString(r["Email"]);
+                    Profesor.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LPro.Add(Profesor);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LPro;
+        }
+
+        public List<IEntidad> ListaCursos(int idProfesor)
+        {
+            List<IEntidad> LCurso = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.ListaCursos(idProfesor).Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LCurso;
+        }
+
     }
 }
  

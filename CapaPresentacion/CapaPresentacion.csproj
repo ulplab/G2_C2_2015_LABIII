@@ -55,11 +55,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CursosPorDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursosPorDocentes.Designer.cs">
+      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignarProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignarProfesores.Designer.cs">
+      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCargarDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCargarDocentes.Designer.cs">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocentesPorCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocentesPorCurso.Designer.cs">
+      <DependentUpon>frmDocentesPorCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFacturas.cs">
       <SubType>Form</SubType>
@@ -240,8 +258,17 @@
     <Compile Include="Reportes\frmReporteMorosidad.Designer.cs">
       <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CursosPorDocentes.resx">
+      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsignarProfesores.resx">
+      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCargarDocentes.resx">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocentesPorCurso.resx">
+      <DependentUpon>frmDocentesPorCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
