@@ -96,9 +96,9 @@
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
             this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
-            this.btnContinuar.Location = new System.Drawing.Point(798, 563);
+            this.btnContinuar.Location = new System.Drawing.Point(798, 584);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(197, 78);
+            this.btnContinuar.Size = new System.Drawing.Size(197, 57);
             this.btnContinuar.TabIndex = 25;
             this.btnContinuar.UseVisualStyleBackColor = false;
             this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
@@ -271,9 +271,9 @@
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(93, 563);
+            this.btnCancelar.Location = new System.Drawing.Point(93, 584);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(197, 78);
+            this.btnCancelar.Size = new System.Drawing.Size(197, 57);
             this.btnCancelar.TabIndex = 31;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

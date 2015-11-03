@@ -39,6 +39,7 @@
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
+            this.btnPagarCuota = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -298,11 +299,35 @@
             this.btnAgregarDocentes.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAgregarDocentes.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // btnPagarCuota
+            // 
+            this.btnPagarCuota.BackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagarCuota.FlatAppearance.BorderSize = 0;
+            this.btnPagarCuota.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagarCuota.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagarCuota.ForeColor = System.Drawing.Color.White;
+            this.btnPagarCuota.Image = global::CapaPresentacion.Properties.Resources.zona_azul;
+            this.btnPagarCuota.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPagarCuota.Location = new System.Drawing.Point(721, 119);
+            this.btnPagarCuota.Name = "btnPagarCuota";
+            this.btnPagarCuota.Size = new System.Drawing.Size(196, 187);
+            this.btnPagarCuota.TabIndex = 45;
+            this.btnPagarCuota.TabStop = false;
+            this.btnPagarCuota.Text = "Pagar cuota";
+            this.btnPagarCuota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPagarCuota.UseVisualStyleBackColor = false;
+            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 758);
+            this.Controls.Add(this.btnPagarCuota);
             this.Controls.Add(this.btnAgregarDocentes);
             this.Controls.Add(this.btnRegistrosCalificaciones);
             this.Controls.Add(this.btnEstadisticas);
@@ -328,6 +353,7 @@
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.Controls.SetChildIndex(this.btnRegistrosCalificaciones, 0);
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
+            this.Controls.SetChildIndex(this.btnPagarCuota, 0);
             this.ResumeLayout(false);
 
         }
@@ -344,6 +370,7 @@
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnRegistrosCalificaciones;
         private System.Windows.Forms.Button btnAgregarDocentes;
+        private System.Windows.Forms.Button btnPagarCuota;
 
     }
 }
