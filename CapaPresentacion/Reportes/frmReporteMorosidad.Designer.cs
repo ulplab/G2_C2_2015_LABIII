@@ -56,6 +56,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmReporteMorosidad";
             this.Text = "Reporte de Morosidad";
+            this.Load += new System.EventHandler(this.frmReporteMorosidad_Load);
             this.ResumeLayout(false);
 
         }

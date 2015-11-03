@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Clases;
 using Interfaces;
 using CapaLogica;
+using CrystalDecisions.CrystalReports;
+using CrystalDecisions.ReportSource;
 
 namespace CapaPresentacion
 {
@@ -20,13 +22,14 @@ namespace CapaPresentacion
         }
         private clsAlumno Alumno;
         private clsRepositorioCuota consultador;
+        private List<IEntidad> LE;
         private void ActualizarGrillaAlumnos()
         {
             dgvEtapaUno.Rows.Clear();
             this.ColumnasAlumnos();
             try
             {
-                List<IEntidad> LE = consultador.ListaMorosos();
+                LE = consultador.ListaMorosos();
                 foreach (clsAlumno EAlum in LE)
                 {
                     if (EAlum.Estado == 1)
@@ -93,6 +96,11 @@ namespace CapaPresentacion
             Alumno = new clsAlumno();
             consultador = new clsRepositorioCuota();
             this.ActualizarGrillaAlumnos();
+        }
+        private void generar_Reporte()
+        {
+            ReportSourceFactory reporte = new ReportSourceFactory();
+            //reporte.CreateReportSource(LE,)
         }
     }
 }
