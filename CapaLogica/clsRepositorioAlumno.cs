@@ -172,8 +172,6 @@ namespace CapaLogica
 
             return list;
         }
-
-
         public clsAlumno Login(string usuario, string contraseña)
         {
             clsManejadorAlumno amanager = new clsManejadorAlumno();
@@ -202,7 +200,31 @@ namespace CapaLogica
 
         }
 
-
+        public List<IEntidad> Alumnos_Formateados(DateTime Fecha_Inicio, DateTime Fecha_Fin)
+        {
+            List<IEntidad> list = new List<IEntidad>();
+            try
+            {
+                string check = "02/02/1950";
+                if (DateTime.Compare(Fecha_Inicio, Convert.ToDateTime(check)) == 0)
+                {
+                    list.AddRange(manager.AlumnosFormateados());
+                }
+                else
+                {
+                    if (DateTime.Compare(Fecha_Inicio, Fecha_Fin) <= 0)
+                    {
+                        list.AddRange(manager.AlumnosFormateados(Fecha_Inicio,Fecha_Fin));
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return list;
+        }
+        
 
     }
 }

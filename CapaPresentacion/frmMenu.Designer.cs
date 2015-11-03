@@ -34,17 +34,19 @@
             this.btnAgregarCurso = new System.Windows.Forms.Button();
             this.btnInscribirAlumno = new System.Windows.Forms.Button();
             this.btnDarBajaInscripcion = new System.Windows.Forms.Button();
-            this.btnAlumnosPorCurso = new System.Windows.Forms.Button();
-            this.btnCursosPorAlumno = new System.Windows.Forms.Button();
+            this.btnRegistrosInstituto = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
+            this.btnPagarCuota = new System.Windows.Forms.Button();
+            this.btnAsignarProfesor = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1016, 93);
+            this.ousEncabezado.Size = new System.Drawing.Size(1135, 93);
             this.ousEncabezado.Titulo = "Menu";
             this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);
             // 
@@ -61,7 +63,7 @@
             this.btnAgregarAdministrador.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAdministrador.Image")));
             this.btnAgregarAdministrador.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAdministrador.Location = new System.Drawing.Point(762, 541);
+            this.btnAgregarAdministrador.Location = new System.Drawing.Point(906, 559);
             this.btnAgregarAdministrador.Name = "btnAgregarAdministrador";
             this.btnAgregarAdministrador.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAdministrador.TabIndex = 32;
@@ -86,7 +88,7 @@
             this.btnAgregarAlumno.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAlumno.Image")));
             this.btnAgregarAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAlumno.Location = new System.Drawing.Point(114, 119);
+            this.btnAgregarAlumno.Location = new System.Drawing.Point(43, 119);
             this.btnAgregarAlumno.Name = "btnAgregarAlumno";
             this.btnAgregarAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAlumno.TabIndex = 33;
@@ -111,7 +113,7 @@
             this.btnAgregarCurso.ForeColor = System.Drawing.Color.White;
             this.btnAgregarCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCurso.Image")));
             this.btnAgregarCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarCurso.Location = new System.Drawing.Point(536, 119);
+            this.btnAgregarCurso.Location = new System.Drawing.Point(465, 119);
             this.btnAgregarCurso.Name = "btnAgregarCurso";
             this.btnAgregarCurso.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarCurso.TabIndex = 34;
@@ -136,7 +138,7 @@
             this.btnInscribirAlumno.ForeColor = System.Drawing.Color.White;
             this.btnInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnInscribirAlumno.Image")));
             this.btnInscribirAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInscribirAlumno.Location = new System.Drawing.Point(114, 333);
+            this.btnInscribirAlumno.Location = new System.Drawing.Point(43, 333);
             this.btnInscribirAlumno.Name = "btnInscribirAlumno";
             this.btnInscribirAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnInscribirAlumno.TabIndex = 38;
@@ -161,7 +163,7 @@
             this.btnDarBajaInscripcion.ForeColor = System.Drawing.Color.White;
             this.btnDarBajaInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBajaInscripcion.Image")));
             this.btnDarBajaInscripcion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(325, 333);
+            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(254, 333);
             this.btnDarBajaInscripcion.Name = "btnDarBajaInscripcion";
             this.btnDarBajaInscripcion.Size = new System.Drawing.Size(196, 187);
             this.btnDarBajaInscripcion.TabIndex = 39;
@@ -173,55 +175,30 @@
             this.btnDarBajaInscripcion.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnDarBajaInscripcion.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
-            // btnAlumnosPorCurso
+            // btnRegistrosInstituto
             // 
-            this.btnAlumnosPorCurso.BackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlumnosPorCurso.FlatAppearance.BorderSize = 0;
-            this.btnAlumnosPorCurso.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnosPorCurso.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnosPorCurso.ForeColor = System.Drawing.Color.White;
-            this.btnAlumnosPorCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAlumnosPorCurso.Image")));
-            this.btnAlumnosPorCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAlumnosPorCurso.Location = new System.Drawing.Point(114, 541);
-            this.btnAlumnosPorCurso.Name = "btnAlumnosPorCurso";
-            this.btnAlumnosPorCurso.Size = new System.Drawing.Size(196, 187);
-            this.btnAlumnosPorCurso.TabIndex = 40;
-            this.btnAlumnosPorCurso.TabStop = false;
-            this.btnAlumnosPorCurso.Text = "Alumnos por curso";
-            this.btnAlumnosPorCurso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAlumnosPorCurso.UseVisualStyleBackColor = false;
-            this.btnAlumnosPorCurso.Click += new System.EventHandler(this.btnAlumnosPorCurso_Click);
-            this.btnAlumnosPorCurso.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
-            this.btnAlumnosPorCurso.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
-            // 
-            // btnCursosPorAlumno
-            // 
-            this.btnCursosPorAlumno.BackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCursosPorAlumno.FlatAppearance.BorderSize = 0;
-            this.btnCursosPorAlumno.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCursosPorAlumno.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursosPorAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnCursosPorAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnCursosPorAlumno.Image")));
-            this.btnCursosPorAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCursosPorAlumno.Location = new System.Drawing.Point(325, 541);
-            this.btnCursosPorAlumno.Name = "btnCursosPorAlumno";
-            this.btnCursosPorAlumno.Size = new System.Drawing.Size(196, 187);
-            this.btnCursosPorAlumno.TabIndex = 41;
-            this.btnCursosPorAlumno.TabStop = false;
-            this.btnCursosPorAlumno.Text = "Cursos por alumno";
-            this.btnCursosPorAlumno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCursosPorAlumno.UseVisualStyleBackColor = false;
-            this.btnCursosPorAlumno.Click += new System.EventHandler(this.btnCursosPorAlumno_Click);
-            this.btnCursosPorAlumno.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
-            this.btnCursosPorAlumno.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            this.btnRegistrosInstituto.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrosInstituto.FlatAppearance.BorderSize = 0;
+            this.btnRegistrosInstituto.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrosInstituto.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrosInstituto.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrosInstituto.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosInstituto.Image")));
+            this.btnRegistrosInstituto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegistrosInstituto.Location = new System.Drawing.Point(43, 541);
+            this.btnRegistrosInstituto.Name = "btnRegistrosInstituto";
+            this.btnRegistrosInstituto.Size = new System.Drawing.Size(196, 187);
+            this.btnRegistrosInstituto.TabIndex = 40;
+            this.btnRegistrosInstituto.TabStop = false;
+            this.btnRegistrosInstituto.Text = "Registros\r\n Instituto";
+            this.btnRegistrosInstituto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegistrosInstituto.UseVisualStyleBackColor = false;
+            this.btnRegistrosInstituto.Click += new System.EventHandler(this.btnAlumnosPorCurso_Click);
+            this.btnRegistrosInstituto.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnRegistrosInstituto.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
             // btnEstadisticas
             // 
@@ -236,7 +213,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEstadisticas.Location = new System.Drawing.Point(536, 541);
+            this.btnEstadisticas.Location = new System.Drawing.Point(254, 541);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(196, 187);
             this.btnEstadisticas.TabIndex = 42;
@@ -261,7 +238,7 @@
             this.btnRegistrosCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosCalificaciones.Image")));
             this.btnRegistrosCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(536, 333);
+            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(465, 541);
             this.btnRegistrosCalificaciones.Name = "btnRegistrosCalificaciones";
             this.btnRegistrosCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnRegistrosCalificaciones.TabIndex = 43;
@@ -286,7 +263,7 @@
             this.btnAgregarDocentes.ForeColor = System.Drawing.Color.White;
             this.btnAgregarDocentes.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarDocentes.Image")));
             this.btnAgregarDocentes.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarDocentes.Location = new System.Drawing.Point(325, 119);
+            this.btnAgregarDocentes.Location = new System.Drawing.Point(254, 119);
             this.btnAgregarDocentes.Name = "btnAgregarDocentes";
             this.btnAgregarDocentes.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarDocentes.TabIndex = 44;
@@ -298,16 +275,89 @@
             this.btnAgregarDocentes.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAgregarDocentes.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // btnPagarCuota
+            // 
+            this.btnPagarCuota.BackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagarCuota.FlatAppearance.BorderSize = 0;
+            this.btnPagarCuota.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagarCuota.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagarCuota.ForeColor = System.Drawing.Color.White;
+            this.btnPagarCuota.Image = global::CapaPresentacion.Properties.Resources.zona_azul;
+            this.btnPagarCuota.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPagarCuota.Location = new System.Drawing.Point(906, 110);
+            this.btnPagarCuota.Name = "btnPagarCuota";
+            this.btnPagarCuota.Size = new System.Drawing.Size(196, 187);
+            this.btnPagarCuota.TabIndex = 45;
+            this.btnPagarCuota.TabStop = false;
+            this.btnPagarCuota.Text = "Pagar cuota";
+            this.btnPagarCuota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPagarCuota.UseVisualStyleBackColor = false;
+            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
+            // 
+            // btnAsignarProfesor
+            // 
+            this.btnAsignarProfesor.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarProfesor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsignarProfesor.FlatAppearance.BorderSize = 0;
+            this.btnAsignarProfesor.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarProfesor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarProfesor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarProfesor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarProfesor.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarProfesor.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarProfesor.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarProfesor.Image")));
+            this.btnAsignarProfesor.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAsignarProfesor.Location = new System.Drawing.Point(465, 333);
+            this.btnAsignarProfesor.Name = "btnAsignarProfesor";
+            this.btnAsignarProfesor.Size = new System.Drawing.Size(196, 187);
+            this.btnAsignarProfesor.TabIndex = 46;
+            this.btnAsignarProfesor.TabStop = false;
+            this.btnAsignarProfesor.Text = "Asignar Docente";
+            this.btnAsignarProfesor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAsignarProfesor.UseVisualStyleBackColor = false;
+            this.btnAsignarProfesor.Click += new System.EventHandler(this.btnAsignarProfesor_Click);
+            this.btnAsignarProfesor.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnAsignarProfesor.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.stock_vector_financial_agreement_icon_191059541;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(906, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 187);
+            this.button1.TabIndex = 47;
+            this.button1.TabStop = false;
+            this.button1.Text = "Morosos";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1016, 758);
+            this.ClientSize = new System.Drawing.Size(1135, 758);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAsignarProfesor);
+            this.Controls.Add(this.btnPagarCuota);
             this.Controls.Add(this.btnAgregarDocentes);
             this.Controls.Add(this.btnRegistrosCalificaciones);
             this.Controls.Add(this.btnEstadisticas);
-            this.Controls.Add(this.btnCursosPorAlumno);
-            this.Controls.Add(this.btnAlumnosPorCurso);
+            this.Controls.Add(this.btnRegistrosInstituto);
             this.Controls.Add(this.btnDarBajaInscripcion);
             this.Controls.Add(this.btnInscribirAlumno);
             this.Controls.Add(this.btnAgregarCurso);
@@ -323,11 +373,13 @@
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
             this.Controls.SetChildIndex(this.btnInscribirAlumno, 0);
             this.Controls.SetChildIndex(this.btnDarBajaInscripcion, 0);
-            this.Controls.SetChildIndex(this.btnAlumnosPorCurso, 0);
-            this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
+            this.Controls.SetChildIndex(this.btnRegistrosInstituto, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.Controls.SetChildIndex(this.btnRegistrosCalificaciones, 0);
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
+            this.Controls.SetChildIndex(this.btnPagarCuota, 0);
+            this.Controls.SetChildIndex(this.btnAsignarProfesor, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
 
         }
@@ -339,11 +391,13 @@
         private System.Windows.Forms.Button btnAgregarCurso;
         private System.Windows.Forms.Button btnInscribirAlumno;
         private System.Windows.Forms.Button btnDarBajaInscripcion;
-        private System.Windows.Forms.Button btnAlumnosPorCurso;
-        private System.Windows.Forms.Button btnCursosPorAlumno;
+        private System.Windows.Forms.Button btnRegistrosInstituto;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnRegistrosCalificaciones;
         private System.Windows.Forms.Button btnAgregarDocentes;
+        private System.Windows.Forms.Button btnPagarCuota;
+        private System.Windows.Forms.Button btnAsignarProfesor;
+        private System.Windows.Forms.Button button1;
 
     }
 }

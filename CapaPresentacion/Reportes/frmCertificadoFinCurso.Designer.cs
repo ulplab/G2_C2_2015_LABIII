@@ -56,6 +56,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmCertificadoFinCurso";
             this.Text = "frmCertificadoFinCurso";
+            this.Load += new System.EventHandler(this.frmCertificadoFinCurso_Load);
             this.ResumeLayout(false);
 
         }

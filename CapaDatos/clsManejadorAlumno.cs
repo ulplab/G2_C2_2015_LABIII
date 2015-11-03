@@ -227,5 +227,109 @@ namespace CapaDatos
 
             return list;
         }
+
+        public List<clsAlumnoFormateado> AlumnosFormateados()
+        {
+            List<clsAlumnoFormateado> list = new List<clsAlumnoFormateado>();
+            DataTable dt;
+            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado,Alumnos.Direccion,Alumnos.Telefono,Alumnos.Email, Recaudado.pagado, esperado.total, " +
+                            "( (Recaudado.pagado * 100) /esperado.total ) as \"porcentaje\" " +
+                            "from Alumnos, " +
+                            "( select distinct AsisteFormateado.IdAlumno , Sum( AsisteFormateado.Precio ) as \"total\" " +
+                            "from " +
+                            "( select Asiste.IdAlumno ,Asiste.IdCurso, Cursos.Precio " +
+                            "from Asiste, Cursos " +
+                            "where Asiste.IDCurso = Cursos.IdCurso ) as \"AsisteFormateado\" " +
+                            "group by AsisteFormateado.IdAlumno ) as \"esperado\", " +
+                            "( " +
+                            "select distinct Cuota.IdAlumno as IdAlumno, SUM( Cursos.Precio ) as \"pagado\" " +
+                            "from Cursos,Cuota " +
+                            "where Cursos.IdCurso = Cuota.IdCurso " +
+                            "group by Cuota.IdAlumno " +
+                            ") as \"Recaudado\" " +
+                            "where " +
+                            "Alumnos.IdAlumno = esperado.IdAlumno " +
+                            "and " +
+                            "Alumnos.IdAlumno = Recaudado.IdAlumno; ";
+
+            try
+            {
+                dt = dbman.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsAlumnoFormateado c = new clsAlumnoFormateado();
+                c.Id = Convert.ToInt32(item["IdAlumno"]);
+                c.Nombre = Convert.ToString(item["Nombre"]);
+                c.Apellido = Convert.ToString(item["Apellido"]);
+                c.Dni = Convert.ToString(item["Dni"]);
+                c.Estado = Convert.ToInt32(item["Estado"]);
+                c.Pagado = Convert.ToDouble(item["Pagado"]);
+                c.Esperado = Convert.ToDouble(item["total"]);
+                c.Porcentaje = Convert.ToDouble(item["porcentaje"]);
+                list.Add(c);
+            }
+
+            return list;
+        }
+
+        public List<clsAlumnoFormateado> AlumnosFormateados(DateTime Fecha_Inicio,DateTime Fecha_Fin)
+        {
+            List<clsAlumnoFormateado> list = new List<clsAlumnoFormateado>();
+            DataTable dt;
+            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado,Alumnos.Direccion,Alumnos.Telefono,Alumnos.Email, Recaudado.pagado, esperado.total, " +
+                            "((Recaudado.pagado * 100)/esperado.total) as \"porcentaje\" " +
+                            "from Alumnos, " +
+                            "(select distinct AsisteFormateado.IdAlumno , Sum(AsisteFormateado.Precio) as \"total\" " +
+                            "from " +
+                            "(select Asiste.IdAlumno ,Asiste.IdCurso, Cursos.Precio " +
+                            "from Asiste, Cursos " +
+                            "where Asiste.IDCurso = Cursos.IdCurso) as \"AsisteFormateado\" " +
+                            "group by AsisteFormateado.IdAlumno) as \"esperado\", " +
+                            "( " +
+                            "select distinct Cuota.IdAlumno as IdAlumno, SUM(Cursos.Precio) as \"pagado\" " +
+                            "from Cursos,Cuota " +
+                            "where Cursos.IdCurso = Cuota.IdCurso " +
+                            "and " +
+                            "Cuota.Fecha between '" + Fecha_Inicio.Date.ToString() + "' and '" + Fecha_Fin.Date.ToString() + "' " +  
+                            "group by Cuota.IdAlumno " +
+                            ") as \"Recaudado\" " +
+                            "where " +
+                            "Alumnos.IdAlumno = esperado.IdAlumno " +
+                            "and " +
+                            "Alumnos.IdAlumno = Recaudado.IdAlumno; ";
+
+            try
+            {
+                dt = dbman.Consultar(query);
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsAlumnoFormateado c = new clsAlumnoFormateado();
+                c.Id = Convert.ToInt32(item["IdAlumno"]);
+                c.Nombre = Convert.ToString(item["Nombre"]);
+                c.Apellido = Convert.ToString(item["Apellido"]);
+                c.Dni = Convert.ToString(item["Dni"]);
+                c.Estado = Convert.ToInt32(item["Estado"]);
+                c.Pagado = Convert.ToDouble(item["Pagado"]);
+                c.Esperado = Convert.ToDouble(item["total"]);
+                c.Porcentaje = Convert.ToDouble(item["porcentaje"]);
+                list.Add(c);
+            }
+
+            return list;
+        }
     }
 }

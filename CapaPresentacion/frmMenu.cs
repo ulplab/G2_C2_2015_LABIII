@@ -65,9 +65,9 @@ namespace CapaPresentacion
                 {
                     btnDarBajaInscripcion.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\BajaInscripcion-140x140.png");
                 }
-                else if ((sender as Button).Name == "btnAlumnosPorCurso")
+                else if ((sender as Button).Name == "btnRegistrosInstituto")
                 {
-                    btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
+                    btnRegistrosInstituto.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
                 }
                 else if ((sender as Button).Name == "btnEstadisticas")
                 {
@@ -77,14 +77,15 @@ namespace CapaPresentacion
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-140x140.png");
                 }
-                else if ((sender as Button).Name == "btnAgregarDocentes")
+                else if ((sender as Button).Name == "btnAsignarProfesor")
                 {
-                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
+                    btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-140x140.png");
                 }
                 else
                 {
-                    btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-140x140.png");
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
                 }
+
             }
             catch (Exception)
             {
@@ -116,9 +117,9 @@ namespace CapaPresentacion
                 {
                     btnDarBajaInscripcion.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\BajaInscripcion-120x120.png");
                 }
-                else if ((sender as Button).Name == "btnAlumnosPorCurso")
+                else if ((sender as Button).Name == "btnRegistrosInstituto")
                 {
-                    btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
+                    btnRegistrosInstituto.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
                 }
                 else if ((sender as Button).Name == "btnEstadisticas")
                 {
@@ -128,13 +129,13 @@ namespace CapaPresentacion
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-120x120.png");
                 }
-                else if ((sender as Button).Name == "btnAgregarDocentes")
+                else if ((sender as Button).Name == "btnAsignarProfesor")
                 {
-                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
+                    btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-120x120.png");
                 }
                 else
                 {
-                    btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Registros-120x120.png");
+                    btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
                 }
             }
             catch (Exception)
@@ -146,19 +147,25 @@ namespace CapaPresentacion
         private void btnAgregarAdministrador_Click(object sender, EventArgs e)
         {
             frmRegistrarAdministradores RegistrarAdministrador = new frmRegistrarAdministradores();
+            this.Visible = false;
             RegistrarAdministrador.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
             frmCargarAlumnos CargarAlumnos = new frmCargarAlumnos();
+            this.Visible = false;
             CargarAlumnos.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnAgregarCurso_Click(object sender, EventArgs e)
         {
             frmCargarCursos CargarCursos = new frmCargarCursos();
+            this.Visible = false;
             CargarCursos.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
@@ -172,13 +179,17 @@ namespace CapaPresentacion
         private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
         {
             frmAlumnosPorCurso AlumnosPorCurso = new frmAlumnosPorCurso();
+            this.Visible = false;
             AlumnosPorCurso.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnCursosPorAlumno_Click(object sender, EventArgs e)
         {
             frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
+            this.Visible = false;
             CursosPorAlumno.ShowDialog();
+            this.Visible = true;
         }
 
         private void btnDarBajaInscripcion_Click(object sender, EventArgs e)
@@ -223,8 +234,35 @@ namespace CapaPresentacion
         private void btnAgregarDocentes_Click(object sender, EventArgs e)
         {
             frmCargarDocentes CargarDocentes = new frmCargarDocentes();
+            this.Visible = false;
             CargarDocentes.ShowDialog();
+            this.Visible = true;
         }
+
+        private void btnPagarCuota_Click(object sender, EventArgs e)
+        {
+            frmRegistrarCuota RegistrarCuota = new frmRegistrarCuota();
+            this.Visible = false;
+            RegistrarCuota.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnAsignarProfesor_Click(object sender, EventArgs e)
+        {
+            frmAsignarDocentes AsignarDocentes = new frmAsignarDocentes();
+            this.Visible = false;
+            AsignarDocentes.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAlumnosMorosos AlumnosMorosos = new frmAlumnosMorosos();
+            this.Visible = false;
+            AlumnosMorosos.ShowDialog();
+            this.Visible = true;
+        }
+
 
 
 

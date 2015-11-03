@@ -15,6 +15,7 @@ namespace Controles
         public usEncabezado()
         {
             InitializeComponent();
+            btnMaximizar.Enabled = false;
         }
 
 
@@ -159,6 +160,7 @@ namespace Controles
                 MessageBox.Show("Iconos no encontrados");
             }
         }
+
 
 
 

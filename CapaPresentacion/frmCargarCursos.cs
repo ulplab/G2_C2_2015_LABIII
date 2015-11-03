@@ -227,28 +227,28 @@ namespace CapaPresentacion
 
         private void ActualizarGrillaFiltrada()
         {
-            string query = string.Empty;
 
             clsCurso temp = new clsCurso();
-            temp.Nombre = tbFiltroNombre.Text;
+            if (tbFiltroNombre.Text != string.Empty)
+            {
+                temp.Nombre = tbFiltroNombre.Text;
+            }
             if (ckbFiltroFechaInicio.Checked)
             {
                 temp.FechaInicio = Convert.ToDateTime(dtpFiltroFechaInicio.Value);
             }
             if (ckbFiltroFechaFin.Checked)
             {
-                temp.FechaFin = Convert.ToDateTime(dtpFechaFin.Value);
+                temp.FechaFin = Convert.ToDateTime(dtpFiltroFechaFin.Value);
             }
             if (cbFiltroEstado.SelectedItem.ToString() != "Todos")
             {
                 if (cbFiltroEstado.SelectedItem.ToString() == "Habilitados")
                 {
-                    query += "AND Estado = 1;";
                     temp.Estado = 1;
                 }
                 else
                 {
-                    query += "AND Estado = 0;";
                     temp.Estado = 0;
                 }
             }   
@@ -289,6 +289,11 @@ namespace CapaPresentacion
         {
             ActualizarGrillaFiltrada();
             filtro = true;
+        }
+
+        private void ousEncabezado_Load(object sender, EventArgs e)
+        {
+
         }
 
 

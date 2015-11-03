@@ -100,8 +100,7 @@ namespace CapaPresentacion
             dgvDatos.Columns.Add("Estado", "Estado Actual");
             dgvDatos.Columns.Add("Recaudacion", "Recaudacion");
             dgvDatos.Columns.Add("Esperado", "Esperado");
-            dgvDatos.Columns.Add("Restante", "Restante");
-            dgvDatos.Columns.Add("Porcentaje", "Porcentaje Restante");
+            dgvDatos.Columns.Add("Porcentaje", "Porcentaje pagado");
         }
         private void Columnas_Alumno()
         {
@@ -109,9 +108,8 @@ namespace CapaPresentacion
             dgvDatos.Columns.Add("Nombre", "Nombre");
             dgvDatos.Columns.Add("Apellido", "Apellido");
             dgvDatos.Columns.Add("Estado", "Estado");
-            dgvDatos.Columns.Add("Pago", "Pago");
-            dgvDatos.Columns.Add("Esperado", "Esperado");
-            dgvDatos.Columns.Add("Restante", "Restante");
+            dgvDatos.Columns.Add("Pago", "Pagado");
+            dgvDatos.Columns.Add("Esperado", "Total a pagar");
             dgvDatos.Columns.Add("Porcentaje", "Porcentaje pagado");
         }
         private void Construccion_Consulta()
@@ -137,7 +135,7 @@ namespace CapaPresentacion
                     case Periodo.Quincenal: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddDays(-15); ; break;
                     case Periodo.Mensual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-1); ; break;
                     case Periodo.Anual: FechaFin = DateTime.Today; FechaInicio = DateTime.Today.AddMonths(-12); ; break;
-                    case Periodo.Todo: FechaFin = DateTime.Today; FechaInicio = DateTime.Today ; break;
+                    case Periodo.Todo:; break;
                 }
             }
             if (chbCampos.Checked)
@@ -153,19 +151,38 @@ namespace CapaPresentacion
         private void Procedimiento_sin_campos(DateTime Fecha_Inicio,DateTime Fecha_Fin)
         {
             List<IEntidad> Resultado = new List<IEntidad>();
-            clsRepositorioCuota consultador = new clsRepositorioCuota();
+
             switch (seleccion)
             {
-                case IngresosPor.Todo: Resultado = consultador.Lista_Formateada(Fecha_Inicio,Fecha_Fin) ; break;
-                case IngresosPor.Cursos: ; break;
-                case IngresosPor.Alumno: ; break;
+                case IngresosPor.Todo:
+                    clsRepositorioCuota consultador = new clsRepositorioCuota();
+                    Resultado = consultador.Lista_Formateada(Fecha_Inicio, Fecha_Fin);
+                    dgvDatos.Rows.Clear();
+                    foreach (clsCuotaFormateada temp in Resultado)
+                    {
+                        dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha,"$ "+ temp.Precio.ToString());
+                    }
+                    break;
+                case IngresosPor.Cursos:
+                    clsRepositorioCurso consultador2 = new clsRepositorioCurso();
+                    Resultado = consultador2.Cursos_Formateados(Fecha_Inicio,Fecha_Fin);
+                    dgvDatos.Rows.Clear();
+                    foreach (clsCursoFormateado temp in Resultado)
+                    {
+                        dgvDatos.Rows.Add(temp.Nombre, temp.FechaInicio, temp.FechaFin, temp.Estado, "$ " + temp.Recaudado.ToString(), "$ " + temp.Esperado.ToString(), temp.Porcentaje_pagado.ToString() + " %");
+                    }
+                    break;
+                case IngresosPor.Alumno:
+                    clsRepositorioAlumno consultador3 = new clsRepositorioAlumno();
+                    Resultado = consultador3.Alumnos_Formateados(Fecha_Inicio, Fecha_Fin);
+                    dgvDatos.Rows.Clear();
+                    foreach (clsAlumnoFormateado temp in Resultado)
+                    {
+                        dgvDatos.Rows.Add(temp.Dni,temp.Nombre,temp.Apellido,temp.Estado,"$ " + temp.Pagado.ToString(),"$ " + temp.Esperado,temp.Porcentaje + " %");
+                    }
+                    ; break;
             }
-
-            dgvDatos.Rows.Clear();
-            foreach (clsCuotaFormateada temp in Resultado)
-            {
-                dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha, temp.Precio);
-            }
+            this.Chart(Resultado);
         }
         private void Campos(IngresosPor temp)
         {
@@ -246,5 +263,53 @@ namespace CapaPresentacion
         {
             this.Construccion_Consulta();
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Construccion_Consulta();
+        }
+        private void Chart(List<IEntidad> temp)
+        {
+            chartEstadisticas.Series.Clear();
+            if (temp[0] is clsCuotaFormateada)
+            {
+                foreach(clsCuotaFormateada x in temp)
+                {
+                    chartEstadisticas.Series.Add(x.IdAlumno.ToString() +"-"+x.IdCurso.ToString());
+                    chartEstadisticas.Series[x.IdAlumno.ToString() +"-"+x.IdCurso.ToString()].Points.AddXY(chartEstadisticas.Series.Count, x.Precio);
+                }
+            }
+            else
+            {
+                if (temp[0] is clsCursoFormateado)
+                {
+                    int i = 0;
+                    foreach (clsCursoFormateado y in temp)
+                    {
+                        chartEstadisticas.Series.Add(y.Nombre+" "+i.ToString() );
+                        chartEstadisticas.Series[y.Nombre + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Recaudado);
+                        i++;
+                        if (i >= 10)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    int i = 0;
+                    foreach (clsAlumnoFormateado y in temp)
+                    {
+                        chartEstadisticas.Series.Add(y.Apellido +" "+ i.ToString());
+                        chartEstadisticas.Series[y.Apellido + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Pagado);
+                        i++;
+                        if (i >= 10)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

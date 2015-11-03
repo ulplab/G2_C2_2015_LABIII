@@ -79,5 +79,29 @@ namespace Clases
             get { return contraseña; }
             set { contraseña = value; }
         }
+
+        double pagado;
+
+        public double Pagado
+        {
+            get { return pagado; }
+            set { pagado = value; }
+        }
+
+        double esperado;
+
+        public double Esperado
+        {
+            get { return esperado; }
+            set { esperado = value; }
+        }
+
+        double porcentaje;
+
+        public double Porcentaje
+        {
+            get { return porcentaje; }
+            set { porcentaje = value; }
+        }
     }
 }

@@ -58,10 +58,6 @@ namespace CapaPresentacion
             dgvCursos.Columns["IdCurso"].Visible = false;
             dgvAlumnos.Columns["IdAlumno"].Visible = false;
 
-
-            btnDesactivarFiltro.BackColor = Color.Red;
-
-
             if (!filtro)
             {
                 ActualizarGrilla();
@@ -107,66 +103,45 @@ namespace CapaPresentacion
 
         private void ActualizarGrillaFiltrada()
         {
-            string query = string.Empty;
-            
+            clsAlumno temp = new clsAlumno();
+            if (tbFiltroNombre.Text != string.Empty)
+            {
+                temp.Nombre = tbFiltroNombre.Text;
+            }
+            if (tbFiltroApellido.Text != string.Empty)
+            {
+                temp.Apellido = tbFiltroApellido.Text;
+            }
+            if (tbFiltroDni.Text != string.Empty)
+            {
+                temp.Dni = tbFiltroDni.Text;
+            }
 
-            query = "SELECT * " +
-                    "FROM Alumnos " +
-                    "WHERE Nombre LIKE '" + tbFiltroNombre.Text + "%' " +
-                    "AND Apellido LIKE '" + tbFiltroApellido.Text + "%' " +
-                    "AND cast(Dni as varchar(10)) LIKE'" + tbFiltroDni.Text + "%' ";
-            
-            
+            temp.Estado = 1;
 
             dgvAlumnos.Rows.Clear();
 
             try
             {
-                List<IEntidad> LE = Repo.Lista();
+                Repo = RepoF.getRepositorio(RepoType.ALUMNO);
+                List<IEntidad> LE = Repo.Lista(temp);
 
-                foreach (clsAlumno EAlum in LE)
+                foreach (clsAlumno EAlumno in LE)
                 {
                     dgvAlumnos.Rows.Add();
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Nombre"].Value = EAlum.Nombre;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Apellido"].Value = EAlum.Apellido;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Dni"].Value = EAlum.Dni;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlumno.Id;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Nombre"].Value = EAlumno.Nombre;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Apellido"].Value = EAlumno.Apellido;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Dni"].Value = EAlumno.Dni;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlumno.Direccion;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlumno.Telefono;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlumno.Email;
+                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["CantidadCursos"].Value = Convert.ToString(MA.CantidadAlumno(EAlumno.Id));
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-        }
-
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
-        {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
-            ActualizarGrillaFiltrada();
-            ActualizarGrillaCursos();
-        }
-
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
-        {
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-            ActualizarGrilla();
-            ActualizarGrillaCursos();
-        }
-
-        private void tbFiltroNombre_TextChanged(object sender, EventArgs e)
-        {
-            if (filtro)
-            {
-                ActualizarGrillaFiltrada();
-                ActualizarGrillaCursos();
             }
         }
 
@@ -182,12 +157,15 @@ namespace CapaPresentacion
 
                     foreach (clsCurso ECurso in LA)
                     {
-                        dgvCursos.Rows.Add();
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["IdCurso"].Value = ECurso.Id;
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Nombre"].Value = ECurso.Nombre;
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
+                        if (ECurso.Estado == 1)
+                        {
+                            dgvCursos.Rows.Add();
+                            dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["IdCurso"].Value = ECurso.Id;
+                            dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Nombre"].Value = ECurso.Nombre;
+                            dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
+                            dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
+                            dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -201,6 +179,91 @@ namespace CapaPresentacion
         {
             ActualizarGrillaCursos();
         }
+
+        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            if ((sender as Button).Name == "btnBuscar")
+            {
+                btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+            }
+            else if ((sender as Button).Name == "btnAlumnosPorCurso")
+            {
+                btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
+            }
+            else if ((sender as Button).Name == "btnCursosPorAlumno")
+            {
+                btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
+            }
+            else if ((sender as Button).Name == "btnProfesoresPorCurso")
+            {
+                btnProfesoresPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
+            }
+            else
+            {
+                btnCursosPorProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
+            }
+        }
+
+        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            if ((sender as Button).Name == "btnBuscar")
+            {
+                btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
+            }
+            else if ((sender as Button).Name == "btnAlumnosPorCurso")
+            {
+                btnAlumnosPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
+            }
+            else if ((sender as Button).Name == "btnCursosPorAlumno")
+            {
+                btnCursosPorAlumno.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
+            }
+            else if ((sender as Button).Name == "btnProfesoresPorCurso")
+            {
+                btnProfesoresPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
+            }
+            else
+            {
+                btnCursosPorProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ActualizarGrillaFiltrada();
+            ActualizarGrillaCursos();
+            filtro = true;
+        }
+
+        private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
+        {
+            frmAlumnosPorCurso AlumnosPorCurso = new frmAlumnosPorCurso();
+            this.Visible = false;
+            AlumnosPorCurso.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCursosPorAlumno_Click(object sender, EventArgs e)
+        {
+            frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
+            this.Visible = false;
+            CursosPorAlumno.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProfesoresPorCurso_Click(object sender, EventArgs e)
+        {
+            frmDocentesPorCurso DocentesPorCurso = new frmDocentesPorCurso();
+            this.Visible = false;
+            DocentesPorCurso.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCursosPorProfesor_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

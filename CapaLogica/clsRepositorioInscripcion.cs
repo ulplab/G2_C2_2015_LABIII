@@ -41,7 +41,9 @@ namespace CapaLogica
             try
             {
                 if (manager.SelectInscripcion(compare).Count == 0)
+                {
                     manager.InsertInscripcion(inscripcion);
+                }
                 else
                     throw new ArgumentException("El alumno ya esta inscripto en este curso");
 
@@ -358,6 +360,33 @@ namespace CapaLogica
             try
             {
                 foreach (DataRow r in manager.ListaCursos(idAlumno).Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LCurso;
+        }
+
+        public List<IEntidad> CursosMorosos(int IdAlumno)
+        {
+            List<IEntidad> LCurso = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.CursosMorosos(IdAlumno).Rows)
                 {
                     clsCurso Curso = new clsCurso();
                     Curso.Id = Convert.ToInt32(r["IdCurso"]);
