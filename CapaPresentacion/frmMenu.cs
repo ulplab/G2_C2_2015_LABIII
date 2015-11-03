@@ -249,7 +249,7 @@ namespace CapaPresentacion
 
         private void btnAsignarProfesor_Click(object sender, EventArgs e)
         {
-            frmAsignarProfesores AsignarProfesores = new frmAsignarProfesores();
+            frmAsignarDocentes AsignarProfesores = new frmAsignarDocentes();
             AsignarProfesores.ShowDialog();
         }
 
