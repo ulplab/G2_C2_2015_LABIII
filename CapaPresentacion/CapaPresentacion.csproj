@@ -279,6 +279,9 @@
     <EmbeddedResource Include="frmAsignarDocentes.resx">
       <DependentUpon>frmAsignarDocentes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAsignarDocentes2.resx">
+      <DependentUpon>frmAsignarDocentes2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCargarDocentes.resx">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
     </EmbeddedResource>

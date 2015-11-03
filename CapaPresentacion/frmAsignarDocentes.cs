@@ -134,8 +134,8 @@ namespace CapaPresentacion
 
             int FilaSeleccionada = dgvDocentes.CurrentRow.Index;
 
-            frmModificarDocente ModificarAlumnos = new frmModificarDocente(Profesor);
-            ModificarAlumnos.ShowDialog();
+            frmAsignarDocentes2 AsignarDocentes = new frmAsignarDocentes2(Profesor);
+            AsignarDocentes.ShowDialog();
 
             if (!filtro)
             {
