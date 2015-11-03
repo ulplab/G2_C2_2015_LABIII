@@ -442,7 +442,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("select * from Dicta, Cursos where Dicta.IdCurso = Cursos.IdCurso and IdProfesor <> " + idProfesor + ";");
+                dt = dbmanager.Consultar("select * from Dicta, Cursos where Dicta.IdCurso = Cursos.IdCurso and IdProfesor != " + idProfesor + ";");
             }
             catch(Exception e)
             {

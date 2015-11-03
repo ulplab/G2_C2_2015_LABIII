@@ -33,7 +33,6 @@ namespace Clases
             {
                 throw e;
             }
-
             clsCuota compare = new clsCuota();
             compare.IdAlumno = cuota.IdAlumno;
             compare.IdCurso = cuota.IdAlumno;
@@ -48,6 +47,7 @@ namespace Clases
             {
                 throw e;
             }
+            return i;
         }
 
         public void Actualizar(IEntidad entidad)
