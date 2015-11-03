@@ -149,9 +149,35 @@ namespace CapaDatos
 
         public List<clsNota> ListarNota()
         {
-            List<clsNota> list = new List<clsNota>();
+            List<clsNota> res = new List<clsNota>();
 
-            return list;
+            DataTable dt;
+
+            try
+            {
+                dt = dbManager.Consultar("select * from Nota;");
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsNota p = new clsNota();
+
+                p.Id = Convert.ToInt32(item["IdNota"]);
+                p.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
+                p.IdCurso = Convert.ToInt32(item["IdCurso"]);
+                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Fecha = Convert.ToDateTime(item["Telefono"]);
+                p.Estado = Convert.ToInt32(item["Estado"]);
+
+                res.Add(p);
+            }
+
+            return res;
         }
     }
 }

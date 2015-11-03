@@ -360,40 +360,61 @@ namespace CapaLogica
 
         public List<IEntidad> CursosDisponiblesParaDictar(int idProfesor)
         {
-            clsRepositorioCurso repoC = new clsRepositorioCurso();
             DataTable dt;
             List<IEntidad> cursosRet = new List<IEntidad>();
-            clsCurso cursos = new clsCurso();
-            bool repetido = false;
 
             try
             {
-                dt = manager.ProfesorDicta(-1, -1);
+                dt = manager.CursosQueNoDicta(idProfesor);
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    if (Convert.ToInt32(dr["IdProfesor"]) != idProfesor)
-                    {
-                        cursos = (clsCurso)repoC.ObtenerPorId(Convert.ToInt32(dr["IdProfesor"]));
+                    clsCurso a = new clsCurso();
 
-                        foreach (clsCurso cur in cursosRet)
-                        {
-                            if (cur.Id == cursos.Id)
-                            {
-                                repetido = true;
-                            }
-                        }
+                    a.Id = Convert.ToInt32(dr["IdCurso"]);
+                    a.Nombre = Convert.ToString(dr["Nombre"]);
+                    a.FechaInicio = Convert.ToDateTime(dr["FechaInicio"]);
+                    a.FechaFin = Convert.ToDateTime(dr["FechaFin"]);
+                    a.Descripcion = Convert.ToString(dr["Descripcion"]);
+                    a.Estado = Convert.ToInt32(dr["Estado"]);
+                    a.Precio = Convert.ToDouble(dr["Precio"]);
 
-                        if (!repetido)
-                        {
-                            cursosRet.Add(cursos);
-                        }
-
-                        repetido = false;
-                    }
+                    cursosRet.Add(a);
                 }
             }
             catch(Exception e)
+            {
+                throw e;
+            }
+
+            return cursosRet;
+        }
+
+        public List<IEntidad> CursosQueDicta(int idProfesor)
+        {
+            DataTable dt;
+            List<IEntidad> cursosRet = new List<IEntidad>();
+
+            try
+            {
+                dt = manager.CursosQueDicta(idProfesor);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    clsCurso a = new clsCurso();
+
+                    a.Id = Convert.ToInt32(dr["IdCurso"]);
+                    a.Nombre = Convert.ToString(dr["Nombre"]);
+                    a.FechaInicio = Convert.ToDateTime(dr["FechaInicio"]);
+                    a.FechaFin = Convert.ToDateTime(dr["FechaFin"]);
+                    a.Descripcion = Convert.ToString(dr["Descripcion"]);
+                    a.Estado = Convert.ToInt32(dr["Estado"]);
+                    a.Precio = Convert.ToDouble(dr["Precio"]);
+
+                    cursosRet.Add(a);
+                }
+            }
+            catch (Exception e)
             {
                 throw e;
             }

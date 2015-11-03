@@ -17,32 +17,29 @@ namespace CapaDatos
 
         SqlTransaction transaccion;
 
-        /* CON CUIDADITO DE NO CAMBIARME MI BASE >_< A VOS TE DIGO BRIAN XD */
-        /* Comprate una base como la gente -.-' aguante LAVIEJAPHILCO */
         string strcnn;
-        string usuario = "User";
+        string usuario = "LaboIII";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "brian";
+        string clave = "1234";
         public string Clave
         {
             get { return clave; }
             set { clave = value; }
         }
 
-       
-        string server = "LAVIEJAPHILCO\\SQLEXPRESS";
+        string server = "mario-ulp\\sqlexpress  ";
 
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamen1LaboIII";
+        string baseDeDatos = "BDInstituto";
 
         public string BaseDeDatos
         {
@@ -63,6 +60,7 @@ namespace CapaDatos
             strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
                      ";User ID=" + Usuario + ";" +
                      "Password=" + Clave;
+            
             return strcnn;
 
         }
@@ -87,7 +85,6 @@ namespace CapaDatos
             int valor;
 
             cmd = new SqlCommand();
-            cmd.Transaction = transaccion;
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.CommandTimeout = 10;
@@ -158,7 +155,6 @@ namespace CapaDatos
             int valor;
 
             cmd = new SqlCommand();
-            cmd.Transaction = transaccion;
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = procedimiento;
             cmd.Parameters.AddRange(param);
@@ -166,6 +162,7 @@ namespace CapaDatos
 
             try
             {
+                cmd.Connection = getConnection();
                 cmd.Connection = getConnection();
                 transaccion = cnn.BeginTransaction();
 

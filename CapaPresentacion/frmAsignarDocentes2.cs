@@ -63,12 +63,13 @@ namespace CapaPresentacion
 
 
         private void ActualizarGrilla()
-        {/*
+        {
             dgvCursos.Rows.Clear();
 
             try
             {
-               
+                List<IEntidad> LE = RProfesor.CursosDisponiblesParaDictar(Profesor.Id);
+
 
                 foreach (clsCurso ECurso in LE)
                 {
@@ -87,12 +88,11 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         private void ActualizarGrillaFiltrada()
         {
-            /*
             clsCurso temp = new clsCurso();
             if (tbFiltroNombre.Text != string.Empty)
             {
@@ -113,8 +113,7 @@ namespace CapaPresentacion
 
             try
             {
-                Repo = RepoF.getRepositorio(RepoType.CURSO);
-                List<IEntidad> LE = Repo.Lista(temp);
+                List<IEntidad> LE = RProfesor.CursosDisponiblesParaDictar(Profesor.Id);
 
                 foreach (clsCurso ECurso in LE)
                 {
@@ -130,7 +129,7 @@ namespace CapaPresentacion
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }*/
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -149,7 +148,7 @@ namespace CapaPresentacion
                 }
                 else if ((sender as Button).Name == "btnCancelar")
                 {
-                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Grande.png");
+                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Grande.png");
                 }
                 else
                 {
@@ -172,7 +171,7 @@ namespace CapaPresentacion
                 }
                 else if ((sender as Button).Name == "btnCancelar")
                 {
-                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Cancelar-Chico.png");
+                    btnCancelar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Chico.png");
                 }
                 else
                 {
@@ -183,6 +182,11 @@ namespace CapaPresentacion
             {
                 MessageBox.Show("Iconos no encontrados");
             }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
 
 

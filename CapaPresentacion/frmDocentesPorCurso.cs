@@ -184,14 +184,17 @@ namespace CapaPresentacion
 
                     foreach (clsProfesor EPro in LA)
                     {
-                        dgvProfesores.Rows.Add();
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Nombre"].Value = EPro.Nombre;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Apellido"].Value = EPro.Apellido;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
-                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                        if (EPro.Estado != 1)
+                        {
+                            dgvProfesores.Rows.Add();
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Nombre"].Value = EPro.Nombre;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Apellido"].Value = EPro.Apellido;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
+                            dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                        }
                     }
                 }
                 catch (Exception ex)
