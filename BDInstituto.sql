@@ -111,15 +111,20 @@ create table Cuota(
 
  INSERT INTO Profesores VALUES('pablo', 'pablo', '32455321', '23232323', 'pablo', 1, 'villa mercedes', 'pablo@hotmail.com');
 
- update Profesores 
- set Nombre = 'pablo', Apellido = 'pablo', Dni ='32455321', Telefono = '23232323', Contraseña = '', Estado = '1', Direccion = 'villa mercedes', Email = 'pablo@hotmail.com'
- where IdProfesor = 20;
-
  INSERT INTO Alumnos VALUES('232we32232','wew','wew','23232232','2323','1','wew','ew')
 
 
 
+ SELECT *
+ FROM Cursos
+ WHERE FechaInicio >= '2008-03-09T16:05:07'
 
-SELECT * 
-FROM Alumnos 
-WHERE FechaInicio >= '2015/01/01' AND FechaFin <= '2016/01/01';
+ SELECT * 
+ FROM Cursos 
+ WHERE Nombre LIKE 'ewewrw%'
+  AND FechaInicio >= '0001-01-01T00:00:00'
+  AND FechaFin <= '0001-01-01T00:00:00'
+
+ INSERT INTO Cursos VALUES('Filosofia','2015-11-02T11:01:34','2016-11-02T11:01:34','filosofica','1',150.5);
+
+ INSERT INTO Cursos VALUES('wrwr','2015-11-02T11:25:53','2016-11-02T11:25:53','wrwrw','1', CAST(1234,126 AS DECIMAL(8,2)));
