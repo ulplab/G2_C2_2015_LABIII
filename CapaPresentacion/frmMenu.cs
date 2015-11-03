@@ -298,6 +298,14 @@ namespace CapaPresentacion
             this.Visible = true;
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmNotas Notas = new frmNotas();
+            this.Visible = false;
+            Notas.ShowDialog();
+            this.Visible = true;
+        }
+
 
 
 

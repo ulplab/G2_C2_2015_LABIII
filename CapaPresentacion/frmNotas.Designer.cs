@@ -35,9 +35,9 @@
             this.btnContinuar = new System.Windows.Forms.Button();
             this.lblNota = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.lvlVariableAlumno = new System.Windows.Forms.Label();
+            this.lblVariableAlumno = new System.Windows.Forms.Label();
             this.lblCurso = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblVariableCurso = new System.Windows.Forms.Label();
             this.decTextBox1 = new Controles.DecTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
@@ -85,6 +85,7 @@
             this.dgvEtapaDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaDos.Size = new System.Drawing.Size(627, 235);
             this.dgvEtapaDos.TabIndex = 28;
+            this.dgvEtapaDos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaDos_CellClick);
             // 
             // dgvEtapaUno
             // 
@@ -98,6 +99,7 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(627, 228);
             this.dgvEtapaUno.TabIndex = 27;
+            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             // 
             // btnContinuar
             // 
@@ -135,17 +137,17 @@
             this.label1.TabIndex = 34;
             this.label1.Text = "Alumno seleccionado:";
             // 
-            // lvlVariableAlumno
+            // lblVariableAlumno
             // 
-            this.lvlVariableAlumno.AutoSize = true;
-            this.lvlVariableAlumno.BackColor = System.Drawing.Color.Transparent;
-            this.lvlVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.lvlVariableAlumno.ForeColor = System.Drawing.Color.White;
-            this.lvlVariableAlumno.Location = new System.Drawing.Point(684, 323);
-            this.lvlVariableAlumno.Name = "lvlVariableAlumno";
-            this.lvlVariableAlumno.Size = new System.Drawing.Size(230, 36);
-            this.lvlVariableAlumno.TabIndex = 35;
-            this.lvlVariableAlumno.Text = "Nombre Alumno";
+            this.lblVariableAlumno.AutoSize = true;
+            this.lblVariableAlumno.BackColor = System.Drawing.Color.Transparent;
+            this.lblVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.lblVariableAlumno.ForeColor = System.Drawing.Color.White;
+            this.lblVariableAlumno.Location = new System.Drawing.Point(684, 323);
+            this.lblVariableAlumno.Name = "lblVariableAlumno";
+            this.lblVariableAlumno.Size = new System.Drawing.Size(230, 36);
+            this.lblVariableAlumno.TabIndex = 35;
+            this.lblVariableAlumno.Text = "Nombre Alumno";
             // 
             // lblCurso
             // 
@@ -159,17 +161,17 @@
             this.lblCurso.TabIndex = 36;
             this.lblCurso.Text = "Curso seleccionado:";
             // 
-            // label2
+            // lblVariableCurso
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(684, 424);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 36);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Nombre Curso";
+            this.lblVariableCurso.AutoSize = true;
+            this.lblVariableCurso.BackColor = System.Drawing.Color.Transparent;
+            this.lblVariableCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.lblVariableCurso.ForeColor = System.Drawing.Color.White;
+            this.lblVariableCurso.Location = new System.Drawing.Point(684, 424);
+            this.lblVariableCurso.Name = "lblVariableCurso";
+            this.lblVariableCurso.Size = new System.Drawing.Size(208, 36);
+            this.lblVariableCurso.TabIndex = 37;
+            this.lblVariableCurso.Text = "Nombre Curso";
             // 
             // decTextBox1
             // 
@@ -185,9 +187,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 703);
             this.Controls.Add(this.decTextBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblVariableCurso);
             this.Controls.Add(this.lblCurso);
-            this.Controls.Add(this.lvlVariableAlumno);
+            this.Controls.Add(this.lblVariableAlumno);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNota);
             this.Controls.Add(this.btnContinuar);
@@ -206,9 +208,9 @@
             this.Controls.SetChildIndex(this.btnContinuar, 0);
             this.Controls.SetChildIndex(this.lblNota, 0);
             this.Controls.SetChildIndex(this.label1, 0);
-            this.Controls.SetChildIndex(this.lvlVariableAlumno, 0);
+            this.Controls.SetChildIndex(this.lblVariableAlumno, 0);
             this.Controls.SetChildIndex(this.lblCurso, 0);
-            this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.lblVariableCurso, 0);
             this.Controls.SetChildIndex(this.decTextBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
@@ -224,9 +226,9 @@
         private System.Windows.Forms.DataGridView dgvEtapaDos;
         private System.Windows.Forms.DataGridView dgvEtapaUno;
         private System.Windows.Forms.Button btnContinuar;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblVariableCurso;
         private System.Windows.Forms.Label lblCurso;
-        private System.Windows.Forms.Label lvlVariableAlumno;
+        private System.Windows.Forms.Label lblVariableAlumno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNota;
         private Controles.DecTextBox decTextBox1;
