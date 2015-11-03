@@ -11,6 +11,7 @@ using Interfaces;
 using CapaLogica;
 using CrystalDecisions.CrystalReports;
 using CrystalDecisions.ReportSource;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -20,7 +21,7 @@ namespace CapaPresentacion
         {
             InitializeComponent();
         }
-        private clsAlumno Alumno;
+        private clsAlumnoFormateado Alumno;
         private clsRepositorioCuota consultador;
         private List<IEntidad> LE;
         private void ActualizarGrillaAlumnos()
@@ -30,15 +31,15 @@ namespace CapaPresentacion
             try
             {
                 LE = consultador.ListaMorosos();
-                foreach (clsAlumno EAlum in LE)
+                foreach (clsAlumnoFormateado EAlum in LE)
                 {
                     if (EAlum.Estado == 1)
                     {
-                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
+                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni,EAlum.Pagado, "Habilitado");
                     }
                 }
                 dgvEtapaUno.ClearSelection();
-                Alumno = new clsAlumno();
+                Alumno = new clsAlumnoFormateado();
                 Alumno.Id = -1;
             }
             catch (Exception ex)
@@ -53,10 +54,7 @@ namespace CapaPresentacion
             dgvEtapaUno.Columns.Add("Nombre", "Nombre");
             dgvEtapaUno.Columns.Add("Apellido", "Apellido");
             dgvEtapaUno.Columns.Add("Dni", "Dni");
-            dgvEtapaUno.Columns.Add("Direccion", "Direccion");
-            dgvEtapaUno.Columns.Add("Telefono", "Telefono");
-            dgvEtapaUno.Columns.Add("Email", "Email");
-            dgvEtapaUno.Columns.Add("Estado", "Estado");
+            dgvEtapaUno.Columns.Add("Deuda", "Deuda");
             dgvEtapaUno.Columns["IdAlumno"].Visible = false;
         }
         private void AlumnoSeleccionado()
@@ -71,18 +69,7 @@ namespace CapaPresentacion
                         Alumno.Nombre = dgvEtapaUno.SelectedRows[0].Cells["Nombre"].Value.ToString();
                         Alumno.Apellido = dgvEtapaUno.SelectedRows[0].Cells["Apellido"].Value.ToString();
                         Alumno.Dni = dgvEtapaUno.SelectedRows[0].Cells["Dni"].Value.ToString();
-                        Alumno.Direccion = dgvEtapaUno.SelectedRows[0].Cells["Direccion"].Value.ToString();
-                        Alumno.Telefono = dgvEtapaUno.SelectedRows[0].Cells["Telefono"].Value.ToString();
-                        Alumno.Email = dgvEtapaUno.SelectedRows[0].Cells["Email"].Value.ToString();
-                        if (dgvEtapaUno.SelectedRows[0].Cells["Estado"].Value.ToString() == "Habilitado")
-                        {
-                            Alumno.Estado = 1;
-                        }
-                        else
-                        {
-                            Alumno.Estado = 0;
-                        }
-
+                        Alumno.Pagado = Convert.ToDouble( dgvEtapaUno.SelectedRows[0].Cells["Deuda"].Value );
                     }
                 }
                 catch (Exception a)
@@ -93,14 +80,32 @@ namespace CapaPresentacion
         }
         private void frmAlumnosMorosos_Load(object sender, EventArgs e)
         {
-            Alumno = new clsAlumno();
+            Alumno = new clsAlumnoFormateado();
             consultador = new clsRepositorioCuota();
             this.ActualizarGrillaAlumnos();
         }
         private void generar_Reporte()
         {
-            ReportSourceFactory reporte = new ReportSourceFactory();
-            //reporte.CreateReportSource(LE,)
+            DataTable reporte = new DataTable();
+            reporte.Columns.Add("Nombre");
+            reporte.Columns.Add("Telefono");
+            reporte.Columns.Add("Direccion");
+            reporte.Columns.Add("Deuda");
+
+            foreach (clsAlumnoFormateado temp in LE)
+            {
+                reporte.Rows.Add(temp.Nombre, temp.Telefono, temp.Direccion, temp.Pagado);
+            }
+
+            frmReporteMorosidad ReporteMorosidad = new frmReporteMorosidad(reporte);
+            this.Visible = false;
+            ReporteMorosidad.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            this.generar_Reporte();
         }
     }
 }

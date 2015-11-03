@@ -177,48 +177,27 @@ namespace Clases
         {
             clsManejadorAlumno managerAlumno = new clsManejadorAlumno();
 
-            List<clsAlumno> listAlumnos = new List<clsAlumno>();
-            List<clsCuota> listCuotas = new List<clsCuota>();
             List<IEntidad> listMorosos = new List<IEntidad>();
+
+            List<clsAlumnoFormateado> Morosos = new List<clsAlumnoFormateado>();
 
             try
             {
-                listAlumnos.AddRange(managerAlumno.ListarAlumnos());
-                listCuotas.AddRange(manager.ListarCuota());
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+                Morosos = managerAlumno.AlumnosFormateados();
 
-            bool gotcha = false;
-
-            foreach (clsAlumno i in listAlumnos)
-            {
-                foreach (clsCuota c in listCuotas)
+                foreach (clsAlumnoFormateado temp in Morosos)
                 {
-                    if (c.IdAlumno == i.Id)
+                    if (temp.Pagado < temp.Esperado)
                     {
-                        gotcha = true;
+                        temp.Pagado = (temp.Esperado - temp.Pagado);
+                        listMorosos.Add(temp);
                     }
                 }
-                
-                if (!gotcha)
-                {
-                    foreach (clsAlumno mor in listMorosos)
-                    {
-                        if (mor.Id == i.Id)
-                        {
-                            gotcha = true;
-                        }
-                    }
-                    if(!gotcha)
-                        listMorosos.Add(i);
-                }
-
-                gotcha = false;
             }
-
+            catch (Exception a)
+            {
+                throw (a);
+            }
             return listMorosos;
         }
 
