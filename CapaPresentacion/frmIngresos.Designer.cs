@@ -35,7 +35,7 @@
             this.tcInformacion = new System.Windows.Forms.TabControl();
             this.tpGrilla = new System.Windows.Forms.TabPage();
             this.tpGrafico = new System.Windows.Forms.TabPage();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartEstadisticas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label1 = new System.Windows.Forms.Label();
             this.lblIngresosPor = new System.Windows.Forms.Label();
             this.cbIngresosPor = new System.Windows.Forms.ComboBox();
@@ -67,7 +67,7 @@
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
             this.tpGrafico.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).BeginInit();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -110,7 +110,7 @@
             // 
             // tpGrafico
             // 
-            this.tpGrafico.Controls.Add(this.chart1);
+            this.tpGrafico.Controls.Add(this.chartEstadisticas);
             this.tpGrafico.Location = new System.Drawing.Point(4, 22);
             this.tpGrafico.Name = "tpGrafico";
             this.tpGrafico.Padding = new System.Windows.Forms.Padding(3);
@@ -119,21 +119,21 @@
             this.tpGrafico.Text = "Grafico";
             this.tpGrafico.UseVisualStyleBackColor = true;
             // 
-            // chart1
+            // chartEstadisticas
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chartEstadisticas.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 6);
-            this.chart1.Name = "chart1";
+            this.chartEstadisticas.Legends.Add(legend1);
+            this.chartEstadisticas.Location = new System.Drawing.Point(3, 6);
+            this.chartEstadisticas.Name = "chartEstadisticas";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(732, 514);
-            this.chart1.TabIndex = 0;
-            this.chart1.Text = "chart1";
+            this.chartEstadisticas.Series.Add(series1);
+            this.chartEstadisticas.Size = new System.Drawing.Size(732, 514);
+            this.chartEstadisticas.TabIndex = 0;
+            this.chartEstadisticas.Text = "Grafico";
             // 
             // label1
             // 
@@ -206,6 +206,8 @@
             // dtpFechaInicio
             // 
             this.dtpFechaInicio.Location = new System.Drawing.Point(45, 297);
+            this.dtpFechaInicio.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaInicio.MinDate = new System.DateTime(1870, 1, 1, 0, 0, 0, 0);
             this.dtpFechaInicio.Name = "dtpFechaInicio";
             this.dtpFechaInicio.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaInicio.TabIndex = 30;
@@ -214,9 +216,12 @@
             // dtpFechaFin
             // 
             this.dtpFechaFin.Location = new System.Drawing.Point(45, 323);
+            this.dtpFechaFin.MaxDate = new System.DateTime(2099, 12, 31, 0, 0, 0, 0);
+            this.dtpFechaFin.MinDate = new System.DateTime(1870, 1, 1, 0, 0, 0, 0);
             this.dtpFechaFin.Name = "dtpFechaFin";
             this.dtpFechaFin.Size = new System.Drawing.Size(248, 20);
             this.dtpFechaFin.TabIndex = 31;
+            this.dtpFechaFin.Value = new System.DateTime(2015, 11, 3, 0, 0, 0, 0);
             this.dtpFechaFin.Visible = false;
             // 
             // chbPersonalizar
@@ -499,7 +504,7 @@
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);
             this.tpGrafico.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadisticas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -537,7 +542,7 @@
         private System.Windows.Forms.DateTimePicker dtpVariable6;
         private System.Windows.Forms.ComboBox cbVariable7;
         private System.Windows.Forms.CheckBox chbCampos;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartEstadisticas;
         private System.Windows.Forms.Button button1;
 
     }

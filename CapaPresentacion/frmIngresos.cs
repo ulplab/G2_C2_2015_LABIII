@@ -182,8 +182,7 @@ namespace CapaPresentacion
                     }
                     ; break;
             }
-
-
+            this.Chart(Resultado);
         }
         private void Campos(IngresosPor temp)
         {
@@ -268,5 +267,49 @@ namespace CapaPresentacion
         {
             this.Construccion_Consulta();
         }
+        private void Chart(List<IEntidad> temp)
+        {
+            chartEstadisticas.Series.Clear();
+            if (temp[0] is clsCuotaFormateada)
+            {
+                foreach(clsCuotaFormateada x in temp)
+                {
+                    chartEstadisticas.Series.Add(x.IdAlumno.ToString() +"-"+x.IdCurso.ToString());
+                    chartEstadisticas.Series[x.IdAlumno.ToString() +"-"+x.IdCurso.ToString()].Points.AddXY(chartEstadisticas.Series.Count, x.Precio);
+                }
+            }
+            else
+            {
+                if (temp[0] is clsCursoFormateado)
+                {
+                    int i = 0;
+                    foreach (clsCursoFormateado y in temp)
+                    {
+                        chartEstadisticas.Series.Add(y.Nombre+" "+i.ToString() );
+                        chartEstadisticas.Series[y.Nombre + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Recaudado);
+                        i++;
+                        if (i >= 10)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    int i = 0;
+                    foreach (clsAlumnoFormateado y in temp)
+                    {
+                        chartEstadisticas.Series.Add(y.Apellido +" "+ i.ToString());
+                        chartEstadisticas.Series[y.Apellido + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Pagado);
+                        i++;
+                        if (i >= 10)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
     }
 }

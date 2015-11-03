@@ -102,7 +102,7 @@ namespace CapaDatos
                 query += " IdCurso= '" + entidad.IdCurso + "'";
                 curso = true;
             }
-            if (entidad.Fecha != null)
+            if (DateTime.Compare(entidad.Fecha , Convert.ToDateTime("01/01/0001 0:00:00")) != 0)
             {
                 if (cuota | alumno | curso)
                 {
@@ -241,5 +241,6 @@ namespace CapaDatos
 
             return list;
         }
+
     }
 }
