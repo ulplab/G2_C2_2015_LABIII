@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace CapaPresentacion
 {
-    public partial class frmAsignarProfesores : frmPrincipal
+    public partial class frmAsignarDocentes2 : frmPrincipal
     {
-        public frmAsignarProfesores()
+        public frmAsignarDocentes2()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class frmAsignarProfesores
+    partial class frmAsignarDocentes2
     {
         /// <summary>
         /// Required designer variable.
@@ -28,22 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // ousEncabezado
-            // 
-            this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(961, 94);
-            // 
-            // frmAsignarProfesores
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 460);
-            this.Name = "frmAsignarProfesores";
-            this.Text = "frmAsignarProfesores";
-            this.ResumeLayout(false);
-
+            this.Text = "frmAsignarDocentes2";
         }
 
         #endregion
