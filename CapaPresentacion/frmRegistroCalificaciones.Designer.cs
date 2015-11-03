@@ -46,13 +46,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
-            this.dgvAlumnos = new System.Windows.Forms.DataGridView();
+            this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -245,13 +245,13 @@
             this.tbFiltroNombre.Size = new System.Drawing.Size(150, 26);
             this.tbFiltroNombre.TabIndex = 67;
             // 
-            // dgvAlumnos
+            // dgvEtapaUno
             // 
-            this.dgvAlumnos.AllowUserToAddRows = false;
-            this.dgvAlumnos.AllowUserToDeleteRows = false;
-            this.dgvAlumnos.AllowUserToResizeColumns = false;
-            this.dgvAlumnos.AllowUserToResizeRows = false;
-            this.dgvAlumnos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvEtapaUno.AllowUserToAddRows = false;
+            this.dgvEtapaUno.AllowUserToDeleteRows = false;
+            this.dgvEtapaUno.AllowUserToResizeColumns = false;
+            this.dgvEtapaUno.AllowUserToResizeRows = false;
+            this.dgvEtapaUno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -259,8 +259,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEtapaUno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,16 +268,16 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvAlumnos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvAlumnos.Location = new System.Drawing.Point(59, 257);
-            this.dgvAlumnos.MultiSelect = false;
-            this.dgvAlumnos.Name = "dgvAlumnos";
-            this.dgvAlumnos.ReadOnly = true;
-            this.dgvAlumnos.RowHeadersVisible = false;
-            this.dgvAlumnos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAlumnos.Size = new System.Drawing.Size(922, 183);
-            this.dgvAlumnos.TabIndex = 67;
-            this.dgvAlumnos.TabStop = false;
+            this.dgvEtapaUno.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEtapaUno.Location = new System.Drawing.Point(59, 257);
+            this.dgvEtapaUno.MultiSelect = false;
+            this.dgvEtapaUno.Name = "dgvEtapaUno";
+            this.dgvEtapaUno.ReadOnly = true;
+            this.dgvEtapaUno.RowHeadersVisible = false;
+            this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEtapaUno.Size = new System.Drawing.Size(922, 183);
+            this.dgvEtapaUno.TabIndex = 67;
+            this.dgvEtapaUno.TabStop = false;
             // 
             // frmRegistroCalificaciones
             // 
@@ -285,12 +285,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1046, 507);
             this.Controls.Add(this.gbFiltros);
-            this.Controls.Add(this.dgvAlumnos);
+            this.Controls.Add(this.dgvEtapaUno);
             this.Name = "frmRegistroCalificaciones";
             this.Text = "frmRegistroCalificaciones";
             this.Load += new System.EventHandler(this.frmRegistroCalificaciones_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
-            this.Controls.SetChildIndex(this.dgvAlumnos, 0);
+            this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -301,7 +301,7 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvAlumnos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -323,6 +323,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbFiltroNombre;
-        private System.Windows.Forms.DataGridView dgvAlumnos;
+        private System.Windows.Forms.DataGridView dgvEtapaUno;
     }
 }

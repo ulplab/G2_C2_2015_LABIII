@@ -20,87 +20,96 @@ namespace CapaPresentacion
             InitializeComponent();
 
         }
-
-        clsAlumno Alumno = new clsAlumno();
+        clsNota Nota;
+        clsAlumno Alumno;
+        clsCurso Curso;
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
         bool filtro = false;
 
         private void frmRegistroCalificaciones_Load(object sender, EventArgs e)
         {
-
-            Repo = RepoF.getRepositorio(RepoType.ALUMNO);
-
-            dgvAlumnos.Columns.Add("IdAlumno", "IdAlumno");
-            dgvAlumnos.Columns.Add("Nombre", "Nombre");
-            dgvAlumnos.Columns.Add("Apellido", "Apellido");
-            dgvAlumnos.Columns.Add("Dni", "Dni");
-            dgvAlumnos.Columns.Add("Direccion", "Direccion");
-            dgvAlumnos.Columns.Add("Telefono", "Telefono");
-            dgvAlumnos.Columns.Add("Email", "Email");
-            dgvAlumnos.Columns.Add("Estado", "Estado");
-
-            dgvAlumnos.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Apellido"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Dni"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Direccion"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Telefono"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Email"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Estado"].SortMode = DataGridViewColumnSortMode.NotSortable;
-
-            cbFiltroEstado.Items.Add("Habilitados");
-            cbFiltroEstado.Items.Add("Deshabilitados");
-            cbFiltroEstado.Items.Add("Todos");
-            cbFiltroEstado.SelectedItem = "Todos";
-
-            btnDesactivarFiltro.BackColor = Color.Red;
-
-            dgvAlumnos.Columns["IdAlumno"].Visible = false;
-
-            if (!filtro)
-            {
-                ActualizarGrilla();
-            }
-            else
-            {
-                ActualizarGrillaFiltrada();
-            }
+            Curso = new clsCurso();
+            Alumno = new clsAlumno();
+            Nota = new clsNota();
+            this.ActualizarGrillaNotas();
         }
-
-        private void ActualizarGrilla()
+        private void ActualizarGrillaAlumnos()
         {
-            dgvAlumnos.Rows.Clear();
-
+            dgvEtapaUno.Rows.Clear();
+            dgvEtapaUno.Columns.Clear();
+            this.ColumnasAlumnos();
             try
             {
+                Repo = RepoF.getRepositorio(RepoType.ALUMNO);
                 List<IEntidad> LE = Repo.Lista();
-
                 foreach (clsAlumno EAlum in LE)
                 {
-                    dgvAlumnos.Rows.Add();
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Nombre"].Value = EAlum.Nombre;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Apellido"].Value = EAlum.Apellido;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Dni"].Value = EAlum.Dni;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
                     if (EAlum.Estado == 1)
                     {
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
-                    }
-                    else
-                    {
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Deshabilitado";
+                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
                     }
                 }
+                dgvEtapaUno.ClearSelection();
+                Alumno = new clsAlumno();
+                Alumno.Id = -1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        private void ActualizarGrillaCursos()
+        {
+            dgvEtapaUno.Rows.Clear();
+            dgvEtapaUno.Columns.Clear();
+            this.ColumnasCursos();
+            try
+            {
+                Repo = RepoF.getRepositorio(RepoType.CURSO);
+                List<IEntidad> LE = Repo.Lista();
+                foreach (clsCurso ECurso in LE)
+                {
+                    if (ECurso.Estado == 1)
+                    {
+                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
+                    }
+                }
+                dgvEtapaUno.ClearSelection();
+                Curso = new clsCurso();
+                Curso.Id = -1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ActualizarGrillaNotas()
+        {
+            dgvEtapaUno.Rows.Clear();
+            this.ColumnasNotas();
 
+            try
+            {
+                Repo = RepoF.getRepositorio(RepoType.NOTA);
+                List<IEntidad> LE = Repo.Lista();
+                foreach (clsNota ECurso in LE)
+                {
+                    if (ECurso.Estado == 1)
+                    {
+                        dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.IdAlumno,ECurso.IdCurso,ECurso.Nota,ECurso.Fecha);
+                    }
+                }
+                dgvEtapaUno.ClearSelection();
+                Nota = new clsNota();
+                Nota.Id = -1;
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void ActualizarGrillaFiltrada()
         {
             clsAlumno temp = new clsAlumno();
@@ -120,7 +129,7 @@ namespace CapaPresentacion
                 }
             }
 
-            dgvAlumnos.Rows.Clear();
+            dgvEtapaUno.Rows.Clear();
 
             try
             {
@@ -128,21 +137,21 @@ namespace CapaPresentacion
 
                 foreach (clsAlumno EAlum in LE)
                 {
-                    dgvAlumnos.Rows.Add();
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Nombre"].Value = EAlum.Nombre;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Apellido"].Value = EAlum.Apellido;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Dni"].Value = EAlum.Dni;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
-                    dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
+                    dgvEtapaUno.Rows.Add();
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Nombre"].Value = EAlum.Nombre;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Apellido"].Value = EAlum.Apellido;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Dni"].Value = EAlum.Dni;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
+                    dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
                     if (EAlum.Estado == 1)
                     {
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
+                        dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Estado"].Value = "Habilitado";
                     }
                     else
                     {
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Estado"].Value = "Deshabilitado";
+                        dgvEtapaUno.Rows[dgvEtapaUno.Rows.Count - 1].Cells["Estado"].Value = "Deshabilitado";
                     }
                 }
             }
@@ -152,7 +161,6 @@ namespace CapaPresentacion
             }
 
         }
-
         private void btnActivarFiltro_Click(object sender, EventArgs e)
         {
             btnActivarFiltro.BackColor = Color.Lime;
@@ -160,16 +168,46 @@ namespace CapaPresentacion
             filtro = true;
             ActualizarGrillaFiltrada();
         }
-
         private void btnDesactivarFiltro_Click(object sender, EventArgs e)
         {
 
             btnDesactivarFiltro.BackColor = Color.Red;
             btnActivarFiltro.BackColor = Color.Transparent;
             filtro = false;
-            ActualizarGrilla();
         }
-
+        private void ColumnasCursos()
+        {
+            dgvEtapaUno.Columns.Clear();
+            dgvEtapaUno.Columns.Add("IdCurso", "IdCurso");
+            dgvEtapaUno.Columns.Add("Nombre", "Nombre");
+            dgvEtapaUno.Columns.Add("Descripcion", "Descripcion");
+            dgvEtapaUno.Columns.Add("FechaInicio", "Fecha Incio");
+            dgvEtapaUno.Columns.Add("FechaFin", "Fecha Fin");
+            dgvEtapaUno.Columns.Add("Estado", "Estado");
+            dgvEtapaUno.Columns["IdCurso"].Visible = false;
+        }
+        private void ColumnasAlumnos()
+        {
+            dgvEtapaUno.Columns.Clear();
+            dgvEtapaUno.Columns.Add("IdAlumno", "IdAlumno");
+            dgvEtapaUno.Columns.Add("Nombre", "Nombre");
+            dgvEtapaUno.Columns.Add("Apellido", "Apellido");
+            dgvEtapaUno.Columns.Add("Dni", "Dni");
+            dgvEtapaUno.Columns.Add("Direccion", "Direccion");
+            dgvEtapaUno.Columns.Add("Telefono", "Telefono");
+            dgvEtapaUno.Columns.Add("Email", "Email");
+            dgvEtapaUno.Columns.Add("Estado", "Estado");
+            dgvEtapaUno.Columns["IdAlumno"].Visible = false;
+        }
+        private void ColumnasNotas()
+        {
+            dgvEtapaUno.Columns.Add("IdNota", "IdNota");
+            dgvEtapaUno.Columns["idNota"].Visible = false;
+            dgvEtapaUno.Columns.Add("Alumno", "Alumno");
+            dgvEtapaUno.Columns.Add("Curso", "Curso");
+            dgvEtapaUno.Columns.Add("Nota", "Nota");
+            dgvEtapaUno.Columns.Add("Fecha", "Fecha");
+        }
 
     }
 }

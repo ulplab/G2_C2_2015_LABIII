@@ -18,15 +18,16 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         /* CON CUIDADITO DE NO CAMBIARME MI BASE >_< A VOS TE DIGO BRIAN XD */
+        /* Comprate una base como la gente -.-' aguante LAVIEJAPHILCO */
         string strcnn;
-        string usuario = "LaboIII";
+        string usuario = "User";
         
         public string Usuario
         {
             get { return usuario; }
             set { usuario = value; }
         }
-        string clave = "1234";
+        string clave = "brian";
         public string Clave
         {
             get { return clave; }
@@ -34,7 +35,7 @@ namespace CapaDatos
         }
 
        
-        string server = "NOTEBOOK";
+        string server = "LAVIEJAPHILCO\\SQLEXPRESS";
 
         public string Server
         {
