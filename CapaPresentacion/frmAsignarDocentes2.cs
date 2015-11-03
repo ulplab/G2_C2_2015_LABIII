@@ -163,7 +163,7 @@ namespace CapaPresentacion
             {
                 if ((sender as Button).Name == "btnBuscar")
                 {
-                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
                 else
                 {

@@ -32,14 +32,14 @@ namespace CapaDatos
             set { clave = value; }
         }
 
-        string server = "mario-ulp\\sqlexpress  ";
+        string server = "NOTEBOOK";
 
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDInstituto";
+        string baseDeDatos = "BDExamen1LaboIII";
 
         public string BaseDeDatos
         {
