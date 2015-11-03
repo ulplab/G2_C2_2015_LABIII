@@ -171,7 +171,7 @@ namespace CapaDatos
                 p.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
                 p.IdCurso = Convert.ToInt32(item["IdCurso"]);
                 p.Nota = Convert.ToInt32(item["Nota"]);
-                p.Fecha = Convert.ToDateTime(item["Telefono"]);
+                p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
                 res.Add(p);
