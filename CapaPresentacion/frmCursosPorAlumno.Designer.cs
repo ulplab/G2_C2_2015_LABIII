@@ -302,6 +302,8 @@
             this.btnCursosPorProfesor.Text = "Docentes por \r\nProfesor";
             this.btnCursosPorProfesor.UseVisualStyleBackColor = false;
             this.btnCursosPorProfesor.Click += new System.EventHandler(this.btnCursosPorProfesor_Click);
+            this.btnCursosPorProfesor.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnCursosPorProfesor.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // btnProfesoresPorCurso
             // 
@@ -321,6 +323,8 @@
             this.btnProfesoresPorCurso.Text = "Docentes por \r\nCurso";
             this.btnProfesoresPorCurso.UseVisualStyleBackColor = false;
             this.btnProfesoresPorCurso.Click += new System.EventHandler(this.btnProfesoresPorCurso_Click);
+            this.btnProfesoresPorCurso.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnProfesoresPorCurso.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // btnCursosPorAlumno
             // 
@@ -340,6 +344,8 @@
             this.btnCursosPorAlumno.Text = "Cursos por \r\nAlumno";
             this.btnCursosPorAlumno.UseVisualStyleBackColor = false;
             this.btnCursosPorAlumno.Click += new System.EventHandler(this.btnCursosPorAlumno_Click);
+            this.btnCursosPorAlumno.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnCursosPorAlumno.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // btnAlumnosPorCurso
             // 
@@ -359,6 +365,8 @@
             this.btnAlumnosPorCurso.Text = "Alumnos por \r\nCurso";
             this.btnAlumnosPorCurso.UseVisualStyleBackColor = false;
             this.btnAlumnosPorCurso.Click += new System.EventHandler(this.btnAlumnosPorCurso_Click);
+            this.btnAlumnosPorCurso.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnAlumnosPorCurso.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // frmCursosPorAlumno
             // 
