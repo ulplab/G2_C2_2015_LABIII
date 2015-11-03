@@ -358,6 +358,48 @@ namespace CapaLogica
             return LCurso;
         }
 
+        public List<IEntidad> CursosDisponiblesParaDictar(int idProfesor)
+        {
+            clsRepositorioCurso repoC = new clsRepositorioCurso();
+            DataTable dt;
+            List<IEntidad> cursosRet = new List<IEntidad>();
+            clsCurso cursos = new clsCurso();
+            bool repetido = false;
+
+            try
+            {
+                dt = manager.ProfesorDicta(-1, -1);
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    if (Convert.ToInt32(dr["IdProfesor"]) != idProfesor)
+                    {
+                        cursos = (clsCurso)repoC.ObtenerPorId(Convert.ToInt32(dr["IdProfesor"]));
+
+                        foreach (clsCurso cur in cursosRet)
+                        {
+                            if (cur.Id == cursos.Id)
+                            {
+                                repetido = true;
+                            }
+                        }
+
+                        if (!repetido)
+                        {
+                            cursosRet.Add(cursos);
+                        }
+
+                        repetido = false;
+                    }
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+
+            return cursosRet;
+        }
     }
 }
  
