@@ -12,21 +12,19 @@ using Interfaces;
 
 namespace CapaPresentacion
 {
-    public partial class frmAsignarDocentes2 : frmPrincipal
+    public partial class frmQuitarAsignacionDocentes : frmPrincipal
     {
-        public frmAsignarDocentes2(clsProfesor Profesor)
+        public frmQuitarAsignacionDocentes(clsProfesor Profesor)
         {
             InitializeComponent();
-
             this.Profesor = Profesor;
-
         }
 
         clsProfesor Profesor = new clsProfesor();
         clsRepositorioProfesor RProfesor = new clsRepositorioProfesor();
         bool filtro = false;
 
-        private void frmAsignarDocentes2_Load(object sender, EventArgs e)
+        private void frmQuitarAsignacionDocentes_Load(object sender, EventArgs e)
         {
             tbNombre.Text = Profesor.Nombre;
             tbApellido.Text = Profesor.Apellido;
@@ -58,7 +56,6 @@ namespace CapaPresentacion
             {
                 ActualizarGrillaFiltrada();
             }
-
         }
 
 
@@ -90,6 +87,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void ActualizarGrillaFiltrada()
         {
@@ -148,7 +146,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Grande.png");
+                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Chico.png");
                 }
             }
             catch (Exception ex)
@@ -167,7 +165,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Chico.png");
+                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Grande.png");
                 }
             }
             catch (Exception ex)
@@ -176,18 +174,18 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnRegistrar_Click(object sender, EventArgs e)
+        private void btnQuitar_Click(object sender, EventArgs e)
         {
             int IdCurso = Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value);
 
             try
             {
-                bool resultado = RProfesor.AsignarProfesorACurso(Profesor.Id, IdCurso);
+                bool resultado = true; //Convert.RProfesor.BorrarProfesorACurso(Profesor.Id, IdCurso);
 
                 if (resultado)
                 {
-                    MessageBox.Show("Se agrego el permiso del profesor al curso correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    if (filtro)
+                    MessageBox.Show("Se removio el permiso del profesor al curso correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(filtro)
                     {
                         ActualizarGrillaFiltrada();
                     }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAsignarDocentes));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -44,6 +44,8 @@
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.lblAyuda = new System.Windows.Forms.Label();
             this.dgvDocentes = new System.Windows.Forms.DataGridView();
+            this.btnQuitarCursos = new System.Windows.Forms.Button();
+            this.btnAgregarCursos = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -191,9 +193,9 @@
             this.lblAyuda.ForeColor = System.Drawing.Color.White;
             this.lblAyuda.Location = new System.Drawing.Point(79, 565);
             this.lblAyuda.Name = "lblAyuda";
-            this.lblAyuda.Size = new System.Drawing.Size(344, 16);
+            this.lblAyuda.Size = new System.Drawing.Size(280, 16);
             this.lblAyuda.TabIndex = 85;
-            this.lblAyuda.Text = "Haz doble click en un docente para agregarlo a un curso";
+            this.lblAyuda.Text = "Selecciona un docente para editar sus cursos";
             // 
             // dgvDocentes
             // 
@@ -202,23 +204,23 @@
             this.dgvDocentes.AllowUserToResizeColumns = false;
             this.dgvDocentes.AllowUserToResizeRows = false;
             this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDocentes.Location = new System.Drawing.Point(52, 268);
             this.dgvDocentes.MultiSelect = false;
             this.dgvDocentes.Name = "dgvDocentes";
@@ -228,13 +230,52 @@
             this.dgvDocentes.Size = new System.Drawing.Size(802, 294);
             this.dgvDocentes.TabIndex = 84;
             this.dgvDocentes.TabStop = false;
-            this.dgvDocentes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocentes_CellDoubleClick);
+            // 
+            // btnQuitarCursos
+            // 
+            this.btnQuitarCursos.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuitarCursos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitarCursos.FlatAppearance.BorderSize = 0;
+            this.btnQuitarCursos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitarCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarCursos.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarCursos.Image")));
+            this.btnQuitarCursos.Location = new System.Drawing.Point(490, 646);
+            this.btnQuitarCursos.Name = "btnQuitarCursos";
+            this.btnQuitarCursos.Size = new System.Drawing.Size(169, 66);
+            this.btnQuitarCursos.TabIndex = 109;
+            this.btnQuitarCursos.Tag = "6";
+            this.btnQuitarCursos.UseVisualStyleBackColor = false;
+            this.btnQuitarCursos.Click += new System.EventHandler(this.btnQuitarCursos_Click);
+            this.btnQuitarCursos.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnQuitarCursos.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
+            // 
+            // btnAgregarCursos
+            // 
+            this.btnAgregarCursos.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCursos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregarCursos.FlatAppearance.BorderSize = 0;
+            this.btnAgregarCursos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarCursos.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCursos.Image")));
+            this.btnAgregarCursos.Location = new System.Drawing.Point(649, 646);
+            this.btnAgregarCursos.Name = "btnAgregarCursos";
+            this.btnAgregarCursos.Size = new System.Drawing.Size(169, 66);
+            this.btnAgregarCursos.TabIndex = 108;
+            this.btnAgregarCursos.Tag = "6";
+            this.btnAgregarCursos.UseVisualStyleBackColor = false;
+            this.btnAgregarCursos.Click += new System.EventHandler(this.btnAgregarCursos_Click);
+            this.btnAgregarCursos.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnAgregarCursos.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // frmAsignarDocentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 647);
+            this.ClientSize = new System.Drawing.Size(913, 780);
+            this.Controls.Add(this.btnQuitarCursos);
+            this.Controls.Add(this.btnAgregarCursos);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.dgvDocentes);
@@ -245,6 +286,8 @@
             this.Controls.SetChildIndex(this.dgvDocentes, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
+            this.Controls.SetChildIndex(this.btnAgregarCursos, 0);
+            this.Controls.SetChildIndex(this.btnQuitarCursos, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -273,5 +316,7 @@
         private System.Windows.Forms.TextBox tbFiltroNombre;
         private System.Windows.Forms.Label lblAyuda;
         private System.Windows.Forms.DataGridView dgvDocentes;
+        private System.Windows.Forms.Button btnQuitarCursos;
+        private System.Windows.Forms.Button btnAgregarCursos;
     }
 }
