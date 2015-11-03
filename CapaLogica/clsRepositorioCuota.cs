@@ -175,15 +175,15 @@ namespace Clases
 
         public List<IEntidad> ListaMorosos()
         {
-            clsManejadorInscripcion managerInscripciones = new clsManejadorInscripcion();
+            clsManejadorAlumno managerAlumno = new clsManejadorAlumno();
 
-            List<clsInscripcion> listAlumnos = new List<clsInscripcion>();
+            List<clsAlumno> listAlumnos = new List<clsAlumno>();
             List<clsCuota> listCuotas = new List<clsCuota>();
             List<IEntidad> listMorosos = new List<IEntidad>();
 
             try
             {
-                listAlumnos.AddRange(managerInscripciones.ListarInscripciones());
+                listAlumnos.AddRange(managerAlumno.ListarAlumnos());
                 listCuotas.AddRange(manager.ListarCuota());
             }
             catch (Exception e)
@@ -193,19 +193,27 @@ namespace Clases
 
             bool gotcha = false;
 
-            foreach (clsInscripcion i in listAlumnos)
+            foreach (clsAlumno i in listAlumnos)
             {
                 foreach (clsCuota c in listCuotas)
                 {
-                    if (c.IdAlumno == i.IdAlumno && c.IdCurso == i.IdCurso)
+                    if (c.IdAlumno == i.Id)
                     {
                         gotcha = true;
                     }
                 }
-
+                
                 if (!gotcha)
                 {
-                    listMorosos.Add(i);
+                    foreach (clsAlumno mor in listMorosos)
+                    {
+                        if (mor.Id == i.Id)
+                        {
+                            gotcha = true;
+                        }
+                    }
+                    if(!gotcha)
+                        listMorosos.Add(i);
                 }
 
                 gotcha = false;
