@@ -362,7 +362,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta WHERE IdCurso =" + IdCurso);
+                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta, Cursos WHERE Dicta.IdCurso = Cursos.IdCurso and Estado = 1 and Cursos.IdCurso =" + IdCurso + ";");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }
@@ -381,7 +381,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta WHERE IdProfesor =" + IdProfesor);
+                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta, Cursos WHERE Dicta.IdCurso = Cursos.IdCurso and Estado = 1 and Dicta.IdProfesor =" + IdProfesor + ";");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }

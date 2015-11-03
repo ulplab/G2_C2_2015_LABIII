@@ -232,7 +232,7 @@ namespace CapaDatos
         {
             List<clsAlumnoFormateado> list = new List<clsAlumnoFormateado>();
             DataTable dt;
-            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado, Recaudado.pagado, esperado.total, " +
+            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado,Alumnos.Direccion,Alumnos.Telefono,Alumnos.Email, Recaudado.pagado, esperado.total, " +
                             "( (Recaudado.pagado * 100) /esperado.total ) as \"porcentaje\" " +
                             "from Alumnos, " +
                             "( select distinct AsisteFormateado.IdAlumno , Sum( AsisteFormateado.Precio ) as \"total\" " +
@@ -283,7 +283,7 @@ namespace CapaDatos
         {
             List<clsAlumnoFormateado> list = new List<clsAlumnoFormateado>();
             DataTable dt;
-            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado, Recaudado.pagado, esperado.total, " +
+            string query = "select distinct Alumnos.IdAlumno, Alumnos.Nombre, Alumnos.Apellido, Alumnos.Dni, Alumnos.Estado,Alumnos.Direccion,Alumnos.Telefono,Alumnos.Email, Recaudado.pagado, esperado.total, " +
                             "((Recaudado.pagado * 100)/esperado.total) as \"porcentaje\" " +
                             "from Alumnos, " +
                             "(select distinct AsisteFormateado.IdAlumno , Sum(AsisteFormateado.Precio) as \"total\" " +

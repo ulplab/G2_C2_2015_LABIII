@@ -33,6 +33,7 @@
             this.lblAlumnos = new System.Windows.Forms.Label();
             this.lblCursos = new System.Windows.Forms.Label();
             this.btnContinuar = new System.Windows.Forms.Button();
+            this.cachedcrReciboCobroMatricula1 = new CapaPresentacion.Reportes.CachedcrReciboCobroMatricula();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
             this.SuspendLayout();
@@ -141,5 +142,6 @@
         private System.Windows.Forms.Label lblCursos;
         private System.Windows.Forms.Label lblAlumnos;
         private System.Windows.Forms.Button btnContinuar;
+        private Reportes.CachedcrReciboCobroMatricula cachedcrReciboCobroMatricula1;
     }
 }

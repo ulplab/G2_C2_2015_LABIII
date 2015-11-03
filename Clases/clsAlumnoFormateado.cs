@@ -72,5 +72,28 @@ namespace Clases
             get { return porcentaje; }
             set { porcentaje = value; }
         }
+
+        string direccion;
+        public string Direccion
+        {
+            get { return direccion; }
+            set { direccion = value; }
+        }
+
+        string telefono;
+
+        public string Telefono
+        {
+            get { return telefono; }
+            set { telefono = value; }
+        }
+
+        string email;
+
+        public string Email
+        {
+            get { return email; }
+            set { email = value; }
+        }
     }
 }
