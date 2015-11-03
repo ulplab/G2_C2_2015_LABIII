@@ -59,6 +59,7 @@
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmListadoAlumnos";
             this.Text = "Listado de Alumnos por Curso";
+            this.Load += new System.EventHandler(this.frmListadoAlumnos_Load);
             this.ResumeLayout(false);
 
         }
