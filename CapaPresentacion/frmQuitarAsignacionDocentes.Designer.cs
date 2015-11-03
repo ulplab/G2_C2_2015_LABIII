@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class QuitarAsignacionDocentes
+    partial class frmQuitarAsignacionDocentes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(QuitarAsignacionDocentes));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmQuitarAsignacionDocentes));
             this.lblAyuda = new System.Windows.Forms.Label();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -59,6 +59,7 @@
             this.tbDireccion = new System.Windows.Forms.TextBox();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbTelefono = new System.Windows.Forms.TextBox();
+            this.btnQuitar = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -115,6 +116,9 @@
             this.btnBuscar.TabIndex = 78;
             this.btnBuscar.Tag = "6";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnBuscar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // panel3
             // 
@@ -420,22 +424,44 @@
             this.tbTelefono.Size = new System.Drawing.Size(161, 29);
             this.tbTelefono.TabIndex = 88;
             // 
-            // QuitarAsignacionDocentes
+            // btnQuitar
+            // 
+            this.btnQuitar.BackColor = System.Drawing.Color.Transparent;
+            this.btnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnQuitar.FlatAppearance.BorderSize = 0;
+            this.btnQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnQuitar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
+            this.btnQuitar.Location = new System.Drawing.Point(701, 689);
+            this.btnQuitar.Name = "btnQuitar";
+            this.btnQuitar.Size = new System.Drawing.Size(169, 66);
+            this.btnQuitar.TabIndex = 113;
+            this.btnQuitar.Tag = "6";
+            this.btnQuitar.UseVisualStyleBackColor = false;
+            this.btnQuitar.Click += new System.EventHandler(this.btnQuitar_Click);
+            this.btnQuitar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnQuitar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
+            // 
+            // frmQuitarAsignacionDocentes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 780);
+            this.Controls.Add(this.btnQuitar);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.dgvCursos);
             this.Controls.Add(this.gbDatos);
-            this.Name = "QuitarAsignacionDocentes";
+            this.Name = "frmQuitarAsignacionDocentes";
             this.Text = "QuitarAsignacionDocentes";
+            this.Load += new System.EventHandler(this.frmQuitarAsignacionDocentes_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.gbDatos, 0);
             this.Controls.SetChildIndex(this.dgvCursos, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
+            this.Controls.SetChildIndex(this.btnQuitar, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -481,5 +507,6 @@
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbTelefono;
+        private System.Windows.Forms.Button btnQuitar;
     }
 }

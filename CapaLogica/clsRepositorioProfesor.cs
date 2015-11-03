@@ -173,16 +173,22 @@ namespace CapaLogica
             return list;
         }
 
-        public void AsignarProfesorACurso(int idProfesor, int idCurso)
+        public bool AsignarProfesorACurso(int idProfesor, int idCurso)
         {
+            int i;
             try
             {
-                manager.AgregarDictaCurso(idProfesor, idCurso);
+                i = manager.AgregarDictaCurso(idProfesor, idCurso);
             }
             catch (Exception e)
             {
                 throw e;
             }
+
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
         public void ModificarProfesorCurso(int OidProfesor, int OidCurso, int idProfesor, int idCurso)
@@ -197,16 +203,22 @@ namespace CapaLogica
             }
         }
 
-        public void BorrarProfesorACurso(int idProfesor, int idCurso)
+        public bool BorrarProfesorACurso(int idProfesor, int idCurso)
         {
+            int i;
             try
             {
-                manager.DeleteDictaCurso(idProfesor, idCurso);
+                i = manager.DeleteDictaCurso(idProfesor, idCurso);
             }
             catch (Exception e)
             {
                 throw e;
             }
+
+            if (i > 0)
+                return true;
+            else
+                return false;
         }
 
 

@@ -101,6 +101,14 @@ namespace CapaPresentacion
                 {
                     btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
+                else if ((sender as Button).Name == "btnQuitarCursos")
+                {
+                    btnQuitarCursos.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Cursos-Chico.png");
+                }
+                else
+                {
+                    btnAgregarCursos.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Cursos-Chico.png");
+                }
 
             }
             catch (Exception)
@@ -117,6 +125,14 @@ namespace CapaPresentacion
                 {
                     btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
                 }
+                else if ((sender as Button).Name == "btnQuitarCursos")
+                {
+                    btnQuitarCursos.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Grande.png");
+                }
+                else
+                {
+                    btnAgregarCursos.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Agregar-Grande.png");
+                }
 
             }
             catch (Exception)
@@ -125,35 +141,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void dgvDocentes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            Profesor.Id = Convert.ToInt32(dgvDocentes.CurrentRow.Cells["IdProfesor"].Value);
-            Profesor.Nombre = Convert.ToString(dgvDocentes.CurrentRow.Cells["Nombre"].Value);
-            Profesor.Apellido = Convert.ToString(dgvDocentes.CurrentRow.Cells["Apellido"].Value);
-            Profesor.Dni = Convert.ToString(dgvDocentes.CurrentRow.Cells["Dni"].Value);
-            Profesor.Direccion = Convert.ToString(dgvDocentes.CurrentRow.Cells["Direccion"].Value);
-            Profesor.Telefono = Convert.ToString(dgvDocentes.CurrentRow.Cells["Telefono"].Value);
-            Profesor.Email = Convert.ToString(dgvDocentes.CurrentRow.Cells["Email"].Value);
-
-            int FilaSeleccionada = dgvDocentes.CurrentRow.Index;
-
-            frmAsignarDocentes2 AsignarDocentes = new frmAsignarDocentes2(Profesor);
-            AsignarDocentes.ShowDialog();
-
-            if (!filtro)
-            {
-                ActualizarGrilla();
-            }
-            else
-            {
-                ActualizarGrillaFiltrada();
-            }
-
-            if (dgvDocentes.Rows.Count >= (FilaSeleccionada + 1))
-            {
-                dgvDocentes.Rows[FilaSeleccionada].Cells[1].Selected = true;
-            }
-        }
 
         private void ActualizarGrillaFiltrada()
         {
@@ -196,6 +183,80 @@ namespace CapaPresentacion
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void btnAgregarCursos_Click(object sender, EventArgs e)
+        {
+            if (dgvDocentes.CurrentRow != null && dgvDocentes.SelectedRows.Count != 0)
+            {
+                Profesor.Id = Convert.ToInt32(dgvDocentes.CurrentRow.Cells["IdProfesor"].Value);
+                Profesor.Nombre = Convert.ToString(dgvDocentes.CurrentRow.Cells["Nombre"].Value);
+                Profesor.Apellido = Convert.ToString(dgvDocentes.CurrentRow.Cells["Apellido"].Value);
+                Profesor.Dni = Convert.ToString(dgvDocentes.CurrentRow.Cells["Dni"].Value);
+                Profesor.Direccion = Convert.ToString(dgvDocentes.CurrentRow.Cells["Direccion"].Value);
+                Profesor.Telefono = Convert.ToString(dgvDocentes.CurrentRow.Cells["Telefono"].Value);
+                Profesor.Email = Convert.ToString(dgvDocentes.CurrentRow.Cells["Email"].Value);
+
+                int FilaSeleccionada = dgvDocentes.CurrentRow.Index;
+
+                frmAsignarDocentes2 AsignarDocentes = new frmAsignarDocentes2(Profesor);
+                AsignarDocentes.ShowDialog();
+
+                if (!filtro)
+                {
+                    ActualizarGrilla();
+                }
+                else
+                {
+                    ActualizarGrillaFiltrada();
+                }
+
+                if (dgvDocentes.Rows.Count >= (FilaSeleccionada + 1))
+                {
+                    dgvDocentes.Rows[FilaSeleccionada].Cells[1].Selected = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Docente para modificar las asignaciones a los cursos");
+            }
+        }
+
+        private void btnQuitarCursos_Click(object sender, EventArgs e)
+        {
+            if (dgvDocentes.CurrentRow != null && dgvDocentes.SelectedRows.Count != 0)
+            {
+                Profesor.Id = Convert.ToInt32(dgvDocentes.CurrentRow.Cells["IdProfesor"].Value);
+                Profesor.Nombre = Convert.ToString(dgvDocentes.CurrentRow.Cells["Nombre"].Value);
+                Profesor.Apellido = Convert.ToString(dgvDocentes.CurrentRow.Cells["Apellido"].Value);
+                Profesor.Dni = Convert.ToString(dgvDocentes.CurrentRow.Cells["Dni"].Value);
+                Profesor.Direccion = Convert.ToString(dgvDocentes.CurrentRow.Cells["Direccion"].Value);
+                Profesor.Telefono = Convert.ToString(dgvDocentes.CurrentRow.Cells["Telefono"].Value);
+                Profesor.Email = Convert.ToString(dgvDocentes.CurrentRow.Cells["Email"].Value);
+
+                int FilaSeleccionada = dgvDocentes.CurrentRow.Index;
+
+                frmQuitarAsignacionDocentes QuitarAsignacionDocentes = new frmQuitarAsignacionDocentes(Profesor);
+                QuitarAsignacionDocentes.ShowDialog();
+
+                if (!filtro)
+                {
+                    ActualizarGrilla();
+                }
+                else
+                {
+                    ActualizarGrillaFiltrada();
+                }
+
+                if (dgvDocentes.Rows.Count >= (FilaSeleccionada + 1))
+                {
+                    dgvDocentes.Rows[FilaSeleccionada].Cells[1].Selected = true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe Seleccionar un Docente para modificar las asignaciones a los cursos");
+            }
         }
 
 

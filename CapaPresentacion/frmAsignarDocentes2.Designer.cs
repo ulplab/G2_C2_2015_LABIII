@@ -59,7 +59,6 @@
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.dgvCursos = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.lblAyuda = new System.Windows.Forms.Label();
             this.gbDatos.SuspendLayout();
             this.gbFiltros.SuspendLayout();
@@ -423,33 +422,15 @@
             this.btnRegistrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnRegistrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRegistrar.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrar.Image")));
-            this.btnRegistrar.Location = new System.Drawing.Point(681, 682);
+            this.btnRegistrar.Location = new System.Drawing.Point(706, 682);
             this.btnRegistrar.Name = "btnRegistrar";
             this.btnRegistrar.Size = new System.Drawing.Size(169, 66);
             this.btnRegistrar.TabIndex = 106;
             this.btnRegistrar.Tag = "6";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             this.btnRegistrar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             this.btnRegistrar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(522, 682);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(169, 66);
-            this.btnCancelar.TabIndex = 107;
-            this.btnCancelar.Tag = "6";
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            this.btnCancelar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
-            this.btnCancelar.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
             // lblAyuda
             // 
@@ -469,7 +450,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 780);
             this.Controls.Add(this.lblAyuda);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.dgvCursos);
@@ -482,7 +462,6 @@
             this.Controls.SetChildIndex(this.dgvCursos, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.Controls.SetChildIndex(this.btnRegistrar, 0);
-            this.Controls.SetChildIndex(this.btnCancelar, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.gbDatos.ResumeLayout(false);
             this.gbDatos.PerformLayout();
@@ -514,7 +493,6 @@
         private System.Windows.Forms.TextBox tbDireccion;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbTelefono;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.GroupBox gbFiltros;
         private System.Windows.Forms.Button btnBuscar;
