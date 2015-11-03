@@ -34,11 +34,11 @@
             this.btnAgregarCurso = new System.Windows.Forms.Button();
             this.btnInscribirAlumno = new System.Windows.Forms.Button();
             this.btnDarBajaInscripcion = new System.Windows.Forms.Button();
-            this.btnAlumnosPorCurso = new System.Windows.Forms.Button();
-            this.btnCursosPorAlumno = new System.Windows.Forms.Button();
+            this.btnRegistrosInstituto = new System.Windows.Forms.Button();
             this.btnEstadisticas = new System.Windows.Forms.Button();
             this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
+            this.btnPagarCuota = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -173,55 +173,30 @@
             this.btnDarBajaInscripcion.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnDarBajaInscripcion.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
-            // btnAlumnosPorCurso
+            // btnRegistrosInstituto
             // 
-            this.btnAlumnosPorCurso.BackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAlumnosPorCurso.FlatAppearance.BorderSize = 0;
-            this.btnAlumnosPorCurso.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAlumnosPorCurso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAlumnosPorCurso.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAlumnosPorCurso.ForeColor = System.Drawing.Color.White;
-            this.btnAlumnosPorCurso.Image = ((System.Drawing.Image)(resources.GetObject("btnAlumnosPorCurso.Image")));
-            this.btnAlumnosPorCurso.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAlumnosPorCurso.Location = new System.Drawing.Point(114, 541);
-            this.btnAlumnosPorCurso.Name = "btnAlumnosPorCurso";
-            this.btnAlumnosPorCurso.Size = new System.Drawing.Size(196, 187);
-            this.btnAlumnosPorCurso.TabIndex = 40;
-            this.btnAlumnosPorCurso.TabStop = false;
-            this.btnAlumnosPorCurso.Text = "Alumnos por curso";
-            this.btnAlumnosPorCurso.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAlumnosPorCurso.UseVisualStyleBackColor = false;
-            this.btnAlumnosPorCurso.Click += new System.EventHandler(this.btnAlumnosPorCurso_Click);
-            this.btnAlumnosPorCurso.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
-            this.btnAlumnosPorCurso.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
-            // 
-            // btnCursosPorAlumno
-            // 
-            this.btnCursosPorAlumno.BackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCursosPorAlumno.FlatAppearance.BorderSize = 0;
-            this.btnCursosPorAlumno.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnCursosPorAlumno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCursosPorAlumno.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCursosPorAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnCursosPorAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnCursosPorAlumno.Image")));
-            this.btnCursosPorAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCursosPorAlumno.Location = new System.Drawing.Point(325, 541);
-            this.btnCursosPorAlumno.Name = "btnCursosPorAlumno";
-            this.btnCursosPorAlumno.Size = new System.Drawing.Size(196, 187);
-            this.btnCursosPorAlumno.TabIndex = 41;
-            this.btnCursosPorAlumno.TabStop = false;
-            this.btnCursosPorAlumno.Text = "Cursos por alumno";
-            this.btnCursosPorAlumno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCursosPorAlumno.UseVisualStyleBackColor = false;
-            this.btnCursosPorAlumno.Click += new System.EventHandler(this.btnCursosPorAlumno_Click);
-            this.btnCursosPorAlumno.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
-            this.btnCursosPorAlumno.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            this.btnRegistrosInstituto.BackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRegistrosInstituto.FlatAppearance.BorderSize = 0;
+            this.btnRegistrosInstituto.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnRegistrosInstituto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegistrosInstituto.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegistrosInstituto.ForeColor = System.Drawing.Color.White;
+            this.btnRegistrosInstituto.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosInstituto.Image")));
+            this.btnRegistrosInstituto.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRegistrosInstituto.Location = new System.Drawing.Point(114, 541);
+            this.btnRegistrosInstituto.Name = "btnRegistrosInstituto";
+            this.btnRegistrosInstituto.Size = new System.Drawing.Size(196, 187);
+            this.btnRegistrosInstituto.TabIndex = 40;
+            this.btnRegistrosInstituto.TabStop = false;
+            this.btnRegistrosInstituto.Text = "Registros\r\n Instituto";
+            this.btnRegistrosInstituto.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRegistrosInstituto.UseVisualStyleBackColor = false;
+            this.btnRegistrosInstituto.Click += new System.EventHandler(this.btnAlumnosPorCurso_Click);
+            this.btnRegistrosInstituto.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnRegistrosInstituto.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
             // btnEstadisticas
             // 
@@ -236,7 +211,7 @@
             this.btnEstadisticas.ForeColor = System.Drawing.Color.Transparent;
             this.btnEstadisticas.Image = ((System.Drawing.Image)(resources.GetObject("btnEstadisticas.Image")));
             this.btnEstadisticas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEstadisticas.Location = new System.Drawing.Point(536, 541);
+            this.btnEstadisticas.Location = new System.Drawing.Point(325, 541);
             this.btnEstadisticas.Name = "btnEstadisticas";
             this.btnEstadisticas.Size = new System.Drawing.Size(196, 187);
             this.btnEstadisticas.TabIndex = 42;
@@ -298,16 +273,39 @@
             this.btnAgregarDocentes.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAgregarDocentes.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // btnPagarCuota
+            // 
+            this.btnPagarCuota.BackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagarCuota.FlatAppearance.BorderSize = 0;
+            this.btnPagarCuota.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnPagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagarCuota.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagarCuota.ForeColor = System.Drawing.Color.White;
+            this.btnPagarCuota.Image = global::CapaPresentacion.Properties.Resources.zona_azul;
+            this.btnPagarCuota.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnPagarCuota.Location = new System.Drawing.Point(721, 119);
+            this.btnPagarCuota.Name = "btnPagarCuota";
+            this.btnPagarCuota.Size = new System.Drawing.Size(196, 187);
+            this.btnPagarCuota.TabIndex = 45;
+            this.btnPagarCuota.TabStop = false;
+            this.btnPagarCuota.Text = "Pagar cuota";
+            this.btnPagarCuota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnPagarCuota.UseVisualStyleBackColor = false;
+            this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1016, 758);
+            this.Controls.Add(this.btnPagarCuota);
             this.Controls.Add(this.btnAgregarDocentes);
             this.Controls.Add(this.btnRegistrosCalificaciones);
             this.Controls.Add(this.btnEstadisticas);
-            this.Controls.Add(this.btnCursosPorAlumno);
-            this.Controls.Add(this.btnAlumnosPorCurso);
+            this.Controls.Add(this.btnRegistrosInstituto);
             this.Controls.Add(this.btnDarBajaInscripcion);
             this.Controls.Add(this.btnInscribirAlumno);
             this.Controls.Add(this.btnAgregarCurso);
@@ -323,11 +321,11 @@
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
             this.Controls.SetChildIndex(this.btnInscribirAlumno, 0);
             this.Controls.SetChildIndex(this.btnDarBajaInscripcion, 0);
-            this.Controls.SetChildIndex(this.btnAlumnosPorCurso, 0);
-            this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
+            this.Controls.SetChildIndex(this.btnRegistrosInstituto, 0);
             this.Controls.SetChildIndex(this.btnEstadisticas, 0);
             this.Controls.SetChildIndex(this.btnRegistrosCalificaciones, 0);
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
+            this.Controls.SetChildIndex(this.btnPagarCuota, 0);
             this.ResumeLayout(false);
 
         }
@@ -339,11 +337,11 @@
         private System.Windows.Forms.Button btnAgregarCurso;
         private System.Windows.Forms.Button btnInscribirAlumno;
         private System.Windows.Forms.Button btnDarBajaInscripcion;
-        private System.Windows.Forms.Button btnAlumnosPorCurso;
-        private System.Windows.Forms.Button btnCursosPorAlumno;
+        private System.Windows.Forms.Button btnRegistrosInstituto;
         private System.Windows.Forms.Button btnEstadisticas;
         private System.Windows.Forms.Button btnRegistrosCalificaciones;
         private System.Windows.Forms.Button btnAgregarDocentes;
+        private System.Windows.Forms.Button btnPagarCuota;
 
     }
 }

@@ -37,7 +37,6 @@ namespace Clases
             clsCuota compare = new clsCuota();
             compare.IdAlumno = cuota.IdAlumno;
             compare.IdCurso = cuota.IdAlumno;
-
             try
             {
                 if (manager.SelectCuota(compare).Count == 0)
@@ -236,13 +235,14 @@ namespace Clases
             List<IEntidad> list = new List<IEntidad>();
                 try
                 {
-                    if (Fecha_Inicio.Date.ToString() == "02/02/1950")
+                    string check = "02/02/1950";
+                    if (DateTime.Compare(Fecha_Inicio,Convert.ToDateTime(check)) == 0)
                     {
                         list.AddRange(manager.ListarCuotaFormateada());
                     }
                     else
                     {
-                        if (DateTime.Compare(Fecha_Inicio,Fecha_Fin) == -1)
+                        if (DateTime.Compare(Fecha_Inicio,Fecha_Fin) <= 0)
                         {
                             list.AddRange(manager.ListarCuotaFormateada(Fecha_Inicio, Fecha_Fin));
                         }
@@ -254,5 +254,7 @@ namespace Clases
                 }
             return list;
         }
+
+
     }
 }

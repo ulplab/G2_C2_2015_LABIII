@@ -311,34 +311,38 @@ namespace CapaDatos
         public DataTable ProfesorDicta(int IdProfesor, int IdCurso)
         {
             DataTable dt;
+            string query = string.Empty;
             bool profesor = false, curso = false;
 
-            string query = "select * from Dicta where";
+            if (IdProfesor != -1 && IdCurso != -1)
+            {
+                query = "select * from Dicta where";
 
-            if (IdProfesor != -1)
-            {
-                query += " IdProfesor= '" + IdProfesor + "'";
-                profesor = true;
-            }
-            if (IdCurso != -1)
-            {
-                if (profesor)
+                if (IdProfesor != -1)
                 {
-                    query += " and";
+                    query += " IdProfesor= '" + IdProfesor + "'";
+                    profesor = true;
                 }
+                if (IdCurso != -1)
+                {
+                    if (profesor)
+                    {
+                        query += " and";
+                    }
 
-                query += " IdCurso = '" + IdCurso + "'";
-                curso = true;
+                    query += " IdCurso = '" + IdCurso + "'";
+                    curso = true;
+                }
+            }
+            else
+            {
+                query = "select * from Dicta";
             }
 
             query += ";";
 
             try
             {
-                if (!(profesor | curso))
-                {
-                    query = "select * from Dicta;";
-                }
 
                 dt = dbmanager.Consultar(query);
             }
@@ -346,6 +350,87 @@ namespace CapaDatos
             {   
                 
                 throw e;
+            }
+
+            return dt;
+        }
+
+        public int CantidadProfesores(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+            int ret = 0;
+
+            try
+            {
+                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta WHERE IdCurso =" + IdCurso);
+                ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ret;
+        }
+
+        public int CantidadCursos(int IdProfesor)
+        {
+            DataTable dt = new DataTable();
+            int ret = 0;
+
+            try
+            {
+                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta WHERE IdProfesor =" + IdProfesor);
+                ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return ret;
+        }
+
+        public DataTable ListaProfesores(int IdCurso)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbmanager.Consultar("SELECT A1.IdProfesor,Dni,Nombre,Apellido,Direccion,Telefono,Email,Estado " +
+                                            "FROM Profesores as A1, (SELECT IdProfesor " +
+                                             "FROM Dicta " +
+                                             "WHERE IdCurso = " + IdCurso + " ) as A2 " +
+                                         "WHERE A1.IdProfesor = A2.IdProfesor");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+
+        }
+
+        public DataTable ListaCursos(int IdProfesor)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbmanager.Consultar("SELECT A1.IdCurso, Nombre, FechaInicio, FechaFin, Descripcion, Estado " +
+                                            "FROM Cursos as A1,(SELECT IdCurso " +
+                                             "FROM Dicta " +
+                                             "WHERE IdProfesor = " + IdProfesor + ") as A2 " +
+                                         "WHERE A1.IdCurso = A2.IdCurso");
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
 
             return dt;

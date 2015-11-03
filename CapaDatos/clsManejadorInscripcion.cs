@@ -282,5 +282,35 @@ namespace CapaDatos
 
             return dt;
         }
+
+        public DataTable CursosMorosos(int idAlumno)
+        {
+            DataTable dt = new DataTable();
+
+            string query =  "select * " +
+                            "from Cursos, " +
+                            "( " +
+                            "select * " +
+                            "from Asiste " +
+                            "where Asiste.IdCurso not in " +
+                            "( " +
+                            "select Cuota.IdCurso " +
+                            "from Cuota " +
+                            "where IdAlumno = '"+ idAlumno.ToString()+"' " +
+                            ") " +
+                            "and Asiste.IdAlumno = '" + idAlumno.ToString()+"' " +
+                            ") as \"CursosMorosos\" " +
+                            "where Cursos.IdCurso = CursosMorosos.IdCurso;";
+            try
+            {
+                dt = dbman.Consultar(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
     }
 }

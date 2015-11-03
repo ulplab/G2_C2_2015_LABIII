@@ -55,11 +55,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CursosPorDocentes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CursosPorDocentes.Designer.cs">
+      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignarProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignarProfesores.Designer.cs">
+      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCargarDocentes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCargarDocentes.Designer.cs">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocentesPorCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocentesPorCurso.Designer.cs">
+      <DependentUpon>frmDocentesPorCurso.cs</DependentUpon>
     </Compile>
     <Compile Include="frmFacturas.cs">
       <SubType>Form</SubType>
@@ -72,6 +90,12 @@
     </Compile>
     <Compile Include="frmModificarDocente.Designer.cs">
       <DependentUpon>frmModificarDocente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarCuota.Designer.cs">
+      <DependentUpon>frmRegistrarCuota.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\crCertificadoFinCurso.cs">
       <AutoGen>True</AutoGen>
@@ -234,14 +258,26 @@
     <Compile Include="Reportes\frmReporteMorosidad.Designer.cs">
       <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CursosPorDocentes.resx">
+      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsignarProfesores.resx">
+      <DependentUpon>frmAsignarProfesores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCargarDocentes.resx">
       <DependentUpon>frmCargarDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocentesPorCurso.resx">
+      <DependentUpon>frmDocentesPorCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFacturas.resx">
       <DependentUpon>frmFacturas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarDocente.resx">
       <DependentUpon>frmModificarDocente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarCuota.resx">
+      <DependentUpon>frmRegistrarCuota.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -419,6 +455,9 @@
     <Content Include="obj\x86\Debug\Presentacion.pdb" />
     <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="Resources\icono3.png" />
+    <None Include="Resources\zona-azul.gif" />
+    <None Include="Resources\pagar icono 2.jpg" />
+    <None Include="Resources\iconoPagar.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\Release\" />

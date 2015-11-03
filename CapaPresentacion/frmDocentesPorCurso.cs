@@ -12,9 +12,9 @@ using Interfaces;
 
 namespace CapaPresentacion
 {
-    public partial class frmAlumnosPorCurso : frmPrincipal
+    public partial class frmDocentesPorCurso : frmPrincipal
     {
-        public frmAlumnosPorCurso()
+        public frmDocentesPorCurso()
         {
             InitializeComponent();
         }
@@ -22,43 +22,71 @@ namespace CapaPresentacion
         clsCurso Curso = new clsCurso();
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
-        clsRepositorioInscripcion MA = new clsRepositorioInscripcion();
+        clsRepositorioProfesor RProfesor = new clsRepositorioProfesor();
         bool filtro = false;
 
-        private void frmListadosRegistros_Load(object sender, EventArgs e)
+        private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
+        {
+            frmAlumnosPorCurso AlumnosPorCurso = new frmAlumnosPorCurso();
+            this.Visible = false;
+            AlumnosPorCurso.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCursosPorAlumno_Click(object sender, EventArgs e)
+        {
+            frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
+            this.Visible = false;
+            CursosPorAlumno.ShowDialog();
+            this.Close();
+        }
+
+        private void btnProfesoresPorCurso_Click(object sender, EventArgs e)
+        {
+            frmDocentesPorCurso DocentesPorCurso = new frmDocentesPorCurso();
+            this.Visible = false;
+            DocentesPorCurso.ShowDialog();
+            this.Close();
+        }
+
+        private void btnCursosPorProfesor_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frmDocentesPorCurso_Load(object sender, EventArgs e)
+        {
             dgvCursos.Columns.Add("IdCurso", "IdCurso");
             dgvCursos.Columns.Add("Nombre", "Nombre");
             dgvCursos.Columns.Add("Descripcion", "Descripcion");
             dgvCursos.Columns.Add("FechaInicio", "Fecha Incio");
             dgvCursos.Columns.Add("FechaFin", "Fecha Fin");
-            dgvCursos.Columns.Add("CantidadEstudiantes", "CantidadEstudiantes");
+            dgvCursos.Columns.Add("CantidadDocentes", "Cantidad Docentes");
 
             dgvCursos.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvCursos.Columns["Descripcion"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvCursos.Columns["FechaInicio"].SortMode = DataGridViewColumnSortMode.NotSortable;
             dgvCursos.Columns["FechaFin"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
-            dgvAlumnos.Columns.Add("IdAlumno", "IdAlumno");
-            dgvAlumnos.Columns.Add("Nombre", "Nombre");
-            dgvAlumnos.Columns.Add("Apellido", "Apellido");
-            dgvAlumnos.Columns.Add("Dni", "Dni");
-            dgvAlumnos.Columns.Add("Direccion", "Direccion");
-            dgvAlumnos.Columns.Add("Telefono", "Telefono");
-            dgvAlumnos.Columns.Add("Email", "Email");
+            dgvProfesores.Columns.Add("IdProfesor", "IdProfesor");
+            dgvProfesores.Columns.Add("Nombre", "Nombre");
+            dgvProfesores.Columns.Add("Apellido", "Apellido");
+            dgvProfesores.Columns.Add("Dni", "Dni");
+            dgvProfesores.Columns.Add("Direccion", "Direccion");
+            dgvProfesores.Columns.Add("Telefono", "Telefono");
+            dgvProfesores.Columns.Add("Email", "Email");
 
-            dgvAlumnos.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Apellido"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Dni"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Direccion"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Telefono"].SortMode = DataGridViewColumnSortMode.NotSortable;
-            dgvAlumnos.Columns["Email"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Nombre"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Apellido"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Dni"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Direccion"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Telefono"].SortMode = DataGridViewColumnSortMode.NotSortable;
+            dgvProfesores.Columns["Email"].SortMode = DataGridViewColumnSortMode.NotSortable;
 
             dgvCursos.Columns["IdCurso"].Visible = false;
-            dgvAlumnos.Columns["IdAlumno"].Visible = false;
+            dgvProfesores.Columns["IdProfesor"].Visible = false;
 
-            dgvAlumnos.Columns["IdAlumno"].Visible = false;
+            dgvProfesores.Columns["IdProfesor"].Visible = false;
 
             if (!filtro)
             {
@@ -69,10 +97,8 @@ namespace CapaPresentacion
                 ActualizarGrillaFiltrada();
             }
 
-            ActualizarGrillaAlumnos();
-            
+            ActualizarGrillaProfesores();
         }
-
 
         private void ActualizarGrilla()
         {
@@ -93,7 +119,7 @@ namespace CapaPresentacion
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                         dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
-                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["CantidadEstudiantes"].Value = Convert.ToString(MA.Cantidad(ECurso.Id));
+                        dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["CantidadDocentes"].Value = Convert.ToString(RProfesor.CantidadProfesores(ECurso.Id));
                     }
                 }
             }
@@ -102,8 +128,6 @@ namespace CapaPresentacion
                 MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-
 
         private void ActualizarGrillaFiltrada()
         {
@@ -139,7 +163,7 @@ namespace CapaPresentacion
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["Descripcion"].Value = ECurso.Descripcion;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaInicio"].Value = ECurso.FechaInicio;
                     dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["FechaFin"].Value = ECurso.FechaFin;
-                    dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["CantidadEstudiantes"].Value = Convert.ToString(MA.Cantidad(ECurso.Id));
+                    dgvCursos.Rows[dgvCursos.Rows.Count - 1].Cells["CantidadDocentes"].Value = Convert.ToString(RProfesor.CantidadProfesores(ECurso.Id));
                 }
             }
             catch (Exception ex)
@@ -148,27 +172,26 @@ namespace CapaPresentacion
             }
         }
 
-
-        private void ActualizarGrillaAlumnos()
+        private void ActualizarGrillaProfesores()
         {
             if (dgvCursos.Rows.Count != 0 && dgvCursos.CurrentRow != null)
             {
-                dgvAlumnos.Rows.Clear();
+                dgvProfesores.Rows.Clear();
 
                 try
                 {
-                    List<IEntidad> LA = MA.ListaAlumnos(Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value));
+                    List<IEntidad> LA = RProfesor.ListaProfesores(Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value));
 
-                    foreach (clsAlumno EAlum in LA)
+                    foreach (clsProfesor EPro in LA)
                     {
-                        dgvAlumnos.Rows.Add();
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["IdAlumno"].Value = EAlum.Id;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Nombre"].Value = EAlum.Nombre;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Apellido"].Value = EAlum.Apellido;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Dni"].Value = EAlum.Dni;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Direccion"].Value = EAlum.Direccion;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Telefono"].Value = EAlum.Telefono;
-                        dgvAlumnos.Rows[dgvAlumnos.Rows.Count - 1].Cells["Email"].Value = EAlum.Email;
+                        dgvProfesores.Rows.Add();
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Nombre"].Value = EPro.Nombre;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Apellido"].Value = EPro.Apellido;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
+                        dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
                     }
                 }
                 catch (Exception ex)
@@ -180,17 +203,17 @@ namespace CapaPresentacion
 
         private void dgvCursos_SelectionChanged(object sender, EventArgs e)
         {
-            ActualizarGrillaAlumnos();
+            ActualizarGrillaProfesores();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ActualizarGrillaFiltrada();
-            ActualizarGrillaAlumnos();
+            ActualizarGrillaProfesores();
             filtro = true;
         }
 
-        private void btnBuscar_MouseEnter(object sender, EventArgs e)
+        private void btnAlumnosPorCurso_MouseEnter(object sender, EventArgs e)
         {
             if ((sender as Button).Name == "btnBuscar")
             {
@@ -214,8 +237,9 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnBuscar_MouseLeave(object sender, EventArgs e)
+        private void btnAlumnosPorCurso_MouseLeave(object sender, EventArgs e)
         {
+
             if ((sender as Button).Name == "btnBuscar")
             {
                 btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
@@ -237,42 +261,6 @@ namespace CapaPresentacion
                 btnCursosPorProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
             }
         }
-
-        private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
-        {
-            frmAlumnosPorCurso AlumnosPorCurso = new frmAlumnosPorCurso();
-            this.Visible = false;
-            AlumnosPorCurso.ShowDialog();
-            this.Close();
-        }
-
-        private void btnCursosPorAlumno_Click(object sender, EventArgs e)
-        {
-            frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
-            this.Visible = false;
-            CursosPorAlumno.ShowDialog();
-            this.Close();
-        }
-
-        private void btnProfesoresPorCurso_Click(object sender, EventArgs e)
-        {
-            frmDocentesPorCurso DocentesPorCurso = new frmDocentesPorCurso();
-            this.Visible = false;
-            DocentesPorCurso.ShowDialog();
-            this.Close();
-        }
-
-        private void btnCursosPorProfesor_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-
-       
-
-
-
 
 
 

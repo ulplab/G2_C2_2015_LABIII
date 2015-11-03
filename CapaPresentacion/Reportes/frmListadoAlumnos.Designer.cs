@@ -47,7 +47,7 @@
             this.crystalReportViewer1.ShowCloseButton = false;
             this.crystalReportViewer1.ShowCopyButton = false;
             this.crystalReportViewer1.ShowExportButton = false;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(877, 750);
+            this.crystalReportViewer1.Size = new System.Drawing.Size(877, 741);
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(877, 750);
+            this.ClientSize = new System.Drawing.Size(877, 741);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "frmListadoAlumnos";
             this.Text = "Listado de Alumnos por Curso";
