@@ -250,7 +250,17 @@ namespace CapaPresentacion
         private void btnAsignarProfesor_Click(object sender, EventArgs e)
         {
             frmAsignarProfesores AsignarProfesores = new frmAsignarProfesores();
+            this.Visible = false;
             AsignarProfesores.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmAlumnosMorosos AlumnosMorosos = new frmAlumnosMorosos();
+            this.Visible = false;
+            AlumnosMorosos.ShowDialog();
+            this.Visible = true;
         }
 
 

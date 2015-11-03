@@ -40,6 +40,7 @@
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
             this.btnPagarCuota = new System.Windows.Forms.Button();
             this.btnAsignarProfesor = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -322,11 +323,35 @@
             this.btnAsignarProfesor.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAsignarProfesor.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = global::CapaPresentacion.Properties.Resources.stock_vector_financial_agreement_icon_191059541;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(906, 303);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(196, 187);
+            this.button1.TabIndex = 47;
+            this.button1.TabStop = false;
+            this.button1.Text = "Morosos";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1135, 758);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAsignarProfesor);
             this.Controls.Add(this.btnPagarCuota);
             this.Controls.Add(this.btnAgregarDocentes);
@@ -354,6 +379,7 @@
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
             this.Controls.SetChildIndex(this.btnPagarCuota, 0);
             this.Controls.SetChildIndex(this.btnAsignarProfesor, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
 
         }
@@ -371,6 +397,7 @@
         private System.Windows.Forms.Button btnAgregarDocentes;
         private System.Windows.Forms.Button btnPagarCuota;
         private System.Windows.Forms.Button btnAsignarProfesor;
+        private System.Windows.Forms.Button button1;
 
     }
 }

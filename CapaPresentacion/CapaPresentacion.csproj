@@ -460,6 +460,7 @@
     <Content Include="obj\x86\Debug\Presentacion.pdb" />
     <Content Include="obj\x86\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
     <Content Include="Resources\icono3.png" />
+    <None Include="Resources\stock-vector-financial-agreement-icon-191059541.jpg" />
     <None Include="Resources\zona-azul.gif" />
     <None Include="Resources\pagar icono 2.jpg" />
     <None Include="Resources\iconoPagar.png" />
