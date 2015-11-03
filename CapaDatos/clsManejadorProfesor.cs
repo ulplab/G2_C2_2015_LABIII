@@ -436,5 +436,20 @@ namespace CapaDatos
             return dt;
         }
 
+        public DataTable CursosQueNoDicta(int idProfesor)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbmanager.Consultar("select * from Dicta, Cursos where Dicta.IdCurso = Cursos.IdCurso and IdProfesor <> " + idProfesor + ";");
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+
+            return dt;
+        }
     }
 }

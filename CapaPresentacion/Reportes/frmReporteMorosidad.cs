@@ -33,10 +33,6 @@ namespace CapaPresentacion.Reportes
 
             crystalReportViewer1.ReportSource = morosos;
         }
-        private void frmReporteMorosidad_Load(object sender, EventArgs e)
-        {
-
-        }
 
 
     }

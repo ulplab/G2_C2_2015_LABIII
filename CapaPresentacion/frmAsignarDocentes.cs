@@ -67,15 +67,18 @@ namespace CapaPresentacion
 
                 foreach (clsProfesor EPro in LE)
                 {
-                    dgvDocentes.Rows.Add();
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Nombre"].Value = EPro.Nombre;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Apellido"].Value = EPro.Apellido;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
-                    dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["CantidadCursos"].Value = Convert.ToString(RProfesor.CantidadCursos(EPro.Id));
+                    if (EPro.Estado == 1)
+                    {
+                        dgvDocentes.Rows.Add();
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Nombre"].Value = EPro.Nombre;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Apellido"].Value = EPro.Apellido;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Dni"].Value = EPro.Dni;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Direccion"].Value = EPro.Direccion;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Telefono"].Value = EPro.Telefono;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["Email"].Value = EPro.Email;
+                        dgvDocentes.Rows[dgvDocentes.Rows.Count - 1].Cells["CantidadCursos"].Value = Convert.ToString(RProfesor.CantidadCursos(EPro.Id));
+                    }
                 }
             }
             catch (Exception ex)
