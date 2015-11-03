@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Clases;
 using Interfaces;
 using CapaLogica;
+using CapaPresentacion.Reportes;
 
 namespace CapaPresentacion
 {
@@ -190,6 +191,12 @@ namespace CapaPresentacion
             Cuota.Fecha = DateTime.Today;
             clsRepositorioCuota consultador = new clsRepositorioCuota();
             consultador.Agregar(Cuota);
+            DialogResult Recibo = MessageBox.Show("¿Desea imprimir el recibo de la operacion?", "¡Exito!",MessageBoxButtons.YesNo);
+            if (Recibo == DialogResult.Yes)
+            {
+                crReciboCobroMatricula Comprobante = new crReciboCobroMatricula();
+                //Comprobante.SetParameterValue["NombreAlumno",]
+            }
             DialogResult continuar = MessageBox.Show("Cuota Registrada correctamente, ¿desea registrar otra?", "¡Exito!", MessageBoxButtons.YesNo);
             if (continuar == System.Windows.Forms.DialogResult.Yes)
             {
