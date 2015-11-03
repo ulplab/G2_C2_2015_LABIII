@@ -62,6 +62,7 @@
             this.dtpVariable6 = new System.Windows.Forms.DateTimePicker();
             this.cbVariable7 = new System.Windows.Forms.ComboBox();
             this.chbCampos = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tcInformacion.SuspendLayout();
             this.tpGrilla.SuspendLayout();
@@ -419,11 +420,22 @@
             this.chbCampos.UseVisualStyleBackColor = false;
             this.chbCampos.CheckedChanged += new System.EventHandler(this.chbCampos_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(272, 135);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 52;
+            this.button1.Text = "buscar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1167, 718);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.chbCampos);
             this.Controls.Add(this.cbVariable7);
             this.Controls.Add(this.dtpVariable6);
@@ -482,6 +494,7 @@
             this.Controls.SetChildIndex(this.dtpVariable6, 0);
             this.Controls.SetChildIndex(this.cbVariable7, 0);
             this.Controls.SetChildIndex(this.chbCampos, 0);
+            this.Controls.SetChildIndex(this.button1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tcInformacion.ResumeLayout(false);
             this.tpGrilla.ResumeLayout(false);
@@ -525,6 +538,7 @@
         private System.Windows.Forms.ComboBox cbVariable7;
         private System.Windows.Forms.CheckBox chbCampos;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button button1;
 
     }
 }

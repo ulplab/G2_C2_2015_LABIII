@@ -190,5 +190,37 @@ namespace CapaLogica
 
             return list;
         }
+
+        public List<IEntidad> Cursos_Formateados(DateTime Fecha_Inicio, DateTime Fecha_Fin)
+        {
+            List<IEntidad> list = new List<IEntidad>();
+            try
+            {
+                string check = "02/02/1950";
+                if (DateTime.Compare(Fecha_Inicio, Convert.ToDateTime(check)) == 0)
+                {
+                    list.AddRange(manager.ListarCursosFormateados());
+                }
+                else
+                {
+                    if (DateTime.Compare(Fecha_Inicio, Fecha_Fin) == -1)
+                    {
+                        list.AddRange(manager.ListarCursosFormateados(Fecha_Inicio.Date, Fecha_Fin.Date));
+                    }
+                    else
+                    {
+                        if (DateTime.Compare(Fecha_Inicio, Fecha_Fin) == 0)
+                        {
+                            list.AddRange(manager.ListarCursosFormateados(Fecha_Inicio.Date, Fecha_Fin.Date));
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return list;
+        }
     }
 }
