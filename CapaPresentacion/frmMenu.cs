@@ -77,6 +77,10 @@ namespace CapaPresentacion
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-140x140.png");
                 }
+                else if ((sender as Button).Name == "btnAsignarProfesor")
+                {
+                    btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-140x140.png");
+                }
                 else
                 {
                     btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
@@ -124,6 +128,10 @@ namespace CapaPresentacion
                 else if ((sender as Button).Name == "btnRegistrosCalificaciones")
                 {
                     btnRegistrosCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Calificaciones-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnAsignarProfesor")
+                {
+                    btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-120x120.png");
                 }
                 else
                 {
@@ -217,6 +225,12 @@ namespace CapaPresentacion
         {
             frmCargarDocentes CargarDocentes = new frmCargarDocentes();
             CargarDocentes.ShowDialog();
+        }
+
+        private void btnAsignarProfesor_Click(object sender, EventArgs e)
+        {
+            frmAsignarProfesores AsignarProfesores = new frmAsignarProfesores();
+            AsignarProfesores.ShowDialog();
         }
 
 
