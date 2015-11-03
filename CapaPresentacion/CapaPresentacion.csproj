@@ -431,6 +431,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CapaDatos\CapaDatos.csproj">
+      <Project>{012EEE77-A764-4343-8162-980923174CD0}</Project>
+      <Name>CapaDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Clases\Clases.csproj">
       <Project>{82C9015F-4668-442E-ACD6-CD69FF8254D5}</Project>
       <Name>Clases</Name>

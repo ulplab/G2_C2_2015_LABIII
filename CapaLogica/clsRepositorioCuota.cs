@@ -42,7 +42,7 @@ namespace Clases
                 if (manager.SelectCuota(compare).Count == 0)
                     manager.InsertarCuota(cuota);
                 else
-                    throw new ArgumentException("Esta matricula ya fue pagada");
+                    throw new ArgumentException("Esta deuda ya existe");
             }
             catch (Exception e)
             {
@@ -70,7 +70,7 @@ namespace Clases
                 filas = manager.UpdateCuota(cuota);
                 if (filas == 0)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -99,7 +99,7 @@ namespace Clases
                 filas = manager.DeleteCuota(cuota);
                 if (filas == 0)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -119,7 +119,7 @@ namespace Clases
                 ncuota = manager.SelectCuota(cuota)[0];
                 if (ncuota == null)
                 {
-                    throw new ArgumentException("La matricula ingresada no fue pagada aun");
+                    throw new ArgumentException("La deuda ingresada no existe o ya fue pagada");
                 }
             }
             catch (Exception e)
@@ -175,15 +175,15 @@ namespace Clases
 
         public List<IEntidad> ListaMorosos()
         {
-            clsManejadorInscripcion managerInscripciones = new clsManejadorInscripcion();
+            clsManejadorAlumno managerAlumno = new clsManejadorAlumno();
 
-            List<clsInscripcion> listAlumnos = new List<clsInscripcion>();
+            List<clsAlumno> listAlumnos = new List<clsAlumno>();
             List<clsCuota> listCuotas = new List<clsCuota>();
             List<IEntidad> listMorosos = new List<IEntidad>();
 
             try
             {
-                listAlumnos.AddRange(managerInscripciones.ListarInscripciones());
+                listAlumnos.AddRange(managerAlumno.ListarAlumnos());
                 listCuotas.AddRange(manager.ListarCuota());
             }
             catch (Exception e)
@@ -193,19 +193,27 @@ namespace Clases
 
             bool gotcha = false;
 
-            foreach (clsInscripcion i in listAlumnos)
+            foreach (clsAlumno i in listAlumnos)
             {
                 foreach (clsCuota c in listCuotas)
                 {
-                    if (c.IdAlumno == i.IdAlumno && c.IdCurso == i.IdCurso)
+                    if (c.IdAlumno == i.Id)
                     {
                         gotcha = true;
                     }
                 }
-
+                
                 if (!gotcha)
                 {
-                    listMorosos.Add(i);
+                    foreach (clsAlumno mor in listMorosos)
+                    {
+                        if (mor.Id == i.Id)
+                        {
+                            gotcha = true;
+                        }
+                    }
+                    if(!gotcha)
+                        listMorosos.Add(i);
                 }
 
                 gotcha = false;
@@ -218,8 +226,15 @@ namespace Clases
         {
             List<IEntidad> result = new List<IEntidad>();
 
-            result.AddRange(manager.ListarCuotaFormateada());
-            
+            try
+            {
+                result.AddRange(manager.ListarCuotaFormateada());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
             return (result);
         }
 

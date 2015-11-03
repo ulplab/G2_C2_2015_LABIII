@@ -23,7 +23,15 @@ namespace CapaPresentacion.Reportes
         private void frmEmisionRecibo_Load(object sender, EventArgs e)
         {
             crReciboCobroMatricula recibo = new crReciboCobroMatricula();
-            //recibo.SetParameterValue();
+            recibo.SetParameterValue("nombreAlumno", cf.IdAlumno);
+            recibo.SetParameterValue("nroPago", cf.Id);
+
+            DataSetReportes dsr = new DataSetReportes();
+            dsr.Tables["ReciboMatricula"].Rows.Add(cf.IdCurso, cf.Precio, cf.Fecha);
+
+            recibo.SetDataSource(dsr.Tables["ReciboMatricula"]);
+
+            crystalReportViewer1.ReportSource = recibo;
         }
     }
 }
