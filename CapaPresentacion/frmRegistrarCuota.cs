@@ -170,9 +170,9 @@ namespace CapaPresentacion
         }
         private void frmRegistrarCuota_Load(object sender, EventArgs e)
         {
-            this.ActualizarGrillaAlumnos();
             this.Cuota = new clsCuota();
             RepoF = new clsRepoFactory();
+            this.ActualizarGrillaAlumnos();
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
