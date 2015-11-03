@@ -23,9 +23,6 @@ namespace CapaLogica
 
         public void Agregar(IEntidad entidad)
         {
-            clsRepositorioCuota repoC = new clsRepositorioCuota();
-            clsCuota cuota = new clsCuota();
-
             clsInscripcion inscripcion = new clsInscripcion();
 
             try
@@ -37,10 +34,6 @@ namespace CapaLogica
                 throw e;
             }
 
-            cuota.IdAlumno = inscripcion.IdAlumno;
-            cuota.IdCurso = inscripcion.IdCurso;
-            cuota.Fecha = DateTime.Now;
-
             clsInscripcion compare = new clsInscripcion();
             compare.IdAlumno = inscripcion.IdAlumno;
             compare.IdCurso = inscripcion.IdCurso;
@@ -50,7 +43,6 @@ namespace CapaLogica
                 if (manager.SelectInscripcion(compare).Count == 0)
                 {
                     manager.InsertInscripcion(inscripcion);
-                    repoC.Agregar(cuota);
                 }
                 else
                     throw new ArgumentException("El alumno ya esta inscripto en este curso");
