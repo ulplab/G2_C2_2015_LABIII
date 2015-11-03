@@ -47,7 +47,7 @@ namespace Clases
             {
                 throw e;
             }
-            return i;
+            
         }
 
         public void Actualizar(IEntidad entidad)
