@@ -51,7 +51,10 @@ namespace CapaPresentacion
 
         private void btnCursosPorProfesor_Click(object sender, EventArgs e)
         {
-
+            frmCursosPorDocente CursosPorDocente = new frmCursosPorDocente();
+            this.Visible = false;
+            CursosPorDocente.ShowDialog();
+            this.Close();
         }
 
         private void frmDocentesPorCurso_Load(object sender, EventArgs e)

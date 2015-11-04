@@ -173,7 +173,8 @@ namespace CapaDatos
 
             try
             {
-                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
+                //dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c WHERE a.Estado = 1 AND c.IdCurso =" + IdCurso + "and a.IdCurso = c.IdCurso and c.Estado = 1;");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }
@@ -192,7 +193,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdAlumno =" + IdAlumno);
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c WHERE a.Estado = 1 AND IdAlumno = " + IdAlumno+ " and c.Estado = 1 and a.IdCurso = c.IdCurso");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }

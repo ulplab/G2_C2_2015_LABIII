@@ -38,6 +38,32 @@ namespace CapaPresentacion
             {
                 ousEncabezado.Titulo += "    Alumno: " + ((clsAlumno)usuario).Apellido;
             }
+
+            if(seguridad == NivelSeguridad.ALUMNO)
+            {
+                btnAgregarAdministrador.Enabled = false;
+                btnAgregarDocentes.Enabled = false;
+                btnAgregarCurso.Enabled = false;
+                btnAgregarAlumno.Enabled = false;
+                btnInscribirAlumno.Enabled = false;
+                btnDarBajaInscripcion.Enabled = false;
+                btnAsignarProfesor.Enabled = false;
+                btnEstadisticas.Enabled = false;
+                btnRegistrosCalificaciones.Enabled = false;
+                btnPagarCuota.Enabled = false;
+                btnMorosos.Enabled = false;
+            }
+            else if(seguridad == NivelSeguridad.PROFESOR)
+            {
+                btnAgregarAdministrador.Enabled = false;
+                btnAgregarDocentes.Enabled = false;
+                btnAgregarCurso.Enabled = false;
+                btnAgregarAlumno.Enabled = false;
+                btnAsignarProfesor.Enabled = false;
+                btnEstadisticas.Enabled = false;
+                btnPagarCuota.Enabled = false;
+                btnMorosos.Enabled = false;
+            }
         }
 
 
@@ -224,6 +250,7 @@ namespace CapaPresentacion
             {
                 Application.Restart();
             }
+            
         }
 
         private void ousEncabezado_Load(object sender, EventArgs e)
@@ -260,6 +287,22 @@ namespace CapaPresentacion
             frmAlumnosMorosos AlumnosMorosos = new frmAlumnosMorosos();
             this.Visible = false;
             AlumnosMorosos.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmNotas Notas = new frmNotas();
+            this.Visible = false;
+            Notas.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            frmNotas Notas = new frmNotas();
+            this.Visible = false;
+            Notas.ShowDialog();
             this.Visible = true;
         }
 

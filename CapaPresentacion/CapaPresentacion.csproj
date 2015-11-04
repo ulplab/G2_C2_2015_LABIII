@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CursosPorDocentes.cs">
+    <Compile Include="frmCursosPorDocente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CursosPorDocentes.Designer.cs">
-      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    <Compile Include="frmCursosPorDocente.Designer.cs">
+      <DependentUpon>frmCursosPorDocente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAlumnosMorosos.cs">
       <SubType>Form</SubType>
@@ -282,8 +282,8 @@
     <Compile Include="Reportes\frmReporteMorosidad.Designer.cs">
       <DependentUpon>frmReporteMorosidad.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CursosPorDocentes.resx">
-      <DependentUpon>CursosPorDocentes.cs</DependentUpon>
+    <EmbeddedResource Include="frmCursosPorDocente.resx">
+      <DependentUpon>frmCursosPorDocente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAlumnosMorosos.resx">
       <DependentUpon>frmAlumnosMorosos.cs</DependentUpon>
