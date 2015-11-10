@@ -13,7 +13,7 @@ namespace CapaDatos
 
         SqlConnection cnn;
 
-        SqlCommand cmd;
+        SqlCommand cmd = new SqlCommand();
 
         SqlTransaction transaccion;
 
@@ -60,7 +60,7 @@ namespace CapaDatos
             strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
                      ";User ID=" + Usuario + ";" +
                      "Password=" + Clave;
-            
+            strcnn = "Data Source=PABLO-PC\\SQLEXPRESS;Initial Catalog=BDExamen1LaboIII;Integrated Security=True";
             return strcnn;
 
         }
@@ -77,24 +77,20 @@ namespace CapaDatos
             }
 
             return cnn;
-
         }
 
         public int Ejecutar(string query, Tipo accion)
         {
             int valor;
 
-            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.CommandTimeout = 10;
+            
 
             try
             {
                 cmd.Connection = getConnection();
-                transaccion = cnn.BeginTransaction();
-                cmd.Transaction = transaccion;
-
                 if ((int)accion == 1 || (int)accion == 2)
                 {
                     valor = cmd.ExecuteNonQuery();
@@ -105,11 +101,9 @@ namespace CapaDatos
                     valor = Convert.ToInt32(cmd.ExecuteScalar());
                  }
                    
-                    transaccion.Commit();
             }
             catch (Exception ex)
             {
-                transaccion.Rollback();
                 throw ex;
             }
             finally
@@ -125,10 +119,10 @@ namespace CapaDatos
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.CommandTimeout = 10;
+            
 
             try
             {
@@ -154,32 +148,29 @@ namespace CapaDatos
         {
             int valor;
 
-            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = procedimiento;
             cmd.Parameters.AddRange(param);
             cmd.CommandTimeout = 10;
 
+            var returnParameter = cmd.Parameters.Add("@ReturnVal", SqlDbType.Int);
+            returnParameter.Direction = ParameterDirection.ReturnValue;
+            
             try
             {
                 cmd.Connection = getConnection();
-                cmd.Connection = getConnection();
-                transaccion = cnn.BeginTransaction();
-
                 if ((int)accion == 1 || (int)accion == 2)
                 {
                     valor = cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    cmd.CommandText += "SELECT SCOPE_IDENTITY();";
-                    valor = Convert.ToInt32(cmd.ExecuteScalar());
+                    cmd.ExecuteNonQuery();
+                    valor = Convert.ToInt32(returnParameter.Value);
                 }
-                transaccion.Commit();
             }
             catch (Exception ex)
             {
-                transaccion.Rollback();
                 throw ex;
             }
             finally
@@ -188,18 +179,17 @@ namespace CapaDatos
             }
 
             return valor;
-
         }
 
         public DataTable Consultar(string procedimiento, SqlParameter[] param)
         {
             DataTable dt = new DataTable();
 
-            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = procedimiento;
             cmd.Parameters.AddRange(param);
             cmd.CommandTimeout = 10;
+            
 
             try
             {

@@ -423,6 +423,7 @@
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="bin\Debug\Presentacion.vshost.exe.manifest" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="obj\x86\Debug\CapaPresentacion.csproj.GenerateResource.Cache" />
     <None Include="obj\x86\Debug\CapaPresentacion.csprojResolveAssemblyReference.cache" />
     <None Include="obj\x86\Debug\DesignTimeResolveAssemblyReferences.cache" />
