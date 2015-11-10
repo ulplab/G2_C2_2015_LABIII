@@ -32,14 +32,14 @@ namespace CapaDatos
             set { clave = value; }
         }
 
-        string server = "MARIO-ULP\\SQLEXPRESS";
+        string server = "NOTEBOOK";
 
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDInstituto";
+        string baseDeDatos = "BDExamen1LaboIII";
 
         public string BaseDeDatos
         {
@@ -60,7 +60,6 @@ namespace CapaDatos
             strcnn = "Data Source=" + server + ";Initial Catalog=" + baseDeDatos +
                      ";User ID=" + Usuario + ";" +
                      "Password=" + Clave;
-            strcnn = "Data Source=PABLO-PC\\SQLEXPRESS;Initial Catalog=BDExamen1LaboIII;Integrated Security=True";
             return strcnn;
 
         }
