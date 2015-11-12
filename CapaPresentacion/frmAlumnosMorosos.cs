@@ -97,9 +97,9 @@ namespace CapaPresentacion
                 reporte.Rows.Add(temp.Nombre, temp.Telefono, temp.Direccion, temp.Pagado);
             }
 
-            frmReporteMorosidad ReporteMorosidad = new frmReporteMorosidad(reporte);
+            //frmReporteMorosidad ReporteMorosidad = new frmReporteMorosidad(reporte);
             this.Visible = false;
-            ReporteMorosidad.ShowDialog();
+            //ReporteMorosidad.ShowDialog();
             this.Visible = true;
         }
 

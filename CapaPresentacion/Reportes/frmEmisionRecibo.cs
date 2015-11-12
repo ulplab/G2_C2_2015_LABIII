@@ -13,23 +13,20 @@ namespace CapaPresentacion.Reportes
     public partial class frmEmisionRecibo : Form
     {
         clsCuotaFormateada cf;
-        public frmEmisionRecibo(clsCuotaFormateada cuotaFormateada)
+        crReciboCobroMatricula recibo;
+
+        public frmEmisionRecibo(clsCuotaFormateada cuotaFormateada, crReciboCobroMatricula reporteRecibo)
         {
             InitializeComponent();
 
             cf = cuotaFormateada;
+            recibo = reporteRecibo;
         }
 
         private void frmEmisionRecibo_Load(object sender, EventArgs e)
         {
-            crReciboCobroMatricula recibo = new crReciboCobroMatricula();
             recibo.SetParameterValue("nombreAlumno", cf.IdAlumno);
             recibo.SetParameterValue("nroPago", cf.Id);
-
-            DataSetReportes dsr = new DataSetReportes();
-            dsr.Tables["ReciboMatricula"].Rows.Add(cf.IdCurso, cf.Precio, cf.Fecha);
-
-            recibo.SetDataSource(dsr.Tables["ReciboMatricula"]);
 
             crystalReportViewer1.ReportSource = recibo;
         }
