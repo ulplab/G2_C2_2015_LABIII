@@ -151,7 +151,7 @@ namespace CapaPresentacion
                     btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Grande.png");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Iconos no encontrados");
             }
@@ -170,7 +170,7 @@ namespace CapaPresentacion
                     btnRegistrar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Registrar-Chico.png");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Iconos no encontrados");
             }

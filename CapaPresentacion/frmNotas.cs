@@ -44,12 +44,23 @@ namespace CapaPresentacion
                             Curso.Estado = 0;
                         }
                         lblVariableCurso.Text = Curso.Nombre;
+                        lblVariableCurso.ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        lblVariableCurso.Text = "Sin Seleccionar";
+                        lblVariableCurso.ForeColor = Color.Red;
                     }
                 }
                 catch (Exception a)
                 {
                     MessageBox.Show("Ha ocurrido el siguiente error" + a.Message);
                 }
+            }
+            else
+            {
+                lblVariableCurso.Text = "Sin Seleccionar";
+                lblVariableCurso.ForeColor = Color.Red;
             }
         }
         private void AlumnoSeleccionado()
@@ -75,15 +86,26 @@ namespace CapaPresentacion
                         {
                             Alumno.Estado = 0;
                         }
-                        this.lblTituloALumno.Text = Alumno.Nombre;
                         this.ActualizarGrillaCursos();
-                       // this.lblVariableCurso.Text = 
+                        this.lblVariableAlumno.ForeColor = Color.DarkBlue;
+                        this.lblVariableAlumno.Text = Alumno.Nombre;
+                        this.lblVariableAlumno.Text += " " + Alumno.Apellido;
+                    }
+                    else
+                    {
+                        this.lblVariableAlumno.ForeColor = Color.Red;
+                        this.lblVariableAlumno.Text = "sin seleccionar";
                     }
                 }
                 catch (Exception a)
                 {
                     MessageBox.Show("Ha ocurrido el siguiente error" + a.Message);
                 }
+            }
+            else
+            {
+                this.lblVariableAlumno.ForeColor = Color.Red;
+                this.lblVariableAlumno.Text = "sin seleccionar";
             }
         }
         private void ColumnasCursos()
@@ -128,6 +150,8 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
                 Alumno.Id = -1;
+                this.lblVariableAlumno.ForeColor = Color.Red;
+                this.lblVariableAlumno.Text = "sin seleccionar";
                 this.ActualizarGrillaCursos();
             }
             catch (Exception ex)
@@ -161,6 +185,8 @@ namespace CapaPresentacion
                 dgvEtapaDos.ClearSelection();
                 Curso = new clsCurso();
                 Curso.Id = -1;
+                lblVariableCurso.Text = "Sin Seleccionar";
+                lblVariableCurso.ForeColor = Color.Red;
             }
             catch (Exception ex)
             {
@@ -175,16 +201,115 @@ namespace CapaPresentacion
             Nota = new clsRepositorioNota();
             this.ActualizarGrillaAlumnos();
         }
-
         private void dgvEtapaUno_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             this.AlumnoSeleccionado();
         }
-
         private void dgvEtapaDos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.CursoSeleccionado();
         }
-        
+        private void chbParamAlumnos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbParamAlumnos.Checked)
+            {
+                pnlBusquedaAlumnos.Visible = true;
+            }
+            else
+            {
+                pnlBusquedaAlumnos.Visible = false;
+            }
+        }
+        private void chbParamCursos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbParamCursos.Checked)
+            {
+                pnlBusquedaCursos.Visible = true;
+            }
+            else
+            {
+                pnlBusquedaCursos.Visible = false;
+            }
+        }
+        private void texto_buscar()
+        {
+            if (rdNombre.Checked)
+            {
+                tbBuscar.Text = rdNombreCurso.Text;
+            }
+            if (rdApellido.Checked)
+            {
+                tbBuscar.Text = rdApellido.Text;
+            }
+            if (rdDireccion.Checked)
+            {
+                tbBuscar.Text = rdDireccion.Text;
+            }
+            if (rdDni.Checked)
+            {
+                tbBuscar.Text = rdDni.Text;
+            }
+            if (rdEmail.Checked)
+            {
+                tbBuscar.Text = rdEmail.Text;
+            }
+            if (rdTelefono.Checked)
+            {
+                tbBuscar.Text = rdTelefono.Text;
+            }
+        }
+        private void texto_limpiar()
+        {
+            if (rdNombre.Checked)
+            {
+                if (tbBuscar.Text == rdNombreCurso.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdApellido.Checked)
+            {
+                if (tbBuscar.Text == rdApellido.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdDireccion.Checked)
+            {
+                if (tbBuscar.Text == rdDireccion.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdDni.Checked)
+            {
+                if (tbBuscar.Text == rdDni.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdEmail.Checked)
+            {
+                if (tbBuscar.Text == rdEmail.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdTelefono.Checked)
+            {
+                if (tbBuscar.Text == rdTelefono.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+        }
+        private void rdNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            this.texto_buscar();
+        }
+        private void tbBuscar_Enter(object sender, EventArgs e)
+        {
+            this.texto_limpiar();
+        }      
     }
 }
