@@ -43,7 +43,7 @@ namespace CapaPresentacion
                         {
                             Curso.Estado = 0;
                         }
-                        btnContinuar.Enabled = true;
+                        lblVariableCurso.Text = Curso.Nombre;
                     }
                 }
                 catch (Exception a)
@@ -75,7 +75,7 @@ namespace CapaPresentacion
                         {
                             Alumno.Estado = 0;
                         }
-
+                        this.lblTituloALumno.Text = Alumno.Nombre;
                         this.ActualizarGrillaCursos();
                     }
                 }

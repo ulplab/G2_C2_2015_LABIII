@@ -40,7 +40,7 @@ namespace Clases
             try
             {
                 if (manager.SelectCuota(compare).Count == 0)
-                    manager.InsertarCuota(cuota);
+                    cuota.Id = manager.InsertarCuota(cuota);
                 else
                     throw new ArgumentException("Esta deuda ya existe");
             }
@@ -241,7 +241,5 @@ namespace Clases
                 }
             return list;
         }
-
-
     }
 }

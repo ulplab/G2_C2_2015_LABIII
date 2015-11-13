@@ -88,7 +88,6 @@ namespace CapaPresentacion
         {
             dgvEtapaUno.Rows.Clear();
             this.ColumnasNotas();
-
             try
             {
                 Repo = RepoF.getRepositorio(RepoType.NOTA);
@@ -103,7 +102,6 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Nota = new clsNota();
                 Nota.Id = -1;
-                
             }
             catch (Exception ex)
             {
