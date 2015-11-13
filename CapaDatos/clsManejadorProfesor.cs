@@ -5,6 +5,7 @@ using System.Text;
 using Clases;
 using Interfaces;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaDatos
 {
@@ -257,17 +258,21 @@ namespace CapaDatos
         {
             int filas;
 
-            string query = "insert Dicta values ('" + IdProfesor + "','" + IdCurso + "');";
+            //string query = "insert Dicta values ('" + IdProfesor + "','" + IdCurso + "');";
 
             try
             {
-                filas = dbmanager.Ejecutar(query, Tipo.INSERTAR);
+                SqlParameter[] param = new SqlParameter[2];
+                param[1] = new SqlParameter("@idCurso", IdCurso);
+                param[0] = new SqlParameter("@idProfesor", IdProfesor);
+
+                filas = dbmanager.Ejecutar("asignarProfesorCurso", param, Tipo.INSERTAR);
             }
             catch (Exception e)
             {
-
                 throw e;
             }
+
             return filas;
         }
 
@@ -280,6 +285,14 @@ namespace CapaDatos
             try
             {
                 filas = dbmanager.Ejecutar(query, Tipo.ACTUALIZAR);
+
+                string consulta = "SELECT COUNT(*) as Cantidad FROM Dicta WHERE IdCurso = " + IdCursoNew + " AND IdProfesor = " + IdProfesorNew + ";";
+                DataTable dt = dbmanager.Consultar(consulta);
+                int cant = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+                if (cant > 1)
+                {
+                    throw new Exception("El profesor ya ha sido asignado a este curso");
+                }
             }
             catch (Exception e)
             {
@@ -442,7 +455,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("select * from Dicta, Cursos where Dicta.IdCurso = Cursos.IdCurso and IdProfesor <> " + idProfesor + ";");
+                dt = dbmanager.Consultar("select * from Cursos where IdCurso not in(select c.IdCurso from Dicta d, cursos c where d.IdCurso = d.IdCurso and IdProfesor = "+ idProfesor + ");");
             }
             catch(Exception e)
             {

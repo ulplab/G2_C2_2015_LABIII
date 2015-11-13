@@ -65,7 +65,7 @@ namespace CapaPresentacion
 
             try
             {
-                List<IEntidad> LE = RProfesor.CursosDisponiblesParaDictar(Profesor.Id);
+                List<IEntidad> LE = RProfesor.CursosQueDicta(Profesor.Id);
 
 
                 foreach (clsCurso ECurso in LE)
@@ -111,7 +111,7 @@ namespace CapaPresentacion
 
             try
             {
-                List<IEntidad> LE = RProfesor.CursosDisponiblesParaDictar(Profesor.Id);
+                List<IEntidad> LE = RProfesor.CursosQueDicta(Profesor.Id);
 
                 foreach (clsCurso ECurso in LE)
                 {
@@ -146,7 +146,7 @@ namespace CapaPresentacion
                 }
                 else
                 {
-                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Chico.png");
+                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Grande.png");
                 }
             }
             catch (Exception ex)
@@ -161,11 +161,11 @@ namespace CapaPresentacion
             {
                 if ((sender as Button).Name == "btnBuscar")
                 {
-                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Grande.png");
+                    btnBuscar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Buscar-Chico.png");
                 }
                 else
                 {
-                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Bonton-Quitar-Grande.png");
+                    btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Chico.png");
                 }
             }
             catch (Exception ex)
@@ -180,7 +180,7 @@ namespace CapaPresentacion
 
             try
             {
-                bool resultado = true; //Convert.RProfesor.BorrarProfesorACurso(Profesor.Id, IdCurso);
+                bool resultado = RProfesor.BorrarProfesorACurso(Profesor.Id, IdCurso);
 
                 if (resultado)
                 {

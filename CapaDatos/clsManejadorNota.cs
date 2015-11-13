@@ -5,6 +5,7 @@ using System.Text;
 using Clases;
 using Interfaces;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaDatos
 {
@@ -16,15 +17,21 @@ namespace CapaDatos
         {
             int filas;
 
-            string query = "insert Nota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + entidad.Nota + "','" + entidad.Fecha + "','" + entidad.Estado + "');";
+            //string query = "insert Nota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + entidad.Nota + "','" + entidad.Fecha + "','" + entidad.Estado + "');";
 
             try
             {
-                filas = dbManager.Ejecutar(query, Tipo.INSERTAR);
+                SqlParameter[] param = new SqlParameter[5];
+                param[0] = new SqlParameter("@idAlumno", entidad.IdAlumno);
+                param[1] = new SqlParameter("@idCurso", entidad.IdCurso);
+                param[2] = new SqlParameter("@nota", entidad.Nota);
+                param[3] = new SqlParameter("@fecha", entidad.Fecha);
+                param[4] = new SqlParameter("@estado", entidad.Estado);
+
+                filas = dbManager.Ejecutar("insertarNota", param, Tipo.INSERTAR);
             }
             catch (Exception e)
             {
-
                 throw e;
             }
 
@@ -40,12 +47,20 @@ namespace CapaDatos
             try
             {
                 filas = dbManager.Ejecutar(query, Tipo.ACTUALIZAR);
+
+                string consulta = "SELECT COUNT(*) as Cantidad FROM Nota WHERE IdCurso = " + entidad.IdCurso + " AND IdAlumno = " + entidad.IdAlumno + ";";
+                DataTable dt = dbManager.Consultar(consulta);
+                int alumnos = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+                if (alumnos > 1)
+                {
+                    throw new Exception("Esta nota ya fue cargada, acceda al menu de modificacion para cambiarla");
+                }
             }
             catch (Exception e)
             {
-                
                 throw e;
             }
+
             return filas;
         }
 
@@ -171,7 +186,7 @@ namespace CapaDatos
                 p.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
                 p.IdCurso = Convert.ToInt32(item["IdCurso"]);
                 p.Nota = Convert.ToInt32(item["Nota"]);
-                p.Fecha = Convert.ToDateTime(item["Telefono"]);
+                p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
                 res.Add(p);

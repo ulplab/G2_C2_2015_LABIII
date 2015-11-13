@@ -18,7 +18,10 @@ namespace CapaPresentacion
 
         void cerrar()
         {
-            this.Close();
+            if (this.Tag != "1")
+            {
+                this.Close();
+            }
         }
 
         private void ousEncabezado_Load(object sender, EventArgs e)

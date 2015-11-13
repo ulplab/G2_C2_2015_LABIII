@@ -108,10 +108,6 @@ namespace Controles
             {
                 evCerrar();
             }
-            else
-            {
-                formulario.Close();
-            }
         }
 
         private void btnMinimizar_MouseEnter(object sender, EventArgs e)

@@ -34,11 +34,11 @@
             this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.lblNota = new System.Windows.Forms.Label();
-            this.lblTituloALumno = new System.Windows.Forms.Label();
-            this.lvlVariableAlumno = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblVariableAlumno = new System.Windows.Forms.Label();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblVariableCurso = new System.Windows.Forms.Label();
-            this.tbNota = new Controles.DecTextBox();
+            this.decTextBox1 = new Controles.DecTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.SuspendLayout();
@@ -85,6 +85,7 @@
             this.dgvEtapaDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaDos.Size = new System.Drawing.Size(627, 235);
             this.dgvEtapaDos.TabIndex = 28;
+            this.dgvEtapaDos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaDos_CellClick);
             // 
             // dgvEtapaUno
             // 
@@ -98,6 +99,7 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(627, 228);
             this.dgvEtapaUno.TabIndex = 27;
+            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             // 
             // btnContinuar
             // 
@@ -123,29 +125,29 @@
             this.lblNota.TabIndex = 33;
             this.lblNota.Text = "Ingrese una nota:";
             // 
-            // lblTituloALumno
+            // label1
             // 
-            this.lblTituloALumno.AutoSize = true;
-            this.lblTituloALumno.BackColor = System.Drawing.Color.Transparent;
-            this.lblTituloALumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.lblTituloALumno.ForeColor = System.Drawing.Color.White;
-            this.lblTituloALumno.Location = new System.Drawing.Point(685, 294);
-            this.lblTituloALumno.Name = "lblTituloALumno";
-            this.lblTituloALumno.Size = new System.Drawing.Size(250, 29);
-            this.lblTituloALumno.TabIndex = 34;
-            this.lblTituloALumno.Text = "Alumno seleccionado:";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(685, 294);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 29);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Alumno seleccionado:";
             // 
-            // lvlVariableAlumno
+            // lblVariableAlumno
             // 
-            this.lvlVariableAlumno.AutoSize = true;
-            this.lvlVariableAlumno.BackColor = System.Drawing.Color.Transparent;
-            this.lvlVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
-            this.lvlVariableAlumno.ForeColor = System.Drawing.Color.White;
-            this.lvlVariableAlumno.Location = new System.Drawing.Point(684, 323);
-            this.lvlVariableAlumno.Name = "lvlVariableAlumno";
-            this.lvlVariableAlumno.Size = new System.Drawing.Size(230, 36);
-            this.lvlVariableAlumno.TabIndex = 35;
-            this.lvlVariableAlumno.Text = "Nombre Alumno";
+            this.lblVariableAlumno.AutoSize = true;
+            this.lblVariableAlumno.BackColor = System.Drawing.Color.Transparent;
+            this.lblVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
+            this.lblVariableAlumno.ForeColor = System.Drawing.Color.White;
+            this.lblVariableAlumno.Location = new System.Drawing.Point(684, 323);
+            this.lblVariableAlumno.Name = "lblVariableAlumno";
+            this.lblVariableAlumno.Size = new System.Drawing.Size(230, 36);
+            this.lblVariableAlumno.TabIndex = 35;
+            this.lblVariableAlumno.Text = "Nombre Alumno";
             // 
             // lblCurso
             // 
@@ -171,24 +173,24 @@
             this.lblVariableCurso.TabIndex = 37;
             this.lblVariableCurso.Text = "Nombre Curso";
             // 
-            // tbNota
+            // decTextBox1
             // 
-            this.tbNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.tbNota.Location = new System.Drawing.Point(690, 511);
-            this.tbNota.Name = "tbNota";
-            this.tbNota.Size = new System.Drawing.Size(206, 32);
-            this.tbNota.TabIndex = 38;
+            this.decTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.decTextBox1.Location = new System.Drawing.Point(690, 511);
+            this.decTextBox1.Name = "decTextBox1";
+            this.decTextBox1.Size = new System.Drawing.Size(206, 32);
+            this.decTextBox1.TabIndex = 38;
             // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(954, 703);
-            this.Controls.Add(this.tbNota);
+            this.Controls.Add(this.decTextBox1);
             this.Controls.Add(this.lblVariableCurso);
             this.Controls.Add(this.lblCurso);
-            this.Controls.Add(this.lvlVariableAlumno);
-            this.Controls.Add(this.lblTituloALumno);
+            this.Controls.Add(this.lblVariableAlumno);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblNota);
             this.Controls.Add(this.btnContinuar);
             this.Controls.Add(this.lblCursos);
@@ -205,11 +207,11 @@
             this.Controls.SetChildIndex(this.lblCursos, 0);
             this.Controls.SetChildIndex(this.btnContinuar, 0);
             this.Controls.SetChildIndex(this.lblNota, 0);
-            this.Controls.SetChildIndex(this.lblTituloALumno, 0);
-            this.Controls.SetChildIndex(this.lvlVariableAlumno, 0);
+            this.Controls.SetChildIndex(this.label1, 0);
+            this.Controls.SetChildIndex(this.lblVariableAlumno, 0);
             this.Controls.SetChildIndex(this.lblCurso, 0);
             this.Controls.SetChildIndex(this.lblVariableCurso, 0);
-            this.Controls.SetChildIndex(this.tbNota, 0);
+            this.Controls.SetChildIndex(this.decTextBox1, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.ResumeLayout(false);
@@ -226,9 +228,9 @@
         private System.Windows.Forms.Button btnContinuar;
         private System.Windows.Forms.Label lblVariableCurso;
         private System.Windows.Forms.Label lblCurso;
-        private System.Windows.Forms.Label lvlVariableAlumno;
-        private System.Windows.Forms.Label lblTituloALumno;
+        private System.Windows.Forms.Label lblVariableAlumno;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblNota;
-        private Controles.DecTextBox tbNota;
+        private Controles.DecTextBox decTextBox1;
     }
 }

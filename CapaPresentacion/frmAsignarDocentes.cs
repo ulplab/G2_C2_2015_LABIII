@@ -159,6 +159,8 @@ namespace CapaPresentacion
                 temp.Dni = tbFiltroDni.Text;
             }
 
+            temp.Estado = 1;
+
             dgvDocentes.Rows.Clear();
 
             try

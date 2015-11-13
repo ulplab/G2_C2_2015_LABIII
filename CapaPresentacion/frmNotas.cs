@@ -77,6 +77,7 @@ namespace CapaPresentacion
                         }
                         this.lblTituloALumno.Text = Alumno.Nombre;
                         this.ActualizarGrillaCursos();
+                       // this.lblVariableCurso.Text = 
                     }
                 }
                 catch (Exception a)
@@ -127,6 +128,7 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
                 Alumno.Id = -1;
+                this.ActualizarGrillaCursos();
             }
             catch (Exception ex)
             {
@@ -140,7 +142,15 @@ namespace CapaPresentacion
             clsRepositorioInscripcion consultador = new clsRepositorioInscripcion();
             try
             {
-                List<IEntidad> LE = consultador.CursosMorosos(Alumno.Id);
+                List<IEntidad> LE = new List<IEntidad>();
+                if (Alumno.Id != -1)
+                {
+                    LE = consultador.ListaCursos(Alumno.Id);
+                }
+                else
+                {
+
+                }
                 foreach (clsCurso ECurso in LE)
                 {
                     if (ECurso.Estado == 1)
@@ -160,7 +170,20 @@ namespace CapaPresentacion
         }
         private void frmNotas_Load(object sender, EventArgs e)
         {
-            this.ActualizarGrillaCursos();
+            Alumno = new clsAlumno();
+            Curso = new clsCurso();
+            Nota = new clsRepositorioNota();
+            this.ActualizarGrillaAlumnos();
+        }
+
+        private void dgvEtapaUno_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            this.AlumnoSeleccionado();
+        }
+
+        private void dgvEtapaDos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.CursoSeleccionado();
         }
         
     }

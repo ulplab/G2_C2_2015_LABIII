@@ -5,6 +5,7 @@ using System.Text;
 using Clases;
 using Interfaces;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace CapaDatos
 {
@@ -15,11 +16,17 @@ namespace CapaDatos
         public int InsertInscripcion(clsInscripcion entidad)
         {
             int filas;
+
             try
             {
                 //NroInscripcion,IdAdministrador,IdCurso,IdAlumno,Estado
-                string query = "INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
-                filas = dbman.Ejecutar(query, Tipo.INSERTAR);
+                SqlParameter[] param = new SqlParameter[4];
+                param[0] = new SqlParameter("@idAdministrador", entidad.IdAdministrador);
+                param[1] = new SqlParameter("@idCurso", entidad.IdCurso);
+                param[2] = new SqlParameter("@idAlumno", entidad.IdAlumno);
+                param[3] = new SqlParameter("@estado", entidad.Estado);
+                //string query = "INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
+                filas = dbman.Ejecutar("insertarInscripcion", param, Tipo.INSERTAR);
             }
             catch (Exception e)
             {
@@ -36,6 +43,14 @@ namespace CapaDatos
             {
                 string query = "UPDATE Asiste Set IdAdministrador = '" + entidad.IdAdministrador + "', IdCurso = '" + entidad.IdCurso + "', IdAlumno = '" + entidad.IdAlumno + "', Estado = '" + entidad.Estado + "' WHERE NroInscripcion =" + entidad.NroInscripcion + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
+
+                string consulta = "SELECT COUNT(*) as Cantidad FROM Asiste WHERE IdCurso = " + entidad.IdCurso + ";";
+                DataTable dt = dbman.Consultar(consulta);
+                int alumnos = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
+                if (alumnos > 10)
+                {
+                    throw new Exception("El curso ya esta lleno");
+                }
             }
             catch (Exception e)
             {
@@ -173,7 +188,8 @@ namespace CapaDatos
 
             try
             {
-                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
+                //dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c WHERE a.Estado = 1 AND c.IdCurso =" + IdCurso + "and a.IdCurso = c.IdCurso and c.Estado = 1;");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }
@@ -192,7 +208,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdAlumno =" + IdAlumno);
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c WHERE a.Estado = 1 AND IdAlumno = " + IdAlumno+ " and c.Estado = 1 and a.IdCurso = c.IdCurso");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }

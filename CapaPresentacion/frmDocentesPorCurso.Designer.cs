@@ -160,9 +160,9 @@
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(119, 719);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(273, 16);
+            this.label5.Size = new System.Drawing.Size(330, 16);
             this.label5.TabIndex = 97;
-            this.label5.Text = "Alumnos inscriptos en el curso seleccionado";
+            this.label5.Text = "Docentes que estan asignados al curso seleccionado";
             // 
             // lblAyuda
             // 

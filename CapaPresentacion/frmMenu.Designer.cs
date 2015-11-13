@@ -40,6 +40,7 @@
             this.btnAgregarDocentes = new System.Windows.Forms.Button();
             this.btnPagarCuota = new System.Windows.Forms.Button();
             this.btnAsignarProfesor = new System.Windows.Forms.Button();
+            this.btnMorosos = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -316,12 +317,35 @@
             this.btnAsignarProfesor.Size = new System.Drawing.Size(196, 187);
             this.btnAsignarProfesor.TabIndex = 46;
             this.btnAsignarProfesor.TabStop = false;
-            this.btnAsignarProfesor.Text = "Asignar Docente";
+            this.btnAsignarProfesor.Text = "Asignar \r\nDocente";
             this.btnAsignarProfesor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAsignarProfesor.UseVisualStyleBackColor = false;
             this.btnAsignarProfesor.Click += new System.EventHandler(this.btnAsignarProfesor_Click);
             this.btnAsignarProfesor.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
             this.btnAsignarProfesor.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
+            // 
+            // btnMorosos
+            // 
+            this.btnMorosos.BackColor = System.Drawing.Color.Transparent;
+            this.btnMorosos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnMorosos.FlatAppearance.BorderSize = 0;
+            this.btnMorosos.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnMorosos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnMorosos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnMorosos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnMorosos.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMorosos.ForeColor = System.Drawing.Color.White;
+            this.btnMorosos.Image = global::CapaPresentacion.Properties.Resources.stock_vector_financial_agreement_icon_191059541;
+            this.btnMorosos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnMorosos.Location = new System.Drawing.Point(906, 303);
+            this.btnMorosos.Name = "btnMorosos";
+            this.btnMorosos.Size = new System.Drawing.Size(196, 187);
+            this.btnMorosos.TabIndex = 47;
+            this.btnMorosos.TabStop = false;
+            this.btnMorosos.Text = "Morosos";
+            this.btnMorosos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnMorosos.UseVisualStyleBackColor = false;
+            this.btnMorosos.Click += new System.EventHandler(this.button1_Click);
             // 
             // button1
             // 
@@ -334,17 +358,17 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = global::CapaPresentacion.Properties.Resources.stock_vector_financial_agreement_icon_191059541;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(906, 303);
+            this.button1.Location = new System.Drawing.Point(667, 110);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(196, 187);
-            this.button1.TabIndex = 47;
+            this.button1.TabIndex = 48;
             this.button1.TabStop = false;
-            this.button1.Text = "Morosos";
+            this.button1.Text = "Asignar Calificacion";
             this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmMenu
             // 
@@ -352,6 +376,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1135, 758);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnMorosos);
             this.Controls.Add(this.btnAsignarProfesor);
             this.Controls.Add(this.btnPagarCuota);
             this.Controls.Add(this.btnAgregarDocentes);
@@ -364,7 +389,7 @@
             this.Controls.Add(this.btnAgregarAlumno);
             this.Controls.Add(this.btnAgregarAdministrador);
             this.Name = "frmMenu";
-            this.Tag = "";
+            this.Tag = "1";
             this.Text = "frmAMBAlumnos";
             this.Load += new System.EventHandler(this.frmMenu_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
@@ -379,6 +404,7 @@
             this.Controls.SetChildIndex(this.btnAgregarDocentes, 0);
             this.Controls.SetChildIndex(this.btnPagarCuota, 0);
             this.Controls.SetChildIndex(this.btnAsignarProfesor, 0);
+            this.Controls.SetChildIndex(this.btnMorosos, 0);
             this.Controls.SetChildIndex(this.button1, 0);
             this.ResumeLayout(false);
 
@@ -397,6 +423,7 @@
         private System.Windows.Forms.Button btnAgregarDocentes;
         private System.Windows.Forms.Button btnPagarCuota;
         private System.Windows.Forms.Button btnAsignarProfesor;
+        private System.Windows.Forms.Button btnMorosos;
         private System.Windows.Forms.Button button1;
 
     }

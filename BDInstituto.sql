@@ -91,27 +91,30 @@ create table Cuota(
 
 --Asiste = (NroInscripcion, IdAdministrador, IdCurso, IdAlumno, Estado)
  create table Asiste(
-	NroInscripcion int not null,
+	NroInscripcion int not null identity(10,10),
 	IdAdministrador int not null,
 	IdCurso int not null,
 	IdAlumno int not null,
 	Estado bit not null,
 	constraint FK_ASISTE_ID_ADMINISTRADOR foreign key (IdAdministrador) references Administradores(IdAdministrador),
 	constraint FK_ASISTE_ID_CURSO foreign key (IdCurso) references Cursos(IdCurso),
-	constraint FK_ASISTE_ID_ALUMNO foreign key (IdAlumno) references Alumnos(IdAlumno)
+	constraint FK_ASISTE_ID_ALUMNO foreign key (IdAlumno) references Alumnos(IdAlumno),
+	constraint PK_ID_ASISTE primary key(NroInscripcion)
  )
 --drop table Asiste;
 
  SELECT *
  FROM Profesores;
 
- INSERT INTO Administradores VALUES('gon','gon','gonzalo','podesta',37599841,'2664010989', 1);
+ INSERT INTO Administradores VALUES('pablo','pablo','pablo','barco',34599841,'2664010989', 1);
 
  INSERT INTO Alumnos VALUES('mario', 'mario', 'mario', '37599332', 2022323, 1, 'avenida', 'ggpq@wqwqw.com');
 
  INSERT INTO Profesores VALUES('pablo', 'pablo', '32455321', '23232323', 'pablo', 1, 'villa mercedes', 'pablo@hotmail.com');
 
  INSERT INTO Alumnos VALUES('232we32232','wew','wew','23232232','2323','1','wew','ew')
+
+ INSERT INTO Asiste VALUES(10,10,10,1);
 
 
 
@@ -127,4 +130,14 @@ create table Cuota(
 
  INSERT INTO Cursos VALUES('Filosofia','2015-11-02T11:01:34','2016-11-02T11:01:34','filosofica','1',150.5);
 
- INSERT INTO Cursos VALUES('wrwr','2015-11-02T11:25:53','2016-11-02T11:25:53','wrwrw','1', CAST(1234,126 AS DECIMAL(8,2)));
+ SELECT A1.IdProfesor,Dni,Nombre,Apellido,Direccion,Telefono,Email,Estado 
+ FROM Profesores as A1, (SELECT IdProfesor FROM Dicta WHERE IdCurso = 1) as A2
+ WHERE A1.IdProfesor = A2.IdProfesor 
+
+ INSERT INTO DICTA VALUES(10,20);
+
+ select *
+ from Dicta, Cursos
+where Dicta.IdCurso = Cursos.IdCurso;
+
+INSERT INTO Dicta VALUES(30,20);
