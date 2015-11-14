@@ -192,11 +192,24 @@ namespace CapaPresentacion
             clsRepositorioCuota consultador = new clsRepositorioCuota();
             consultador.Agregar(Cuota);
             DialogResult Recibo = MessageBox.Show("¿Desea imprimir el recibo de la operacion?", "¡Exito!",MessageBoxButtons.YesNo);
-            if (Recibo == DialogResult.Yes)
+            /*if (Recibo == DialogResult.Yes)
             {
                 crReciboCobroMatricula Comprobante = new crReciboCobroMatricula();
-                //Comprobante.SetParameterValue["NombreAlumno",]
-            }
+                Comprobante.SetParameterValue("NombreAlumno", Alumno.Nombre);
+                Comprobante.SetParameterValue("nroPago", Cuota.Id);
+
+                DataTable Datos = new DataTable();
+                Datos.Columns.Add("Curso");
+                Datos.Columns.Add("Fecha");
+                Datos.Columns.Add("Detalles");
+
+                clsCuotaFormateada = consultador
+
+                Comprobante.SetDataSource = 
+             
+                No llegueeeeeeeee
+             *  :'(
+            }*/
             DialogResult continuar = MessageBox.Show("Cuota Registrada correctamente, ¿desea registrar otra?", "¡Exito!", MessageBoxButtons.YesNo);
             if (continuar == System.Windows.Forms.DialogResult.Yes)
             {

@@ -149,7 +149,7 @@ namespace CapaPresentacion
                     btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Grande.png");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Iconos no encontrados");
             }
@@ -168,7 +168,7 @@ namespace CapaPresentacion
                     btnQuitar.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Quitar-Chico.png");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Iconos no encontrados");
             }

@@ -106,13 +106,15 @@ create table Cuota(
  SELECT *
  FROM Profesores;
 
- INSERT INTO Administradores VALUES('gon','gon','gonzalo','podesta',37599841,'2664010989', 1);
+ INSERT INTO Administradores VALUES('pablo','pablo','pablo','barco',34599841,'2664010989', 1);
 
  INSERT INTO Alumnos VALUES('mario', 'mario', 'mario', '37599332', 2022323, 1, 'avenida', 'ggpq@wqwqw.com');
 
  INSERT INTO Profesores VALUES('pablo', 'pablo', '32455321', '23232323', 'pablo', 1, 'villa mercedes', 'pablo@hotmail.com');
 
  INSERT INTO Alumnos VALUES('232we32232','wew','wew','23232232','2323','1','wew','ew')
+
+ INSERT INTO Asiste VALUES(10,10,10,1);
 
 
 

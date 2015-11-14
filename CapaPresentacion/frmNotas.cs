@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Clases;
 using Interfaces;
 using CapaLogica;
+using System.Text.RegularExpressions;
 
 namespace CapaPresentacion
 {
@@ -21,6 +22,10 @@ namespace CapaPresentacion
         private clsCurso Curso;
         private clsAlumno Alumno;
         private clsRepositorioNota Nota;
+        List<IEntidad> Alumnos;
+        List<IEntidad> Cursos;
+        private enum TipoBuscarAlumno { Nombre, Apellido, Dni, Direccion, Telefono, Email };
+        private enum TipoBuscarCurso { Nombre, FechaInicio, FechaFin, Descripcion };
 
         private void CursoSeleccionado()
         {
@@ -43,13 +48,24 @@ namespace CapaPresentacion
                         {
                             Curso.Estado = 0;
                         }
-                        btnContinuar.Enabled = true;
+                        lblVariableCurso.Text = Curso.Nombre;
+                        lblVariableCurso.ForeColor = Color.DarkBlue;
+                    }
+                    else
+                    {
+                        lblVariableCurso.Text = "Sin Seleccionar";
+                        lblVariableCurso.ForeColor = Color.Red;
                     }
                 }
                 catch (Exception a)
                 {
                     MessageBox.Show("Ha ocurrido el siguiente error" + a.Message);
                 }
+            }
+            else
+            {
+                lblVariableCurso.Text = "Sin Seleccionar";
+                lblVariableCurso.ForeColor = Color.Red;
             }
         }
         private void AlumnoSeleccionado()
@@ -75,15 +91,26 @@ namespace CapaPresentacion
                         {
                             Alumno.Estado = 0;
                         }
-
                         this.ActualizarGrillaCursos();
-                       // this.lblVariableCurso.Text = 
+                        this.lblVariableAlumno.ForeColor = Color.DarkBlue;
+                        this.lblVariableAlumno.Text = Alumno.Nombre;
+                        this.lblVariableAlumno.Text += " " + Alumno.Apellido;
+                    }
+                    else
+                    {
+                        this.lblVariableAlumno.ForeColor = Color.Red;
+                        this.lblVariableAlumno.Text = "sin seleccionar";
                     }
                 }
                 catch (Exception a)
                 {
                     MessageBox.Show("Ha ocurrido el siguiente error" + a.Message);
                 }
+            }
+            else
+            {
+                this.lblVariableAlumno.ForeColor = Color.Red;
+                this.lblVariableAlumno.Text = "sin seleccionar";
             }
         }
         private void ColumnasCursos()
@@ -116,9 +143,10 @@ namespace CapaPresentacion
             this.ColumnasAlumnos();
             try
             {
+                Alumnos = new List<IEntidad>();
                 clsRepositorioAlumno consultador = new clsRepositorioAlumno();
-                List<IEntidad> LE = consultador.Lista();
-                foreach (clsAlumno EAlum in LE)
+                Alumnos = consultador.Lista();
+                foreach (clsAlumno EAlum in Alumnos)
                 {
                     if (EAlum.Estado == 1)
                     {
@@ -128,6 +156,8 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
                 Alumno.Id = -1;
+                this.lblVariableAlumno.ForeColor = Color.Red;
+                this.lblVariableAlumno.Text = "sin seleccionar";
                 this.ActualizarGrillaCursos();
             }
             catch (Exception ex)
@@ -139,19 +169,15 @@ namespace CapaPresentacion
         {
             dgvEtapaDos.Rows.Clear();
             this.ColumnasCursos();
+            Cursos = new List<IEntidad>();
             clsRepositorioInscripcion consultador = new clsRepositorioInscripcion();
             try
             {
-                List<IEntidad> LE = new List<IEntidad>();
                 if (Alumno.Id != -1)
                 {
-                    LE = consultador.ListaCursos(Alumno.Id);
+                    Cursos = consultador.ListaCursos(Alumno.Id);
                 }
-                else
-                {
-
-                }
-                foreach (clsCurso ECurso in LE)
+                foreach (clsCurso ECurso in Cursos)
                 {
                     if (ECurso.Estado == 1)
                     {
@@ -161,6 +187,8 @@ namespace CapaPresentacion
                 dgvEtapaDos.ClearSelection();
                 Curso = new clsCurso();
                 Curso.Id = -1;
+                lblVariableCurso.Text = "Sin Seleccionar";
+                lblVariableCurso.ForeColor = Color.Red;
             }
             catch (Exception ex)
             {
@@ -174,17 +202,401 @@ namespace CapaPresentacion
             Curso = new clsCurso();
             Nota = new clsRepositorioNota();
             this.ActualizarGrillaAlumnos();
+            rdNombre.Checked = true;
+            rdNombreCurso.Checked = true;
         }
-
         private void dgvEtapaUno_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
             this.AlumnoSeleccionado();
         }
-
         private void dgvEtapaDos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             this.CursoSeleccionado();
         }
-        
+        private void chbParamAlumnos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbParamAlumnos.Checked)
+            {
+                pnlBusquedaAlumnos.Visible = true;
+            }
+            else
+            {
+                pnlBusquedaAlumnos.Visible = false;
+            }
+        }
+        private void chbParamCursos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chbParamCursos.Checked)
+            {
+                pnlBusquedaCursos.Visible = true;
+            }
+            else
+            {
+                pnlBusquedaCursos.Visible = false;
+            }
+        }
+        private void texto_buscar()
+        {
+            if (rdNombre.Checked)
+            {
+                tbBuscar.Text = rdNombre.Text;
+            }
+            if (rdApellido.Checked)
+            {
+                tbBuscar.Text = rdApellido.Text;
+            }
+            if (rdDireccion.Checked)
+            {
+                tbBuscar.Text = rdDireccion.Text;
+            }
+            if (rdDni.Checked)
+            {
+                tbBuscar.Text = rdDni.Text;
+            }
+            if (rdEmail.Checked)
+            {
+                tbBuscar.Text = rdEmail.Text;
+            }
+            if (rdTelefono.Checked)
+            {
+                tbBuscar.Text = rdTelefono.Text;
+            }
+        }
+        private void texto_buscar_Curso()
+        {
+            if (rdNombreCurso.Checked)
+            {
+                tbBuscarCurso.Text = rdNombreCurso.Text;
+            }
+            else
+            {
+                if (rdDescripcion.Checked)
+                {
+                    tbBuscarCurso.Text = rdDescripcion.Text;
+                }
+                else
+                {
+                    if (rdFechaInicio.Checked)
+                    {
+                        tbBuscarCurso.Text = rdFechaInicio.Text;
+                    }
+                    else
+                    {
+                        if (rdFechaFin.Checked)
+                        {
+                            tbBuscarCurso.Text = rdFechaFin.Text;
+                        }
+                    }
+
+                }
+            }
+
+        }
+        private void texto_limpiar()
+        {
+            if (rdNombre.Checked)
+            {
+                if (tbBuscar.Text == rdNombre.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdApellido.Checked)
+            {
+                if (tbBuscar.Text == rdApellido.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdDireccion.Checked)
+            {
+                if (tbBuscar.Text == rdDireccion.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdDni.Checked)
+            {
+                if (tbBuscar.Text == rdDni.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdEmail.Checked)
+            {
+                if (tbBuscar.Text == rdEmail.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+            if (rdTelefono.Checked)
+            {
+                if (tbBuscar.Text == rdTelefono.Text)
+                {
+                    tbBuscar.Text = string.Empty;
+                }
+            }
+        }
+        private void texto_limpiar_Curso()
+        {
+            if (rdNombreCurso.Checked)
+            {
+                if (tbBuscarCurso.Text == rdNombreCurso.Text)
+                {
+                    tbBuscarCurso.Text = string.Empty;
+                }
+            }
+            else
+            {
+                if (rdDescripcion.Checked)
+                {
+                    if (tbBuscarCurso.Text == rdDescripcion.Text)
+                    {
+                        tbBuscarCurso.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    if (rdFechaInicio.Checked)
+                    {
+                        if (tbBuscarCurso.Text == rdFechaInicio.Text)
+                        {
+                            tbBuscarCurso.Text = string.Empty;
+                        }
+                    }
+                    else
+                    {
+                        if (rdFechaFin.Checked)
+                        {
+                            if (tbBuscarCurso.Text == rdFechaFin.Text)
+                            {
+                                tbBuscarCurso.Text = string.Empty;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        private void rdNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            this.texto_buscar();
+        }
+        private void tbBuscar_Enter(object sender, EventArgs e)
+        {
+            this.texto_limpiar();
+        }
+        private void rdNombreCurso_CheckedChanged(object sender, EventArgs e)
+        {
+            this.texto_buscar_Curso();
+        }
+        private void tbBuscarCurso_Enter(object sender, EventArgs e)
+        {
+            this.texto_limpiar_Curso();
+        }
+        private void btnBuscarAlumno_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rdNombre.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Nombre);
+                }
+                if (rdApellido.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Apellido);
+                }
+                if (rdDireccion.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Direccion);
+                }
+                if (rdDni.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Dni);
+                }
+                if (rdEmail.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Email);
+                }
+                if (rdTelefono.Checked)
+                {
+                    this.Buscar_Alumno(tbBuscar.Text, TipoBuscarAlumno.Telefono);
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+        private void Buscar_Alumno(string Tarjet, TipoBuscarAlumno tipo)
+        {
+            try
+            {
+                string busqueda = string.Empty;
+                switch (tipo)
+                {
+                    case TipoBuscarAlumno.Nombre: busqueda = "Nombre"; break;
+                    case TipoBuscarAlumno.Apellido: busqueda = "Apellido"; break;
+                    case TipoBuscarAlumno.Direccion: busqueda = "Direccion"; break;
+                    case TipoBuscarAlumno.Dni: busqueda = "Dni"; break;
+                    case TipoBuscarAlumno.Email: busqueda = "Email"; break;
+                    case TipoBuscarAlumno.Telefono: busqueda = "Telefono"; break;
+                }
+                List<DataGridViewRow> encontrados = new List<DataGridViewRow>();
+                foreach (DataGridViewRow temp in dgvEtapaUno.Rows)
+                {
+                    if (temp.Cells[busqueda].Value.ToString().Trim().Contains( Tarjet.Trim() ))
+                    {
+                        encontrados.Add(temp);
+                    }
+                }
+                dgvEtapaUno.Rows.Clear();
+                dgvEtapaUno.Rows.AddRange(encontrados.ToArray());
+                dgvEtapaUno.ClearSelection();
+                Alumno = new clsAlumno();
+                Alumno.Id = -1;
+            }
+            catch (Exception a)
+            {
+                throw new Exception("Se produjo el siguiente error: " + a.Message);
+            }
+        }
+        private void Buscar_Curso(string Tarjet, TipoBuscarCurso tipo)
+        {
+            try
+            {
+                string busqueda = string.Empty;
+                switch (tipo)
+                {
+                    case TipoBuscarCurso.Nombre: busqueda = "Nombre"; break;
+                    case TipoBuscarCurso.FechaInicio: busqueda = "FechaInicio"; break;
+                    case TipoBuscarCurso.FechaFin: busqueda = "FechaFin"; break;
+                    case TipoBuscarCurso.Descripcion: busqueda = "Descripcion"; break;
+                }
+                List<DataGridViewRow> encontrados = new List<DataGridViewRow>();
+                foreach (DataGridViewRow temp in dgvEtapaDos.Rows)
+                {
+                    if ((tipo != TipoBuscarCurso.FechaInicio) && (tipo != TipoBuscarCurso.FechaFin))
+                    {
+                        string comparar = temp.Cells[busqueda].Value.ToString();
+                        if (comparar.Trim().Contains(Tarjet.Trim()))
+                        {
+                            encontrados.Add(temp);
+                        }
+                    }
+                    else
+                    {
+                        DateTime Comparar = Convert.ToDateTime(temp.Cells[busqueda].Value.ToString());
+                        DateTime Comparar2 = Convert.ToDateTime(Tarjet);
+                        if (DateTime.Compare(Comparar.Date, Comparar2.Date) == 0)
+                        {
+                            encontrados.Add(temp);
+                        }
+                    }
+                }
+                dgvEtapaDos.Rows.Clear();
+                dgvEtapaDos.Rows.AddRange(encontrados.ToArray());
+                dgvEtapaDos.ClearSelection();
+                Curso = new clsCurso();
+                Curso.Id = -1;
+            }
+            catch (FormatException)
+            {
+                throw new Exception("La fecha tiene un formato incorrecto");
+            }
+            catch (Exception a)
+            {
+                throw new Exception("Se produjo el siguiente error: " + a.Message);
+            }
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rdNombreCurso.Checked)
+                {
+                    this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.Nombre);
+                }
+                if (rdDescripcion.Checked)
+                {
+                    this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.Descripcion);
+
+                }
+                if (rdFechaInicio.Checked)
+                {
+                    this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.FechaInicio);
+
+                }
+                if (rdFechaFin.Checked)
+                {
+                    this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.FechaFin);
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+        }
+        private void lblAlumnos_Click(object sender, EventArgs e)
+        {
+            this.ActualizarGrillaAlumnos();
+        }
+        private void lblCursos_Click(object sender, EventArgs e)
+        {
+            this.ActualizarGrillaCursos();
+        }
+        private void btnContinuar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrWhiteSpace(tbNota.Text))
+                {
+                    string expresion1 =  "^[,][0-9]{0,4}$";
+                    string expresion2 = "^[0-9]{0,4}[,]$";
+                    if ((Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) & (Regex.IsMatch(tbNota.Text.Trim(), expresion2) == false))
+                    {
+                        clsNota nueva = new clsNota();
+                        nueva.IdAlumno = Alumno.Id;
+                        nueva.IdCurso = Curso.Id;
+                        nueva.Nota = Convert.ToInt32(tbNota.Text.Trim());
+                        nueva.Estado = 1;
+                        nueva.Fecha = DateTime.Today;
+                        Nota.Agregar(nueva);
+                        DialogResult result = MessageBox.Show("Desea Registrar otra nota?", "Nota Registrada exitosamente", MessageBoxButtons.YesNo);
+                        if (result == DialogResult.Yes)
+                        {
+
+                        }
+                        else
+                        {
+                            this.Close();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El formato de la nota ingresada no es correcto");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese una nota");
+                }
+            }
+            catch (Exception a)
+            {
+                MessageBox.Show(a.Message);
+            }
+            
+        }
+        private void lblVariableAlumno_ForeColorChanged(object sender, EventArgs e)
+        {
+            if ((lblVariableAlumno.ForeColor != Color.Red) & (lblVariableCurso.ForeColor != Color.Red))
+            {
+                btnContinuar.Enabled = true;
+            }
+            else
+            {
+                btnContinuar.Enabled = false;
+            }
+        }
     }
 }
