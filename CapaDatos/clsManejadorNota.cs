@@ -114,7 +114,8 @@ namespace CapaDatos
                 query += " Nota = '" + entidad.Nota + "'";
                 nota = true;
             }
-            if (entidad.Fecha != null)
+            DateTime nuevo = new DateTime(0001,01,01,0,00,00);
+            if (DateTime.Compare(entidad.Fecha,nuevo) != 0)
             {
                 if (idnota | alumno | curso | nota)
                 {
@@ -123,7 +124,7 @@ namespace CapaDatos
                 query += " Fecha = '" + entidad.Fecha + "'";
                 fecha = true;
             }
-            if (entidad.Estado != null)
+            if (entidad.Estado != -1)
             {
                 if (idnota | alumno | curso | nota | fecha)
                 {

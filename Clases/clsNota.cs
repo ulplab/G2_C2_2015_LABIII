@@ -8,7 +8,7 @@ namespace Clases
 {
     public class clsNota : IEntidad
     {
-        int id;
+        int id = -1;
 
         public int Id
         {

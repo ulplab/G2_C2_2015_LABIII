@@ -38,7 +38,7 @@
             this.lblVariableAlumno = new System.Windows.Forms.Label();
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblVariableCurso = new System.Windows.Forms.Label();
-            this.decTextBox1 = new Controles.DecTextBox();
+            this.tbNota = new Controles.DecTextBox();
             this.chbParamCursos = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbBuscarCurso = new System.Windows.Forms.TextBox();
@@ -82,6 +82,7 @@
             this.lblCursos.Size = new System.Drawing.Size(287, 39);
             this.lblCursos.TabIndex = 30;
             this.lblCursos.Text = "Cursos Inscriptos";
+            this.lblCursos.Click += new System.EventHandler(this.lblCursos_Click);
             // 
             // lblAlumnos
             // 
@@ -94,6 +95,7 @@
             this.lblAlumnos.Size = new System.Drawing.Size(153, 39);
             this.lblAlumnos.TabIndex = 29;
             this.lblAlumnos.Text = "Alumnos";
+            this.lblAlumnos.Click += new System.EventHandler(this.lblAlumnos_Click);
             // 
             // dgvEtapaDos
             // 
@@ -121,6 +123,7 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(571, 228);
             this.dgvEtapaUno.TabIndex = 27;
+            this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             // 
             // btnContinuar
@@ -132,8 +135,9 @@
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(197, 90);
             this.btnContinuar.TabIndex = 31;
-            this.btnContinuar.Text = "Registrar Nota";
+            this.btnContinuar.Text = "Calificar";
             this.btnContinuar.UseVisualStyleBackColor = false;
+            this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
             // 
             // lblNota
             // 
@@ -155,9 +159,9 @@
             this.lblTituloAlumno.ForeColor = System.Drawing.Color.White;
             this.lblTituloAlumno.Location = new System.Drawing.Point(356, 683);
             this.lblTituloAlumno.Name = "lblTituloAlumno";
-            this.lblTituloAlumno.Size = new System.Drawing.Size(217, 29);
+            this.lblTituloAlumno.Size = new System.Drawing.Size(233, 29);
             this.lblTituloAlumno.TabIndex = 34;
-            this.lblTituloAlumno.Text = "Al alumno llamado:";
+            this.lblTituloAlumno.Text = "Del alumno llamado:";
             // 
             // lblVariableAlumno
             // 
@@ -170,6 +174,7 @@
             this.lblVariableAlumno.Size = new System.Drawing.Size(230, 36);
             this.lblVariableAlumno.TabIndex = 35;
             this.lblVariableAlumno.Text = "Nombre Alumno";
+            this.lblVariableAlumno.ForeColorChanged += new System.EventHandler(this.lblVariableAlumno_ForeColorChanged);
             // 
             // lblCurso
             // 
@@ -194,15 +199,16 @@
             this.lblVariableCurso.Size = new System.Drawing.Size(208, 36);
             this.lblVariableCurso.TabIndex = 37;
             this.lblVariableCurso.Text = "Nombre Curso";
+            this.lblVariableCurso.ForeColorChanged += new System.EventHandler(this.lblVariableAlumno_ForeColorChanged);
             // 
-            // decTextBox1
+            // tbNota
             // 
-            this.decTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.decTextBox1.Location = new System.Drawing.Point(40, 715);
-            this.decTextBox1.MaxLength = 5;
-            this.decTextBox1.Name = "decTextBox1";
-            this.decTextBox1.Size = new System.Drawing.Size(206, 32);
-            this.decTextBox1.TabIndex = 38;
+            this.tbNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.tbNota.Location = new System.Drawing.Point(40, 715);
+            this.tbNota.MaxLength = 4;
+            this.tbNota.Name = "tbNota";
+            this.tbNota.Size = new System.Drawing.Size(206, 32);
+            this.tbNota.TabIndex = 38;
             // 
             // chbParamCursos
             // 
@@ -229,6 +235,7 @@
             this.btnBuscar.TabIndex = 40;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tbBuscarCurso
             // 
@@ -237,7 +244,8 @@
             this.tbBuscarCurso.Name = "tbBuscarCurso";
             this.tbBuscarCurso.Size = new System.Drawing.Size(354, 38);
             this.tbBuscarCurso.TabIndex = 39;
-            this.tbBuscarCurso.Text = "por nombre";
+            this.tbBuscarCurso.Text = "Nombre";
+            this.tbBuscarCurso.Enter += new System.EventHandler(this.tbBuscarCurso_Enter);
             // 
             // chbParamAlumnos
             // 
@@ -369,6 +377,7 @@
             this.btnBuscarAlumno.TabIndex = 44;
             this.btnBuscarAlumno.Text = "Buscar";
             this.btnBuscarAlumno.UseVisualStyleBackColor = false;
+            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
             // 
             // tbBuscar
             // 
@@ -377,7 +386,7 @@
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(354, 38);
             this.tbBuscar.TabIndex = 43;
-            this.tbBuscar.Text = "por nombre";
+            this.tbBuscar.Text = "Nombre";
             this.tbBuscar.Enter += new System.EventHandler(this.tbBuscar_Enter);
             // 
             // rdNombreCurso
@@ -393,6 +402,7 @@
             this.rdNombreCurso.TabStop = true;
             this.rdNombreCurso.Text = "Nombre";
             this.rdNombreCurso.UseVisualStyleBackColor = false;
+            this.rdNombreCurso.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
             // 
             // rdDescripcion
             // 
@@ -407,6 +417,7 @@
             this.rdDescripcion.TabStop = true;
             this.rdDescripcion.Text = "Descripcion";
             this.rdDescripcion.UseVisualStyleBackColor = false;
+            this.rdDescripcion.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
             // 
             // rdFechaInicio
             // 
@@ -421,6 +432,7 @@
             this.rdFechaInicio.TabStop = true;
             this.rdFechaInicio.Text = "Fecha de fin";
             this.rdFechaInicio.UseVisualStyleBackColor = false;
+            this.rdFechaInicio.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
             // 
             // rdFechaFin
             // 
@@ -435,6 +447,7 @@
             this.rdFechaFin.TabStop = true;
             this.rdFechaFin.Text = "Fecha de inicio";
             this.rdFechaFin.UseVisualStyleBackColor = false;
+            this.rdFechaFin.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
             // 
             // pnlBusquedaCursos
             // 
@@ -488,7 +501,7 @@
             this.Controls.Add(this.pnlBusquedaCursos);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.tbBuscarCurso);
-            this.Controls.Add(this.decTextBox1);
+            this.Controls.Add(this.tbNota);
             this.Controls.Add(this.lblVariableCurso);
             this.Controls.Add(this.lblCurso);
             this.Controls.Add(this.lblVariableAlumno);
@@ -512,7 +525,7 @@
             this.Controls.SetChildIndex(this.lblVariableAlumno, 0);
             this.Controls.SetChildIndex(this.lblCurso, 0);
             this.Controls.SetChildIndex(this.lblVariableCurso, 0);
-            this.Controls.SetChildIndex(this.decTextBox1, 0);
+            this.Controls.SetChildIndex(this.tbNota, 0);
             this.Controls.SetChildIndex(this.tbBuscarCurso, 0);
             this.Controls.SetChildIndex(this.btnBuscar, 0);
             this.Controls.SetChildIndex(this.pnlBusquedaCursos, 0);
@@ -547,7 +560,7 @@
         private System.Windows.Forms.Label lblVariableAlumno;
         private System.Windows.Forms.Label lblTituloAlumno;
         private System.Windows.Forms.Label lblNota;
-        private Controles.DecTextBox decTextBox1;
+        private Controles.DecTextBox tbNota;
         private System.Windows.Forms.CheckBox chbParamAlumnos;
         private System.Windows.Forms.Panel pnlBusquedaAlumnos;
         private System.Windows.Forms.RadioButton rdEmail;
