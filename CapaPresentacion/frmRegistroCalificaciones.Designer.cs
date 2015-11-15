@@ -28,12 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegistroCalificaciones));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.btnDesactivarFiltro = new System.Windows.Forms.Button();
-            this.btnActivarFiltro = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.cbFiltroEstado = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,6 +45,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -64,8 +63,7 @@
             // gbFiltros
             // 
             this.gbFiltros.BackColor = System.Drawing.Color.Transparent;
-            this.gbFiltros.Controls.Add(this.btnDesactivarFiltro);
-            this.gbFiltros.Controls.Add(this.btnActivarFiltro);
+            this.gbFiltros.Controls.Add(this.btnBuscar);
             this.gbFiltros.Controls.Add(this.panel4);
             this.gbFiltros.Controls.Add(this.panel3);
             this.gbFiltros.Controls.Add(this.panel2);
@@ -78,50 +76,6 @@
             this.gbFiltros.TabIndex = 68;
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtros";
-            // 
-            // btnDesactivarFiltro
-            // 
-            this.btnDesactivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnDesactivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDesactivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnDesactivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.btnDesactivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDesactivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDesactivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnDesactivarFiltro.Image")));
-            this.btnDesactivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDesactivarFiltro.Location = new System.Drawing.Point(829, 32);
-            this.btnDesactivarFiltro.Name = "btnDesactivarFiltro";
-            this.btnDesactivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnDesactivarFiltro.TabIndex = 80;
-            this.btnDesactivarFiltro.Tag = "6";
-            this.btnDesactivarFiltro.Text = "Desactivar Filtro";
-            this.btnDesactivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnDesactivarFiltro.UseVisualStyleBackColor = false;
-            this.btnDesactivarFiltro.Click += new System.EventHandler(this.btnDesactivarFiltro_Click);
-            // 
-            // btnActivarFiltro
-            // 
-            this.btnActivarFiltro.BackColor = System.Drawing.Color.Transparent;
-            this.btnActivarFiltro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnActivarFiltro.FlatAppearance.BorderColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.BorderSize = 2;
-            this.btnActivarFiltro.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Lime;
-            this.btnActivarFiltro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnActivarFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActivarFiltro.Image = ((System.Drawing.Image)(resources.GetObject("btnActivarFiltro.Image")));
-            this.btnActivarFiltro.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnActivarFiltro.Location = new System.Drawing.Point(746, 32);
-            this.btnActivarFiltro.Name = "btnActivarFiltro";
-            this.btnActivarFiltro.Size = new System.Drawing.Size(77, 68);
-            this.btnActivarFiltro.TabIndex = 67;
-            this.btnActivarFiltro.Tag = "6";
-            this.btnActivarFiltro.Text = "Activar Filtro";
-            this.btnActivarFiltro.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnActivarFiltro.UseVisualStyleBackColor = false;
-            this.btnActivarFiltro.Click += new System.EventHandler(this.btnActivarFiltro_Click);
             // 
             // panel4
             // 
@@ -252,23 +206,23 @@
             this.dgvEtapaUno.AllowUserToResizeColumns = false;
             this.dgvEtapaUno.AllowUserToResizeRows = false;
             this.dgvEtapaUno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvEtapaUno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEtapaUno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvEtapaUno.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEtapaUno.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvEtapaUno.Location = new System.Drawing.Point(59, 257);
             this.dgvEtapaUno.MultiSelect = false;
             this.dgvEtapaUno.Name = "dgvEtapaUno";
@@ -278,6 +232,23 @@
             this.dgvEtapaUno.Size = new System.Drawing.Size(922, 183);
             this.dgvEtapaUno.TabIndex = 67;
             this.dgvEtapaUno.TabStop = false;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.BackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscar.FlatAppearance.BorderSize = 0;
+            this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscar.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscar.Image")));
+            this.btnBuscar.Location = new System.Drawing.Point(739, 34);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(169, 66);
+            this.btnBuscar.TabIndex = 83;
+            this.btnBuscar.Tag = "6";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmRegistroCalificaciones
             // 
@@ -289,9 +260,9 @@
             this.Name = "frmRegistroCalificaciones";
             this.Text = "frmRegistroCalificaciones";
             this.Load += new System.EventHandler(this.frmRegistroCalificaciones_Load);
-            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -309,8 +280,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbFiltros;
-        private System.Windows.Forms.Button btnDesactivarFiltro;
-        private System.Windows.Forms.Button btnActivarFiltro;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.ComboBox cbFiltroEstado;
         private System.Windows.Forms.Label label4;
@@ -324,5 +293,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbFiltroNombre;
         private System.Windows.Forms.DataGridView dgvEtapaUno;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

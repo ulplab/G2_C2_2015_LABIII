@@ -47,7 +47,6 @@
             this.tbFiltroNombre = new System.Windows.Forms.TextBox();
             this.lblAyuda = new System.Windows.Forms.Label();
             this.dgvDocentes = new System.Windows.Forms.DataGridView();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@
             this.tbNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tbDni = new Controles.NumTextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -281,25 +281,6 @@
             this.dgvDocentes.TabStop = false;
             this.dgvDocentes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocentes_CellDoubleClick);
             // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.Location = new System.Drawing.Point(652, 651);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(169, 68);
-            this.btnAgregar.TabIndex = 80;
-            this.btnAgregar.Tag = "7";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            this.btnAgregar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
-            this.btnAgregar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
-            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.Transparent;
@@ -444,18 +425,37 @@
             this.tbDni.Size = new System.Drawing.Size(200, 35);
             this.tbDni.TabIndex = 3;
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.Location = new System.Drawing.Point(658, 651);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(169, 68);
+            this.btnAgregar.TabIndex = 388;
+            this.btnAgregar.TabStop = false;
+            this.btnAgregar.Tag = "7";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
+            this.btnAgregar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
+            // 
             // frmCargarDocentes
             // 
-            this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancelar;
             this.ClientSize = new System.Drawing.Size(1083, 735);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.tbDni);
             this.Controls.Add(this.gbFiltros);
             this.Controls.Add(this.lblAyuda);
             this.Controls.Add(this.dgvDocentes);
-            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lblEmail);
@@ -484,11 +484,11 @@
             this.Controls.SetChildIndex(this.lblEmail, 0);
             this.Controls.SetChildIndex(this.tbEmail, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            this.Controls.SetChildIndex(this.btnAgregar, 0);
             this.Controls.SetChildIndex(this.dgvDocentes, 0);
             this.Controls.SetChildIndex(this.lblAyuda, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.Controls.SetChildIndex(this.tbDni, 0);
+            this.Controls.SetChildIndex(this.btnAgregar, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -520,7 +520,6 @@
         private System.Windows.Forms.TextBox tbFiltroNombre;
         private System.Windows.Forms.Label lblAyuda;
         private System.Windows.Forms.DataGridView dgvDocentes;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.Label lblEmail;
@@ -536,5 +535,6 @@
         private Controles.NumTextBox tbDni;
         private Controles.NumTextBox tbFiltroDni;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }

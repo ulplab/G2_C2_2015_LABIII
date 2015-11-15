@@ -148,64 +148,6 @@ namespace CapaPresentacion
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
-        {
-
-            if (tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty && tbDireccion.Text != string.Empty && tbTelefono.Text != string.Empty && tbEmail.Text != string.Empty)
-            {
-                try
-                {
-                    if (tbDni.Text.Length == 8)
-                    {
-                        Repo = RepoF.getRepositorio(RepoType.ALUMNO);
-
-                        Alumno.Nombre = tbNombre.Text;
-                        Alumno.Apellido = tbApellido.Text;
-                        Alumno.Dni = tbDni.Text;
-                        Alumno.Direccion = tbDireccion.Text;
-                        Alumno.Telefono = tbTelefono.Text;
-                        Alumno.Email = tbEmail.Text;
-                        Alumno.Estado = 1;
-                        Alumno.Contraseña = tbDni.Text;
-
-                        Repo.Agregar(Alumno);
-
-                        if (!filtro)
-                        {
-                            ActualizarGrilla();
-                        }
-                        else
-                        {
-                            ActualizarGrillaFiltrada();
-                        }
-
-                        MessageBox.Show("Alumno cargado correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        tbNombre.Clear();
-                        tbApellido.Clear();
-                        tbDni.Clear();
-                        tbDireccion.Clear();
-                        tbTelefono.Clear();
-                        tbEmail.Clear();
-                        tbNombre.Focus();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Dni ingresado no valido ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        tbDni.Clear();
-                        tbDni.Focus();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Ingrese todos los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
 
         private void dgvAlumnos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -320,6 +262,65 @@ namespace CapaPresentacion
         {
             this.Close();
         }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (tbNombre.Text != string.Empty && tbApellido.Text != string.Empty && tbDni.Text != string.Empty && tbDireccion.Text != string.Empty && tbTelefono.Text != string.Empty && tbEmail.Text != string.Empty)
+            {
+                try
+                {
+                    if (tbDni.Text.Length == 8)
+                    {
+                        Repo = RepoF.getRepositorio(RepoType.ALUMNO);
+
+                        Alumno.Nombre = tbNombre.Text;
+                        Alumno.Apellido = tbApellido.Text;
+                        Alumno.Dni = tbDni.Text;
+                        Alumno.Direccion = tbDireccion.Text;
+                        Alumno.Telefono = tbTelefono.Text;
+                        Alumno.Email = tbEmail.Text;
+                        Alumno.Estado = 1;
+                        Alumno.Contraseña = tbDni.Text;
+
+                        Repo.Agregar(Alumno);
+
+                        if (!filtro)
+                        {
+                            ActualizarGrilla();
+                        }
+                        else
+                        {
+                            ActualizarGrillaFiltrada();
+                        }
+
+                        MessageBox.Show("Alumno cargado correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        tbNombre.Clear();
+                        tbApellido.Clear();
+                        tbDni.Clear();
+                        tbDireccion.Clear();
+                        tbTelefono.Clear();
+                        tbEmail.Clear();
+                        tbNombre.Focus();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dni ingresado no valido ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        tbDni.Clear();
+                        tbDni.Focus();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese todos los datos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
 
 

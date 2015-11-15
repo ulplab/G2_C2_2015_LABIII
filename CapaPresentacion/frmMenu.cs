@@ -107,6 +107,18 @@ namespace CapaPresentacion
                 {
                     btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-140x140.png");
                 }
+                else if ((sender as Button).Name == "btnAsignarCalificaciones")
+                {
+                    btnAsignarCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AsignarCalificaciones-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnMorosos")
+                {
+                    btnMorosos.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\morosos-Grande.png");
+                }
+                else if ((sender as Button).Name == "btnPagarCuota")
+                {
+                    btnPagarCuota.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\pagar_cuota-Grande.png");
+                }
                 else
                 {
                     btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
@@ -158,6 +170,18 @@ namespace CapaPresentacion
                 else if ((sender as Button).Name == "btnAsignarProfesor")
                 {
                     btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnAsignarCalificaciones")
+                {
+                    btnAsignarCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AsignarCalificaciones-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnMorosos")
+                {
+                    btnMorosos.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\morosos-Chico.png");
+                }
+                else if ((sender as Button).Name == "btnPagarCuota")
+                {
+                    btnPagarCuota.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\pagar_cuota-Chico.png");
                 }
                 else
                 {
@@ -282,7 +306,16 @@ namespace CapaPresentacion
             this.Visible = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void btnAsignarCalificaciones_Click(object sender, EventArgs e)
+        {
+            frmNotas Notas = new frmNotas();
+            this.Visible = false;
+            Notas.ShowDialog();
+            this.Visible = true;
+        }
+
+        private void btnMorosos_Click(object sender, EventArgs e)
         {
             frmAlumnosMorosos AlumnosMorosos = new frmAlumnosMorosos();
             this.Visible = false;
@@ -290,21 +323,7 @@ namespace CapaPresentacion
             this.Visible = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frmNotas Notas = new frmNotas();
-            this.Visible = false;
-            Notas.ShowDialog();
-            this.Visible = true;
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            frmNotas Notas = new frmNotas();
-            this.Visible = false;
-            Notas.ShowDialog();
-            this.Visible = true;
-        }
 
 
 
