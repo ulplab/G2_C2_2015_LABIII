@@ -13,7 +13,7 @@ namespace CapaDatos
 
         SqlConnection cnn;
 
-        SqlCommand cmd = new SqlCommand();
+        SqlCommand cmd;
 
         SqlTransaction transaccion;
 
@@ -82,6 +82,7 @@ namespace CapaDatos
         {
             int valor;
 
+            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.CommandTimeout = 10;
@@ -118,6 +119,7 @@ namespace CapaDatos
         {
             DataTable dt = new DataTable();
 
+            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = query;
             cmd.CommandTimeout = 10;
@@ -147,6 +149,7 @@ namespace CapaDatos
         {
             int valor;
 
+            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
             cmd.CommandText = procedimiento;
             cmd.Parameters.AddRange(param);
@@ -184,6 +187,7 @@ namespace CapaDatos
         {
             DataTable dt = new DataTable();
 
+            cmd = new SqlCommand();
             cmd.CommandType = System.Data.CommandType.Text;
             cmd.CommandText = procedimiento;
             cmd.Parameters.AddRange(param);
