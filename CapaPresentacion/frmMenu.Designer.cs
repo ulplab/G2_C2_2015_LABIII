@@ -398,7 +398,6 @@
             this.Tag = "1";
             this.Text = "frmAMBAlumnos";
             this.Load += new System.EventHandler(this.frmMenu_Load);
-            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnAgregarAdministrador, 0);
             this.Controls.SetChildIndex(this.btnAgregarAlumno, 0);
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
@@ -412,6 +411,7 @@
             this.Controls.SetChildIndex(this.btnAsignarProfesor, 0);
             this.Controls.SetChildIndex(this.btnMorosos, 0);
             this.Controls.SetChildIndex(this.btnAsignarCalificaciones, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.ResumeLayout(false);
 
         }

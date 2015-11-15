@@ -187,7 +187,7 @@ namespace CapaPresentacion
 
                     foreach (clsProfesor EPro in LA)
                     {
-                        if (EPro.Estado != 1)
+                        if (EPro.Estado == 1)
                         {
                             dgvProfesores.Rows.Add();
                             dgvProfesores.Rows[dgvProfesores.Rows.Count - 1].Cells["IdProfesor"].Value = EPro.Id;
