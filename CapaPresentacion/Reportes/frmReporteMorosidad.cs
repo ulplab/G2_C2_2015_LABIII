@@ -16,25 +16,18 @@ namespace CapaPresentacion.Reportes
 {
     public partial class frmReporteMorosidad : Form
     {
-        DataTable dt;
+        crReporteMorosidad morosos;
 
-        public frmReporteMorosidad(DataTable nombreTelefonoDireccionDeuda)
+        public frmReporteMorosidad(crReporteMorosidad reporteMorosidad)
         {
             InitializeComponent();
 
-            dt = nombreTelefonoDireccionDeuda;
+            morosos = reporteMorosidad;
         }
 
         private void frmReporteMorosidad_Load(object sender, EventArgs e)
         {
-            crReporteMorosidad morosos = new crReporteMorosidad();
-
-            morosos.SetDataSource(dt);
-
             crystalReportViewer1.ReportSource = morosos;
         }
-
-
-
     }
 }

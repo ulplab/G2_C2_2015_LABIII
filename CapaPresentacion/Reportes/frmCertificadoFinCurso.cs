@@ -11,15 +11,16 @@ namespace CapaPresentacion.Reportes
 {
     public partial class frmCertificadoFinCurso : Form
     {
-        string alumno, profesor, curso;
+        string alumno, profesor, curso, logo;
 
-        public frmCertificadoFinCurso(string nombreApellidoAlumno, string nombreApellidoProfesor, string nombreCurso)
+        public frmCertificadoFinCurso(string nombreApellidoAlumno, string nombreApellidoProfesor, string nombreCurso, string logoPath)
         {
             InitializeComponent();
 
             alumno = nombreApellidoAlumno;
             profesor = nombreApellidoProfesor;
             curso = nombreCurso;
+            logo = logoPath;
         }
 
         private void frmCertificadoFinCurso_Load(object sender, EventArgs e)
@@ -28,6 +29,7 @@ namespace CapaPresentacion.Reportes
             certificado.SetParameterValue("nombreAlumno", alumno);
             certificado.SetParameterValue("nombreCurso", curso);
             certificado.SetParameterValue("emisorCertificado", profesor);
+            certificado.SetParameterValue("logoUrl", logo);
 
             crystalReportViewer1.ReportSource = certificado;
         }
