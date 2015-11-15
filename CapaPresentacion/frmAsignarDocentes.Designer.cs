@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAsignarDocentes));
             this.gbFiltros = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -204,23 +204,23 @@
             this.dgvDocentes.AllowUserToResizeColumns = false;
             this.dgvDocentes.AllowUserToResizeRows = false;
             this.dgvDocentes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Blue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvDocentes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvDocentes.Location = new System.Drawing.Point(52, 268);
             this.dgvDocentes.MultiSelect = false;
             this.dgvDocentes.Name = "dgvDocentes";
@@ -240,7 +240,7 @@
             this.btnQuitarCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnQuitarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuitarCursos.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarCursos.Image")));
-            this.btnQuitarCursos.Location = new System.Drawing.Point(490, 646);
+            this.btnQuitarCursos.Location = new System.Drawing.Point(492, 610);
             this.btnQuitarCursos.Name = "btnQuitarCursos";
             this.btnQuitarCursos.Size = new System.Drawing.Size(169, 66);
             this.btnQuitarCursos.TabIndex = 109;
@@ -259,7 +259,7 @@
             this.btnAgregarCursos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnAgregarCursos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAgregarCursos.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarCursos.Image")));
-            this.btnAgregarCursos.Location = new System.Drawing.Point(649, 646);
+            this.btnAgregarCursos.Location = new System.Drawing.Point(651, 610);
             this.btnAgregarCursos.Name = "btnAgregarCursos";
             this.btnAgregarCursos.Size = new System.Drawing.Size(169, 66);
             this.btnAgregarCursos.TabIndex = 108;
@@ -273,7 +273,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(913, 780);
+            this.ClientSize = new System.Drawing.Size(913, 711);
             this.Controls.Add(this.btnQuitarCursos);
             this.Controls.Add(this.btnAgregarCursos);
             this.Controls.Add(this.gbFiltros);

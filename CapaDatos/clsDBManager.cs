@@ -90,13 +90,13 @@ namespace CapaDatos
             try
             {
                 cmd.Connection = getConnection();
-                if ((int)accion == 1 || (int)accion == 2)
+                if (accion == Tipo.ACTUALIZAR || accion == Tipo.ELIMINAR)
                 {
                     valor = cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+                    cmd.CommandText += ";SELECT SCOPE_IDENTITY();";
                     valor = Convert.ToInt32(cmd.ExecuteScalar());
                  }
                    
@@ -158,7 +158,7 @@ namespace CapaDatos
             try
             {
                 cmd.Connection = getConnection();
-                if ((int)accion == 1 || (int)accion == 2)
+                if (accion == Tipo.ACTUALIZAR || accion == Tipo.ELIMINAR)
                 {
                     valor = cmd.ExecuteNonQuery();
                 }
