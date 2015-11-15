@@ -29,14 +29,17 @@ namespace CapaPresentacion
             if (seguridad == NivelSeguridad.ADMINISTRADOR)
             {
                 ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)usuario).Usuario;
+                ousPie.Usuario = ((clsAdministrador)usuario).Usuario;
             }
             else if(seguridad == NivelSeguridad.PROFESOR)
             {
                 ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Apellido;
+                ousPie.Usuario = ((clsProfesor)usuario).Apellido;
             }
             else
             {
                 ousEncabezado.Titulo += "    Alumno: " + ((clsAlumno)usuario).Apellido;
+                ousPie.Usuario = ((clsAlumno)usuario).Apellido;
             }
 
             if(seguridad == NivelSeguridad.ALUMNO)

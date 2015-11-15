@@ -15,7 +15,6 @@ namespace Controles
         public usEncabezado()
         {
             InitializeComponent();
-            btnMaximizar.Enabled = false;
         }
 
 
@@ -41,6 +40,54 @@ namespace Controles
             {
                 titulo = value;
                 lblTitulo.Text = titulo;
+            }
+        }
+
+        Color fontColor;
+
+        public Color FontColor
+        {
+            get { return fontColor; }
+            set 
+            { 
+                fontColor = value;
+                lblTitulo.ForeColor = fontColor;
+            }
+        }
+
+        bool enableMinimizar;
+
+        public bool EnableMinimizar
+        {
+            get { return enableMinimizar; }
+            set 
+            { 
+                enableMinimizar = value;
+                btnMinimizar.Enabled = enableMinimizar;
+            }
+        }
+
+        bool enableMaximizar;
+
+        public bool EnableMaximizar
+        {
+            get { return enableMaximizar; }
+            set 
+            { 
+                enableMaximizar = value;
+                btnMaximizar.Enabled = enableMaximizar;
+            }
+        }
+
+        bool enableCerrar;
+
+        public bool EnableCerrar
+        {
+            get { return enableCerrar; }
+            set 
+            { 
+                enableCerrar = value;
+                btnCerrar.Enabled = enableCerrar;
             }
         }
 
