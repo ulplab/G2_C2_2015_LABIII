@@ -41,7 +41,7 @@
             this.btnPagarCuota = new System.Windows.Forms.Button();
             this.btnAsignarProfesor = new System.Windows.Forms.Button();
             this.btnMorosos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAsignarCalificaciones = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ousEncabezado
@@ -64,7 +64,7 @@
             this.btnAgregarAdministrador.ForeColor = System.Drawing.Color.White;
             this.btnAgregarAdministrador.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarAdministrador.Image")));
             this.btnAgregarAdministrador.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAgregarAdministrador.Location = new System.Drawing.Point(906, 559);
+            this.btnAgregarAdministrador.Location = new System.Drawing.Point(906, 541);
             this.btnAgregarAdministrador.Name = "btnAgregarAdministrador";
             this.btnAgregarAdministrador.Size = new System.Drawing.Size(196, 187);
             this.btnAgregarAdministrador.TabIndex = 32;
@@ -287,17 +287,19 @@
             this.btnPagarCuota.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPagarCuota.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPagarCuota.ForeColor = System.Drawing.Color.White;
-            this.btnPagarCuota.Image = global::CapaPresentacion.Properties.Resources.zona_azul;
+            this.btnPagarCuota.Image = ((System.Drawing.Image)(resources.GetObject("btnPagarCuota.Image")));
             this.btnPagarCuota.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnPagarCuota.Location = new System.Drawing.Point(906, 110);
             this.btnPagarCuota.Name = "btnPagarCuota";
-            this.btnPagarCuota.Size = new System.Drawing.Size(196, 187);
+            this.btnPagarCuota.Size = new System.Drawing.Size(196, 200);
             this.btnPagarCuota.TabIndex = 45;
             this.btnPagarCuota.TabStop = false;
             this.btnPagarCuota.Text = "Pagar cuota";
             this.btnPagarCuota.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnPagarCuota.UseVisualStyleBackColor = false;
             this.btnPagarCuota.Click += new System.EventHandler(this.btnPagarCuota_Click);
+            this.btnPagarCuota.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnPagarCuota.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
             // btnAsignarProfesor
             // 
@@ -335,47 +337,51 @@
             this.btnMorosos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnMorosos.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMorosos.ForeColor = System.Drawing.Color.White;
-            this.btnMorosos.Image = global::CapaPresentacion.Properties.Resources.stock_vector_financial_agreement_icon_191059541;
+            this.btnMorosos.Image = ((System.Drawing.Image)(resources.GetObject("btnMorosos.Image")));
             this.btnMorosos.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMorosos.Location = new System.Drawing.Point(906, 303);
+            this.btnMorosos.Location = new System.Drawing.Point(906, 333);
             this.btnMorosos.Name = "btnMorosos";
-            this.btnMorosos.Size = new System.Drawing.Size(196, 187);
+            this.btnMorosos.Size = new System.Drawing.Size(196, 200);
             this.btnMorosos.TabIndex = 47;
             this.btnMorosos.TabStop = false;
             this.btnMorosos.Text = "Morosos";
             this.btnMorosos.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnMorosos.UseVisualStyleBackColor = false;
-            this.btnMorosos.Click += new System.EventHandler(this.button1_Click);
+            this.btnMorosos.Click += new System.EventHandler(this.btnMorosos_Click);
+            this.btnMorosos.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnMorosos.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
-            // button1
+            // btnAsignarCalificaciones
             // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(667, 110);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(196, 187);
-            this.button1.TabIndex = 48;
-            this.button1.TabStop = false;
-            this.button1.Text = "Asignar Calificacion";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnAsignarCalificaciones.BackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarCalificaciones.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsignarCalificaciones.FlatAppearance.BorderSize = 0;
+            this.btnAsignarCalificaciones.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarCalificaciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarCalificaciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnAsignarCalificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsignarCalificaciones.Font = new System.Drawing.Font("Arial", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAsignarCalificaciones.ForeColor = System.Drawing.Color.White;
+            this.btnAsignarCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCalificaciones.Image")));
+            this.btnAsignarCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAsignarCalificaciones.Location = new System.Drawing.Point(667, 110);
+            this.btnAsignarCalificaciones.Name = "btnAsignarCalificaciones";
+            this.btnAsignarCalificaciones.Size = new System.Drawing.Size(196, 187);
+            this.btnAsignarCalificaciones.TabIndex = 48;
+            this.btnAsignarCalificaciones.TabStop = false;
+            this.btnAsignarCalificaciones.Text = "Asignar Calificaciones";
+            this.btnAsignarCalificaciones.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAsignarCalificaciones.UseVisualStyleBackColor = false;
+            this.btnAsignarCalificaciones.Click += new System.EventHandler(this.btnAsignarCalificaciones_Click);
+            this.btnAsignarCalificaciones.MouseEnter += new System.EventHandler(this.btnListadoRegistros_MouseEnter);
+            this.btnAsignarCalificaciones.MouseLeave += new System.EventHandler(this.btnListadoRegistros_MouseLeave);
             // 
             // frmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1135, 758);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAsignarCalificaciones);
             this.Controls.Add(this.btnMorosos);
             this.Controls.Add(this.btnAsignarProfesor);
             this.Controls.Add(this.btnPagarCuota);
@@ -392,7 +398,6 @@
             this.Tag = "1";
             this.Text = "frmAMBAlumnos";
             this.Load += new System.EventHandler(this.frmMenu_Load);
-            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnAgregarAdministrador, 0);
             this.Controls.SetChildIndex(this.btnAgregarAlumno, 0);
             this.Controls.SetChildIndex(this.btnAgregarCurso, 0);
@@ -405,7 +410,8 @@
             this.Controls.SetChildIndex(this.btnPagarCuota, 0);
             this.Controls.SetChildIndex(this.btnAsignarProfesor, 0);
             this.Controls.SetChildIndex(this.btnMorosos, 0);
-            this.Controls.SetChildIndex(this.button1, 0);
+            this.Controls.SetChildIndex(this.btnAsignarCalificaciones, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.ResumeLayout(false);
 
         }
@@ -424,7 +430,7 @@
         private System.Windows.Forms.Button btnPagarCuota;
         private System.Windows.Forms.Button btnAsignarProfesor;
         private System.Windows.Forms.Button btnMorosos;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAsignarCalificaciones;
 
     }
 }

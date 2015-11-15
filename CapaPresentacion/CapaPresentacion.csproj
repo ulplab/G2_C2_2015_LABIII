@@ -121,6 +121,11 @@
     <Compile Include="frmQuitarAsignacionDocentes.Designer.cs">
       <DependentUpon>frmQuitarAsignacionDocentes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\crCertificadoFinCurso.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -401,14 +406,9 @@
     <EmbeddedResource Include="obj\x86\Debug\CapaPresentacion.Properties.Resources.resources" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="Reportes\frmCertificadoFinCurso.resx">
       <DependentUpon>frmCertificadoFinCurso.cs</DependentUpon>
     </EmbeddedResource>
@@ -487,6 +487,10 @@
     <Content Include="bin\Debug\Presentacion.vshost.exe" />
     <Content Include="bin\Debug\Repositorios.dll" />
     <Content Include="bin\Debug\Repositorios.pdb" />
+    <None Include="Imagenes\IconosMenu\morosos.png" />
+    <None Include="Imagenes\IconosMenu\pagar_cuota.png" />
+    <None Include="Imagenes\IconosMenu\pagar_cuota-Chico.png" />
+    <None Include="Imagenes\IconosMenu\morosos-Chico.png" />
     <Content Include="obj\x86\Debug\CapaPresentacion.csproj.FileListAbsolute.txt" />
     <Content Include="obj\x86\Debug\Presentacion.exe" />
     <Content Include="obj\x86\Debug\Presentacion.pdb" />

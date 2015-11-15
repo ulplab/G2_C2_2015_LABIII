@@ -32,9 +32,9 @@ namespace Clases
             set { idCurso = value; }
         }
 
-        int nota = -1;
+        double nota = -1;
 
-        public int Nota
+        public double Nota
         {
             get { return nota; }
             set { nota = value; }

@@ -375,7 +375,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta, Cursos WHERE Dicta.IdCurso = Cursos.IdCurso and Estado = 1 and Cursos.IdCurso =" + IdCurso + ";");
+                dt = dbmanager.Consultar("SELECT COUNT(*) as Cantidad FROM Dicta d, Cursos c, Profesores p WHERE d.IdCurso = c.IdCurso and d.IdProfesor = p.IdProfesor and c.Estado = 1 and p.Estado = 1 and c.IdCurso = " + IdCurso + ";");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }
@@ -455,7 +455,7 @@ namespace CapaDatos
 
             try
             {
-                dt = dbmanager.Consultar("select * from Cursos where IdCurso not in(select c.IdCurso from Dicta d, cursos c where d.IdCurso = d.IdCurso and IdProfesor = "+ idProfesor + ");");
+                dt = dbmanager.Consultar("select * from Cursos where IdCurso not in(select c.IdCurso from Dicta d, cursos c where d.IdCurso = c.IdCurso and IdProfesor = "+ idProfesor + ");");
             }
             catch(Exception e)
             {

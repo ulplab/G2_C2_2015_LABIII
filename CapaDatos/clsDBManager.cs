@@ -18,7 +18,7 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        string usuario = "Labo";
+        string usuario = "LaboIII";
         
         public string Usuario
         {
@@ -32,14 +32,14 @@ namespace CapaDatos
             set { clave = value; }
         }
 
-        string server = "mario-ulp\\sqlexpress";
+        string server = "NOTEBOOK";
 
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDInstituto";
+        string baseDeDatos = "BDExamen1LaboIII";
 
         public string BaseDeDatos
         {
@@ -91,13 +91,13 @@ namespace CapaDatos
             try
             {
                 cmd.Connection = getConnection();
-                if ((int)accion == 1 || (int)accion == 2)
+                if (accion == Tipo.ACTUALIZAR || accion == Tipo.ELIMINAR)
                 {
                     valor = cmd.ExecuteNonQuery();
                 }
                 else
                 {
-                    cmd.CommandText += "SELECT SCOPE_IDENTITY();";
+                    cmd.CommandText += ";SELECT SCOPE_IDENTITY();";
                     valor = Convert.ToInt32(cmd.ExecuteScalar());
                  }
                    
@@ -161,7 +161,7 @@ namespace CapaDatos
             try
             {
                 cmd.Connection = getConnection();
-                if ((int)accion == 1 || (int)accion == 2)
+                if (accion == Tipo.ACTUALIZAR || accion == Tipo.ELIMINAR)
                 {
                     valor = cmd.ExecuteNonQuery();
                 }

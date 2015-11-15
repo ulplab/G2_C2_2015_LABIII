@@ -243,7 +243,7 @@ namespace CapaLogica
             int i;
             try
             {
-                i = manager.Cantidad(idCurso);
+                i = manager.CantidadAlumnos(idCurso);
             }
             catch (Exception e)
             {
@@ -258,7 +258,7 @@ namespace CapaLogica
             int i;
             try
             {
-                i = manager.CantidadAlumno(idAlumno);
+                i = manager.CantidadCursos(idAlumno);
             }
             catch (Exception e)
             {

@@ -551,13 +551,13 @@ namespace CapaPresentacion
                 if (!string.IsNullOrWhiteSpace(tbNota.Text))
                 {
                     string expresion1 =  "^[,][0-9]{0,4}$";
-                    string expresion2 = "^[0-9]{0,4}[,]$";
-                    if ((Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) & (Regex.IsMatch(tbNota.Text.Trim(), expresion2) == false))
+                    string valor = tbNota.Text.Replace(',', '.');
+                    if (Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) 
                     {
                         clsNota nueva = new clsNota();
                         nueva.IdAlumno = Alumno.Id;
                         nueva.IdCurso = Curso.Id;
-                        nueva.Nota = Convert.ToInt32(tbNota.Text.Trim());
+                        nueva.Nota = Convert.ToDouble(valor);
                         nueva.Estado = 1;
                         nueva.Fecha = DateTime.Today;
                         Nota.Agregar(nueva);

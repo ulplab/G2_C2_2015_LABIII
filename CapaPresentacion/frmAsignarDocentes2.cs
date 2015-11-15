@@ -186,7 +186,7 @@ namespace CapaPresentacion
 
                 if (resultado)
                 {
-                    MessageBox.Show("Se agrego el permiso del profesor al curso correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Se agrego el permiso del profesor al curso correctamente", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (filtro)
                     {
                         ActualizarGrillaFiltrada();

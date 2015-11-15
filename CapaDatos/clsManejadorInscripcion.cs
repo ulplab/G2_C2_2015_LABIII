@@ -181,15 +181,14 @@ namespace CapaDatos
             return list;
         }
 
-        public int Cantidad(int IdCurso)
+        public int CantidadAlumnos(int IdCurso)
         {
             DataTable dt = new DataTable();
             int ret = 0;
 
             try
             {
-                //dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste WHERE Estado = 1 AND IdCurso =" + IdCurso);
-                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c WHERE a.Estado = 1 AND c.IdCurso =" + IdCurso + "and a.IdCurso = c.IdCurso and c.Estado = 1;");
+                dt = dbman.Consultar("SELECT COUNT(*) as Cantidad FROM Asiste a, Cursos c, Alumnos alu WHERE a.Estado = 1 AND alu.Estado = 1 AND c.IdCurso = " + IdCurso + " and a.IdCurso = c.IdCurso and c.Estado = 1 and a.IdAlumno = alu.IdAlumno;");
                 ret = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
 
             }
@@ -201,7 +200,7 @@ namespace CapaDatos
             return ret;
         }
 
-        public int CantidadAlumno(int IdAlumno)
+        public int CantidadCursos(int IdAlumno)
         {
             DataTable dt = new DataTable();
             int ret = 0;

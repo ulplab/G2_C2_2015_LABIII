@@ -107,6 +107,18 @@ namespace CapaPresentacion
                 {
                     btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-140x140.png");
                 }
+                else if ((sender as Button).Name == "btnAsignarCalificaciones")
+                {
+                    btnAsignarCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AsignarCalificaciones-140x140.png");
+                }
+                else if ((sender as Button).Name == "btnMorosos")
+                {
+                    btnMorosos.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\morosos-Grande.png");
+                }
+                else if ((sender as Button).Name == "btnPagarCuota")
+                {
+                    btnPagarCuota.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\pagar_cuota-Grande.png");
+                }
                 else
                 {
                     btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-140x140.png");
@@ -159,6 +171,18 @@ namespace CapaPresentacion
                 {
                     btnAsignarProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\Asignar-Profesor-120x120.png");
                 }
+                else if ((sender as Button).Name == "btnAsignarCalificaciones")
+                {
+                    btnAsignarCalificaciones.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AsignarCalificaciones-120x120.png");
+                }
+                else if ((sender as Button).Name == "btnMorosos")
+                {
+                    btnMorosos.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\morosos-Chico.png");
+                }
+                else if ((sender as Button).Name == "btnPagarCuota")
+                {
+                    btnPagarCuota.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\pagar_cuota-Chico.png");
+                }
                 else
                 {
                     btnAgregarDocentes.Image = Image.FromFile(@"..\\..\\Imagenes\IconosMenu\AgregarDocentes-120x120.png");
@@ -173,25 +197,19 @@ namespace CapaPresentacion
         private void btnAgregarAdministrador_Click(object sender, EventArgs e)
         {
             frmRegistrarAdministradores RegistrarAdministrador = new frmRegistrarAdministradores();
-            this.Visible = false;
             RegistrarAdministrador.ShowDialog();
-            this.Visible = true;
         }
 
         private void btnAgregarAlumno_Click(object sender, EventArgs e)
         {
             frmCargarAlumnos CargarAlumnos = new frmCargarAlumnos();
-            this.Visible = false;
             CargarAlumnos.ShowDialog();
-            this.Visible = true;
         }
 
         private void btnAgregarCurso_Click(object sender, EventArgs e)
         {
             frmCargarCursos CargarCursos = new frmCargarCursos();
-            this.Visible = false;
             CargarCursos.ShowDialog();
-            this.Visible = true;
         }
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
@@ -205,19 +223,8 @@ namespace CapaPresentacion
         private void btnAlumnosPorCurso_Click(object sender, EventArgs e)
         {
             frmAlumnosPorCurso AlumnosPorCurso = new frmAlumnosPorCurso();
-            this.Visible = false;
             AlumnosPorCurso.ShowDialog();
-            this.Visible = true;
         }
-
-        private void btnCursosPorAlumno_Click(object sender, EventArgs e)
-        {
-            frmCursosPorAlumno CursosPorAlumno = new frmCursosPorAlumno();
-            this.Visible = false;
-            CursosPorAlumno.ShowDialog();
-            this.Visible = true;
-        }
-
         private void btnDarBajaInscripcion_Click(object sender, EventArgs e)
         {
             frmBajarAlumnos BajarAlumnos = new frmBajarAlumnos();
@@ -261,9 +268,7 @@ namespace CapaPresentacion
         private void btnAgregarDocentes_Click(object sender, EventArgs e)
         {
             frmCargarDocentes CargarDocentes = new frmCargarDocentes();
-            this.Visible = false;
             CargarDocentes.ShowDialog();
-            this.Visible = true;
         }
 
         private void btnPagarCuota_Click(object sender, EventArgs e)
@@ -277,12 +282,19 @@ namespace CapaPresentacion
         private void btnAsignarProfesor_Click(object sender, EventArgs e)
         {
             frmAsignarDocentes AsignarDocentes = new frmAsignarDocentes();
-            this.Visible = false;
             AsignarDocentes.ShowDialog();
+        }
+
+
+        private void btnAsignarCalificaciones_Click(object sender, EventArgs e)
+        {
+            frmNotas Notas = new frmNotas();
+            this.Visible = false;
+            Notas.ShowDialog();
             this.Visible = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnMorosos_Click(object sender, EventArgs e)
         {
             frmAlumnosMorosos AlumnosMorosos = new frmAlumnosMorosos();
             this.Visible = false;
@@ -290,21 +302,7 @@ namespace CapaPresentacion
             this.Visible = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            frmNotas Notas = new frmNotas();
-            this.Visible = false;
-            Notas.ShowDialog();
-            this.Visible = true;
-        }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            frmNotas Notas = new frmNotas();
-            this.Visible = false;
-            Notas.ShowDialog();
-            this.Visible = true;
-        }
 
 
 

@@ -159,20 +159,7 @@ namespace CapaPresentacion
             }
 
         }
-        private void btnActivarFiltro_Click(object sender, EventArgs e)
-        {
-            btnActivarFiltro.BackColor = Color.Lime;
-            btnDesactivarFiltro.BackColor = Color.Transparent;
-            filtro = true;
-            ActualizarGrillaFiltrada();
-        }
-        private void btnDesactivarFiltro_Click(object sender, EventArgs e)
-        {
 
-            btnDesactivarFiltro.BackColor = Color.Red;
-            btnActivarFiltro.BackColor = Color.Transparent;
-            filtro = false;
-        }
         private void ColumnasCursos()
         {
             dgvEtapaUno.Columns.Clear();
@@ -205,6 +192,11 @@ namespace CapaPresentacion
             dgvEtapaUno.Columns.Add("Curso", "Curso");
             dgvEtapaUno.Columns.Add("Nota", "Nota");
             dgvEtapaUno.Columns.Add("Fecha", "Fecha");
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
         }
 
     }

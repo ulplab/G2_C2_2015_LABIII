@@ -303,7 +303,7 @@ namespace CapaLogica
             int i;
             try
             {
-                i = manager.CantidadProfesores(idProfesor);
+                i = manager.CantidadCursos(idProfesor);
             }
             catch (Exception e)
             {
