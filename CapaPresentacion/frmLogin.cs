@@ -195,7 +195,9 @@ namespace CapaPresentacion
                         {
                             if (Alumno.Estado == 1)
                             {
-                                MessageBox.Show("Hola alumno");
+                                frmMenuAlumnos MenuAlumnos = new frmMenuAlumnos(Alumno);
+                                this.Hide();
+                                MenuAlumnos.ShowDialog();
                             }
                             else
                             {

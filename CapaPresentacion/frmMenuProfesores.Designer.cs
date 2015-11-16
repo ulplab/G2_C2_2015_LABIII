@@ -164,6 +164,7 @@
             this.Controls.Add(this.btnDarBajaInscripcion);
             this.Controls.Add(this.btnInscribirAlumno);
             this.Name = "frmMenuProfesores";
+            this.Tag = "1";
             this.Text = "MenuProfesores";
             this.Load += new System.EventHandler(this.MenuProfesores_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);

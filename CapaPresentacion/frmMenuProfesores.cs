@@ -112,7 +112,7 @@ namespace CapaPresentacion
         private void MenuProfesores_Load(object sender, EventArgs e)
         {
             ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Apellido;
-            ousPie.Usuario = ((clsProfesor)usuario).Apellido;
+            ousPie.Usuario = ((clsProfesor)usuario).Nombre;
         }
 
         void Cerrar()
