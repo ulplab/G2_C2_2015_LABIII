@@ -54,6 +54,7 @@
             this.btnCursosPorAlumno = new System.Windows.Forms.Button();
             this.btnProfesoresPorCurso = new System.Windows.Forms.Button();
             this.btnCursosPorProfesor = new System.Windows.Forms.Button();
+            this.btnGenerarReporte = new System.Windows.Forms.Button();
             this.gbFiltros.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -65,7 +66,7 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1019, 90);
+            this.ousEncabezado.Size = new System.Drawing.Size(1192, 90);
             this.ousEncabezado.Titulo = "Alumnos por Curso";
             // 
             // gbFiltros
@@ -398,11 +399,36 @@
             this.btnCursosPorProfesor.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             this.btnCursosPorProfesor.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
             // 
+            // btnGenerarReporte
+            // 
+            this.btnGenerarReporte.BackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarReporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerarReporte.FlatAppearance.BorderSize = 0;
+            this.btnGenerarReporte.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarReporte.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnGenerarReporte.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarReporte.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarReporte.ForeColor = System.Drawing.Color.White;
+            this.btnGenerarReporte.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarReporte.Image")));
+            this.btnGenerarReporte.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnGenerarReporte.Location = new System.Drawing.Point(977, 503);
+            this.btnGenerarReporte.Name = "btnGenerarReporte";
+            this.btnGenerarReporte.Size = new System.Drawing.Size(155, 209);
+            this.btnGenerarReporte.TabIndex = 79;
+            this.btnGenerarReporte.Tag = "6";
+            this.btnGenerarReporte.Text = "Generar Reporte";
+            this.btnGenerarReporte.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnGenerarReporte.UseVisualStyleBackColor = false;
+            this.btnGenerarReporte.Click += new System.EventHandler(this.btnGenerarReporte_Click);
+            this.btnGenerarReporte.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
+            this.btnGenerarReporte.MouseLeave += new System.EventHandler(this.btnBuscar_MouseLeave);
+            // 
             // frmAlumnosPorCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1019, 780);
+            this.ClientSize = new System.Drawing.Size(1192, 772);
+            this.Controls.Add(this.btnGenerarReporte);
             this.Controls.Add(this.btnCursosPorProfesor);
             this.Controls.Add(this.btnProfesoresPorCurso);
             this.Controls.Add(this.btnCursosPorAlumno);
@@ -415,7 +441,6 @@
             this.Name = "frmAlumnosPorCurso";
             this.Text = "frmListadosRegistros";
             this.Load += new System.EventHandler(this.frmListadosRegistros_Load);
-            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.dgvCursos, 0);
             this.Controls.SetChildIndex(this.gbFiltros, 0);
             this.Controls.SetChildIndex(this.dgvAlumnos, 0);
@@ -425,6 +450,8 @@
             this.Controls.SetChildIndex(this.btnCursosPorAlumno, 0);
             this.Controls.SetChildIndex(this.btnProfesoresPorCurso, 0);
             this.Controls.SetChildIndex(this.btnCursosPorProfesor, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
+            this.Controls.SetChildIndex(this.btnGenerarReporte, 0);
             this.gbFiltros.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -462,5 +489,6 @@
         private System.Windows.Forms.Button btnProfesoresPorCurso;
         private System.Windows.Forms.Button btnCursosPorAlumno;
         private System.Windows.Forms.Button btnAlumnosPorCurso;
+        private System.Windows.Forms.Button btnGenerarReporte;
     }
 }

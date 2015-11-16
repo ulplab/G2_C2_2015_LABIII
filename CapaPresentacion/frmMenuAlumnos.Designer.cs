@@ -34,14 +34,14 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(806, 94);
+            this.ousEncabezado.Size = new System.Drawing.Size(905, 94);
             this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);
             // 
             // ousPie
             // 
             this.ousPie.BackColor = System.Drawing.Color.Transparent;
             this.ousPie.FontColor = System.Drawing.Color.White;
-            this.ousPie.Location = new System.Drawing.Point(22, 378);
+            this.ousPie.Location = new System.Drawing.Point(23, 415);
             this.ousPie.Name = "ousPie";
             this.ousPie.Size = new System.Drawing.Size(756, 50);
             this.ousPie.TabIndex = 54;
@@ -51,7 +51,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 440);
+            this.ClientSize = new System.Drawing.Size(905, 477);
             this.Controls.Add(this.ousPie);
             this.Name = "frmMenuAlumnos";
             this.Tag = "1";
