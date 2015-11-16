@@ -197,6 +197,22 @@ namespace CapaLogica
             return list;
         }
 
+        public List<IEntidad> Lista_Formateada()
+        {
+            List<IEntidad> list = new List<IEntidad>();
+
+            try
+            {
+                list.AddRange(manager.ListarNotaFormateada());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
+        }
+
         public List<IEntidad> Notas_Por_Alumno(int id)
         {
             List<IEntidad> list = new List<IEntidad>();

@@ -197,6 +197,47 @@ namespace CapaDatos
             return res;
         }
 
+        public List<clsNotaFormateada> ListarNotaFormateada()
+        {
+            List<clsNotaFormateada> res = new List<clsNotaFormateada>();
+
+            DataTable dt;
+
+            try
+            {
+                dt = dbManager.Consultar
+                    (
+                    "select resultado.IdNota,Alumnos.Nombre,Alumnos.Apellido,Cursos.Nombre as \"Curso\", resultado.Nota , resultado.Fecha , resultado.Estado " +
+                    "from Alumnos,Cursos, (select * from Nota where Nota.Estado = '1') as \"resultado\" " +
+                    "where Alumnos.IdAlumno = resultado.IdAlumno " +
+                    "and " +
+                     "Cursos.IdCurso = resultado.IdCurso; "
+                    );
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+
+            foreach (DataRow item in dt.Rows)
+            {
+                clsNotaFormateada p = new clsNotaFormateada();
+
+                p.Id = Convert.ToInt32(item["IdNota"]);
+                p.Nombre_Alumno = Convert.ToString(item["Nombre"]);
+                p.Apellido = Convert.ToString(item["Apellido"]);
+                p.Nombre_Curso = Convert.ToString(item["Curso"]);
+                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Fecha = Convert.ToDateTime(item["Fecha"]);
+                p.Estado = Convert.ToInt32(item["Estado"]);
+
+                res.Add(p);
+            }
+
+            return res;
+        }
+
         public List<clsNotaFormateada> Notas_por_Alumno(clsAlumno Alumno)
         {
             List<clsNotaFormateada> res = new List<clsNotaFormateada>();

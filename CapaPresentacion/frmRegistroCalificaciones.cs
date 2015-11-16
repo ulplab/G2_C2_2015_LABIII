@@ -61,7 +61,7 @@ namespace CapaPresentacion
                 this.ColumnasNotas();
                 try
                 {
-                    List<IEntidad> LE = Nota_consultador.Lista();
+                    List<IEntidad> LE = Nota_consultador.Lista_Formateada();
                     foreach (clsNotaFormateada ECurso in LE)
                     {
                         if (ECurso.Estado == 1)
