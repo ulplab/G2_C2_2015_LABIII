@@ -23,6 +23,7 @@ namespace CapaPresentacion
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
         clsRepositorioInscripcion MA = new clsRepositorioInscripcion();
+        clsRepositorioProfesor RPro = new clsRepositorioProfesor();
         bool filtro = false;
 
         private void frmListadosRegistros_Load(object sender, EventArgs e)
@@ -211,6 +212,10 @@ namespace CapaPresentacion
             {
                 btnProfesoresPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
             }
+            else if ((sender as Button).Name == "btnGenerarReporte")
+            {
+                btnGenerarReporte.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Reporte-Grande.png");
+            }
             else
             {
                 btnCursosPorProfesor.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Grande.png");
@@ -234,6 +239,10 @@ namespace CapaPresentacion
             else if ((sender as Button).Name == "btnProfesoresPorCurso")
             {
                 btnProfesoresPorCurso.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Boton-Opciones-Chico.png");
+            }
+            else if ((sender as Button).Name == "btnGenerarReporte")
+            {
+                btnGenerarReporte.Image = Image.FromFile(@"..\\..\\Imagenes\Iconos\Reporte-Chico.png");
             }
             else
             {
@@ -271,6 +280,62 @@ namespace CapaPresentacion
             this.Visible = false;
             CursosPorDocente.ShowDialog();
             this.Close();
+        }
+
+        private void btnGenerarReporte_Click(object sender, EventArgs e)
+        {
+            if (dgvCursos.Rows.Count != 0 && dgvCursos.CurrentRow != null)
+            {
+                if (dgvAlumnos.Rows.Count != 0)
+                {
+                    int IdCurso = Convert.ToInt32(dgvCursos.CurrentRow.Cells["IdCurso"].Value);
+                    List<IEntidad> LPro = RPro.ListaProfesores(IdCurso);
+                    if (LPro.Count != 0)
+                    {
+                        string nombreCurso = Convert.ToString(dgvCursos.CurrentRow.Cells["Nombre"].Value);
+                        string nombreProfesor = ((clsProfesor)LPro[0]).Nombre;
+                        Reportes.crListadoAlumnosPorCurso ListadoAlumnosPorCurso = new Reportes.crListadoAlumnosPorCurso();
+
+                        DataSet dsLista = new DataSet("Lista");
+                        DataTable dtListaAlumnos = new DataTable("ListaAlumnos");
+                        dtListaAlumnos.Columns.Add("IdAlumno", typeof(int));
+                        dtListaAlumnos.Columns.Add("Nombre", typeof(string));
+                        dtListaAlumnos.Columns.Add("Apellido", typeof(string));
+                        dtListaAlumnos.Columns.Add("Dni", typeof(string));
+                        dtListaAlumnos.Columns.Add("Direccion", typeof(string));
+                        dtListaAlumnos.Columns.Add("Telefono", typeof(string));
+                        dtListaAlumnos.Columns.Add("Email", typeof(string));
+                        dtListaAlumnos.Columns.Add("Estado", typeof(int));
+
+                        dsLista.Tables.Add(dtListaAlumnos);
+
+                        for (int i = 0; i < dgvAlumnos.Rows.Count; i++)
+                        {
+                            DataRow row =  dsLista.Tables["ListaAlumnos"].NewRow();
+                            row["IdAlumno"] = Convert.ToInt32(dgvAlumnos.Rows[i].Cells["IdAlumno"].Value);
+                            row["Nombre"] = Convert.ToString(dgvAlumnos.Rows[i].Cells["Nombre"].Value);
+                            row["Apellido"] = Convert.ToString(dgvAlumnos.Rows[i].Cells["Apellido"].Value);
+                            row["Direccion"] = Convert.ToString(dgvAlumnos.Rows[i].Cells["Direccion"].Value);
+                            row["Telefono"] = Convert.ToString(dgvAlumnos.Rows[i].Cells["Telefono"].Value);
+                            dsLista.Tables["ListaAlumnos"].Rows.Add(row);
+                        }
+                        ListadoAlumnosPorCurso.SetDataSource(dsLista.Tables["ListaAlumnos"]);
+                        Reportes.frmListadoAlumnos ListadoAlumnos = new Reportes.frmListadoAlumnos(nombreCurso, nombreProfesor, ListadoAlumnosPorCurso);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No existe ningun profesor asignado a este curso", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No existen alumnos inscriptos al curso seleccionado", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No hay cursos disponibles", "AVISO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

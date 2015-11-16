@@ -17,56 +17,17 @@ namespace CapaPresentacion
         IEntidad usuario;
         NivelSeguridad seguridad;
 
-        public frmMenu(IEntidad usuario, NivelSeguridad seguridad)
+        public frmMenu(IEntidad usuario)
         {
             InitializeComponent();
             this.usuario = usuario;
-            this.seguridad = seguridad;
         }
 
         private void frmMenu_Load(object sender, EventArgs e)
         {
-            if (seguridad == NivelSeguridad.ADMINISTRADOR)
-            {
-                ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)usuario).Usuario;
-                ousPie.Usuario = ((clsAdministrador)usuario).Usuario;
-            }
-            else if(seguridad == NivelSeguridad.PROFESOR)
-            {
-                ousEncabezado.Titulo += "    Profesor: " + ((clsProfesor)usuario).Apellido;
-                ousPie.Usuario = ((clsProfesor)usuario).Apellido;
-            }
-            else
-            {
-                ousEncabezado.Titulo += "    Alumno: " + ((clsAlumno)usuario).Apellido;
-                ousPie.Usuario = ((clsAlumno)usuario).Apellido;
-            }
+            ousEncabezado.Titulo += "    Administrador: " + ((clsAdministrador)usuario).Usuario;
+            ousPie.Usuario = ((clsAdministrador)usuario).Usuario;
 
-            if(seguridad == NivelSeguridad.ALUMNO)
-            {
-                btnAgregarAdministrador.Enabled = false;
-                btnAgregarDocentes.Enabled = false;
-                btnAgregarCurso.Enabled = false;
-                btnAgregarAlumno.Enabled = false;
-                btnInscribirAlumno.Enabled = false;
-                btnDarBajaInscripcion.Enabled = false;
-                btnAsignarProfesor.Enabled = false;
-                btnEstadisticas.Enabled = false;
-                btnRegistrosCalificaciones.Enabled = false;
-                btnPagarCuota.Enabled = false;
-                btnMorosos.Enabled = false;
-            }
-            else if(seguridad == NivelSeguridad.PROFESOR)
-            {
-                btnAgregarAdministrador.Enabled = false;
-                btnAgregarDocentes.Enabled = false;
-                btnAgregarCurso.Enabled = false;
-                btnAgregarAlumno.Enabled = false;
-                btnAsignarProfesor.Enabled = false;
-                btnEstadisticas.Enabled = false;
-                btnPagarCuota.Enabled = false;
-                btnMorosos.Enabled = false;
-            }
         }
 
 
@@ -217,7 +178,7 @@ namespace CapaPresentacion
 
         private void btnInscribirAlumno_Click(object sender, EventArgs e)
         {
-            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso(usuario);
+            frmInscripcionCurso InscribirCurso = new frmInscripcionCurso();
             this.Visible = false;
             InscribirCurso.ShowDialog();
             this.Visible = true;

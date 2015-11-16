@@ -14,24 +14,21 @@ namespace CapaPresentacion
 {
     public partial class frmInscripcion2 : frmPrincipal
     {
-        public frmInscripcion2(clsAlumno nuevo,clsAdministrador actual)
+        public frmInscripcion2(clsAlumno nuevo)
         {
             InitializeComponent();
             Alumno = nuevo;
-            Actual = actual;
             ArrancoAlumno = true;
             ousEncabezado.Titulo = "Seleccione el curso al cual inscribir";
         }
-        public frmInscripcion2(clsCurso nuevo,clsAdministrador actual)
+        public frmInscripcion2(clsCurso nuevo)
         {
             InitializeComponent();
             Curso = nuevo;
             ArrancoAlumno = false;
-            Actual = actual;
             ousEncabezado.Titulo = "Seleccione el alumno al cual inscribir";
         }
 
-        private clsAdministrador Actual;
         private clsCurso Curso;
         private clsAlumno Alumno;
         private bool ArrancoAlumno;
@@ -187,10 +184,9 @@ namespace CapaPresentacion
             clsRepositorioInscripcion nuevo = new clsRepositorioInscripcion();
             try
             {
-                if ((Alumno.Id != -1) && (Curso.Id != -1) && (Actual != null))
+                if ((Alumno.Id != -1) && (Curso.Id != -1))
                 {
                     clsInscripcion Inscripcion = new clsInscripcion();
-                    Inscripcion.IdAdministrador = Actual.Id;
                     Inscripcion.IdAlumno = Alumno.Id;
                     Inscripcion.IdCurso = Curso.Id;
                     int result = nuevo.Inscribir(Inscripcion);
