@@ -20,11 +20,11 @@ namespace CapaDatos
             try
             {
                 //NroInscripcion,IdAdministrador,IdCurso,IdAlumno,Estado
-                SqlParameter[] param = new SqlParameter[4];
-                param[0] = new SqlParameter("@idAdministrador", entidad.IdAdministrador);
-                param[1] = new SqlParameter("@idCurso", entidad.IdCurso);
-                param[2] = new SqlParameter("@idAlumno", entidad.IdAlumno);
-                param[3] = new SqlParameter("@estado", entidad.Estado);
+                SqlParameter[] param = new SqlParameter[3];
+                //param[0] = new SqlParameter("@idAdministrador", entidad.IdAdministrador);
+                param[0] = new SqlParameter("@idCurso", entidad.IdCurso);
+                param[1] = new SqlParameter("@idAlumno", entidad.IdAlumno);
+                param[2] = new SqlParameter("@estado", entidad.Estado);
                 //string query = "INSERT INTO Asiste([IdAdministrador],[IdCurso],[IdAlumno],[Estado]) VALUES('" + entidad.IdAdministrador + "','" + entidad.IdCurso + "','" + entidad.IdAlumno + "','" + entidad.Estado + "');";
                 filas = dbman.Ejecutar("insertarInscripcion", param, Tipo.INSERTAR);
             }
@@ -41,7 +41,7 @@ namespace CapaDatos
             int filas;
             try
             {
-                string query = "UPDATE Asiste Set IdAdministrador = '" + entidad.IdAdministrador + "', IdCurso = '" + entidad.IdCurso + "', IdAlumno = '" + entidad.IdAlumno + "', Estado = '" + entidad.Estado + "' WHERE NroInscripcion =" + entidad.NroInscripcion + ";";
+                string query = "UPDATE Asiste Set IdCurso = '" + entidad.IdCurso + "', IdAlumno = '" + entidad.IdAlumno + "', Estado = '" + entidad.Estado + "' WHERE NroInscripcion =" + entidad.NroInscripcion + ";";
                 filas = dbman.Ejecutar(query, Tipo.ACTUALIZAR);
 
                 string consulta = "SELECT COUNT(*) as Cantidad FROM Asiste WHERE IdCurso = " + entidad.IdCurso + ";";
@@ -86,7 +86,7 @@ namespace CapaDatos
                 query += " NroInscripcion = " + entidad.NroInscripcion;
                 id = true;
             }
-            if (entidad.IdAdministrador != -1)
+            /*if (entidad.IdAdministrador != -1)
             {
                 if (id)
                 {
@@ -94,7 +94,7 @@ namespace CapaDatos
                 }
                 query += " IdAdministrador = " + entidad.IdAdministrador;
                 idAd = true;
-            }
+            }*/
             if (entidad.IdAlumno != -1)
             {
                 if (id || idAd)
@@ -140,7 +140,7 @@ namespace CapaDatos
                 clsInscripcion a = new clsInscripcion();
 
                 a.NroInscripcion = Convert.ToInt32(dr["NroInscripcion"]);
-                a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
+                //a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
                 a.IdCurso = Convert.ToInt32(dr["IdCurso"]);
                 a.IdAlumno = Convert.ToInt32(dr["IdAlumno"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
@@ -170,7 +170,7 @@ namespace CapaDatos
                 clsInscripcion a = new clsInscripcion();
 
                 a.NroInscripcion = Convert.ToInt32(dr["NroInscripcion"]);
-                a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
+                //a.IdAdministrador = Convert.ToInt32(dr["IdAdministrador"]);
                 a.IdCurso = Convert.ToInt32(dr["IdCurso"]);
                 a.IdAlumno = Convert.ToInt32(dr["IdAlumno"]);
                 a.Estado = Convert.ToInt32(dr["Estado"]);
