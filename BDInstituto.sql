@@ -92,11 +92,9 @@ create table Cuota(
 --Asiste = (NroInscripcion, IdAdministrador, IdCurso, IdAlumno, Estado)
  create table Asiste(
 	NroInscripcion int not null identity(10,10),
-	IdAdministrador int not null,
 	IdCurso int not null,
 	IdAlumno int not null,
 	Estado bit not null,
-	constraint FK_ASISTE_ID_ADMINISTRADOR foreign key (IdAdministrador) references Administradores(IdAdministrador),
 	constraint FK_ASISTE_ID_CURSO foreign key (IdCurso) references Cursos(IdCurso),
 	constraint FK_ASISTE_ID_ALUMNO foreign key (IdAlumno) references Alumnos(IdAlumno),
 	constraint PK_ID_ASISTE primary key(NroInscripcion)

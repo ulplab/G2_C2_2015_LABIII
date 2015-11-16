@@ -60,7 +60,6 @@
             this.btnContinuar.FlatAppearance.BorderSize = 0;
             this.btnContinuar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.btnContinuar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
             this.btnContinuar.Location = new System.Drawing.Point(913, 640);

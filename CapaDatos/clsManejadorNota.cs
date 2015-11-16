@@ -6,6 +6,7 @@ using Clases;
 using Interfaces;
 using System.Data;
 using System.Data.SqlClient;
+using System.Globalization;
 
 namespace CapaDatos
 {
@@ -24,7 +25,7 @@ namespace CapaDatos
                 SqlParameter[] param = new SqlParameter[5];
                 param[0] = new SqlParameter("@idAlumno", entidad.IdAlumno);
                 param[1] = new SqlParameter("@idCurso", entidad.IdCurso);
-                param[2] = new SqlParameter("@nota", entidad.Nota);
+                param[2] = new SqlParameter("@nota", String.Format(CultureInfo.InvariantCulture, "{0:00.00}", entidad.Nota));
                 param[3] = new SqlParameter("@fecha", entidad.Fecha);
                 param[4] = new SqlParameter("@estado", entidad.Estado);
 

@@ -14,15 +14,13 @@ namespace CapaPresentacion
 {
     public partial class frmInscripcionCurso : frmPrincipal
     {
-        public frmInscripcionCurso(IEntidad actual)
+        public frmInscripcionCurso()
         {
             InitializeComponent();
-            this.Actual = (clsAdministrador)actual;
         }
 
         clsAlumno Alumno;
         clsCurso Curso;
-        clsAdministrador Actual;
         IRepoFactory RepoF = new clsRepoFactory();
         IRepositorio Repo;
         private enum TipoBuscarAlumno{Nombre,Apellido,Dni,Direccion,Telefono,Email};
@@ -212,7 +210,7 @@ namespace CapaPresentacion
                 {
                     if (Alumno.Id != -1)
                     {
-                        frmInscripcion2 nuevo = new frmInscripcion2(Alumno, Actual);
+                        frmInscripcion2 nuevo = new frmInscripcion2(Alumno);
                         this.Visible = false;
                         nuevo.ShowDialog();
                         btnCancelar.BackColor = Color.Black;
@@ -228,7 +226,7 @@ namespace CapaPresentacion
                 {
                     if (Curso.Id != -1)
                     {
-                        frmInscripcion2 nuevo = new frmInscripcion2(Curso, Actual);
+                        frmInscripcion2 nuevo = new frmInscripcion2(Curso);
                         this.Visible = false;
                         nuevo.ShowDialog();
                         btnCancelar.BackColor = Color.Black;

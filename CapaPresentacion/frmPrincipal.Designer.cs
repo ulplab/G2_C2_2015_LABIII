@@ -36,6 +36,10 @@
             // 
             this.ousEncabezado.BackColor = System.Drawing.Color.Transparent;
             this.ousEncabezado.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ousEncabezado.EnableCerrar = true;
+            this.ousEncabezado.EnableMaximizar = false;
+            this.ousEncabezado.EnableMinimizar = true;
+            this.ousEncabezado.FontColor = System.Drawing.Color.White;
             this.ousEncabezado.Formulario = null;
             this.ousEncabezado.Location = new System.Drawing.Point(0, 0);
             this.ousEncabezado.Name = "ousEncabezado";

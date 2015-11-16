@@ -121,6 +121,12 @@
     <Compile Include="frmQuitarAsignacionDocentes.Designer.cs">
       <DependentUpon>frmQuitarAsignacionDocentes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMenuProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMenuProfesores.Designer.cs">
+      <DependentUpon>frmMenuProfesores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -319,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuitarAsignacionDocentes.resx">
       <DependentUpon>frmQuitarAsignacionDocentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMenuProfesores.resx">
+      <DependentUpon>frmMenuProfesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\crCertificadoFinCurso.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
