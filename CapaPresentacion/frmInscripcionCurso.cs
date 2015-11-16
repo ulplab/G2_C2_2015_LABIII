@@ -109,7 +109,6 @@ namespace CapaPresentacion
         {
             if (rdAlumnos.Checked == true)
             {
-                ousEncabezado.Titulo = "Seleccione un Alumno para comenzar";
                 this.rdNombre.Text = "Nombre";
                 this.rdApellido.Text = "Apellido";
                 this.rdDNI.Text = "Dni";
@@ -504,6 +503,18 @@ namespace CapaPresentacion
             else
             {
                 this.Close();
+            }
+        }
+
+        private void dgvEtapaUno_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            if (rdAlumnos.Checked)
+            {
+                this.AlumnoSeleccionado();
+            }
+            else
+            {
+                this.CursoSeleccionado();
             }
         }
     }

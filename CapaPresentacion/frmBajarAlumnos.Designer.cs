@@ -293,6 +293,7 @@
             this.dgvEtapaUno.Size = new System.Drawing.Size(935, 274);
             this.dgvEtapaUno.TabIndex = 46;
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
+            this.dgvEtapaUno.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowLeave);
             this.dgvEtapaUno.DoubleClick += new System.EventHandler(this.dgvEtapaUno_DoubleClick);
             // 
             // frmBajarAlumnos

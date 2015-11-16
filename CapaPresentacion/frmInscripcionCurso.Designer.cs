@@ -89,6 +89,7 @@
             this.dgvEtapaUno.TabIndex = 22;
             this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
+            this.dgvEtapaUno.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowLeave);
             // 
             // rdAlumnos
             // 

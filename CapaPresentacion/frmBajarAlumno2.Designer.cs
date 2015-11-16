@@ -259,6 +259,8 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(920, 274);
             this.dgvEtapaUno.TabIndex = 56;
+            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
+            this.dgvEtapaUno.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowLeave);
             // 
             // frmBajarAlumno2
             // 

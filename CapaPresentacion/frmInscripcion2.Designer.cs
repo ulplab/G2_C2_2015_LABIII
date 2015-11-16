@@ -260,6 +260,8 @@
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEtapaUno.Size = new System.Drawing.Size(917, 274);
             this.dgvEtapaUno.TabIndex = 54;
+            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
+            this.dgvEtapaUno.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowLeave);
             // 
             // frmInscripcion2
             // 
