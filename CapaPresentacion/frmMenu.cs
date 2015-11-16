@@ -30,7 +30,6 @@ namespace CapaPresentacion
 
         }
 
-
         private void btnListadoRegistros_MouseEnter(object sender, EventArgs e)
         {
             try
@@ -208,7 +207,8 @@ namespace CapaPresentacion
 
         private void btnRegistrosCalificaciones_Click(object sender, EventArgs e)
         {
-            frmRegistroCalificaciones RegistroCalificaciones = new frmRegistroCalificaciones((clsAdministrador)usuario,null, null);
+          //  GOnza llama al formulario con la sesion iniciada, mandando null en los demas parametros.
+            frmRegistroCalificaciones RegistroCalificaciones = new frmRegistroCalificaciones((clsAdministrador)usuario,null,null);
             this.Visible = false;
             RegistroCalificaciones.ShowDialog();
             this.Visible = true;

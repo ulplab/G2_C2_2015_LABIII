@@ -104,9 +104,9 @@ namespace CapaPresentacion
 
         private void btnRegistrosCalificaciones_Click(object sender, EventArgs e)
         {
-            frmRegistroCalificaciones RegistroCalificaciones = new frmRegistroCalificaciones(null, (clsAlumno)usuario, null);
+            frmRegistroCalificaciones Registro_Calificaciones = new frmRegistroCalificaciones(null, (clsAlumno)usuario, null);
             this.Visible = false;
-            RegistroCalificaciones.ShowDialog();
+            Registro_Calificaciones.ShowDialog();
             this.Visible = true;
         }
     }
