@@ -66,6 +66,7 @@
     <Compile Include="clsAdministrador.cs" />
     <Compile Include="clsCurso.cs" />
     <Compile Include="clsNota.cs" />
+    <Compile Include="clsNotaFormateada.cs" />
     <Compile Include="clsProfesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

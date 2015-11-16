@@ -196,5 +196,41 @@ namespace CapaLogica
 
             return list;
         }
+
+        public List<IEntidad> Notas_Por_Alumno(int id)
+        {
+            List<IEntidad> list = new List<IEntidad>();
+
+            try
+            {
+                clsAlumno temp =  new clsAlumno();
+                temp.Id = id;
+                list.AddRange(manager.Notas_por_Alumno(temp));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
+        }
+
+        public List<IEntidad> Notas_Por_Profesor(int id)
+        {
+
+            List<IEntidad> list = new List<IEntidad>();
+            clsProfesor temp = new clsProfesor();
+            temp.Id = id;
+            try
+            {
+                list.AddRange(manager.Notas_por_Profesor(temp));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return list;
+        }
     }
 }
