@@ -15,7 +15,7 @@ namespace CapaDatos
         public int InsertarCuota(clsCuota entidad)
         {
             //idCuota, IdAlumno, IdCurso, Fecha
-            String query = "insert Cuota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + entidad.Fecha + "');";
+            String query = "insert Cuota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + String.Format("{0:s}", entidad.Fecha) + "');";
             int filas;
 
             try
