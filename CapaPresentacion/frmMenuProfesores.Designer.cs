@@ -56,7 +56,7 @@
             this.btnAsignarCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnAsignarCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCalificaciones.Image")));
             this.btnAsignarCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAsignarCalificaciones.Location = new System.Drawing.Point(75, 337);
+            this.btnAsignarCalificaciones.Location = new System.Drawing.Point(486, 152);
             this.btnAsignarCalificaciones.Name = "btnAsignarCalificaciones";
             this.btnAsignarCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnAsignarCalificaciones.TabIndex = 52;
@@ -81,7 +81,7 @@
             this.btnRegistrosCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosCalificaciones.Image")));
             this.btnRegistrosCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(294, 337);
+            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(704, 152);
             this.btnRegistrosCalificaciones.Name = "btnRegistrosCalificaciones";
             this.btnRegistrosCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnRegistrosCalificaciones.TabIndex = 51;
@@ -106,7 +106,7 @@
             this.btnDarBajaInscripcion.ForeColor = System.Drawing.Color.White;
             this.btnDarBajaInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBajaInscripcion.Image")));
             this.btnDarBajaInscripcion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(294, 124);
+            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(268, 152);
             this.btnDarBajaInscripcion.Name = "btnDarBajaInscripcion";
             this.btnDarBajaInscripcion.Size = new System.Drawing.Size(196, 187);
             this.btnDarBajaInscripcion.TabIndex = 50;
@@ -131,7 +131,7 @@
             this.btnInscribirAlumno.ForeColor = System.Drawing.Color.White;
             this.btnInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnInscribirAlumno.Image")));
             this.btnInscribirAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInscribirAlumno.Location = new System.Drawing.Point(75, 124);
+            this.btnInscribirAlumno.Location = new System.Drawing.Point(50, 152);
             this.btnInscribirAlumno.Name = "btnInscribirAlumno";
             this.btnInscribirAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnInscribirAlumno.TabIndex = 49;
@@ -147,7 +147,7 @@
             // 
             this.ousPie.BackColor = System.Drawing.Color.Transparent;
             this.ousPie.FontColor = System.Drawing.Color.White;
-            this.ousPie.Location = new System.Drawing.Point(23, 603);
+            this.ousPie.Location = new System.Drawing.Point(90, 438);
             this.ousPie.Name = "ousPie";
             this.ousPie.Size = new System.Drawing.Size(756, 50);
             this.ousPie.TabIndex = 53;
@@ -157,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(959, 665);
+            this.ClientSize = new System.Drawing.Size(959, 509);
             this.Controls.Add(this.ousPie);
             this.Controls.Add(this.btnAsignarCalificaciones);
             this.Controls.Add(this.btnRegistrosCalificaciones);

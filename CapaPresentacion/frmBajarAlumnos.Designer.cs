@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.rdCursos = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.rdAlumnos = new System.Windows.Forms.RadioButton();
-            this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
             this.rdTelefono = new System.Windows.Forms.RadioButton();
             this.rdDireccion = new System.Windows.Forms.RadioButton();
             this.rdDNI = new System.Windows.Forms.RadioButton();
@@ -43,14 +44,15 @@
             this.rdEmail = new System.Windows.Forms.RadioButton();
             this.cbParametros = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
+            this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
             this.pnlBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.SuspendLayout();
             // 
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1225, 96);
+            this.ousEncabezado.Size = new System.Drawing.Size(1115, 96);
             this.ousEncabezado.Titulo = "Dar baja alumnos";
             // 
             // btnContinuar
@@ -62,7 +64,7 @@
             this.btnContinuar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
-            this.btnContinuar.Location = new System.Drawing.Point(913, 640);
+            this.btnContinuar.Location = new System.Drawing.Point(698, 617);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(192, 78);
             this.btnContinuar.TabIndex = 23;
@@ -75,7 +77,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Black;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(825, 132);
+            this.btnBuscar.Location = new System.Drawing.Point(681, 124);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(158, 38);
             this.btnBuscar.TabIndex = 42;
@@ -101,7 +103,7 @@
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.tbBuscar.Location = new System.Drawing.Point(360, 131);
+            this.tbBuscar.Location = new System.Drawing.Point(216, 123);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(459, 38);
             this.tbBuscar.TabIndex = 41;
@@ -121,20 +123,6 @@
             this.rdAlumnos.Text = "Alumnos";
             this.rdAlumnos.UseVisualStyleBackColor = false;
             this.rdAlumnos.CheckedChanged += new System.EventHandler(this.rdAlumnos_CheckedChanged);
-            // 
-            // dgvEtapaUno
-            // 
-            this.dgvEtapaUno.AllowUserToAddRows = false;
-            this.dgvEtapaUno.AllowUserToDeleteRows = false;
-            this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapaUno.Location = new System.Drawing.Point(61, 230);
-            this.dgvEtapaUno.Name = "dgvEtapaUno";
-            this.dgvEtapaUno.ReadOnly = true;
-            this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapaUno.Size = new System.Drawing.Size(1130, 356);
-            this.dgvEtapaUno.TabIndex = 40;
-            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapa1_RowEnter);
-            this.dgvEtapaUno.DoubleClick += new System.EventHandler(this.dgvEtapaUno_DoubleClick);
             // 
             // rdTelefono
             // 
@@ -220,7 +208,7 @@
             this.pnlBusqueda.Controls.Add(this.rdDNI);
             this.pnlBusqueda.Controls.Add(this.rdApellido);
             this.pnlBusqueda.Controls.Add(this.rdNombre);
-            this.pnlBusqueda.Location = new System.Drawing.Point(355, 183);
+            this.pnlBusqueda.Location = new System.Drawing.Point(211, 175);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(834, 41);
             this.pnlBusqueda.TabIndex = 43;
@@ -247,7 +235,7 @@
             this.cbParametros.BackColor = System.Drawing.Color.Transparent;
             this.cbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbParametros.ForeColor = System.Drawing.Color.White;
-            this.cbParametros.Location = new System.Drawing.Point(1016, 142);
+            this.cbParametros.Location = new System.Drawing.Point(872, 134);
             this.cbParametros.Name = "cbParametros";
             this.cbParametros.Size = new System.Drawing.Size(124, 28);
             this.cbParametros.TabIndex = 44;
@@ -264,7 +252,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(143, 640);
+            this.btnCancelar.Location = new System.Drawing.Point(189, 617);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(192, 78);
             this.btnCancelar.TabIndex = 45;
@@ -272,11 +260,47 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // dgvEtapaUno
+            // 
+            this.dgvEtapaUno.AllowUserToAddRows = false;
+            this.dgvEtapaUno.AllowUserToDeleteRows = false;
+            this.dgvEtapaUno.AllowUserToResizeColumns = false;
+            this.dgvEtapaUno.AllowUserToResizeRows = false;
+            this.dgvEtapaUno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEtapaUno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEtapaUno.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEtapaUno.Location = new System.Drawing.Point(61, 288);
+            this.dgvEtapaUno.MultiSelect = false;
+            this.dgvEtapaUno.Name = "dgvEtapaUno";
+            this.dgvEtapaUno.ReadOnly = true;
+            this.dgvEtapaUno.RowHeadersVisible = false;
+            this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEtapaUno.Size = new System.Drawing.Size(935, 274);
+            this.dgvEtapaUno.TabIndex = 46;
+            this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
+            this.dgvEtapaUno.DoubleClick += new System.EventHandler(this.dgvEtapaUno_DoubleClick);
+            // 
             // frmBajarAlumnos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1225, 766);
+            this.ClientSize = new System.Drawing.Size(1115, 766);
+            this.Controls.Add(this.dgvEtapaUno);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.pnlBusqueda);
             this.Controls.Add(this.cbParametros);
@@ -284,14 +308,12 @@
             this.Controls.Add(this.rdCursos);
             this.Controls.Add(this.tbBuscar);
             this.Controls.Add(this.rdAlumnos);
-            this.Controls.Add(this.dgvEtapaUno);
             this.Controls.Add(this.btnContinuar);
             this.Name = "frmBajarAlumnos";
             this.Text = "frmBajarAlumnos";
             this.Load += new System.EventHandler(this.frmBajarAlumnos_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnContinuar, 0);
-            this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.Controls.SetChildIndex(this.rdAlumnos, 0);
             this.Controls.SetChildIndex(this.tbBuscar, 0);
             this.Controls.SetChildIndex(this.rdCursos, 0);
@@ -299,9 +321,10 @@
             this.Controls.SetChildIndex(this.cbParametros, 0);
             this.Controls.SetChildIndex(this.pnlBusqueda, 0);
             this.Controls.SetChildIndex(this.btnCancelar, 0);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
+            this.Controls.SetChildIndex(this.dgvEtapaUno, 0);
             this.pnlBusqueda.ResumeLayout(false);
             this.pnlBusqueda.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,7 +337,6 @@
         private System.Windows.Forms.RadioButton rdCursos;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.RadioButton rdAlumnos;
-        private System.Windows.Forms.DataGridView dgvEtapaUno;
         private System.Windows.Forms.RadioButton rdTelefono;
         private System.Windows.Forms.RadioButton rdDireccion;
         private System.Windows.Forms.RadioButton rdDNI;
@@ -324,5 +346,6 @@
         private System.Windows.Forms.RadioButton rdEmail;
         private System.Windows.Forms.CheckBox cbParametros;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridView dgvEtapaUno;
     }
 }
