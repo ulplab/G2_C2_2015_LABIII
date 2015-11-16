@@ -43,13 +43,13 @@ namespace CapaDatos
         {
             int filas;
 
-            string query = "update Dicta set Nota = '" + entidad.Nota + "', Fecha = '" + String.Format("{0,s}", entidad.Fecha) + "', Estado = '" + entidad.Estado + "' where IdAlumno = " + entidad.IdAlumno + " and IdCurso = " + entidad.IdCurso + ";";
+            string query = "update Nota set Nota = '" + entidad.Nota + "', Fecha = '" + entidad.Fecha.Date.ToString() + "', Estado = '" + entidad.Estado + "' where IdAlumno = '" + entidad.IdAlumno + "' and IdCurso = '" + entidad.IdCurso + "';";
 
             try
             {
                 filas = dbManager.Ejecutar(query, Tipo.ACTUALIZAR);
 
-                string consulta = "SELECT COUNT(*) as Cantidad FROM Nota WHERE IdCurso = " + entidad.IdCurso + " AND IdAlumno = " + entidad.IdAlumno + ";";
+                string consulta = "SELECT COUNT(*) as Cantidad FROM Nota WHERE IdCurso = '" + entidad.IdCurso + "' AND IdAlumno = '" + entidad.IdAlumno + "';";
                 DataTable dt = dbManager.Consultar(consulta);
                 int alumnos = Convert.ToInt32(dt.Rows[0]["Cantidad"]);
                 if (alumnos > 1)
