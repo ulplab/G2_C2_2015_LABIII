@@ -15,10 +15,9 @@ namespace CapaPresentacion
     public partial class frmRegistroCalificaciones : frmPrincipal
     {
 
-        public frmRegistroCalificaciones()
+        public frmRegistroCalificaciones(clsAdministrador Administrador,clsAlumno Alumno,clsProfesor Profesor)
         {
             InitializeComponent();
-
         }
         clsNota Nota;
         clsAlumno Alumno;
