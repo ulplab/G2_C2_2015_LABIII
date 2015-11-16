@@ -19,7 +19,6 @@ namespace CapaPresentacion
         clsRepositorioAdministrador RepoAdmin = new clsRepositorioAdministrador();
         clsRepositorioAlumno RepoAlum = new clsRepositorioAlumno();
         clsRepositorioProfesor RepoPro = new clsRepositorioProfesor();
-        NivelSeguridad Seguridad;
         
         public frmLogin()
         {
@@ -151,9 +150,9 @@ namespace CapaPresentacion
                             if (Administrador.Estado == 1)
                             {
 
-                                frmMenu ABMA = new frmMenu(Administrador, NivelSeguridad.ADMINISTRADOR);
+                                frmMenu MenuAdministradores = new frmMenu(Administrador);
                                 this.Hide();
-                                ABMA.ShowDialog();
+                                MenuAdministradores.ShowDialog();
                             }
                             else
                             {
@@ -174,9 +173,9 @@ namespace CapaPresentacion
                         {
                             if (Profesor.Estado == 1)
                             {
-                                frmMenu ABMA = new frmMenu(Profesor, NivelSeguridad.PROFESOR);
+                                frmMenuProfesores MenuProfesores = new frmMenuProfesores(Profesor);
                                 this.Hide();
-                                ABMA.ShowDialog();
+                                MenuProfesores.ShowDialog();
                             }
                             else
                             {
@@ -196,9 +195,7 @@ namespace CapaPresentacion
                         {
                             if (Alumno.Estado == 1)
                             {
-                                frmMenu ABMA = new frmMenu(Alumno, NivelSeguridad.ALUMNO);
-                                this.Hide();
-                                ABMA.ShowDialog();
+                                MessageBox.Show("Hola alumno");
                             }
                             else
                             {

@@ -1,6 +1,6 @@
 ﻿namespace CapaPresentacion
 {
-    partial class MenuProfesores
+    partial class frmMenuProfesores
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuProfesores));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuProfesores));
             this.btnAsignarCalificaciones = new System.Windows.Forms.Button();
             this.btnRegistrosCalificaciones = new System.Windows.Forms.Button();
             this.btnDarBajaInscripcion = new System.Windows.Forms.Button();
@@ -41,6 +41,7 @@
             this.ousEncabezado.Formulario = this;
             this.ousEncabezado.Size = new System.Drawing.Size(959, 94);
             this.ousEncabezado.Titulo = "Menu";
+            this.ousEncabezado.Load += new System.EventHandler(this.ousEncabezado_Load);
             // 
             // btnAsignarCalificaciones
             // 
@@ -55,7 +56,7 @@
             this.btnAsignarCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnAsignarCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnAsignarCalificaciones.Image")));
             this.btnAsignarCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAsignarCalificaciones.Location = new System.Drawing.Point(103, 328);
+            this.btnAsignarCalificaciones.Location = new System.Drawing.Point(75, 337);
             this.btnAsignarCalificaciones.Name = "btnAsignarCalificaciones";
             this.btnAsignarCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnAsignarCalificaciones.TabIndex = 52;
@@ -63,6 +64,9 @@
             this.btnAsignarCalificaciones.Text = "Asignar Calificaciones";
             this.btnAsignarCalificaciones.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnAsignarCalificaciones.UseVisualStyleBackColor = false;
+            this.btnAsignarCalificaciones.Click += new System.EventHandler(this.btnAsignarCalificaciones_Click);
+            this.btnAsignarCalificaciones.MouseEnter += new System.EventHandler(this.btnRegistrosCalificaciones_MouseEnter);
+            this.btnAsignarCalificaciones.MouseLeave += new System.EventHandler(this.btnRegistrosCalificaciones_MouseLeave);
             // 
             // btnRegistrosCalificaciones
             // 
@@ -77,7 +81,7 @@
             this.btnRegistrosCalificaciones.ForeColor = System.Drawing.Color.White;
             this.btnRegistrosCalificaciones.Image = ((System.Drawing.Image)(resources.GetObject("btnRegistrosCalificaciones.Image")));
             this.btnRegistrosCalificaciones.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(322, 328);
+            this.btnRegistrosCalificaciones.Location = new System.Drawing.Point(294, 337);
             this.btnRegistrosCalificaciones.Name = "btnRegistrosCalificaciones";
             this.btnRegistrosCalificaciones.Size = new System.Drawing.Size(196, 187);
             this.btnRegistrosCalificaciones.TabIndex = 51;
@@ -85,6 +89,9 @@
             this.btnRegistrosCalificaciones.Text = "Registros Calificaciones";
             this.btnRegistrosCalificaciones.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnRegistrosCalificaciones.UseVisualStyleBackColor = false;
+            this.btnRegistrosCalificaciones.Click += new System.EventHandler(this.btnRegistrosCalificaciones_Click);
+            this.btnRegistrosCalificaciones.MouseEnter += new System.EventHandler(this.btnRegistrosCalificaciones_MouseEnter);
+            this.btnRegistrosCalificaciones.MouseLeave += new System.EventHandler(this.btnRegistrosCalificaciones_MouseLeave);
             // 
             // btnDarBajaInscripcion
             // 
@@ -99,7 +106,7 @@
             this.btnDarBajaInscripcion.ForeColor = System.Drawing.Color.White;
             this.btnDarBajaInscripcion.Image = ((System.Drawing.Image)(resources.GetObject("btnDarBajaInscripcion.Image")));
             this.btnDarBajaInscripcion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(322, 115);
+            this.btnDarBajaInscripcion.Location = new System.Drawing.Point(294, 124);
             this.btnDarBajaInscripcion.Name = "btnDarBajaInscripcion";
             this.btnDarBajaInscripcion.Size = new System.Drawing.Size(196, 187);
             this.btnDarBajaInscripcion.TabIndex = 50;
@@ -107,6 +114,9 @@
             this.btnDarBajaInscripcion.Text = "Dar Baja\r\nInscripción";
             this.btnDarBajaInscripcion.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnDarBajaInscripcion.UseVisualStyleBackColor = false;
+            this.btnDarBajaInscripcion.Click += new System.EventHandler(this.btnDarBajaInscripcion_Click);
+            this.btnDarBajaInscripcion.MouseEnter += new System.EventHandler(this.btnRegistrosCalificaciones_MouseEnter);
+            this.btnDarBajaInscripcion.MouseLeave += new System.EventHandler(this.btnRegistrosCalificaciones_MouseLeave);
             // 
             // btnInscribirAlumno
             // 
@@ -121,7 +131,7 @@
             this.btnInscribirAlumno.ForeColor = System.Drawing.Color.White;
             this.btnInscribirAlumno.Image = ((System.Drawing.Image)(resources.GetObject("btnInscribirAlumno.Image")));
             this.btnInscribirAlumno.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnInscribirAlumno.Location = new System.Drawing.Point(103, 115);
+            this.btnInscribirAlumno.Location = new System.Drawing.Point(75, 124);
             this.btnInscribirAlumno.Name = "btnInscribirAlumno";
             this.btnInscribirAlumno.Size = new System.Drawing.Size(196, 187);
             this.btnInscribirAlumno.TabIndex = 49;
@@ -129,6 +139,9 @@
             this.btnInscribirAlumno.Text = "Inscribir \r\nAlumnos";
             this.btnInscribirAlumno.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnInscribirAlumno.UseVisualStyleBackColor = false;
+            this.btnInscribirAlumno.Click += new System.EventHandler(this.btnInscribirAlumno_Click);
+            this.btnInscribirAlumno.MouseEnter += new System.EventHandler(this.btnRegistrosCalificaciones_MouseEnter);
+            this.btnInscribirAlumno.MouseLeave += new System.EventHandler(this.btnRegistrosCalificaciones_MouseLeave);
             // 
             // ousPie
             // 
@@ -140,7 +153,7 @@
             this.ousPie.TabIndex = 53;
             this.ousPie.Usuario = null;
             // 
-            // MenuProfesores
+            // frmMenuProfesores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -150,8 +163,9 @@
             this.Controls.Add(this.btnRegistrosCalificaciones);
             this.Controls.Add(this.btnDarBajaInscripcion);
             this.Controls.Add(this.btnInscribirAlumno);
-            this.Name = "MenuProfesores";
+            this.Name = "frmMenuProfesores";
             this.Text = "MenuProfesores";
+            this.Load += new System.EventHandler(this.MenuProfesores_Load);
             this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.btnInscribirAlumno, 0);
             this.Controls.SetChildIndex(this.btnDarBajaInscripcion, 0);
