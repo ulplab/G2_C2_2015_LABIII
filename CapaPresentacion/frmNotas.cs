@@ -519,12 +519,10 @@ namespace CapaPresentacion
                 if (rdDescripcion.Checked)
                 {
                     this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.Descripcion);
-
                 }
                 if (rdFechaInicio.Checked)
                 {
                     this.Buscar_Curso(tbBuscarCurso.Text, TipoBuscarCurso.FechaInicio);
-
                 }
                 if (rdFechaFin.Checked)
                 {
@@ -546,6 +544,7 @@ namespace CapaPresentacion
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
+            clsNota nueva = new clsNota();
             try
             {
                 if (!string.IsNullOrWhiteSpace(tbNota.Text))
@@ -554,7 +553,6 @@ namespace CapaPresentacion
                     string valor = tbNota.Text.Replace(',', '.');
                     if (Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) 
                     {
-                        clsNota nueva = new clsNota();
                         nueva.IdAlumno = Alumno.Id;
                         nueva.IdCurso = Curso.Id;
                         nueva.Nota = Convert.ToDouble(valor);
@@ -564,7 +562,7 @@ namespace CapaPresentacion
                         DialogResult result = MessageBox.Show("Desea Registrar otra nota?", "Nota Registrada exitosamente", MessageBoxButtons.YesNo);
                         if (result == DialogResult.Yes)
                         {
-
+                            this.restaurar_inicio();
                         }
                         else
                         {
@@ -583,7 +581,31 @@ namespace CapaPresentacion
             }
             catch (Exception a)
             {
-                MessageBox.Show(a.Message);
+                if(a.Message == "Esta nota ya fue registrada")
+                {
+                    DialogResult modificar = MessageBox.Show("¿Desea modificar la nota existente?", "Esta nota ya fue registrada", MessageBoxButtons.YesNo);
+                    if (modificar == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            clsNota tarjet = (clsNota) Nota.ObtenerPorId(nueva.IdAlumno, nueva.IdCurso);
+                            frmModificarNota Modificar_Nota = new frmModificarNota(tarjet);
+                            this.Visible = false;
+                            Modificar_Nota.ShowDialog();
+                            this.Visible = true;
+                            this.restaurar_inicio();
+                        }
+                        catch (Exception b)
+                        {
+                            MessageBox.Show("Ocurrio el siguiente error:" + b.Message);
+                        }
+
+                    }
+                    else
+                    {
+                        this.restaurar_inicio();
+                    }
+                }
             }
             
         }
@@ -597,6 +619,13 @@ namespace CapaPresentacion
             {
                 btnContinuar.Enabled = false;
             }
+        }
+        private void restaurar_inicio()
+        {
+            this.ActualizarGrillaAlumnos();
+            rdNombre.Checked = true;
+            rdNombreCurso.Checked = true;
+            tbNota.Text = string.Empty;
         }
     }
 }

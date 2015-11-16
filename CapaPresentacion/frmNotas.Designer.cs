@@ -42,7 +42,6 @@
             this.chbParamCursos = new System.Windows.Forms.CheckBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbBuscarCurso = new System.Windows.Forms.TextBox();
-            this.chbParamAlumnos = new System.Windows.Forms.CheckBox();
             this.pnlBusquedaAlumnos = new System.Windows.Forms.Panel();
             this.rdEmail = new System.Windows.Forms.RadioButton();
             this.rdTelefono = new System.Windows.Forms.RadioButton();
@@ -50,7 +49,6 @@
             this.rdDni = new System.Windows.Forms.RadioButton();
             this.rdApellido = new System.Windows.Forms.RadioButton();
             this.rdNombre = new System.Windows.Forms.RadioButton();
-            this.btnBuscarAlumno = new System.Windows.Forms.Button();
             this.tbBuscar = new System.Windows.Forms.TextBox();
             this.rdNombreCurso = new System.Windows.Forms.RadioButton();
             this.rdDescripcion = new System.Windows.Forms.RadioButton();
@@ -59,6 +57,8 @@
             this.pnlBusquedaCursos = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.chbParamAlumnos = new System.Windows.Forms.CheckBox();
+            this.btnBuscarAlumno = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.pnlBusquedaAlumnos.SuspendLayout();
@@ -247,20 +247,6 @@
             this.tbBuscarCurso.Text = "Nombre";
             this.tbBuscarCurso.Enter += new System.EventHandler(this.tbBuscarCurso_Enter);
             // 
-            // chbParamAlumnos
-            // 
-            this.chbParamAlumnos.AutoSize = true;
-            this.chbParamAlumnos.BackColor = System.Drawing.Color.Transparent;
-            this.chbParamAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbParamAlumnos.ForeColor = System.Drawing.Color.White;
-            this.chbParamAlumnos.Location = new System.Drawing.Point(985, 195);
-            this.chbParamAlumnos.Name = "chbParamAlumnos";
-            this.chbParamAlumnos.Size = new System.Drawing.Size(124, 28);
-            this.chbParamAlumnos.TabIndex = 46;
-            this.chbParamAlumnos.Text = "Parametros";
-            this.chbParamAlumnos.UseVisualStyleBackColor = false;
-            this.chbParamAlumnos.CheckedChanged += new System.EventHandler(this.chbParamAlumnos_CheckedChanged);
-            // 
             // pnlBusquedaAlumnos
             // 
             this.pnlBusquedaAlumnos.BackColor = System.Drawing.Color.Transparent;
@@ -365,19 +351,6 @@
             this.rdNombre.Text = "Nombre";
             this.rdNombre.UseVisualStyleBackColor = false;
             this.rdNombre.CheckedChanged += new System.EventHandler(this.rdNombre_CheckedChanged);
-            // 
-            // btnBuscarAlumno
-            // 
-            this.btnBuscarAlumno.BackColor = System.Drawing.Color.Black;
-            this.btnBuscarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarAlumno.Location = new System.Drawing.Point(983, 151);
-            this.btnBuscarAlumno.Name = "btnBuscarAlumno";
-            this.btnBuscarAlumno.Size = new System.Drawing.Size(126, 38);
-            this.btnBuscarAlumno.TabIndex = 44;
-            this.btnBuscarAlumno.Text = "Buscar";
-            this.btnBuscarAlumno.UseVisualStyleBackColor = false;
-            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
             // 
             // tbBuscar
             // 
@@ -486,6 +459,33 @@
             this.label2.TabIndex = 48;
             this.label2.Text = "Filtrar en los alumnos";
             // 
+            // chbParamAlumnos
+            // 
+            this.chbParamAlumnos.AutoSize = true;
+            this.chbParamAlumnos.BackColor = System.Drawing.Color.Transparent;
+            this.chbParamAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbParamAlumnos.ForeColor = System.Drawing.Color.White;
+            this.chbParamAlumnos.Location = new System.Drawing.Point(985, 195);
+            this.chbParamAlumnos.Name = "chbParamAlumnos";
+            this.chbParamAlumnos.Size = new System.Drawing.Size(124, 28);
+            this.chbParamAlumnos.TabIndex = 46;
+            this.chbParamAlumnos.Text = "Parametros";
+            this.chbParamAlumnos.UseVisualStyleBackColor = false;
+            this.chbParamAlumnos.CheckedChanged += new System.EventHandler(this.chbParamAlumnos_CheckedChanged);
+            // 
+            // btnBuscarAlumno
+            // 
+            this.btnBuscarAlumno.BackColor = System.Drawing.Color.Black;
+            this.btnBuscarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarAlumno.Location = new System.Drawing.Point(983, 151);
+            this.btnBuscarAlumno.Name = "btnBuscarAlumno";
+            this.btnBuscarAlumno.Size = new System.Drawing.Size(126, 38);
+            this.btnBuscarAlumno.TabIndex = 44;
+            this.btnBuscarAlumno.Text = "Buscar";
+            this.btnBuscarAlumno.UseVisualStyleBackColor = false;
+            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
+            // 
             // frmNotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -534,9 +534,9 @@
             this.Controls.SetChildIndex(this.btnBuscarAlumno, 0);
             this.Controls.SetChildIndex(this.pnlBusquedaAlumnos, 0);
             this.Controls.SetChildIndex(this.chbParamAlumnos, 0);
-            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             this.Controls.SetChildIndex(this.label1, 0);
             this.Controls.SetChildIndex(this.label2, 0);
+            this.Controls.SetChildIndex(this.ousEncabezado, 0);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).EndInit();
             this.pnlBusquedaAlumnos.ResumeLayout(false);
@@ -561,7 +561,6 @@
         private System.Windows.Forms.Label lblTituloAlumno;
         private System.Windows.Forms.Label lblNota;
         private Controles.DecTextBox tbNota;
-        private System.Windows.Forms.CheckBox chbParamAlumnos;
         private System.Windows.Forms.Panel pnlBusquedaAlumnos;
         private System.Windows.Forms.RadioButton rdEmail;
         private System.Windows.Forms.RadioButton rdTelefono;
@@ -569,7 +568,6 @@
         private System.Windows.Forms.RadioButton rdDni;
         private System.Windows.Forms.RadioButton rdApellido;
         private System.Windows.Forms.RadioButton rdNombre;
-        private System.Windows.Forms.Button btnBuscarAlumno;
         private System.Windows.Forms.TextBox tbBuscar;
         private System.Windows.Forms.CheckBox chbParamCursos;
         private System.Windows.Forms.Button btnBuscar;
@@ -581,5 +579,7 @@
         private System.Windows.Forms.RadioButton rdNombreCurso;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbParamAlumnos;
+        private System.Windows.Forms.Button btnBuscarAlumno;
     }
 }
