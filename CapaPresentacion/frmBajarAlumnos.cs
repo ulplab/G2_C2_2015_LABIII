@@ -503,5 +503,17 @@ namespace CapaPresentacion
                 this.Close();
             }
         }
+
+        private void dgvEtapaUno_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (rdAlumnos.Checked)
+            {
+                this.AlumnoSeleccionado();
+            }
+            else
+            {
+                this.CursoSeleccionado();
+            }
+        }
     }
 }

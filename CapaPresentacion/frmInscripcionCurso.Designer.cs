@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvEtapaUno = new System.Windows.Forms.DataGridView();
             this.rdAlumnos = new System.Windows.Forms.RadioButton();
             this.btnContinuar = new System.Windows.Forms.Button();
@@ -50,20 +52,40 @@
             // ousEncabezado
             // 
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1149, 94);
+            this.ousEncabezado.Size = new System.Drawing.Size(1056, 94);
             this.ousEncabezado.Titulo = "Inscripciones";
             // 
             // dgvEtapaUno
             // 
             this.dgvEtapaUno.AllowUserToAddRows = false;
             this.dgvEtapaUno.AllowUserToDeleteRows = false;
+            this.dgvEtapaUno.AllowUserToResizeColumns = false;
+            this.dgvEtapaUno.AllowUserToResizeRows = false;
+            this.dgvEtapaUno.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEtapaUno.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEtapaUno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEtapaUno.Location = new System.Drawing.Point(40, 239);
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Blue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvEtapaUno.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvEtapaUno.Location = new System.Drawing.Point(40, 260);
             this.dgvEtapaUno.MultiSelect = false;
             this.dgvEtapaUno.Name = "dgvEtapaUno";
             this.dgvEtapaUno.ReadOnly = true;
+            this.dgvEtapaUno.RowHeadersVisible = false;
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapaUno.Size = new System.Drawing.Size(1074, 339);
+            this.dgvEtapaUno.Size = new System.Drawing.Size(935, 274);
             this.dgvEtapaUno.TabIndex = 22;
             this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
             this.dgvEtapaUno.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
@@ -74,7 +96,7 @@
             this.rdAlumnos.BackColor = System.Drawing.Color.Transparent;
             this.rdAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rdAlumnos.ForeColor = System.Drawing.Color.White;
-            this.rdAlumnos.Location = new System.Drawing.Point(40, 117);
+            this.rdAlumnos.Location = new System.Drawing.Point(40, 136);
             this.rdAlumnos.Name = "rdAlumnos";
             this.rdAlumnos.Size = new System.Drawing.Size(124, 33);
             this.rdAlumnos.TabIndex = 23;
@@ -93,7 +115,7 @@
             this.btnContinuar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
-            this.btnContinuar.Location = new System.Drawing.Point(828, 624);
+            this.btnContinuar.Location = new System.Drawing.Point(690, 565);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(197, 73);
             this.btnContinuar.TabIndex = 25;
@@ -104,7 +126,7 @@
             // tbBuscar
             // 
             this.tbBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.tbBuscar.Location = new System.Drawing.Point(322, 142);
+            this.tbBuscar.Location = new System.Drawing.Point(183, 141);
             this.tbBuscar.Name = "tbBuscar";
             this.tbBuscar.Size = new System.Drawing.Size(442, 38);
             this.tbBuscar.TabIndex = 26;
@@ -115,7 +137,7 @@
             this.btnBuscar.BackColor = System.Drawing.Color.Black;
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(770, 135);
+            this.btnBuscar.Location = new System.Drawing.Point(631, 139);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(214, 44);
             this.btnBuscar.TabIndex = 27;
@@ -129,7 +151,7 @@
             this.rdCursos.BackColor = System.Drawing.Color.Transparent;
             this.rdCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.rdCursos.ForeColor = System.Drawing.Color.White;
-            this.rdCursos.Location = new System.Drawing.Point(170, 118);
+            this.rdCursos.Location = new System.Drawing.Point(40, 175);
             this.rdCursos.Name = "rdCursos";
             this.rdCursos.Size = new System.Drawing.Size(107, 33);
             this.rdCursos.TabIndex = 28;
@@ -148,7 +170,7 @@
             this.pnlBusqueda.Controls.Add(this.rdDNI);
             this.pnlBusqueda.Controls.Add(this.rdApellido);
             this.pnlBusqueda.Controls.Add(this.rdNombre);
-            this.pnlBusqueda.Location = new System.Drawing.Point(280, 192);
+            this.pnlBusqueda.Location = new System.Drawing.Point(183, 192);
             this.pnlBusqueda.Name = "pnlBusqueda";
             this.pnlBusqueda.Size = new System.Drawing.Size(834, 41);
             this.pnlBusqueda.TabIndex = 29;
@@ -250,7 +272,7 @@
             this.cbParametros.BackColor = System.Drawing.Color.Transparent;
             this.cbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbParametros.ForeColor = System.Drawing.Color.White;
-            this.cbParametros.Location = new System.Drawing.Point(990, 151);
+            this.cbParametros.Location = new System.Drawing.Point(851, 151);
             this.cbParametros.Name = "cbParametros";
             this.cbParametros.Size = new System.Drawing.Size(124, 28);
             this.cbParametros.TabIndex = 30;
@@ -267,7 +289,7 @@
             this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(123, 624);
+            this.btnCancelar.Location = new System.Drawing.Point(122, 565);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(197, 73);
             this.btnCancelar.TabIndex = 31;
@@ -279,7 +301,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1149, 732);
+            this.ClientSize = new System.Drawing.Size(1056, 732);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cbParametros);
             this.Controls.Add(this.pnlBusqueda);
