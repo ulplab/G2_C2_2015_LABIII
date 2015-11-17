@@ -69,7 +69,7 @@ namespace CapaPresentacion
                     {
                         if (ECurso.Estado == 1)
                         {
-                            dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre_Alumno, ECurso.Apellido, ECurso.Nombre_Curso, ECurso.Nota, ECurso.Fecha);
+                            dgvEtapaUno.Rows.Add(ECurso.Id, ECurso.Nombre_Alumno, ECurso.Apellido, ECurso.Nombre_Curso, ECurso.Nota.ToString().Replace('.',','), ECurso.Fecha);
                         }
                     }
                     dgvEtapaUno.ClearSelection();
@@ -138,6 +138,7 @@ namespace CapaPresentacion
             dgvEtapaUno.Columns.Add("ApellidoAlumno", "Apellido");
             dgvEtapaUno.Columns.Add("Curso", "Curso");
             dgvEtapaUno.Columns.Add("Nota", "Nota");
+            dgvEtapaUno.Columns["Nota"].DefaultCellStyle.Format = "##,##0.00";
             dgvEtapaUno.Columns.Add("Fecha", "Fecha");
         }
         private void label1_Click(object sender, EventArgs e)
@@ -291,6 +292,57 @@ namespace CapaPresentacion
             {
                 MessageBox.Show(a.Message);
             }
+        }
+        private void NotaSeleccionada()
+        {
+                try
+                {
+                    if (dgvEtapaUno.SelectedRows.Count > 0)
+                    {
+                        Nota.Id = Convert.ToInt32(dgvEtapaUno.SelectedRows[0].Cells["IdNota"].Value.ToString());
+                        Nota.Nombre_Alumno = dgvEtapaUno.SelectedRows[0].Cells["NombreAlumno"].Value.ToString();
+                        Nota.Apellido = dgvEtapaUno.SelectedRows[0].Cells["ApellidoAlumno"].Value.ToString();
+                        Nota.Nombre_Curso = dgvEtapaUno.SelectedRows[0].Cells["Curso"].Value.ToString();
+                        Nota.Nota = Convert.ToDouble( dgvEtapaUno.SelectedRows[0].Cells["Nota"].Value.ToString());
+                        Nota.Fecha = Convert.ToDateTime( dgvEtapaUno.SelectedRows[0].Cells["Fecha"].Value.ToString() );
+                    }
+                    else
+                    {
+                        Nota = new clsNotaFormateada();
+                    }
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("Ha ocurrido el siguiente error" + a.Message);
+                }
+        }
+        private void dgvEtapaUno_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (iniciador == inicio.Administrador)
+            {
+                try
+                {
+                    if (Nota.Id != -1)
+                    {
+                        //frmModificarNota Modificar = new frmModificarNota(Nota);
+                        //this.Visible = false;
+                        //Modificar.ShowDialog();
+                        //this.Visible = true;           
+                    }
+
+                }
+                catch (Exception a)
+                {
+                    MessageBox.Show("Ha ocurrido el siguiente error " + a.Message);
+                }
+
+            }
+  
+        }
+
+        private void dgvEtapaUno_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.NotaSeleccionada();
         }
     }
 }

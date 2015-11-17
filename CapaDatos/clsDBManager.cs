@@ -18,7 +18,7 @@ namespace CapaDatos
         SqlTransaction transaccion;
 
         string strcnn;
-        string usuario = "LaboIII";
+        string usuario = "Labo";
         
         public string Usuario
         {
@@ -32,14 +32,14 @@ namespace CapaDatos
             set { clave = value; }
         }
 
-        string server = "NOTEBOOK";
+        string server = "MARIO-ULP\\SQLEXPRESS";
 
         public string Server
         {
             get { return server; }
             set { server = value; }
         }
-        string baseDeDatos = "BDExamen1LaboIII";
+        string baseDeDatos = "BDInstituto";
 
         public string BaseDeDatos
         {

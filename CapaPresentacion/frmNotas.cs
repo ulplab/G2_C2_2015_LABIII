@@ -193,7 +193,7 @@ namespace CapaPresentacion
                 {
                     if (Alumno.Id != -1)
                     {
-                        Cursos = consultador.ListaCursos(Alumno.Id);
+                        Cursos = consultador.ListaCursosSinNota(Alumno.Id);
                     }
                     foreach (clsCurso ECurso in Cursos)
                     {
@@ -225,7 +225,7 @@ namespace CapaPresentacion
                 {
                     if (Alumno.Id != -1)
                     {
-                        Cursos_del_Alumno = consultador.ListaCursos(Alumno.Id);
+                        Cursos_del_Alumno = consultador.ListaCursosSinNota(Alumno.Id);
                     }
                     if (Cursos_del_profesor.Count() == 0)
                     {
@@ -652,9 +652,9 @@ namespace CapaPresentacion
                         try
                         {
                             clsNota tarjet = (clsNota) Nota.ObtenerPorId(nueva.IdAlumno, nueva.IdCurso);
-                            frmModificarNota Modificar_Nota = new frmModificarNota(tarjet);
+                           // frmModificarNota Modificar_Nota = new frmModificarNota(tarjet);
                             this.Visible = false;
-                            Modificar_Nota.ShowDialog();
+                           // Modificar_Nota.ShowDialog();
                             this.Visible = true;
                             this.restaurar_inicio();
                         }

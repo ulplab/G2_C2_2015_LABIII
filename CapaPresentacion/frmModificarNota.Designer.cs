@@ -29,9 +29,7 @@
         private void InitializeComponent()
         {
             this.gbDatos = new System.Windows.Forms.GroupBox();
-            this.btnCambiarNota = new System.Windows.Forms.Button();
-            this.btnCambiarCurso = new System.Windows.Forms.Button();
-            this.btnCambiarAlumno = new System.Windows.Forms.Button();
+            this.tbCalificacion = new Controles.DecTextBox();
             this.tbCurso = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
             this.tbNombre = new System.Windows.Forms.TextBox();
@@ -39,7 +37,8 @@
             this.lblNota = new System.Windows.Forms.Label();
             this.btnContinuar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.tbCalificacion = new Controles.DecTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chbEstado = new System.Windows.Forms.CheckBox();
             this.gbDatos.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +51,9 @@
             // gbDatos
             // 
             this.gbDatos.BackColor = System.Drawing.Color.Transparent;
+            this.gbDatos.Controls.Add(this.chbEstado);
+            this.gbDatos.Controls.Add(this.label1);
             this.gbDatos.Controls.Add(this.tbCalificacion);
-            this.gbDatos.Controls.Add(this.btnCambiarNota);
-            this.gbDatos.Controls.Add(this.btnCambiarCurso);
-            this.gbDatos.Controls.Add(this.btnCambiarAlumno);
             this.gbDatos.Controls.Add(this.tbCurso);
             this.gbDatos.Controls.Add(this.lblNombre);
             this.gbDatos.Controls.Add(this.tbNombre);
@@ -70,44 +68,12 @@
             this.gbDatos.TabStop = false;
             this.gbDatos.Text = "Datos de la calificacion";
             // 
-            // btnCambiarNota
+            // tbCalificacion
             // 
-            this.btnCambiarNota.BackColor = System.Drawing.Color.Black;
-            this.btnCambiarNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnCambiarNota.ForeColor = System.Drawing.Color.White;
-            this.btnCambiarNota.Location = new System.Drawing.Point(456, 289);
-            this.btnCambiarNota.Name = "btnCambiarNota";
-            this.btnCambiarNota.Size = new System.Drawing.Size(200, 67);
-            this.btnCambiarNota.TabIndex = 100;
-            this.btnCambiarNota.Text = "Cambiar calificación";
-            this.btnCambiarNota.UseVisualStyleBackColor = false;
-            this.btnCambiarNota.Click += new System.EventHandler(this.btnCambiarNota_Click);
-            // 
-            // btnCambiarCurso
-            // 
-            this.btnCambiarCurso.BackColor = System.Drawing.Color.Black;
-            this.btnCambiarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnCambiarCurso.ForeColor = System.Drawing.Color.White;
-            this.btnCambiarCurso.Location = new System.Drawing.Point(456, 200);
-            this.btnCambiarCurso.Name = "btnCambiarCurso";
-            this.btnCambiarCurso.Size = new System.Drawing.Size(200, 38);
-            this.btnCambiarCurso.TabIndex = 99;
-            this.btnCambiarCurso.Text = "Cambiar curso";
-            this.btnCambiarCurso.UseVisualStyleBackColor = false;
-            this.btnCambiarCurso.Click += new System.EventHandler(this.btnCambiarCurso_Click);
-            // 
-            // btnCambiarAlumno
-            // 
-            this.btnCambiarAlumno.BackColor = System.Drawing.Color.Black;
-            this.btnCambiarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnCambiarAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnCambiarAlumno.Location = new System.Drawing.Point(456, 101);
-            this.btnCambiarAlumno.Name = "btnCambiarAlumno";
-            this.btnCambiarAlumno.Size = new System.Drawing.Size(200, 38);
-            this.btnCambiarAlumno.TabIndex = 98;
-            this.btnCambiarAlumno.Text = "Cambiar alumno";
-            this.btnCambiarAlumno.UseVisualStyleBackColor = false;
-            this.btnCambiarAlumno.Click += new System.EventHandler(this.btnCambiarAlumno_Click);
+            this.tbCalificacion.Location = new System.Drawing.Point(272, 248);
+            this.tbCalificacion.Name = "tbCalificacion";
+            this.tbCalificacion.Size = new System.Drawing.Size(384, 35);
+            this.tbCalificacion.TabIndex = 101;
             // 
             // tbCurso
             // 
@@ -189,12 +155,30 @@
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // tbCalificacion
+            // label1
             // 
-            this.tbCalificacion.Location = new System.Drawing.Point(272, 248);
-            this.tbCalificacion.Name = "tbCalificacion";
-            this.tbCalificacion.Size = new System.Drawing.Size(384, 35);
-            this.tbCalificacion.TabIndex = 101;
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(34, 333);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 29);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Estado:";
+            // 
+            // chbEstado
+            // 
+            this.chbEstado.AutoSize = true;
+            this.chbEstado.BackColor = System.Drawing.Color.Transparent;
+            this.chbEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.chbEstado.ForeColor = System.Drawing.Color.White;
+            this.chbEstado.Location = new System.Drawing.Point(272, 332);
+            this.chbEstado.Name = "chbEstado";
+            this.chbEstado.Size = new System.Drawing.Size(176, 30);
+            this.chbEstado.TabIndex = 103;
+            this.chbEstado.Text = "Nota habilitada";
+            this.chbEstado.UseVisualStyleBackColor = false;
             // 
             // frmModificarNota
             // 
@@ -225,11 +209,10 @@
         private System.Windows.Forms.TextBox tbNombre;
         private System.Windows.Forms.Label lblCurso;
         private System.Windows.Forms.Label lblNota;
-        private System.Windows.Forms.Button btnCambiarNota;
-        private System.Windows.Forms.Button btnCambiarCurso;
-        private System.Windows.Forms.Button btnCambiarAlumno;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnContinuar;
         private Controles.DecTextBox tbCalificacion;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox chbEstado;
     }
 }
