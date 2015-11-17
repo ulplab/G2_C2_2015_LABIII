@@ -222,19 +222,19 @@ namespace CapaPresentacion
                 if (Recibo == DialogResult.Yes)
                 {
                     crReciboCobroMatricula Comprobante = new crReciboCobroMatricula();
-                    Comprobante.SetParameterValue("NombreAlumno", Alumno.Nombre);
-                    Comprobante.SetParameterValue("nroPago", Cuota.Id);
+                    //Comprobante.SetParameterValue("NombreAlumno", Alumno.Nombre);
+                    //Comprobante.SetParameterValue("nroPago", Cuota.Id);
 
-                    DataTable Datos = new DataTable();
-                    Datos.Columns.Add("Curso");
-                    Datos.Columns.Add("Importe");
-                    Datos.Columns.Add("Fecha");
+                    DataSetReportes reporte = new DataSetReportes();
+                    DataTable Datos = reporte.Tables["ReciboMatricula"];
 
                     Datos.Rows.Add(Curso.Nombre, Curso.Precio, Cuota.Fecha);
 
                     Comprobante.SetDataSource(Datos);
 
-                    frmEmisionRecibo EmisionRecibo = new frmEmisionRecibo(Comprobante);
+                    frmEmisionRecibo EmisionRecibo = new frmEmisionRecibo(Comprobante,Alumno.Nombre,Cuota.Id);
+
+                    EmisionRecibo.Show();
              
                 }
                 DialogResult continuar = MessageBox.Show("Cuota Registrada correctamente, ¿desea registrar otra?", "¡Exito!", MessageBoxButtons.YesNo);
