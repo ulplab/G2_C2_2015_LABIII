@@ -95,7 +95,7 @@ namespace CapaPresentacion
 
         private void btnAsignarCalificaciones_Click(object sender, EventArgs e)
         {
-            frmNotas Notas = new frmNotas();
+            frmNotas Notas = new frmNotas(null, (clsProfesor)usuario);
             this.Visible = false;
             Notas.ShowDialog();
             this.Visible = true;
