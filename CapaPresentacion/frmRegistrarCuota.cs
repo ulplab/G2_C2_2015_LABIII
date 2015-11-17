@@ -152,6 +152,7 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
                 Alumno.Id = -1;
+                this.AlumnoSeleccionado();
             }
             catch (Exception ex)
             {
@@ -422,6 +423,7 @@ namespace CapaPresentacion
                 dgvEtapaUno.ClearSelection();
                 Alumno = new clsAlumno();
                 Alumno.Id = -1;
+                this.AlumnoSeleccionado();
             }
             catch (Exception a)
             {
@@ -466,6 +468,7 @@ namespace CapaPresentacion
                 dgvEtapaDos.ClearSelection();
                 Curso = new clsCurso();
                 Curso.Id = -1;
+                this.CursoSeleccionado();
             }
             catch (FormatException)
             {

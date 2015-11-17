@@ -144,28 +144,40 @@ namespace CapaPresentacion
                     clsRepositorioCuota consultador = new clsRepositorioCuota();
                     Resultado = consultador.Lista_Formateada(Fecha_Inicio, Fecha_Fin);
                     dgvDatos.Rows.Clear();
+                    double result = 0;
                     foreach (clsCuotaFormateada temp in Resultado)
                     {
                         dgvDatos.Rows.Add(temp.IdCurso, temp.IdAlumno, temp.Fecha,"$ "+ temp.Precio.ToString());
+                        result += temp.Precio;
                     }
+                    lblVariableTotal.Text = "$" + result.ToString();
+                    lblVariableTotal.ForeColor = Color.Red;
                     break;
                 case IngresosPor.Cursos:
                     clsRepositorioCurso consultador2 = new clsRepositorioCurso();
                     Resultado = consultador2.Cursos_Formateados(Fecha_Inicio,Fecha_Fin);
                     dgvDatos.Rows.Clear();
+                    double result2 = 0;
                     foreach (clsCursoFormateado temp in Resultado)
                     {
                         dgvDatos.Rows.Add(temp.Nombre, temp.FechaInicio, temp.FechaFin, temp.Estado, "$ " + temp.Recaudado.ToString(), "$ " + temp.Esperado.ToString(), temp.Porcentaje_pagado.ToString() + " %");
+                        result2 += temp.Recaudado;
                     }
+                    lblVariableTotal.Text = "$" + result2.ToString();
+                    lblVariableTotal.ForeColor = Color.Red;
                     break;
                 case IngresosPor.Alumno:
                     clsRepositorioAlumno consultador3 = new clsRepositorioAlumno();
                     Resultado = consultador3.Alumnos_Formateados(Fecha_Inicio, Fecha_Fin);
                     dgvDatos.Rows.Clear();
+                    double result3 = 0;
                     foreach (clsAlumnoFormateado temp in Resultado)
                     {
                         dgvDatos.Rows.Add(temp.Dni,temp.Nombre,temp.Apellido,temp.Estado,"$ " + temp.Pagado.ToString(),"$ " + temp.Esperado,temp.Porcentaje + " %");
+                        result3 += temp.Pagado;
                     }
+                    lblVariableTotal.Text = "$" + result3.ToString();
+                    lblVariableTotal.ForeColor = Color.Red;
                     ; break;
             }
             this.Chart(Resultado);
