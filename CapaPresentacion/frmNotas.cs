@@ -613,7 +613,7 @@ namespace CapaPresentacion
                 if (!string.IsNullOrWhiteSpace(tbNota.Text))
                 {
                     string expresion1 =  "^[,][0-9]{0,4}$";
-                    string valor = tbNota.Text.Replace(',', '.');
+                    string valor = tbNota.Text;
                     if (Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) 
                     {
                         nueva.IdAlumno = Alumno.Id;

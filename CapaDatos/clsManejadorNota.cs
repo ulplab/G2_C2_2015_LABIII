@@ -154,7 +154,7 @@ namespace CapaDatos
                 n.Id = Convert.ToInt32(item["IdNota"]);
                 n.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
                 n.IdCurso = Convert.ToInt32(item["IdCurso"]);
-                n.Nota = Convert.ToInt32(item["Nota"]);
+                n.Nota = Convert.ToDouble(item["Nota"]);
                 n.Fecha = Convert.ToDateTime(item["Fecha"]);
                 n.Estado = Convert.ToInt32(item["Estado"]);
 
@@ -187,7 +187,7 @@ namespace CapaDatos
                 p.Id = Convert.ToInt32(item["IdNota"]);
                 p.IdAlumno = Convert.ToInt32(item["IdAlumno"]);
                 p.IdCurso = Convert.ToInt32(item["IdCurso"]);
-                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Nota = Convert.ToDouble(item["Nota"]);
                 p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
@@ -228,7 +228,7 @@ namespace CapaDatos
                 p.Nombre_Alumno = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Nombre_Curso = Convert.ToString(item["Curso"]);
-                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Nota = Convert.ToDouble(item["Nota"]);
                 p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
@@ -267,7 +267,7 @@ namespace CapaDatos
                 p.Nombre_Alumno = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Nombre_Curso = Convert.ToString(item["Curso"]);
-                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Nota = Convert.ToDouble(item["Nota"]);
                 p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
@@ -310,7 +310,7 @@ namespace CapaDatos
                 p.Nombre_Alumno = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Nombre_Curso = Convert.ToString(item["Curso"]);
-                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Nota = Convert.ToDouble(item["Nota"]);
                 p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 
