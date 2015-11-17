@@ -206,7 +206,7 @@ namespace CapaDatos
             List<clsCursoFormateado> list = new List<clsCursoFormateado>();
             DataTable dt;
             string query = "Select distinct Cursos.IdCurso ,Cursos.Nombre ,Cursos.FechaInicio ,Cursos.FechaFin,Cursos.Estado ,(Cuotas.conteo * Cursos.Precio) as 'Recaudado' ,(inscriptos.cantidad * Cursos.Precio) as 'Esperado' ," +
-                            "(((Cuotas.conteo * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) as \"Pagado\" " +
+                            "(Case when Cursos.Precio ='0' then '0' else(((Cuotas.[conteo ] * Cursos.Precio)*100)/(inscriptos.cantidad * Cursos.Precio)) End) as \"Pagado\" " +
                             "from Cursos ," +
                             "( " +
                             "select Cuota.IdCurso ,COUNT(Cuota.IdCurso) as \"conteo \" " +

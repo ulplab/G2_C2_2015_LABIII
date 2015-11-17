@@ -35,7 +35,7 @@ namespace Clases
             }
             clsCuota compare = new clsCuota();
             compare.IdAlumno = cuota.IdAlumno;
-            compare.IdCurso = cuota.IdAlumno;
+            compare.IdCurso = cuota.IdCurso;
             try
             {
                 if (manager.SelectCuota(compare).Count == 0)

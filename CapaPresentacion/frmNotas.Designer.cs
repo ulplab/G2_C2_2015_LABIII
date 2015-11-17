@@ -39,9 +39,6 @@
             this.lblCurso = new System.Windows.Forms.Label();
             this.lblVariableCurso = new System.Windows.Forms.Label();
             this.tbNota = new Controles.DecTextBox();
-            this.chbParamCursos = new System.Windows.Forms.CheckBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.tbBuscarCurso = new System.Windows.Forms.TextBox();
             this.pnlBusquedaAlumnos = new System.Windows.Forms.Panel();
             this.rdEmail = new System.Windows.Forms.RadioButton();
             this.rdTelefono = new System.Windows.Forms.RadioButton();
@@ -50,15 +47,22 @@
             this.rdApellido = new System.Windows.Forms.RadioButton();
             this.rdNombre = new System.Windows.Forms.RadioButton();
             this.tbBuscar = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chbParamAlumnos = new System.Windows.Forms.CheckBox();
+            this.btnBuscarAlumno = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.chbParamCursos = new System.Windows.Forms.CheckBox();
+            this.pnlBusquedaCursos = new System.Windows.Forms.Panel();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.rdNombreCurso = new System.Windows.Forms.RadioButton();
             this.rdDescripcion = new System.Windows.Forms.RadioButton();
             this.rdFechaInicio = new System.Windows.Forms.RadioButton();
             this.rdFechaFin = new System.Windows.Forms.RadioButton();
-            this.pnlBusquedaCursos = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chbParamAlumnos = new System.Windows.Forms.CheckBox();
-            this.btnBuscarAlumno = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.tbBuscarCurso = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaUno)).BeginInit();
             this.pnlBusquedaAlumnos.SuspendLayout();
@@ -210,43 +214,6 @@
             this.tbNota.Size = new System.Drawing.Size(206, 32);
             this.tbNota.TabIndex = 38;
             // 
-            // chbParamCursos
-            // 
-            this.chbParamCursos.AutoSize = true;
-            this.chbParamCursos.BackColor = System.Drawing.Color.Transparent;
-            this.chbParamCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbParamCursos.ForeColor = System.Drawing.Color.White;
-            this.chbParamCursos.Location = new System.Drawing.Point(990, 468);
-            this.chbParamCursos.Name = "chbParamCursos";
-            this.chbParamCursos.Size = new System.Drawing.Size(124, 28);
-            this.chbParamCursos.TabIndex = 42;
-            this.chbParamCursos.Text = "Parametros";
-            this.chbParamCursos.UseVisualStyleBackColor = false;
-            this.chbParamCursos.CheckedChanged += new System.EventHandler(this.chbParamCursos_CheckedChanged);
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.BackColor = System.Drawing.Color.Black;
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnBuscar.ForeColor = System.Drawing.Color.White;
-            this.btnBuscar.Location = new System.Drawing.Point(988, 424);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(121, 38);
-            this.btnBuscar.TabIndex = 40;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = false;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // tbBuscarCurso
-            // 
-            this.tbBuscarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.tbBuscarCurso.Location = new System.Drawing.Point(633, 424);
-            this.tbBuscarCurso.Name = "tbBuscarCurso";
-            this.tbBuscarCurso.Size = new System.Drawing.Size(354, 38);
-            this.tbBuscarCurso.TabIndex = 39;
-            this.tbBuscarCurso.Text = "Nombre";
-            this.tbBuscarCurso.Enter += new System.EventHandler(this.tbBuscarCurso_Enter);
-            // 
             // pnlBusquedaAlumnos
             // 
             this.pnlBusquedaAlumnos.BackColor = System.Drawing.Color.Transparent;
@@ -362,6 +329,140 @@
             this.tbBuscar.Text = "Nombre";
             this.tbBuscar.Enter += new System.EventHandler(this.tbBuscar_Enter);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(626, 118);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(243, 29);
+            this.label2.TabIndex = 48;
+            this.label2.Text = "Filtrar en los alumnos";
+            // 
+            // chbParamAlumnos
+            // 
+            this.chbParamAlumnos.AutoSize = true;
+            this.chbParamAlumnos.BackColor = System.Drawing.Color.Transparent;
+            this.chbParamAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbParamAlumnos.ForeColor = System.Drawing.Color.White;
+            this.chbParamAlumnos.Location = new System.Drawing.Point(985, 195);
+            this.chbParamAlumnos.Name = "chbParamAlumnos";
+            this.chbParamAlumnos.Size = new System.Drawing.Size(124, 28);
+            this.chbParamAlumnos.TabIndex = 46;
+            this.chbParamAlumnos.Text = "Parametros";
+            this.chbParamAlumnos.UseVisualStyleBackColor = false;
+            this.chbParamAlumnos.CheckedChanged += new System.EventHandler(this.chbParamAlumnos_CheckedChanged);
+            // 
+            // btnBuscarAlumno
+            // 
+            this.btnBuscarAlumno.BackColor = System.Drawing.Color.Black;
+            this.btnBuscarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarAlumno.Location = new System.Drawing.Point(983, 151);
+            this.btnBuscarAlumno.Name = "btnBuscarAlumno";
+            this.btnBuscarAlumno.Size = new System.Drawing.Size(126, 38);
+            this.btnBuscarAlumno.TabIndex = 44;
+            this.btnBuscarAlumno.Text = "Buscar";
+            this.btnBuscarAlumno.UseVisualStyleBackColor = false;
+            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(628, 391);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(223, 29);
+            this.label1.TabIndex = 47;
+            this.label1.Text = "Filtrar en los cursos";
+            // 
+            // chbParamCursos
+            // 
+            this.chbParamCursos.AutoSize = true;
+            this.chbParamCursos.BackColor = System.Drawing.Color.Transparent;
+            this.chbParamCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbParamCursos.ForeColor = System.Drawing.Color.White;
+            this.chbParamCursos.Location = new System.Drawing.Point(990, 468);
+            this.chbParamCursos.Name = "chbParamCursos";
+            this.chbParamCursos.Size = new System.Drawing.Size(124, 28);
+            this.chbParamCursos.TabIndex = 42;
+            this.chbParamCursos.Text = "Parametros";
+            this.chbParamCursos.UseVisualStyleBackColor = false;
+            this.chbParamCursos.CheckedChanged += new System.EventHandler(this.chbParamCursos_CheckedChanged);
+            // 
+            // pnlBusquedaCursos
+            // 
+            this.pnlBusquedaCursos.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBusquedaCursos.Controls.Add(this.rdFechaFin);
+            this.pnlBusquedaCursos.Controls.Add(this.rdFechaInicio);
+            this.pnlBusquedaCursos.Controls.Add(this.rdDescripcion);
+            this.pnlBusquedaCursos.Controls.Add(this.rdNombreCurso);
+            this.pnlBusquedaCursos.Location = new System.Drawing.Point(633, 502);
+            this.pnlBusquedaCursos.Name = "pnlBusquedaCursos";
+            this.pnlBusquedaCursos.Size = new System.Drawing.Size(444, 100);
+            this.pnlBusquedaCursos.TabIndex = 41;
+            this.pnlBusquedaCursos.Visible = false;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.radioButton1.ForeColor = System.Drawing.Color.White;
+            this.radioButton1.Location = new System.Drawing.Point(5, 42);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(195, 33);
+            this.radioButton1.TabIndex = 33;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Fecha de inicio";
+            this.radioButton1.UseVisualStyleBackColor = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.radioButton2.ForeColor = System.Drawing.Color.White;
+            this.radioButton2.Location = new System.Drawing.Point(221, 42);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(163, 33);
+            this.radioButton2.TabIndex = 31;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Fecha de fin";
+            this.radioButton2.UseVisualStyleBackColor = false;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.radioButton3.ForeColor = System.Drawing.Color.White;
+            this.radioButton3.Location = new System.Drawing.Point(221, 3);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(159, 33);
+            this.radioButton3.TabIndex = 29;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Descripcion";
+            this.radioButton3.UseVisualStyleBackColor = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.BackColor = System.Drawing.Color.Transparent;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.radioButton4.ForeColor = System.Drawing.Color.White;
+            this.radioButton4.Location = new System.Drawing.Point(5, 3);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(119, 33);
+            this.radioButton4.TabIndex = 24;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Nombre";
+            this.radioButton4.UseVisualStyleBackColor = false;
+            // 
             // rdNombreCurso
             // 
             this.rdNombreCurso.AutoSize = true;
@@ -422,69 +523,28 @@
             this.rdFechaFin.UseVisualStyleBackColor = false;
             this.rdFechaFin.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
             // 
-            // pnlBusquedaCursos
+            // btnBuscar
             // 
-            this.pnlBusquedaCursos.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBusquedaCursos.Controls.Add(this.rdFechaFin);
-            this.pnlBusquedaCursos.Controls.Add(this.rdFechaInicio);
-            this.pnlBusquedaCursos.Controls.Add(this.rdDescripcion);
-            this.pnlBusquedaCursos.Controls.Add(this.rdNombreCurso);
-            this.pnlBusquedaCursos.Location = new System.Drawing.Point(633, 502);
-            this.pnlBusquedaCursos.Name = "pnlBusquedaCursos";
-            this.pnlBusquedaCursos.Size = new System.Drawing.Size(444, 100);
-            this.pnlBusquedaCursos.TabIndex = 41;
-            this.pnlBusquedaCursos.Visible = false;
+            this.btnBuscar.BackColor = System.Drawing.Color.Black;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.btnBuscar.ForeColor = System.Drawing.Color.White;
+            this.btnBuscar.Location = new System.Drawing.Point(988, 424);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(121, 38);
+            this.btnBuscar.TabIndex = 40;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // label1
+            // tbBuscarCurso
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(628, 391);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(223, 29);
-            this.label1.TabIndex = 47;
-            this.label1.Text = "Filtrar en los cursos";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(626, 118);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(243, 29);
-            this.label2.TabIndex = 48;
-            this.label2.Text = "Filtrar en los alumnos";
-            // 
-            // chbParamAlumnos
-            // 
-            this.chbParamAlumnos.AutoSize = true;
-            this.chbParamAlumnos.BackColor = System.Drawing.Color.Transparent;
-            this.chbParamAlumnos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbParamAlumnos.ForeColor = System.Drawing.Color.White;
-            this.chbParamAlumnos.Location = new System.Drawing.Point(985, 195);
-            this.chbParamAlumnos.Name = "chbParamAlumnos";
-            this.chbParamAlumnos.Size = new System.Drawing.Size(124, 28);
-            this.chbParamAlumnos.TabIndex = 46;
-            this.chbParamAlumnos.Text = "Parametros";
-            this.chbParamAlumnos.UseVisualStyleBackColor = false;
-            this.chbParamAlumnos.CheckedChanged += new System.EventHandler(this.chbParamAlumnos_CheckedChanged);
-            // 
-            // btnBuscarAlumno
-            // 
-            this.btnBuscarAlumno.BackColor = System.Drawing.Color.Black;
-            this.btnBuscarAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.btnBuscarAlumno.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarAlumno.Location = new System.Drawing.Point(983, 151);
-            this.btnBuscarAlumno.Name = "btnBuscarAlumno";
-            this.btnBuscarAlumno.Size = new System.Drawing.Size(126, 38);
-            this.btnBuscarAlumno.TabIndex = 44;
-            this.btnBuscarAlumno.Text = "Buscar";
-            this.btnBuscarAlumno.UseVisualStyleBackColor = false;
-            this.btnBuscarAlumno.Click += new System.EventHandler(this.btnBuscarAlumno_Click);
+            this.tbBuscarCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.tbBuscarCurso.Location = new System.Drawing.Point(633, 424);
+            this.tbBuscarCurso.Name = "tbBuscarCurso";
+            this.tbBuscarCurso.Size = new System.Drawing.Size(354, 38);
+            this.tbBuscarCurso.TabIndex = 39;
+            this.tbBuscarCurso.Text = "Nombre";
+            this.tbBuscarCurso.Enter += new System.EventHandler(this.tbBuscarCurso_Enter);
             // 
             // frmNotas
             // 
@@ -569,17 +629,21 @@
         private System.Windows.Forms.RadioButton rdApellido;
         private System.Windows.Forms.RadioButton rdNombre;
         private System.Windows.Forms.TextBox tbBuscar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chbParamAlumnos;
+        private System.Windows.Forms.Button btnBuscarAlumno;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox chbParamCursos;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox tbBuscarCurso;
         private System.Windows.Forms.Panel pnlBusquedaCursos;
         private System.Windows.Forms.RadioButton rdFechaFin;
         private System.Windows.Forms.RadioButton rdFechaInicio;
         private System.Windows.Forms.RadioButton rdDescripcion;
         private System.Windows.Forms.RadioButton rdNombreCurso;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox chbParamAlumnos;
-        private System.Windows.Forms.Button btnBuscarAlumno;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.TextBox tbBuscarCurso;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
