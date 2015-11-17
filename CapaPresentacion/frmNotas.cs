@@ -115,7 +115,7 @@ namespace CapaPresentacion
                     else
                     {
                         this.lblVariableAlumno.ForeColor = Color.Red;
-                        this.lblVariableAlumno.Text = "sin seleccionar";
+                        this.lblVariableAlumno.Text = "Sin seleccionar";
                     }
                 }
                 catch (Exception a)
@@ -126,7 +126,7 @@ namespace CapaPresentacion
             else
             {
                 this.lblVariableAlumno.ForeColor = Color.Red;
-                this.lblVariableAlumno.Text = "sin seleccionar";
+                this.lblVariableAlumno.Text = "Sin seleccionar";
             }
         }
         private void ColumnasCursos()
@@ -173,7 +173,7 @@ namespace CapaPresentacion
                     Alumno = new clsAlumno();
                     Alumno.Id = -1;
                     this.lblVariableAlumno.ForeColor = Color.Red;
-                    this.lblVariableAlumno.Text = "sin seleccionar";
+                    this.lblVariableAlumno.Text = "Sin seleccionar";
                     this.ActualizarGrillaCursos(Iniciador);
                 }
                 catch (Exception ex)
