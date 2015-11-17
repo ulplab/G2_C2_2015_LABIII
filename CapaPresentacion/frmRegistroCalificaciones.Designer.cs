@@ -85,6 +85,8 @@
             this.dgvEtapaUno.Size = new System.Drawing.Size(922, 267);
             this.dgvEtapaUno.TabIndex = 67;
             this.dgvEtapaUno.TabStop = false;
+            this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_CellClick);
+            this.dgvEtapaUno.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_CellDoubleClick);
             // 
             // label2
             // 

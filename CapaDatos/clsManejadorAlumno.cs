@@ -240,6 +240,7 @@ namespace CapaDatos
                             "( select Asiste.IdAlumno ,Asiste.IdCurso, Cursos.Precio " +
                             "from Asiste, Cursos " +
                             "where Asiste.IDCurso = Cursos.IdCurso ) as \"AsisteFormateado\" " +
+                            "where AsisteFormateado.Precio > 0 " +
                             "group by AsisteFormateado.IdAlumno ) as \"esperado\", " +
                             "( " +
                             "select distinct Cuota.IdAlumno as IdAlumno, SUM( Cursos.Precio ) as \"pagado\" " +

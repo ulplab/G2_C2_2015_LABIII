@@ -95,12 +95,10 @@ namespace CapaPresentacion
                 reporte.Columns.Add("Telefono");
                 reporte.Columns.Add("Direccion");
                 reporte.Columns.Add("Deuda");
-
                 foreach (clsAlumnoFormateado temp in LE)
                 {
                     reporte.Rows.Add(temp.Nombre, temp.Telefono, temp.Direccion, temp.Pagado);
                 }
-
                 crReporteMorosidad Reporte_generado = new crReporteMorosidad();
                 Reporte_generado.SetDataSource(reporte);
                 frmReporteMorosidad ReporteMorosidad = new frmReporteMorosidad(Reporte_generado);
@@ -116,7 +114,7 @@ namespace CapaPresentacion
         }
         private void btnGenerarReporte_Click(object sender, EventArgs e)
         {
-       //     this.generar_Reporte();
+           this.generar_Reporte();
         }
         private void texto_buscar()
         {

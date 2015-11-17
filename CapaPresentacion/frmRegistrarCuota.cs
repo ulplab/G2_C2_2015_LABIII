@@ -35,25 +35,25 @@ namespace CapaPresentacion
                 {
                     if (dgvEtapaDos.SelectedRows.Count > 0)
                     {
-                        Curso.Id = Convert.ToInt32(dgvEtapaDos.SelectedRows[0].Cells["IdCurso"].Value.ToString());
-                        Curso.Nombre = dgvEtapaDos.SelectedRows[0].Cells["Nombre"].Value.ToString();
-                        Curso.Descripcion = dgvEtapaDos.SelectedRows[0].Cells["Descripcion"].Value.ToString();
-                        Curso.FechaInicio = Convert.ToDateTime(dgvEtapaDos.SelectedRows[0].Cells["FechaInicio"].Value.ToString());
-                        Curso.FechaFin = Convert.ToDateTime(dgvEtapaDos.SelectedRows[0].Cells["FechaFin"].Value);
+                        this.Curso.Id = Convert.ToInt32(dgvEtapaDos.SelectedRows[0].Cells["IdCurso"].Value.ToString());
+                        this.Curso.Nombre = dgvEtapaDos.SelectedRows[0].Cells["Nombre"].Value.ToString();
+                        this.Curso.Descripcion = dgvEtapaDos.SelectedRows[0].Cells["Descripcion"].Value.ToString();
+                        this.Curso.FechaInicio = Convert.ToDateTime(dgvEtapaDos.SelectedRows[0].Cells["FechaInicio"].Value.ToString());
+                        this.Curso.FechaFin = Convert.ToDateTime(dgvEtapaDos.SelectedRows[0].Cells["FechaFin"].Value);
                         if (dgvEtapaDos.SelectedRows[0].Cells["Estado"].Value.ToString() == "habilitado")
                         {
-                            Curso.Estado = 1;
+                            this.Curso.Estado = 1;
                         }
                         else
                         {
-                            Curso.Estado = 0;
+                            this.Curso.Estado = 0;
                         }
                         btnContinuar.Enabled = true;
-                        lblVariableCurso.Text = Curso.Nombre;
+                        lblVariableCurso.Text = this.Curso.Nombre;
                         lblVariableCurso.ForeColor = Color.DarkBlue;
                         clsRepositorioCurso consultador = new clsRepositorioCurso();
-                        clsCurso temp = (clsCurso)consultador.ObtenerPorId(Curso.Id);
-                        lblCuota.Text = "$" + temp.Precio.ToString().Replace('.',',');
+                        clsCurso Curso = (clsCurso)consultador.ObtenerPorId(this.Curso.Id);
+                        lblCuota.Text = "$" + Curso.Precio.ToString().Replace('.',',');
                         lblCuota.ForeColor = Color.Red;
                         
                     }
@@ -219,7 +219,7 @@ namespace CapaPresentacion
                 clsRepositorioCuota consultador = new clsRepositorioCuota();
                 consultador.Agregar(Cuota);
                 DialogResult Recibo = MessageBox.Show("¿Desea imprimir el recibo de la operacion?", "¡Exito!", MessageBoxButtons.YesNo);
-                /*if (Recibo == DialogResult.Yes)
+                if (Recibo == DialogResult.Yes)
                 {
                     crReciboCobroMatricula Comprobante = new crReciboCobroMatricula();
                     Comprobante.SetParameterValue("NombreAlumno", Alumno.Nombre);
@@ -227,16 +227,16 @@ namespace CapaPresentacion
 
                     DataTable Datos = new DataTable();
                     Datos.Columns.Add("Curso");
+                    Datos.Columns.Add("Importe");
                     Datos.Columns.Add("Fecha");
-                    Datos.Columns.Add("Detalles");
 
-                    clsCuotaFormateada = consultador
+                    Datos.Rows.Add(Curso.Nombre, Curso.Precio, Cuota.Fecha);
 
-                    Comprobante.SetDataSource = 
+                    Comprobante.SetDataSource(Datos);
+
+                    frmEmisionRecibo EmisionRecibo = new frmEmisionRecibo(Comprobante);
              
-                    No llegueeeeeeeee
-                 *  :'(
-                }*/
+                }
                 DialogResult continuar = MessageBox.Show("Cuota Registrada correctamente, ¿desea registrar otra?", "¡Exito!", MessageBoxButtons.YesNo);
                 if (continuar == System.Windows.Forms.DialogResult.Yes)
                 {

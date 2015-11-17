@@ -15,18 +15,34 @@ namespace CapaPresentacion
 {
     public partial class frmNotas : frmPrincipal
     {
-        public frmNotas()
+        public frmNotas(clsAdministrador Administrador, clsProfesor Profesor)
         {
             InitializeComponent();
+            if (Administrador != null)
+            {
+                Iniciador = inicio.Amdinistrador;
+            }
+            else
+            {
+                if (Profesor != null)
+                {
+                    Profesor_inicial = Profesor;
+                    Iniciador = inicio.Profesor;
+                }
+            }
         }
+        private clsProfesor Profesor_inicial;
         private clsCurso Curso;
         private clsAlumno Alumno;
         private clsRepositorioNota Nota;
         List<IEntidad> Alumnos;
         List<IEntidad> Cursos;
+        List<IEntidad> Cursos_del_profesor;
         private enum TipoBuscarAlumno { Nombre, Apellido, Dni, Direccion, Telefono, Email };
         private enum TipoBuscarCurso { Nombre, FechaInicio, FechaFin, Descripcion };
 
+        private enum inicio { Amdinistrador, Profesor };
+        private inicio Iniciador;
         private void CursoSeleccionado()
         {
             if (dgvEtapaDos.SelectedRows != null)
@@ -91,7 +107,7 @@ namespace CapaPresentacion
                         {
                             Alumno.Estado = 0;
                         }
-                        this.ActualizarGrillaCursos();
+                        this.ActualizarGrillaCursos(Iniciador);
                         this.lblVariableAlumno.ForeColor = Color.DarkBlue;
                         this.lblVariableAlumno.Text = Alumno.Nombre;
                         this.lblVariableAlumno.Text += " " + Alumno.Apellido;
@@ -99,7 +115,7 @@ namespace CapaPresentacion
                     else
                     {
                         this.lblVariableAlumno.ForeColor = Color.Red;
-                        this.lblVariableAlumno.Text = "sin seleccionar";
+                        this.lblVariableAlumno.Text = "Sin seleccionar";
                     }
                 }
                 catch (Exception a)
@@ -110,7 +126,7 @@ namespace CapaPresentacion
             else
             {
                 this.lblVariableAlumno.ForeColor = Color.Red;
-                this.lblVariableAlumno.Text = "sin seleccionar";
+                this.lblVariableAlumno.Text = "Sin seleccionar";
             }
         }
         private void ColumnasCursos()
@@ -139,68 +155,115 @@ namespace CapaPresentacion
         }
         private void ActualizarGrillaAlumnos()
         {
-            dgvEtapaUno.Rows.Clear();
-            this.ColumnasAlumnos();
-            try
-            {
-                Alumnos = new List<IEntidad>();
-                clsRepositorioAlumno consultador = new clsRepositorioAlumno();
-                Alumnos = consultador.Lista();
-                foreach (clsAlumno EAlum in Alumnos)
+                dgvEtapaUno.Rows.Clear();
+                this.ColumnasAlumnos();
+                try
                 {
-                    if (EAlum.Estado == 1)
+                    Alumnos = new List<IEntidad>();
+                    clsRepositorioAlumno consultador = new clsRepositorioAlumno();
+                    Alumnos = consultador.Lista();
+                    foreach (clsAlumno EAlum in Alumnos)
                     {
-                        dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
+                        if (EAlum.Estado == 1)
+                        {
+                            dgvEtapaUno.Rows.Add(EAlum.Id, EAlum.Nombre, EAlum.Apellido, EAlum.Dni, EAlum.Direccion, EAlum.Telefono, EAlum.Email, "Habilitado");
+                        }
                     }
+                    dgvEtapaUno.ClearSelection();
+                    Alumno = new clsAlumno();
+                    Alumno.Id = -1;
+                    this.lblVariableAlumno.ForeColor = Color.Red;
+                    this.lblVariableAlumno.Text = "Sin seleccionar";
+                    this.ActualizarGrillaCursos(Iniciador);
                 }
-                dgvEtapaUno.ClearSelection();
-                Alumno = new clsAlumno();
-                Alumno.Id = -1;
-                this.lblVariableAlumno.ForeColor = Color.Red;
-                this.lblVariableAlumno.Text = "sin seleccionar";
-                this.ActualizarGrillaCursos();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
-        private void ActualizarGrillaCursos()
+        private void ActualizarGrillaCursos(inicio temp)
         {
-            dgvEtapaDos.Rows.Clear();
-            this.ColumnasCursos();
-            Cursos = new List<IEntidad>();
-            clsRepositorioInscripcion consultador = new clsRepositorioInscripcion();
-            try
+            if (temp == inicio.Amdinistrador)
             {
-                if (Alumno.Id != -1)
+                dgvEtapaDos.Rows.Clear();
+                this.ColumnasCursos();
+                Cursos = new List<IEntidad>();
+                clsRepositorioInscripcion consultador = new clsRepositorioInscripcion();
+                try
                 {
-                    Cursos = consultador.ListaCursos(Alumno.Id);
-                }
-                foreach (clsCurso ECurso in Cursos)
-                {
-                    if (ECurso.Estado == 1)
+                    if (Alumno.Id != -1)
                     {
-                        dgvEtapaDos.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
+                        Cursos = consultador.ListaCursosSinNota(Alumno.Id);
                     }
+                    foreach (clsCurso ECurso in Cursos)
+                    {
+                        if (ECurso.Estado == 1)
+                        {
+                            dgvEtapaDos.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
+                        }
+                    }
+                    dgvEtapaDos.ClearSelection();
+                    Curso = new clsCurso();
+                    Curso.Id = -1;
+                    lblVariableCurso.Text = "Sin Seleccionar";
+                    lblVariableCurso.ForeColor = Color.Red;
                 }
-                dgvEtapaDos.ClearSelection();
-                Curso = new clsCurso();
-                Curso.Id = -1;
-                lblVariableCurso.Text = "Sin Seleccionar";
-                lblVariableCurso.ForeColor = Color.Red;
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+                dgvEtapaDos.Rows.Clear();
+                this.ColumnasCursos();
+                List<IEntidad> Cursos_del_Alumno = new List<IEntidad>();
+                clsRepositorioInscripcion consultador = new clsRepositorioInscripcion();
+                clsRepositorioProfesor consultador2 = new clsRepositorioProfesor();
+                Cursos.Clear();
+                try
+                {
+                    if (Alumno.Id != -1)
+                    {
+                        Cursos_del_Alumno = consultador.ListaCursosSinNota(Alumno.Id);
+                    }
+                    if (Cursos_del_profesor.Count() == 0)
+                    {
+                        Cursos_del_profesor = consultador2.ListaCursos(Profesor_inicial.Id);
+                    }
+                    foreach(clsCurso CursoPibe in Cursos_del_Alumno)
+                    {
+                        if (Cursos_del_profesor.Exists(x => x.Id == CursoPibe.Id))
+                        {
+                            Cursos.Add(CursoPibe);
+                        }
+                    }
+                    foreach (clsCurso ECurso in Cursos)
+                    {
+                        if (ECurso.Estado == 1) 
+                        {
+                            dgvEtapaDos.Rows.Add(ECurso.Id, ECurso.Nombre, ECurso.Descripcion, ECurso.FechaInicio, ECurso.FechaFin, "Habilitado");
+                        }
+                    }
+                    dgvEtapaDos.ClearSelection();
+                    Curso = new clsCurso();
+                    Curso.Id = -1;
+                    lblVariableCurso.Text = "Sin Seleccionar";
+                    lblVariableCurso.ForeColor = Color.Red;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Se produjo el siguiente error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }   
         }
         private void frmNotas_Load(object sender, EventArgs e)
         {
             Alumno = new clsAlumno();
             Curso = new clsCurso();
+            Cursos = new List<IEntidad>();
             Nota = new clsRepositorioNota();
+            this.Cursos_del_profesor = new List<IEntidad>();
             this.ActualizarGrillaAlumnos();
             rdNombre.Checked = true;
             rdNombreCurso.Checked = true;
@@ -540,7 +603,7 @@ namespace CapaPresentacion
         }
         private void lblCursos_Click(object sender, EventArgs e)
         {
-            this.ActualizarGrillaCursos();
+            this.ActualizarGrillaCursos(Iniciador);
         }
         private void btnContinuar_Click(object sender, EventArgs e)
         {
@@ -550,7 +613,7 @@ namespace CapaPresentacion
                 if (!string.IsNullOrWhiteSpace(tbNota.Text))
                 {
                     string expresion1 =  "^[,][0-9]{0,4}$";
-                    string valor = tbNota.Text.Replace(',', '.');
+                    string valor = tbNota.Text;
                     if (Regex.IsMatch(tbNota.Text.Trim(), expresion1) == false) 
                     {
                         nueva.IdAlumno = Alumno.Id;
@@ -589,9 +652,9 @@ namespace CapaPresentacion
                         try
                         {
                             clsNota tarjet = (clsNota) Nota.ObtenerPorId(nueva.IdAlumno, nueva.IdCurso);
-                            frmModificarNota Modificar_Nota = new frmModificarNota(tarjet);
+                           // frmModificarNota Modificar_Nota = new frmModificarNota(tarjet);
                             this.Visible = false;
-                            Modificar_Nota.ShowDialog();
+                           // Modificar_Nota.ShowDialog();
                             this.Visible = true;
                             this.restaurar_inicio();
                         }
