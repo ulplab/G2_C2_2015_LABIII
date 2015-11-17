@@ -15,10 +15,14 @@ namespace CapaPresentacion
 {
     public partial class frmModificarNota : frmPrincipal
     {
-        public frmModificarNota(clsNota Nota)
+        public frmModificarNota(clsNotaFormateada Nota)
         {
             InitializeComponent();
-            nota_Original = Nota;
+            nota_Original = new clsNota();
+            nota_Original.Id = Nota.Id;
+            nota_Original.Nota = Nota.Nota;
+            nota_Original.Estado = Nota.Estado;
+            nota_Original.Fecha = nota_Original.Fecha;
         }
 
         private clsNota nota_Original;
@@ -149,6 +153,19 @@ namespace CapaPresentacion
                     {
                         nota_Original.Nota = Convert.ToDouble( tbCalificacion.Text.Replace(',', '.'));
                     }
+                    if (chbEstado.Checked)
+                    {
+                        nota_Original.Estado = '1';
+                    }
+                    else
+                    {
+                        nota_Original.Estado = '0';
+                    }
+                    clsNota Nota_nuevo = new clsNota();
+                    Nota_nuevo.Id = nota_Original.Id;
+                    Nota_nuevo.Nota = nota_Original.Nota;
+                    Nota_nuevo.Estado = nota_Original.Estado;
+                    Nota_nuevo.Fecha = nota_Original.Fecha;
                     nota_Consultador.Actualizar(nota_Original);
                     MessageBox.Show("Curso modificado exitosamente", "Exito!");
                     this.Close();

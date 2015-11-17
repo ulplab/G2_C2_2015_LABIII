@@ -228,7 +228,7 @@ namespace CapaDatos
                 p.Nombre_Alumno = Convert.ToString(item["Nombre"]);
                 p.Apellido = Convert.ToString(item["Apellido"]);
                 p.Nombre_Curso = Convert.ToString(item["Curso"]);
-                p.Nota = Convert.ToInt32(item["Nota"]);
+                p.Nota = Convert.ToDouble(item["Nota"]);
                 p.Fecha = Convert.ToDateTime(item["Fecha"]);
                 p.Estado = Convert.ToInt32(item["Estado"]);
 

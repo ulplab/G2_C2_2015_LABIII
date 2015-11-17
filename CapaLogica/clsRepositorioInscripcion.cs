@@ -406,5 +406,32 @@ namespace CapaLogica
 
             return LCurso;
         }
+
+        public List<IEntidad> ListaCursosSinNota(int idAlumno)
+        {
+            List<IEntidad> LCurso = new List<IEntidad>();
+
+            try
+            {
+                foreach (DataRow r in manager.ListaCursosSinNota(idAlumno).Rows)
+                {
+                    clsCurso Curso = new clsCurso();
+                    Curso.Id = Convert.ToInt32(r["IdCurso"]);
+                    Curso.Nombre = Convert.ToString(r["Nombre"]);
+                    Curso.FechaInicio = Convert.ToDateTime(r["FechaInicio"]);
+                    Curso.FechaFin = Convert.ToDateTime(r["FechaFin"]);
+                    Curso.Descripcion = Convert.ToString(r["Descripcion"]);
+                    Curso.Estado = Convert.ToInt32(r["Estado"]);
+
+                    LCurso.Add(Curso);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+            return LCurso;
+        }
     }
 }

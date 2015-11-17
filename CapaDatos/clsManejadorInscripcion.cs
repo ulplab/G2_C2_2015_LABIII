@@ -327,5 +327,28 @@ namespace CapaDatos
 
             return dt;
         }
+
+        public DataTable ListaCursosSinNota(int idAlumno)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                dt = dbman.Consultar("SELECT A1.IdCurso, Nombre, FechaInicio, FechaFin, Descripcion, Estado " +
+                                            "FROM Cursos as A1,(SELECT IdCurso " +
+                                             "FROM Asiste " +
+                                             "WHERE IdAlumno = " + idAlumno.ToString() + " AND Estado = 1) as A2 " +
+                                         "WHERE A1.IdCurso = A2.IdCurso " +
+                                         "and A1.IdCurso not in (Select IdCurso from Nota where IdAlumno = '" + idAlumno.ToString() + "');"
+                                         );
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dt;
+        }
     }
 }
