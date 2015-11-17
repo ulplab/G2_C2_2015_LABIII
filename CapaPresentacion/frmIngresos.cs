@@ -24,7 +24,6 @@ namespace CapaPresentacion
         private enum Estado {Habilitado, Deshabilitado}
         private IngresosPor seleccion;
         private Periodo Segunda_seleccion;
-        private Estado tercera_seleccion;
 
         private void frmIngresos_Load(object sender, EventArgs e)
         {
@@ -33,24 +32,23 @@ namespace CapaPresentacion
             cbPeriodo.SelectedItem = "Cualquiera";
             Segunda_seleccion = Periodo.Todo;
             chbPersonalizar.Checked = false;
-            chbCampos.Checked = false;
         }
         private void chbPersonalizar_CheckedChanged(object sender, EventArgs e)
         {
             if (chbPersonalizar.Checked)
             {
+                lblDesde.Visible = true;
                 dtpFechaInicio.Visible = true;
                 dtpFechaFin.Visible = true;
+                lblHasta.Visible = true;
             }
             else
             {
+                lblDesde.Visible = false;
                 dtpFechaInicio.Visible = false;
                 dtpFechaFin.Visible = false;
+                lblHasta.Visible = false;
             }
-        }
-        private void chbCampos_CheckedChanged(object sender, EventArgs e)
-        {
-                this.Campos(seleccion);
         }
         private void cbIngresosPor_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -71,10 +69,6 @@ namespace CapaPresentacion
                 }
             }
             Creacion_Columnas();
-            if (chbCampos.Checked)
-            {
-                this.Campos(seleccion);
-            }
         }
         private void Creacion_Columnas()
         {
@@ -138,15 +132,7 @@ namespace CapaPresentacion
                     case Periodo.Todo:; break;
                 }
             }
-            if (chbCampos.Checked)
-            {
-
-            }
-            else
-            {
-                this.Procedimiento_sin_campos(FechaInicio, FechaFin);
-            }
-
+            this.Procedimiento_sin_campos(FechaInicio, FechaFin);
         }
         private void Procedimiento_sin_campos(DateTime Fecha_Inicio,DateTime Fecha_Fin)
         {
@@ -184,130 +170,68 @@ namespace CapaPresentacion
             }
             this.Chart(Resultado);
         }
-        private void Campos(IngresosPor temp)
-        {
-            this.mostrar_Campos();
-            if (temp != IngresosPor.Todo)
-            {
-                if (temp == IngresosPor.Alumno)
-                {
-                    lblVariable1.Text = "Dni";
-                    lblVariable2.Text = "Nombre";
-                    lblVariable3.Text = "Apellido";
-                    lblVariable4.Text = "Estado";
-                    lblVariable5.Visible = false;
-                    tbVariable5.Visible = false;
-                    lblVariable6.Visible = false;
-                    tbVariable6.Visible = false;
-                    lblVariable7.Visible = false;
-                    dtpVariable5.Visible = false;
-                    dtpVariable6.Visible = false;
-                    tbVariable4.Visible = false;
-                }
-                else
-                {
-                    lblVariable1.Text = "Nombre";
-                    lblVariable2.Text = "Fecha de inicio";
-                    lblVariable3.Text = "fecha de finalizacion";
-                    lblVariable4.Text = "Estado";
-                    lblVariable5.Visible = false;
-                    tbVariable5.Visible = false;
-                    lblVariable6.Visible = false;
-                    tbVariable6.Visible = false;
-                    tbVariable4.Visible = false;
-                    lblVariable7.Visible = false;
-                    tbVariable2.Visible = false;
-                    tbVariable3.Visible = false;
-                }
-            }
-        }
-        private void mostrar_Campos()
-        {
-            lblVariable1.Visible = true;
-            lblVariable2.Visible = true;
-            lblVariable3.Visible = true;
-            lblVariable4.Visible = true;
-            lblVariable5.Visible = true;
-            lblVariable6.Visible = true;
-            lblVariable7.Visible = true;
-            tbVariable1.Visible = true;
-            tbVariable2.Visible = true;
-            tbVariable3.Visible = true;
-            tbVariable4.Visible = true;
-            tbVariable5.Visible = true;
-            tbVariable6.Visible = true;
-            dtpVariable5.Visible = true;
-            dtpVariable6.Visible = true;
-            cbVariable7.Visible = true;
-        }
-        private void ocultar_Campos()
-        {
-            lblVariable1.Visible = false;
-            lblVariable2.Visible = false;
-            lblVariable3.Visible = false;
-            lblVariable4.Visible = false;
-            lblVariable5.Visible = false;
-            lblVariable6.Visible = false;
-            lblVariable7.Visible = false;
-            tbVariable1.Visible = false;
-            tbVariable2.Visible = false;
-            tbVariable3.Visible = false;
-            tbVariable4.Visible = false;
-            tbVariable5.Visible = false;
-            tbVariable6.Visible = false;
-            dtpVariable5.Visible = false;
-            dtpVariable6.Visible = false;
-            cbVariable7.Visible = false;
-        }
-        private void btnConsultar_Click(object sender, EventArgs e)
-        {
-            this.Construccion_Consulta();
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Construccion_Consulta();
-        }
         private void Chart(List<IEntidad> temp)
         {
             chartEstadisticas.Series.Clear();
-            if (temp[0] is clsCuotaFormateada)
+            if (temp.Count() > 0)
             {
-                foreach(clsCuotaFormateada x in temp)
+                if (temp[0] is clsCuotaFormateada)
                 {
-                    chartEstadisticas.Series.Add(x.IdAlumno.ToString() +"-"+x.IdCurso.ToString());
-                    chartEstadisticas.Series[x.IdAlumno.ToString() +"-"+x.IdCurso.ToString()].Points.AddXY(chartEstadisticas.Series.Count, x.Precio);
-                }
-            }
-            else
-            {
-                if (temp[0] is clsCursoFormateado)
-                {
-                    int i = 0;
-                    foreach (clsCursoFormateado y in temp)
+                    foreach(clsCuotaFormateada x in temp)
                     {
-                        chartEstadisticas.Series.Add(y.Nombre+" "+i.ToString() );
-                        chartEstadisticas.Series[y.Nombre + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Recaudado);
-                        i++;
-                        if (i >= 10)
-                        {
-                            break;
-                        }
+                        chartEstadisticas.Series.Add(x.IdAlumno.ToString() +"-"+x.IdCurso.ToString());
+                        chartEstadisticas.Series[x.IdAlumno.ToString() +"-"+x.IdCurso.ToString()].Points.AddXY(chartEstadisticas.Series.Count, x.Precio);
                     }
                 }
                 else
                 {
-                    int i = 0;
-                    foreach (clsAlumnoFormateado y in temp)
+                    if (temp[0] is clsCursoFormateado)
                     {
-                        chartEstadisticas.Series.Add(y.Apellido +" "+ i.ToString());
-                        chartEstadisticas.Series[y.Apellido + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Pagado);
-                        i++;
-                        if (i >= 10)
+                        int i = 0;
+                        foreach (clsCursoFormateado y in temp)
                         {
-                            break;
+                            chartEstadisticas.Series.Add(y.Nombre+" "+i.ToString() );
+                            chartEstadisticas.Series[y.Nombre + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Recaudado);
+                            i++;
+                            if (i >= 10)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        int i = 0;
+                        foreach (clsAlumnoFormateado y in temp)
+                        {
+                            chartEstadisticas.Series.Add(y.Apellido +" "+ i.ToString());
+                            chartEstadisticas.Series[y.Apellido + " " + i.ToString()].Points.AddXY(chartEstadisticas.Series.Count, y.Pagado);
+                            i++;
+                            if (i >= 10)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
+            }
+
+        }
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            this.Construccion_Consulta();
+        }
+        private void cbPeriodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cbPeriodo.SelectedItem.ToString())
+            {
+                case "Cualquiera": Segunda_seleccion = Periodo.Todo; break;
+                case "Diario": Segunda_seleccion = Periodo.Diario; break;
+                case "Semanal": Segunda_seleccion = Periodo.Semanal; break;
+                case "Quincenal": Segunda_seleccion = Periodo.Quincenal; break;
+                case "Mensual": Segunda_seleccion = Periodo.Mensual; break;
+                case "Trimestral": Segunda_seleccion = Periodo.Trimestral; break;
+                case "Anual": Segunda_seleccion = Periodo.Anual; break;
             }
         }
         
