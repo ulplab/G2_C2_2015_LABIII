@@ -73,6 +73,7 @@
             // 
             // ousEncabezado
             // 
+            this.ousEncabezado.EnableMaximizar = true;
             this.ousEncabezado.Formulario = this;
             this.ousEncabezado.Size = new System.Drawing.Size(1251, 94);
             this.ousEncabezado.Titulo = "Cuotas";
@@ -96,7 +97,7 @@
             this.lblCursos.BackColor = System.Drawing.Color.Transparent;
             this.lblCursos.Font = new System.Drawing.Font("Microsoft Sans Serif", 26F);
             this.lblCursos.ForeColor = System.Drawing.Color.White;
-            this.lblCursos.Location = new System.Drawing.Point(21, 384);
+            this.lblCursos.Location = new System.Drawing.Point(21, 369);
             this.lblCursos.Name = "lblCursos";
             this.lblCursos.Size = new System.Drawing.Size(271, 39);
             this.lblCursos.TabIndex = 26;
@@ -108,7 +109,7 @@
             this.btnContinuar.BackColor = System.Drawing.Color.Black;
             this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
-            this.btnContinuar.Location = new System.Drawing.Point(877, 707);
+            this.btnContinuar.Location = new System.Drawing.Point(882, 674);
             this.btnContinuar.Name = "btnContinuar";
             this.btnContinuar.Size = new System.Drawing.Size(318, 76);
             this.btnContinuar.TabIndex = 27;
@@ -290,7 +291,7 @@
             this.pnlBusquedaCursos.Controls.Add(this.rdFechaInicio);
             this.pnlBusquedaCursos.Controls.Add(this.rdDescripcion);
             this.pnlBusquedaCursos.Controls.Add(this.rdNombreCurso);
-            this.pnlBusquedaCursos.Location = new System.Drawing.Point(719, 537);
+            this.pnlBusquedaCursos.Location = new System.Drawing.Point(719, 522);
             this.pnlBusquedaCursos.Name = "pnlBusquedaCursos";
             this.pnlBusquedaCursos.Size = new System.Drawing.Size(444, 100);
             this.pnlBusquedaCursos.TabIndex = 56;
@@ -372,7 +373,7 @@
             this.lblVariableCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblVariableCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.lblVariableCurso.ForeColor = System.Drawing.Color.White;
-            this.lblVariableCurso.Location = new System.Drawing.Point(622, 744);
+            this.lblVariableCurso.Location = new System.Drawing.Point(622, 714);
             this.lblVariableCurso.Name = "lblVariableCurso";
             this.lblVariableCurso.Size = new System.Drawing.Size(208, 36);
             this.lblVariableCurso.TabIndex = 60;
@@ -384,7 +385,7 @@
             this.lblCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.lblCurso.ForeColor = System.Drawing.Color.White;
-            this.lblCurso.Location = new System.Drawing.Point(623, 711);
+            this.lblCurso.Location = new System.Drawing.Point(623, 681);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(197, 29);
             this.lblCurso.TabIndex = 59;
@@ -396,7 +397,7 @@
             this.lblVariableAlumno.BackColor = System.Drawing.Color.Transparent;
             this.lblVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.lblVariableAlumno.ForeColor = System.Drawing.Color.White;
-            this.lblVariableAlumno.Location = new System.Drawing.Point(254, 740);
+            this.lblVariableAlumno.Location = new System.Drawing.Point(254, 710);
             this.lblVariableAlumno.Name = "lblVariableAlumno";
             this.lblVariableAlumno.Size = new System.Drawing.Size(230, 36);
             this.lblVariableAlumno.TabIndex = 62;
@@ -408,7 +409,7 @@
             this.lblTituloAlumno.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.lblTituloAlumno.ForeColor = System.Drawing.Color.White;
-            this.lblTituloAlumno.Location = new System.Drawing.Point(251, 711);
+            this.lblTituloAlumno.Location = new System.Drawing.Point(251, 681);
             this.lblTituloAlumno.Name = "lblTituloAlumno";
             this.lblTituloAlumno.Size = new System.Drawing.Size(233, 29);
             this.lblTituloAlumno.TabIndex = 61;
@@ -420,7 +421,7 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(23, 707);
+            this.label3.Location = new System.Drawing.Point(23, 681);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(161, 29);
             this.label3.TabIndex = 63;
@@ -466,7 +467,7 @@
             this.lblCuota.BackColor = System.Drawing.Color.Transparent;
             this.lblCuota.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.lblCuota.ForeColor = System.Drawing.Color.White;
-            this.lblCuota.Location = new System.Drawing.Point(66, 747);
+            this.lblCuota.Location = new System.Drawing.Point(44, 714);
             this.lblCuota.Name = "lblCuota";
             this.lblCuota.Size = new System.Drawing.Size(108, 36);
             this.lblCuota.TabIndex = 88;
@@ -502,7 +503,7 @@
             this.dgvEtapaUno.ReadOnly = true;
             this.dgvEtapaUno.RowHeadersVisible = false;
             this.dgvEtapaUno.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapaUno.Size = new System.Drawing.Size(678, 242);
+            this.dgvEtapaUno.Size = new System.Drawing.Size(678, 215);
             this.dgvEtapaUno.TabIndex = 89;
             this.dgvEtapaUno.TabStop = false;
             this.dgvEtapaUno.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEtapaUno_RowEnter);
@@ -531,13 +532,13 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvEtapaDos.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvEtapaDos.Location = new System.Drawing.Point(28, 426);
+            this.dgvEtapaDos.Location = new System.Drawing.Point(28, 411);
             this.dgvEtapaDos.MultiSelect = false;
             this.dgvEtapaDos.Name = "dgvEtapaDos";
             this.dgvEtapaDos.ReadOnly = true;
             this.dgvEtapaDos.RowHeadersVisible = false;
             this.dgvEtapaDos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEtapaDos.Size = new System.Drawing.Size(680, 267);
+            this.dgvEtapaDos.Size = new System.Drawing.Size(678, 215);
             this.dgvEtapaDos.TabIndex = 90;
             this.dgvEtapaDos.TabStop = false;
             this.dgvEtapaDos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvetapa2_RowEnter);
@@ -546,7 +547,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1251, 817);
+            this.ClientSize = new System.Drawing.Size(1251, 780);
             this.Controls.Add(this.dgvEtapaDos);
             this.Controls.Add(this.dgvEtapaUno);
             this.Controls.Add(this.lblCuota);

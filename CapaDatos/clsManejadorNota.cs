@@ -18,7 +18,7 @@ namespace CapaDatos
         {
             int filas;
 
-            //string query = "insert Nota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + entidad.Nota + "','" + entidad.Fecha + "','" + entidad.Estado + "');";
+            //string query = "insert Nota values('" + entidad.IdAlumno + "','" + entidad.IdCurso + "','" + CultureInfo.InvariantCulture, "{0:00.00}", entidad.Nota + "','" + entidad.Fecha + "','" + entidad.Estado + "');";
 
             try
             {

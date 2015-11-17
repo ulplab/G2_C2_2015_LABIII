@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmNotas));
             this.lblCursos = new System.Windows.Forms.Label();
             this.lblAlumnos = new System.Windows.Forms.Label();
             this.dgvEtapaDos = new System.Windows.Forms.DataGridView();
@@ -53,14 +54,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chbParamCursos = new System.Windows.Forms.CheckBox();
             this.pnlBusquedaCursos = new System.Windows.Forms.Panel();
+            this.rdFechaFin = new System.Windows.Forms.RadioButton();
+            this.rdFechaInicio = new System.Windows.Forms.RadioButton();
+            this.rdDescripcion = new System.Windows.Forms.RadioButton();
+            this.rdNombreCurso = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.rdNombreCurso = new System.Windows.Forms.RadioButton();
-            this.rdDescripcion = new System.Windows.Forms.RadioButton();
-            this.rdFechaInicio = new System.Windows.Forms.RadioButton();
-            this.rdFechaFin = new System.Windows.Forms.RadioButton();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.tbBuscarCurso = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEtapaDos)).BeginInit();
@@ -71,9 +72,10 @@
             // 
             // ousEncabezado
             // 
+            this.ousEncabezado.EnableMaximizar = true;
             this.ousEncabezado.Formulario = this;
-            this.ousEncabezado.Size = new System.Drawing.Size(1141, 94);
-            this.ousEncabezado.Titulo = "Registro de Notas";
+            this.ousEncabezado.Size = new System.Drawing.Size(1176, 94);
+            this.ousEncabezado.Titulo = "Asignar Calificaciones";
             // 
             // lblCursos
             // 
@@ -132,14 +134,22 @@
             // 
             // btnContinuar
             // 
-            this.btnContinuar.BackColor = System.Drawing.Color.Black;
-            this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F);
+            this.btnContinuar.BackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnContinuar.FlatAppearance.BorderSize = 0;
+            this.btnContinuar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.btnContinuar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnContinuar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnContinuar.ForeColor = System.Drawing.Color.White;
-            this.btnContinuar.Location = new System.Drawing.Point(932, 672);
+            this.btnContinuar.Image = ((System.Drawing.Image)(resources.GetObject("btnContinuar.Image")));
+            this.btnContinuar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnContinuar.Location = new System.Drawing.Point(944, 617);
             this.btnContinuar.Name = "btnContinuar";
-            this.btnContinuar.Size = new System.Drawing.Size(197, 90);
+            this.btnContinuar.Size = new System.Drawing.Size(133, 142);
             this.btnContinuar.TabIndex = 31;
-            this.btnContinuar.Text = "Calificar";
+            this.btnContinuar.Text = "Registrar Calificación";
+            this.btnContinuar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnContinuar.UseVisualStyleBackColor = false;
             this.btnContinuar.Click += new System.EventHandler(this.btnContinuar_Click);
             // 
@@ -149,7 +159,7 @@
             this.lblNota.BackColor = System.Drawing.Color.Transparent;
             this.lblNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.lblNota.ForeColor = System.Drawing.Color.White;
-            this.lblNota.Location = new System.Drawing.Point(40, 683);
+            this.lblNota.Location = new System.Drawing.Point(44, 671);
             this.lblNota.Name = "lblNota";
             this.lblNota.Size = new System.Drawing.Size(176, 29);
             this.lblNota.TabIndex = 33;
@@ -161,7 +171,7 @@
             this.lblTituloAlumno.BackColor = System.Drawing.Color.Transparent;
             this.lblTituloAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.lblTituloAlumno.ForeColor = System.Drawing.Color.White;
-            this.lblTituloAlumno.Location = new System.Drawing.Point(356, 683);
+            this.lblTituloAlumno.Location = new System.Drawing.Point(360, 671);
             this.lblTituloAlumno.Name = "lblTituloAlumno";
             this.lblTituloAlumno.Size = new System.Drawing.Size(233, 29);
             this.lblTituloAlumno.TabIndex = 34;
@@ -173,7 +183,7 @@
             this.lblVariableAlumno.BackColor = System.Drawing.Color.Transparent;
             this.lblVariableAlumno.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.lblVariableAlumno.ForeColor = System.Drawing.Color.White;
-            this.lblVariableAlumno.Location = new System.Drawing.Point(355, 716);
+            this.lblVariableAlumno.Location = new System.Drawing.Point(359, 704);
             this.lblVariableAlumno.Name = "lblVariableAlumno";
             this.lblVariableAlumno.Size = new System.Drawing.Size(230, 36);
             this.lblVariableAlumno.TabIndex = 35;
@@ -186,7 +196,7 @@
             this.lblCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.lblCurso.ForeColor = System.Drawing.Color.White;
-            this.lblCurso.Location = new System.Drawing.Point(663, 683);
+            this.lblCurso.Location = new System.Drawing.Point(667, 671);
             this.lblCurso.Name = "lblCurso";
             this.lblCurso.Size = new System.Drawing.Size(197, 29);
             this.lblCurso.TabIndex = 36;
@@ -198,7 +208,7 @@
             this.lblVariableCurso.BackColor = System.Drawing.Color.Transparent;
             this.lblVariableCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 22F);
             this.lblVariableCurso.ForeColor = System.Drawing.Color.White;
-            this.lblVariableCurso.Location = new System.Drawing.Point(662, 716);
+            this.lblVariableCurso.Location = new System.Drawing.Point(666, 704);
             this.lblVariableCurso.Name = "lblVariableCurso";
             this.lblVariableCurso.Size = new System.Drawing.Size(208, 36);
             this.lblVariableCurso.TabIndex = 37;
@@ -208,7 +218,7 @@
             // tbNota
             // 
             this.tbNota.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
-            this.tbNota.Location = new System.Drawing.Point(40, 715);
+            this.tbNota.Location = new System.Drawing.Point(44, 703);
             this.tbNota.MaxLength = 4;
             this.tbNota.Name = "tbNota";
             this.tbNota.Size = new System.Drawing.Size(206, 32);
@@ -407,6 +417,66 @@
             this.pnlBusquedaCursos.TabIndex = 41;
             this.pnlBusquedaCursos.Visible = false;
             // 
+            // rdFechaFin
+            // 
+            this.rdFechaFin.AutoSize = true;
+            this.rdFechaFin.BackColor = System.Drawing.Color.Transparent;
+            this.rdFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rdFechaFin.ForeColor = System.Drawing.Color.White;
+            this.rdFechaFin.Location = new System.Drawing.Point(5, 42);
+            this.rdFechaFin.Name = "rdFechaFin";
+            this.rdFechaFin.Size = new System.Drawing.Size(195, 33);
+            this.rdFechaFin.TabIndex = 33;
+            this.rdFechaFin.TabStop = true;
+            this.rdFechaFin.Text = "Fecha de inicio";
+            this.rdFechaFin.UseVisualStyleBackColor = false;
+            this.rdFechaFin.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
+            // 
+            // rdFechaInicio
+            // 
+            this.rdFechaInicio.AutoSize = true;
+            this.rdFechaInicio.BackColor = System.Drawing.Color.Transparent;
+            this.rdFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rdFechaInicio.ForeColor = System.Drawing.Color.White;
+            this.rdFechaInicio.Location = new System.Drawing.Point(221, 42);
+            this.rdFechaInicio.Name = "rdFechaInicio";
+            this.rdFechaInicio.Size = new System.Drawing.Size(163, 33);
+            this.rdFechaInicio.TabIndex = 31;
+            this.rdFechaInicio.TabStop = true;
+            this.rdFechaInicio.Text = "Fecha de fin";
+            this.rdFechaInicio.UseVisualStyleBackColor = false;
+            this.rdFechaInicio.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
+            // 
+            // rdDescripcion
+            // 
+            this.rdDescripcion.AutoSize = true;
+            this.rdDescripcion.BackColor = System.Drawing.Color.Transparent;
+            this.rdDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rdDescripcion.ForeColor = System.Drawing.Color.White;
+            this.rdDescripcion.Location = new System.Drawing.Point(221, 3);
+            this.rdDescripcion.Name = "rdDescripcion";
+            this.rdDescripcion.Size = new System.Drawing.Size(159, 33);
+            this.rdDescripcion.TabIndex = 29;
+            this.rdDescripcion.TabStop = true;
+            this.rdDescripcion.Text = "Descripcion";
+            this.rdDescripcion.UseVisualStyleBackColor = false;
+            this.rdDescripcion.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
+            // 
+            // rdNombreCurso
+            // 
+            this.rdNombreCurso.AutoSize = true;
+            this.rdNombreCurso.BackColor = System.Drawing.Color.Transparent;
+            this.rdNombreCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
+            this.rdNombreCurso.ForeColor = System.Drawing.Color.White;
+            this.rdNombreCurso.Location = new System.Drawing.Point(5, 3);
+            this.rdNombreCurso.Name = "rdNombreCurso";
+            this.rdNombreCurso.Size = new System.Drawing.Size(119, 33);
+            this.rdNombreCurso.TabIndex = 24;
+            this.rdNombreCurso.TabStop = true;
+            this.rdNombreCurso.Text = "Nombre";
+            this.rdNombreCurso.UseVisualStyleBackColor = false;
+            this.rdNombreCurso.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -463,66 +533,6 @@
             this.radioButton4.Text = "Nombre";
             this.radioButton4.UseVisualStyleBackColor = false;
             // 
-            // rdNombreCurso
-            // 
-            this.rdNombreCurso.AutoSize = true;
-            this.rdNombreCurso.BackColor = System.Drawing.Color.Transparent;
-            this.rdNombreCurso.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.rdNombreCurso.ForeColor = System.Drawing.Color.White;
-            this.rdNombreCurso.Location = new System.Drawing.Point(5, 3);
-            this.rdNombreCurso.Name = "rdNombreCurso";
-            this.rdNombreCurso.Size = new System.Drawing.Size(119, 33);
-            this.rdNombreCurso.TabIndex = 24;
-            this.rdNombreCurso.TabStop = true;
-            this.rdNombreCurso.Text = "Nombre";
-            this.rdNombreCurso.UseVisualStyleBackColor = false;
-            this.rdNombreCurso.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
-            // 
-            // rdDescripcion
-            // 
-            this.rdDescripcion.AutoSize = true;
-            this.rdDescripcion.BackColor = System.Drawing.Color.Transparent;
-            this.rdDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.rdDescripcion.ForeColor = System.Drawing.Color.White;
-            this.rdDescripcion.Location = new System.Drawing.Point(221, 3);
-            this.rdDescripcion.Name = "rdDescripcion";
-            this.rdDescripcion.Size = new System.Drawing.Size(159, 33);
-            this.rdDescripcion.TabIndex = 29;
-            this.rdDescripcion.TabStop = true;
-            this.rdDescripcion.Text = "Descripcion";
-            this.rdDescripcion.UseVisualStyleBackColor = false;
-            this.rdDescripcion.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
-            // 
-            // rdFechaInicio
-            // 
-            this.rdFechaInicio.AutoSize = true;
-            this.rdFechaInicio.BackColor = System.Drawing.Color.Transparent;
-            this.rdFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.rdFechaInicio.ForeColor = System.Drawing.Color.White;
-            this.rdFechaInicio.Location = new System.Drawing.Point(221, 42);
-            this.rdFechaInicio.Name = "rdFechaInicio";
-            this.rdFechaInicio.Size = new System.Drawing.Size(163, 33);
-            this.rdFechaInicio.TabIndex = 31;
-            this.rdFechaInicio.TabStop = true;
-            this.rdFechaInicio.Text = "Fecha de fin";
-            this.rdFechaInicio.UseVisualStyleBackColor = false;
-            this.rdFechaInicio.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
-            // 
-            // rdFechaFin
-            // 
-            this.rdFechaFin.AutoSize = true;
-            this.rdFechaFin.BackColor = System.Drawing.Color.Transparent;
-            this.rdFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.rdFechaFin.ForeColor = System.Drawing.Color.White;
-            this.rdFechaFin.Location = new System.Drawing.Point(5, 42);
-            this.rdFechaFin.Name = "rdFechaFin";
-            this.rdFechaFin.Size = new System.Drawing.Size(195, 33);
-            this.rdFechaFin.TabIndex = 33;
-            this.rdFechaFin.TabStop = true;
-            this.rdFechaFin.Text = "Fecha de inicio";
-            this.rdFechaFin.UseVisualStyleBackColor = false;
-            this.rdFechaFin.CheckedChanged += new System.EventHandler(this.rdNombreCurso_CheckedChanged);
-            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.Black;
@@ -550,7 +560,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 784);
+            this.ClientSize = new System.Drawing.Size(1176, 780);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.chbParamAlumnos);
